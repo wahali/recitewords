@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eng.recitewords.mapper.WordsMapper">
+
+    <select id="selectAllWords" resultType="words">
+        select  * from words
+    </select>
+
+    <select id="selectWordById" parameterType="String" resultType="words">
+        select * from words
+        where wordId=#{wordId}
+    </select>
+
+    <insert id="insertWord" parameterType="words">
+        insert into words
+        set wordId=#{wordId},englishWord=#{englishWord},pa=#{pa},chineseWord=#{chineseWord}
+        </insert>
+
+    <delete id="deleteWord" parameterType="String">
+        delete
+        from words
+        where wordId=#{wordId}
+    </delete>
+
+    <update id="updateWord" parameterType="words">
+        update words
+        set englishWord=#{englishWord},pa=#{pa},chineseWord=#{chineseWord},englishInstance1=#{englishInstance1},chineseInstance1=#{chineseInstance1},englishInstance2=#{englishInstance2},chineseInstance2=#{chineseInstance2},collect=#{collect},pron=#{pron}
+        where wordId=#{wordId}
+    </update>
+
+    <select id="selectWordsByUId" parameterType="String" resultType="String">
+        select wordId from wordserror where userId=#{userId}
+    </select>
+
+    <select id="selectOneByWId" parameterType="String" resultType="words">
+        select * from words where wordId=#{wordId}
+    </select>
+
+    <select id="selectByWId" parameterType="String" resultType="words">
+        select * from words where wordId=#{wordId}
+    </select>
+
+    <select id="selectErrorWordByWId" parameterType="String" resultType="Integer">
+      select count(*) from wordserror where wordId=#{wordId}
+    </select>
+
+    <insert id="insertValue" parameterType="java.util.HashMap">
+        insert into wordserror values(#{userId},#{wordId})
+    </insert>
+
+    <delete id="deleteByWId" parameterType="String">
+        delete from wordserror where wordId=#{wordId}
+    </delete>
+
+</mapper>

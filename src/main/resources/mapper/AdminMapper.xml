@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eng.recitewords.mapper.AdminMapper">
+
+    <select id="selectByEmail" parameterType="String" resultType="admin">
+        select * from admin where adminEmail=#{adminEmail}
+    </select>
+
+    <select id="selectAllUser" resultType="user">
+        select  * from user
+    </select>
+
+    <select id="selectAllAdmin" resultType="admin">
+        select  * from admin
+    </select>
+
+    <select id="selectAdminById" parameterType="String" resultType="admin">
+        select * from admin where adminId=#{adminId}
+    </select>
+
+    <update id="updateInfo" parameterType="admin" >
+        update admin
+        set  adminName=#{adminName},adminTel=#{adminTel},adminEmail=#{adminEmail}
+        where adminId=#{adminId}
+    </update>
+
+    <delete id="deleteInfo" parameterType="String">
+        delete
+        from admin
+        where adminId = #{adminId}
+    </delete>
+
+    <insert id="addInfo" parameterType="admin">
+        insert into admin
+        set adminId=#{adminId},adminName=#{adminName},adminTel=#{adminTel},adminEmail=#{adminEmail},adminPassword=#{adminPassword}
+    </insert>
+
+</mapper>
