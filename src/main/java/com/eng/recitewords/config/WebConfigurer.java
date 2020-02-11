@@ -25,6 +25,6 @@ public class WebConfigurer implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/","/index.html","/currency/login","/register","/user/forgot_password","/user/resetPassword","/user/register");
+                .excludePathPatterns("/","/index.html","/currency/login","/register","/user/forgot_password","/user/resetPassword","/user/register","/js/**","/css/**","/images/**");
     }
 }
