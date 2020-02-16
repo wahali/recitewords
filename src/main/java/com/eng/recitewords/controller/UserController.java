@@ -443,4 +443,12 @@ public class UserController {
         request.getSession().setAttribute("words",wordsList);
         return "user/chooseC";
     }
+
+    @RequestMapping("/user/StudyPlan")
+    public String StudyPlan(){
+        System.out.println("study plan is coming!");
+        return "user/StudyPlan";
+    }
 }
+
+
