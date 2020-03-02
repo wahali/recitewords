@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+    <style type="text/css">
+        .bean{
+            position: absolute;
+            background-color: yellow;
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+        }
+
+        .pac-man{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+        }
+
+        .ghost{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .S-div{
+            position: absolute;
+            width: 1000px;
+            height: 350px;
+            left: 180px;
+            top: 180px;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">User<sup></sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/user/index}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>倍思Basics</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Components</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Components:</h6>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="cards.html">Cards</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="utilities-color.html">Colors</a>
+                    <a class="collapse-item" href="utilities-border.html">Borders</a>
+                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Addons
+        </div>
+
+        <!-- Nav Item - StudyPlan -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
+                <i class="fas fa-fw fa-plane"></i>
+                <span>StudyPlan</span></a>
+        </li>
+
+        <!-- Nav Item - Study part Collapse Menu -->
+        <li class="nav-item active">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Study part</span>
+            </a>
+            <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Portal</h6>
+                    <a class="collapse-item active" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
+                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
+                        <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
+                        <i class="fas fa-fw fa-dice-four"></i>DeriveOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Grammar}">
+                        <i class="fas fa-fw fa-dice-five"></i>Grammar</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Sentence}">
+                        <i class="fas fa-fw fa-dice-six"></i>Sentence</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Portal</h6>
+                    <a class="collapse-item" href="404.html">
+                        <i class="fas fa-fw fa-question"></i>404 Page</a>
+                    <a class="collapse-item" href="blank.html">
+                        <i class="fas fa-fw fa-meh-blank"></i>Blank Page</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Test part Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-gamepad"></i>
+                <span>Test part</span>
+            </a>
+            <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Test Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">
+                        <i class="fas fa-fw fa-dog"></i>ChooseC</a>
+                    <a class="collapse-item" href="" th:href="@{/user/fillBlanks}">
+                        <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Recite&Error Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/recitation}">
+                        <i class="fas fa-fw fa-recycle"></i>Recitation</a>
+                    <a class="collapse-item" href="" th:href="@{/user/errorWords}">
+                        <i class="fas fa-fw fa-magic"></i>ErrorWords</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">3+</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <i class="fas fa-file-alt text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-success">
+                                        <i class="fas fa-donate text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-warning">
+                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account.
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Messages -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope fa-fw"></i>
+                            <!-- Counter - Messages -->
+                            <span class="badge badge-danger badge-counter">7</span>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                            <h6 class="dropdown-header">
+                                Message Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div class="font-weight-bold">
+                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                                    <div class="status-indicator"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                                    <div class="status-indicator bg-warning"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                        </div>
+                    </li>
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.user.userName}"></span>
+                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="" th:href="@{/user/personalInfo}">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Personal Info
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" th:href="@{/user/logOut}">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <script>
+                // $(".bean").click(function () {
+                //     $("S-div").toggle();
+                // })
+                var tot=48;
+                function check1(num) {
+                    // alert(num);
+                    if (document.getElementById("d"+num).style.display=="block"){
+                        // alert("why not?");
+                        document.getElementById("d"+num).style.display="none";
+                    }else {
+                        // alert("yes");
+                        document.getElementById("d"+num).style.display="block";
+                    }
+                    for (var i=1;i<=tot;i++){
+                        // alert("woc!"+i);
+                        if (i==num) continue;
+                        else if (document.getElementById("d"+i).style.display=="block"){
+                            document.getElementById("d"+i).style.display="none";
+                            break;
+                        }
+                    }
+                }
+
+                function page(n) {
+                    for (var i=1;i<=3;i++){
+                        // alert("woc!"+i);
+                        if (i==n) document.getElementById("page"+i).style.display="block";
+                        else {
+                            document.getElementById("page"+i).style.display="none";
+                        }
+                    }
+                }
+            </script>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Phonetic Symbol</h1>
+                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                </div>
+
+                <!-- Content Row -->
+                <div class="row">
+
+                    <!-- Grow In page1 -->
+                    <div id="page1" class="col-lg-12">
+
+                        <div class="p-5" style="position: absolute;left: 15px;width: 1615px;height: 700px;background-color: black;border: 5px solid #4e73df;">
+                            <img src="../img/pac-man3d.png" style="position: absolute;width: 150px;height: 155px;left: 50px;top: 150px;">
+                            <div>
+                                <h1 style="position: absolute;left: 670px;top: 50px;color: yellow;">音标学习</h1>
+
+                            </div>
+                            <div style="position: absolute;left: 240px;top: 150px;width: 500px">
+                                <h2 style="color: white"><strong>为什么要学习音标？</strong></h2>
+                                <h3 style="color: white">①利用音标本身的读音与拼写的匹配性来进行单词的记忆和背诵会比较简单。</h3>
+                                <h3 style="color: white">②音标是杜绝中文式英语最佳利器。</h3>
+                            </div>
+                            <div style="position: absolute;left: 240px;top: 350px;width: 500px">
+                                <h2 style="color: white"><strong>音标分类：</strong></h2>
+                                <h3 style="color: white">音标共有48个，其中元音20个，辅音28个。</h3>
+                                <h3 style="color: white">单词按音节来划分，分为单音节词，双音节词和多音节词。单音节词中，常常分为重读开音节和重读闭音节。</h3>
+                            </div>
+                            <div style="position: absolute;right: 150px;top: 150px;width: 700px">
+                                <table style="border: 5px solid yellow;color: white;width: 700px;height: 400px">
+                                    <thead><h2 align="center" style="color: white"><strong>英语国际音标表</strong></h2></thead>
+                                    <tr style="border: 5px solid yellow;">
+                                        <td><h4>短元音（7个）：</h4></td>
+                                        <td><h5>/ʌ/ /ɒ/ /ə/ /ɪ/ /ʊ/ /e/ /æ/</h5></td>
+                                    </tr>
+                                    <tr style="border: 5px solid yellow;">
+                                        <td><h4>长元音（5个）：</h4></td>
+                                        <td><h5>/ɑ:/ /ɔ:/ /ɜ:/ /i:/ /u:/</h5></td>
+                                    </tr>
+                                    <tr style="border: 5px solid yellow;">
+                                        <td><h4>双元音（8个）：</h4></td>
+                                        <td><h5>/eɪ/ /aɪ/ /ɔɪ/ /əʊ/ /aʊ/ /ɪə/ /eə/ /ʊə/</h5></td>
+                                    </tr>
+                                    <tr style="border: 5px solid yellow;">
+                                        <td><h4>清辅音（11个）：</h4></td>
+                                        <td><h5>/p/ /t/ /k/ /f/ /θ/ /s/ /ʃ/ /h/ /tʃ/ /ts/ /tr/</h5></td>
+                                    </tr>
+                                    <tr style="border: 5px solid yellow;">
+                                        <td><h4>浊辅音（17个）：</h4></td>
+                                        <td><h5>/b/ /d/ /g/ /v/ /ð/ /z/ /ʒ/ /r/ /dʒ/ /dz/ /dr/ /j/ /w/ /m/ /n/ /ŋ/ /l/</h5></td>
+                                    </tr>
+                                    <tr style="border: 5px solid yellow;">
+                                        <td><h4>独立辅音（8个）：</h4></td>
+                                        <td><h5>/h/ /r/ /m/ /n/ /ŋ/ /l/ /w/ /j/</h5></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grow In page2 -->
+                    <div id="page2" class="col-lg-12" style="display: none">
+
+                        <div class="p-5" style="position: absolute;left: 15px;width: 1615px;height: 700px;background-color: black;border: 5px solid #4e73df;">
+                            <div>
+                                <img class="pac-man" src="../img/pac-man.png" style="left: 60px;top: 60px;">
+                            </div>
+                            <div>
+                                <img class="ghost" src="../img/blinky.png" style="left: 60px;bottom: 40px;">
+                            </div>
+                            <div>
+                                <img class="ghost" src="../img/inky.png" style="right: 60px;top: 60px;">
+                            </div>
+                            <div>
+                                <img src="../img/pinky.png" style="position: absolute;height: 300px;width: 300px;right: 60px;bottom: 40px;">
+                            </div>
+                            <div>
+                                <button id="b1" class="bean" title="/i:/" onclick="check1(1);" style="left: 180px;top: 90px;">
+                                    <h5>/i:/</h5>
+                                </button>
+                                <div id="d1" class="S-div">
+                                    <h2 style="color: white">/i:/</h2>
+                                    <h3 style="color: white;">长元音，嘴唇微微张开。舌尖抵下齿，嘴角向两边张开，流露出微笑表情，与E发音相同。</h3>
+                                    <h3 style="color: white;">Example : pea（豌豆），bee（蜜蜂），eat（吃），beat（敲打），deep（深的）</h3>
+                                    <button onclick="check1(1)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b2" class="bean" title="/i/" onclick="check1(2)" style="left: 240px;top: 90px;">
+                                    <h5>/i/</h5>
+                                </button>
+                                <div id="d2" class="S-div">
+                                    <h2 style="color: white">/i/</h2>
+                                    <h3 style="color: white;">短元音，嘴唇微微张开，舌尖抵下齿，舌前部抬高，嘴型扁平，干脆利落。</h3>
+                                    <h3 style="color: white;">Example : bit（少量），tip（顶部），fit（合适的），sit（使坐）</h3>
+                                    <button onclick="check1(2)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b3" class="bean" title="/ɔ:/" onclick="check1(3)" style="left: 300px;top: 90px;">
+                                    <h5>/ɔ:/</h5>
+                                </button>
+                                <div id="d3" class="S-div">
+                                    <h2 style="color: white">/ɔ:/</h2>
+                                    <h3 style="color: white;">长元音，双唇收得小而圆，并向前突出，舌身往后缩。</h3>
+                                    <h3 style="color: white;">Example : sort（种类），talk（谈话），ball（球，舞会）</h3>
+                                    <button onclick="check1(3)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b4" class="bean" title="/ɔ/" onclick="check1(4)" style="left: 360px;top: 90px;">
+                                    <h5>/ɔ/</h5>
+                                </button>
+                                <div id="d4" class="S-div">
+                                    <h2 style="color: white">/ɔ/</h2>
+                                    <h3 style="color: white;">短元音，口腔大开，嘴张大，舌向后缩，双唇稍收圆。</h3>
+                                    <h3 style="color: white;">Example : fond（喜欢），lock（锁），hot（热的）</h3>
+                                    <button onclick="check1(4)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b5" class="bean" title="/a:/" onclick="check1(5)" style="left: 420px;top: 90px;">
+                                    <h5>/a:/</h5>
+                                </button>
+                                <div id="d5" class="S-div">
+                                    <h2 style="color: white">/a:/</h2>
+                                    <h3 style="color: white;">长元音，口腔打开，嘴张大，舌身放平，舌尖不抵下齿，下巴放松，轻松发音。</h3>
+                                    <h3 style="color: white;">Example : car（小汽车），art（艺术），bath（洗澡）</h3>
+                                    <button onclick="check1(5)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b6" class="bean" title="/ʌ/" onclick="check1(6)" style="left: 480px;top: 90px;">
+                                    <h5>/ʌ/</h5>
+                                </button>
+                                <div id="d6" class="S-div">
+                                    <h2 style="color: white">/ʌ/</h2>
+                                    <h3 style="color: white;">短元音，嘴唇微微张开伸向两边，舌尖轻触下齿，唇后部稍稍抬起。</h3>
+                                    <h3 style="color: white;">Example : color（颜色），lucky（幸运的），love（爱）</h3>
+                                    <button onclick="check1(6)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b7" class="bean" title="/ɜ:/" onclick="check1(7)" style="left: 540px;top: 90px;">
+                                    <h5>/ɜ:/</h5>
+                                </button>
+                                <div id="d7" class="S-div">
+                                    <h2 style="color: white">/ɜ:/</h2>
+                                    <h3 style="color: white;">长元音，嘴型扁平，上下齿微微张开，舌身放平，舌中部稍抬起。</h3>
+                                    <h3 style="color: white;">Example : girl（女孩），first（第一），work（工作）</h3>
+                                    <button onclick="check1(7)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b8" class="bean" title="/ə/" onclick="check1(8)" style="left: 600px;top: 90px;">
+                                    <h5>/ə/</h5>
+                                </button>
+                                <div id="d8" class="S-div">
+                                    <h2 style="color: white">/ə/</h2>
+                                    <h3 style="color: white;">短元音，嘴唇微微张开，舌身放平，舌中部稍抬起，口腔自然放松发声。</h3>
+                                    <h3 style="color: white;">Example : forget（忘记），dollar（美元），power（力量）</h3>
+                                    <button onclick="check1(8)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b9" class="bean" title="/u:/" onclick="check1(9)" style="left: 660px;top: 90px;">
+                                    <h5>/u:/</h5>
+                                </button>
+                                <div id="d9" class="S-div">
+                                    <h2 style="color: white">/u:/</h2>
+                                    <h3 style="color: white;">长元音，嘴型小而圆，微微外凸，舌头尽量后缩。</h3>
+                                    <h3 style="color: white;">Example : move（移动），spoon（汤勺），room（房间）</h3>
+                                    <button onclick="check1(9)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b10" class="bean" title="/u/" onclick="check1(10)" style="left: 720px;top: 90px;">
+                                    <h5>/u/</h5>
+                                </button>
+                                <div id="d10" class="S-div">
+                                    <h2 style="color: white">/u/</h2>
+                                    <h3 style="color: white;">短元音，嘴唇张开略向前突出。</h3>
+                                    <h3 style="color: white;">Example : good（好的），could（能够），should（应该）</h3>
+                                    <button onclick="check1(10)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b11" class="bean" title="/e/" onclick="check1(11)" style="left: 780px;top: 90px;">
+                                    <h5>/e/</h5>
+                                </button>
+                                <div id="d11" class="S-div">
+                                    <h2 style="color: white">/e/</h2>
+                                    <h3 style="color: white;">短元音，嘴型扁平，舌尖抵下齿，齿前部稍抬起。</h3>
+                                    <h3 style="color: white;">Example : egg（鸡蛋），get（到达），send（送）</h3>
+                                    <button onclick="check1(11)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b12" class="bean" title="/æ/" onclick="check1(12)" style="left: 840px;top: 90px;">
+                                    <h5>/æ/</h5>
+                                </button>
+                                <div id="d12" class="S-div">
+                                    <h2 style="color: white">/æ/</h2>
+                                    <h3 style="color: white;">短元音，嘴张大，舌尖抵下齿，嘴角尽量拉向两边，成扁平形。（梅花音，嘴裂最宽一个，腮帮酸胀，发音就像挤出来一样，感觉不适应。）</h3>
+                                    <h3 style="color: white;">Example : fat（肥的），bag（包），fact（事实）</h3>
+                                    <button onclick="check1(12)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b13" class="bean" title="/eɪ/" onclick="check1(13)" style="left: 900px;top: 90px;">
+                                    <h5>/eɪ/</h5>
+                                </button>
+                                <div id="d13" class="S-div">
+                                    <h2 style="color: white">/eɪ/</h2>
+                                    <h3 style="color: white;">双元音，口型由半开到合，与字母A发音相同 。</h3>
+                                    <h3 style="color: white;">Example : same（相同的），late（迟到的），cake（蛋糕）</h3>
+                                    <button onclick="check1(13)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b14" class="bean" title="/əʊ/" onclick="check1(14)" style="left: 960px;top: 90px;">
+                                    <h5.1>/əʊ/</h5.1>
+                                </button>
+                                <div id="d14" class="S-div">
+                                    <h2 style="color: white">/əʊ/</h2>
+                                    <h3 style="color: white;">双元音，口型由半开到小，与字母O的发音相同。</h3>
+                                    <h3 style="color: white;">Example : show（展示），know（知道），go（去）</h3>
+                                    <button onclick="check1(14)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b15" class="bean" title="/aɪ/" onclick="check1(15)" style="left: 1020px;top: 90px;">
+                                    <h5>/aɪ/</h5>
+                                </button>
+                                <div id="d15" class="S-div">
+                                    <h2 style="color: white">/aɪ/</h2>
+                                    <h3 style="color: white;">双元音，口型由开到合，与字母I的发音相同。</h3>
+                                    <h3 style="color: white;">Example : life（生活），kind（亲切的），like（喜欢）</h3>
+                                    <button onclick="check1(15)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b16" class="bean" title="/aʊ/" onclick="check1(16)" style="left: 1080px;top: 90px;">
+                                    <h5>/aʊ/</h5>
+                                </button>
+                                <div id="d16" class="S-div">
+                                    <h2 style="color: white">/aʊ/</h2>
+                                    <h3 style="color: white;">双元音，口型由大到小。</h3>
+                                    <h3 style="color: white;">Example : house（房子），shout（叫喊），town（城镇）</h3>
+                                    <button onclick="check1(16)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b17" class="bean" title="/ɔɪ/" onclick="check1(17)" style="left: 1140px;top: 90px;">
+                                    <h5>/ɔɪ/</h5>
+                                </button>
+                                <div id="d17" class="S-div">
+                                    <h2 style="color: white">/ɔɪ/</h2>
+                                    <h3 style="color: white;">双元音，双唇由圆到扁，口型从开到合。</h3>
+                                    <h3 style="color: white;">Example : joy（欢乐），noise（噪音），enjoy（享受）</h3>
+                                    <button onclick="check1(17)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b18" class="bean" title="/ɪə/" onclick="check1(18)" style="left: 1200px;top: 90px;">
+                                    <h5>/ɪə/</h5>
+                                </button>
+                                <div id="d18" class="S-div">
+                                    <h2 style="color: white">/ɪə/</h2>
+                                    <h3 style="color: white;">双元音，双唇始终半开。</h3>
+                                    <h3 style="color: white;">Example : dear（亲爱的），beer（啤酒），hear（听到</h3>
+                                    <button onclick="check1(18)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b19" class="bean" title="/eə/" onclick="check1(19)" style="left: 1260px;top: 90px;">
+                                    <h5>/eə/</h5>
+                                </button>
+                                <div id="d19" class="S-div">
+                                    <h2 style="color: white">/eə/</h2>
+                                    <h3 style="color: white;">双元音，舌端抵下齿，双唇半开。</h3>
+                                    <h3 style="color: white;">Example : care（关心），share（分享），bear（熊）</h3>
+                                    <button onclick="check1(19)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b20" class="bean" title="/ʊə/" onclick="check1(20)" style="left: 1320px;top: 90px;">
+                                    <h5.1>/ʊə/</h5.1>
+                                </button>
+                                <div id="d20" class="S-div">
+                                    <h2 style="color: white">/ʊə/</h2>
+                                    <h3 style="color: white;">双元音，口型由半开到合，与字母A发音相同 。</h3>
+                                    <h3 style="color: white;">Example : same（相同的），late（迟到的），cake（蛋糕）</h3>
+                                    <button onclick="check1(20)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b21" class="bean" title="/p/" onclick="check1(21)" style="left: 1380px;top: 90px;">
+                                    <h5>/p/</h5>
+                                </button>
+                                <div id="d21" class="S-div">
+                                    <h2 style="color: white">/p/</h2>
+                                    <h3 style="color: white;">清辅音，双唇紧闭，然后快速张开，让气流冲出口腔，发出爆破音，但声带不震动。</h3>
+                                    <h3 style="color: white;">Example : pea（豌豆），deep（深的），tip（顶端）</h3>
+                                    <button onclick="check1(21)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b22" class="bean" title="/b/" onclick="check1(22)" style="left: 1475px;top: 180px;">
+                                    <h5>/b/</h5>
+                                </button>
+                                <div id="d22" class="S-div">
+                                    <h2 style="color: white">/b/</h2>
+                                    <h3 style="color: white;">浊辅音，双唇紧闭，然后快速张开，让气体冲出口腔，发出爆破音，但声带震动。</h3>
+                                    <h3 style="color: white;">Example : bee（蜜蜂），beat（敲打），bit（少量）</h3>
+                                    <button onclick="check1(22)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b23" class="bean" title="/t/" onclick="check1(23)" style="left: 1475px;top: 240px;">
+                                    <h5>/t/</h5>
+                                </button>
+                                <div id="d23" class="S-div">
+                                    <h2 style="color: white">/t/</h2>
+                                    <h3 style="color: white;">清辅音，舌尖抵上齿龈，憋住气，然后弹开舌尖，让气流从口腔中喷出，但声带不震动。</h3>
+                                    <h3 style="color: white;">Example : eat（吃），beat（敲打），bit（少量）</h3>
+                                    <button onclick="check1(23)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b24" class="bean" title="/d/" onclick="check1(24)" style="left: 1475px;top: 300px;">
+                                    <h5>/d/</h5>
+                                </button>
+                                <div id="d24" class="S-div">
+                                    <h2 style="color: white">/d/</h2>
+                                    <h3 style="color: white;">浊辅音，舌尖抵上齿龈，憋住气，然后弹开舌尖，让气流从口腔中喷出，但声带要震动。</h3>
+                                    <h3 style="color: white;">Example : deep（深的），deal（处理），do（做）</h3>
+                                    <button onclick="check1(24)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b25" class="bean" title="/k/" onclick="check1(25)" style="left: 1200px;bottom: 70px;">
+                                    <h5>/k/</h5>
+                                </button>
+                                <div id="d25" class="S-div">
+                                    <h2 style="color: white">/k/</h2>
+                                    <h3 style="color: white;">清辅音，舌后部抵住软腭，憋住气，然后突然离开，将气流送出，像咳嗽，但声带不震动。</h3>
+                                    <h3 style="color: white;">Example : key（钥匙），kid（小孩），kind（亲切的）</h3>
+                                    <button onclick="check1(25)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b26" class="bean" title="/g/" onclick="check1(26)" style="left: 180px;bottom: 70px;">
+                                    <h5>/g/</h5>
+                                </button>
+                                <div id="d26" class="S-div">
+                                    <h2 style="color: white">/g/</h2>
+                                    <h3 style="color: white;">浊辅音，舌后部抵住软腭，憋住气，然后突然离开，将气流送出，像咳嗽，但声带震动。</h3>
+                                    <h3 style="color: white;">Example : big（大的），give（给），get（到达）</h3>
+                                    <button onclick="check1(26)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b27" class="bean" title="/f/" onclick="check1(27)" style="left: 240px;bottom: 70px;">
+                                    <h5>/f/</h5>
+                                </button>
+                                <div id="d27" class="S-div">
+                                    <h2 style="color: white">/f/</h2>
+                                    <h3 style="color: white;">清辅音，上齿轻轻接触下唇，然后轻轻吹气，使气流从唇齿间通过，形成摩擦，但声带不震动 。</h3>
+                                    <h3 style="color: white;">Example :fact（事实），feet（脚），fat（肥的）</h3>
+                                    <button onclick="check1(27)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b28" class="bean" title="/v/" onclick="check1(28)" style="left: 300px;bottom: 70px;">
+                                    <h5>/v/</h5>
+                                </button>
+                                <div id="d28" class="S-div">
+                                    <h2 style="color: white">/v/</h2>
+                                    <h3 style="color: white;">浊辅音，上齿轻轻接触下唇，然后轻轻吹气，使气流从唇齿间通过，形成摩擦，但声带震动。</h3>
+                                    <h3 style="color: white;">Example : give（给），have（有），very（非常）</h3>
+                                    <button onclick="check1(28)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b29" class="bean" title="/θ/" onclick="check1(29)" style="left: 360px;bottom: 70px;">
+                                    <h5>/θ/</h5>
+                                </button>
+                                <div id="d29" class="S-div">
+                                    <h2 style="color: white">/θ/</h2>
+                                    <h3 style="color: white;">清辅音，舌尖微微伸出，上下齿轻轻咬住舌尖送气，但声带不震动。</h3>
+                                    <h3 style="color: white;">Example : bath（洗澡），thought（思考），thank（谢谢）</h3>
+                                    <button onclick="check1(29)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b30" class="bean" title="/ð/" onclick="check1(30)" style="left: 420px;bottom: 70px;">
+                                    <h5>/ð/</h5>
+                                </button>
+                                <div id="d30" class="S-div">
+                                    <h2 style="color: white">/ð/</h2>
+                                    <h3 style="color: white;">浊辅音，舌尖微微伸出，上下齿轻轻咬住舌尖送气，但声带震动。</h3>
+                                    <h3 style="color: white;">Example : than（比较），that（那个），those（那些）</h3>
+                                    <button onclick="check1(30)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b31" class="bean" title="/s/" onclick="check1(31)" style="left: 480px;bottom: 70px;">
+                                    <h5>/s/</h5>
+                                </button>
+                                <div id="d31" class="S-div">
+                                    <h2 style="color: white">/s/</h2>
+                                    <h3 style="color: white;">清辅音，双唇微微张开，舌端靠近齿龈，舌头自然放松，气流从齿间送出，但声带不震动。</h3>
+                                    <h3 style="color: white;">Example : best（最好的），zest（热情），bus（巴士）</h3>
+                                    <button onclick="check1(31)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b32" class="bean" title="/z/" onclick="check1(32)" style="left: 540px;bottom: 70px;">
+                                    <h5>/z/</h5>
+                                </button>
+                                <div id="d32" class="S-div">
+                                    <h2 style="color: white">/z/</h2>
+                                    <h3 style="color: white;">浊辅音，上齿轻轻接触下唇，然后轻轻吹气，使气流从唇齿间通过，形成摩擦，但声带震动。</h3>
+                                    <h3 style="color: white;">Example : zest（热情），zero（零），zoo（动物园）</h3>
+                                    <button onclick="check1(32)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b33" class="bean" title="/ʃ/" onclick="check1(33)" style="left: 600px;bottom: 70px;">
+                                    <h5>/ʃ/</h5>
+                                </button>
+                                <div id="d33" class="S-div">
+                                    <h2 style="color: white">/ʃ/</h2>
+                                    <h3 style="color: white;">清辅音，双唇收圆，并稍微突出，舌头稍微上卷，舌头接近上齿龈送气，声带不震动。</h3>
+                                    <h3 style="color: white;">Example : flash（闪现），show（展示），shine（发光）</h3>
+                                    <button onclick="check1(33)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b34" class="bean" title="/ʒ/" onclick="check1(34)" style="left: 660px;bottom: 70px;">
+                                    <h5>/ʒ/</h5>
+                                </button>
+                                <div id="d34" class="S-div">
+                                    <h2 style="color: white">/ʒ/</h2>
+                                    <h3 style="color: white;">浊辅音，双唇收圆，并稍微突出，舌头稍微上卷，舌头接近上齿龈送气，声带震动。</h3>
+                                    <h3 style="color: white;">Example : pleasure（愉快），leisure（安逸）</h3>
+                                    <button onclick="check1(34)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b35" class="bean" title="/tʃ/" onclick="check1(35)" style="left: 720px;bottom: 70px;">
+                                    <h5>/tʃ/</h5>
+                                </button>
+                                <div id="d35" class="S-div">
+                                    <h2 style="color: white">/tʃ/</h2>
+                                    <h3 style="color: white;">清辅音，双唇略微张开突出，舌尖抵住上齿龈，用力吐气，声带不震动。</h3>
+                                    <h3 style="color: white;">Example : charm（魅力），change（改变），cheer（喝彩）</h3>
+                                    <button onclick="check1(35)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b36" class="bean" title="/dʒ/" onclick="check1(36)" style="left: 780px;bottom: 70px;">
+                                    <h5>/dʒ/</h5>
+                                </button>
+                                <div id="d36" class="S-div">
+                                    <h2 style="color: white">/dʒ/</h2>
+                                    <h3 style="color: white;">浊辅音，双唇略微张开突出，舌尖抵住上齿龈，用力吐气，声带震动。</h3>
+                                    <h3 style="color: white;">Example : change（改变），job（工作），joke（玩笑）</h3>
+                                    <button onclick="check1(36)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b37" class="bean" title="/tr/" onclick="check1(37)" style="left: 840px;bottom: 70px;">
+                                    <h5>/tr/</h5>
+                                </button>
+                                <div id="d37" class="S-div">
+                                    <h2 style="color: white">/tr/</h2>
+                                    <h3 style="color: white;">清辅音，双唇收圆向前突出，舌尖上翘抵住上齿龈，采取发/r/的姿势，声带不震动。</h3>
+                                    <h3 style="color: white;">Example : train（火车），try（尝试），truck（火车）</h3>
+                                    <button onclick="check1(37)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b38" class="bean" title="/dr/" onclick="check1(38)" style="left: 900px;bottom: 70px;">
+                                    <h5>/dr/</h5>
+                                </button>
+                                <div id="d38" class="S-div">
+                                    <h2 style="color: white">/dr/</h2>
+                                    <h3 style="color: white;">浊辅音，双唇收圆向前突出，舌尖上翘抵住上齿龈，采取发/r/的姿势，声带震动。</h3>
+                                    <h3 style="color: white;">Example :dry（干燥），dream（梦想），drag（拉）</h3>
+                                    <button onclick="check1(38)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b39" class="bean" title="/ts/" onclick="check1(39)" style="left: 960px;bottom: 70px;">
+                                    <h5>/ts/</h5>
+                                </button>
+                                <div id="d39" class="S-div">
+                                    <h2 style="color: white">/ts/</h2>
+                                    <h3 style="color: white;">清辅音，舌尖先抵住上齿，堵住气流，使气流从舌尖和齿龈间送出，声带不震动。</h3>
+                                    <h3 style="color: white;">Example : seats（座位），roots（根），fruits（水果）</h3>
+                                    <button onclick="check1(39)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b40" class="bean" title="/dz/" onclick="check1(40)" style="left: 1020px;bottom: 70px;">
+                                    <h5>/dz/</h5>
+                                </button>
+                                <div id="d40" class="S-div">
+                                    <h2 style="color: white">/dz/</h2>
+                                    <h3 style="color: white;">浊辅音，舌尖先抵住上齿，堵住气流，使气流从舌尖和齿龈间送出，声带震动。</h3>
+                                    <h3 style="color: white;">Example : reads（阅读），goods（商品），needs（需要）</h3>
+                                    <button onclick="check1(40)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b41" class="bean" title="/h/" onclick="check1(41)" style="left: 1080px;bottom: 70px;">
+                                    <h5>/h/</h5>
+                                </button>
+                                <div id="d41" class="S-div">
+                                    <h2 style="color: white">/h/</h2>
+                                    <h3 style="color: white;">清辅音，嘴唇自然张开，自然呵气，声带不震动。</h3>
+                                    <h3 style="color: white;">Example :have（有），hill（小山），happen（发生）</h3>
+                                    <button onclick="check1(41)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b42" class="bean" title="/r/" onclick="check1(42)" style="left: 1140px;bottom: 70px;">
+                                    <h5>/r/</h5>
+                                </button>
+                                <div id="d42" class="S-div">
+                                    <h2 style="color: white">/r/</h2>
+                                    <h3 style="color: white;">浊辅音，舌尖向上卷起，舌头不要接触任何部位，双唇稍微突出，声带震动。</h3>
+                                    <h3 style="color: white;">Example : bread（面包），red（红色的），rush（冲）</h3>
+                                    <button onclick="check1(42)">
+                                        <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
+                                    </button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b43" class="bean" title="/m/" onclick="check1(43)" style="left: 85px;top: 180px;">
+                                    <h5>/m/</h5>
+                                </button>
+                                <div id="d43" class="S-div">
+                                    <h2 style="color: white">/m/</h2>
+                                    <h3 style="color: white;">鼻音，双唇紧闭，舌头放平，气流从鼻腔送出，声带震动。</h3>
+                                    <h3 style="color: white;">Example : money（钱），room（房间），morning（早上）</h3>
+                                    <button class="bean" onclick="check1(43)">ok</button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b44" class="bean" title="/n/" onclick="check1(44)" style="left: 85px;top: 240px;">
+                                    <h5>/n/</h5>
+                                </button>
+                                <div id="d44" class="S-div">
+                                    <h2 style="color: white">/n/</h2>
+                                    <h3 style="color: white;">鼻音，双唇微开舌尖抵住上齿龈，气流从鼻孔里出来，声带震动。</h3>
+                                    <h3 style="color: white;">Example : need（需要），thin（瘦的），morning（早上）</h3>
+                                    <button class="bean" onclick="check1(44)">ok</button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b45" class="bean" title="/ŋ/" onclick="check1(45)" style="left: 85px;top: 300px;">
+                                    <h5>/ŋ/</h5>
+                                </button>
+                                <div id="d45" class="S-div">
+                                    <h2 style="color: white">/ŋ/</h2>
+                                    <h3 style="color: white;">鼻音，双唇张开，舌尖抵住下齿龈，舌后部自然往上顶住，气流从鼻腔送出，声带震动。</h3>
+                                    <h3 style="color: white;">Example : young（年轻的），song（歌曲），tongue（舌头）</h3>
+                                    <button class="bean" onclick="check1(45)">ok</button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b46" class="bean" title="/w/" onclick="check1(46)" style="left: 85px;top: 360px;">
+                                    <h5>/w/</h5>
+                                </button>
+                                <div id="d46" class="S-div">
+                                    <h2 style="color: white">/w/</h2>
+                                    <h3 style="color: white;">半元音，嘴形成微笑状，舌尖抵住下齿，舌面贴住上颚，声带震动。</h3>
+                                    <h3 style="color: white;">Example : year（年份），younger（年轻的），yellow（黄色的）</h3>
+                                    <button class="bean" onclick="check1(46)">ok</button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b47" class="bean" title="/j/" onclick="check1(47)" style="left: 85px;top: 420px;">
+                                    <h5>/j/</h5>
+                                </button>
+                                <div id="d47" class="S-div">
+                                    <h2 style="color: white">/j/</h2>
+                                    <h3 style="color: white;">半元音，双唇缩小并向前突出，舌后部抬起，嘴慢慢向两旁滑开，声带震动。</h3>
+                                    <h3 style="color: white;">Example : wait（等待），watch（手表），water（水）</h3>
+                                    <button class="bean" onclick="check1(47)">ok</button>
+                                </div>
+                            </div>
+                            <div>
+                                <button id="b48" class="bean" title="/l/" onclick="check1(48)" style="left: 85px;top: 480px;">
+                                    <h5>/l/</h5>
+                                </button>
+                                <div id="d48" class="S-div">
+                                    <h2 style="color: white">/l/</h2>
+                                    <h3 style="color: white;">边音，舌尖抵住上齿龈，舌尖轻微用力弯曲，气流从舌的旁边送出，声带震动。</h3>
+                                    <h3 style="color: white;">Example : love（爱），little（小的），letter（字母）</h3>
+                                    <button class="bean" onclick="check1(48)">ok</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Grow In page3 -->
+                    <div id="page3" class="col-lg-12" style="display: none">
+                        <div class="p-5" style="position: absolute;left: 15px;width: 1615px;height: 700px;background-color: black;border: 5px solid #4e73df;">
+                            <h1>Welcome to page3!</h1>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <button class="btn-primary" style="position: absolute;bottom: 80px;right: 200px;" onclick="page(1)">1</button>
+                <button class="btn-primary" style="position: absolute;bottom: 80px;right: 150px;" onclick="page(2)">2</button>
+                <button class="btn-primary" style="position: absolute;bottom: 80px;right: 100px;" onclick="page(3)">3</button>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="../login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="" th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
+
+<!-- Page level plugins -->
+<script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
+<script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
+
+</body>
+
+</html>

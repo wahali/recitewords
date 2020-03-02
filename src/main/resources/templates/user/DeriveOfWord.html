@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+<!--    <link href="" th:href="@{/css/basic.css}" rel="stylesheet">-->
+    <style>
+        .ball{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .area{
+            position: absolute;
+            width: 1100px;
+            right: 25px;
+            top: 150px;
+            /*border: black solid 2px;*/
+            border-radius: 1%;
+        }
+
+        .smallArea{
+            position: absolute;
+            width: 450px;
+            height: 400px;
+            left: 250px;
+            bottom: 75px;
+            border: black solid 2px;
+            border-radius: 5%;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">User<sup></sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/user/index}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>倍思Basics</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Components</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Components:</h6>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="cards.html">Cards</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="utilities-color.html">Colors</a>
+                    <a class="collapse-item" href="utilities-border.html">Borders</a>
+                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Addons
+        </div>
+
+        <!-- Nav Item - StudyPlan -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
+                <i class="fas fa-fw fa-plane"></i>
+                <span>StudyPlan</span></a>
+        </li>
+
+        <!-- Nav Item - Study part Collapse Menu -->
+        <li class="nav-item active">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Study part</span>
+            </a>
+            <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
+                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
+                        <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
+                    <a class="collapse-item active" href="" th:href="@{/user/DeriveOfWord}">
+                        <i class="fas fa-fw fa-dice-four"></i>DeriveOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Grammar}">
+                        <i class="fas fa-fw fa-dice-five"></i>Grammar</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Sentence}">
+                        <i class="fas fa-fw fa-dice-six"></i>Sentence</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Portal</h6>
+                    <a class="collapse-item" href="404.html">
+                        <i class="fas fa-fw fa-question"></i>404 Page</a>
+                    <a class="collapse-item" href="blank.html">
+                        <i class="fas fa-fw fa-meh-blank"></i>Blank Page</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Test part Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-gamepad"></i>
+                <span>Test part</span>
+            </a>
+            <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Test Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">
+                        <i class="fas fa-fw fa-dog"></i>ChooseC</a>
+                    <a class="collapse-item" href="" th:href="@{/user/fillBlanks}">
+                        <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Recite&Error Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/recitation}">
+                        <i class="fas fa-fw fa-recycle"></i>Recitation</a>
+                    <a class="collapse-item" href="" th:href="@{/user/errorWords}">
+                        <i class="fas fa-fw fa-magic"></i>ErrorWords</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">3+</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <i class="fas fa-file-alt text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-success">
+                                        <i class="fas fa-donate text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-warning">
+                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account.
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Messages -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope fa-fw"></i>
+                            <!-- Counter - Messages -->
+                            <span class="badge badge-danger badge-counter">7</span>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                            <h6 class="dropdown-header">
+                                Message Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div class="font-weight-bold">
+                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                                    <div class="status-indicator"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                                    <div class="status-indicator bg-warning"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                        </div>
+                    </li>
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.user.userName}"></span>
+                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="" th:href="@{/user/personalInfo}">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Personal Info
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" th:href="@{/user/logOut}">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+            <script>
+                function changeT(n) {
+                    for (var j=1;j<=5;j++){
+                        if (n==j) document.getElementById("q"+j).style.display="block";
+                        else document.getElementById("q"+j).style.display="none";
+                    }
+                }
+                function changeP(num) {
+                    for (var i=1;i<=6;i++){
+                        if (num==i) document.getElementById("p"+i).style.display="block";
+                        else document.getElementById("p"+i).style.display="none";
+                    }
+                }
+                function changeS(num) {
+                    for (var i=1;i<=3;i++){
+                        if (num==i) document.getElementById("s"+i).style.display="block";
+                        else document.getElementById("s"+i).style.display="none";
+                    }
+                }
+                function changeA(num) {
+                    for (var i=1;i<=2;i++){
+                        if (num==i) document.getElementById("a"+i).style.display="block";
+                        else document.getElementById("a"+i).style.display="none";
+                    }
+                }
+            </script>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Derive of Word</h1>
+                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                </div>
+
+
+
+                <!-- Nav Item - derive Collapse Menu -->
+                <div style="width: 450px" >
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3" aria-expanded="true" aria-controls="collapsePages">
+                            <!--                        <i class="fas fa-fw fa-folder"></i>-->
+                            <img class="ball" src="../img/pokemon/ball1.png">
+                            <span>派生</span>
+                        </a>
+                        <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded" style="border-radius: 5%;border: black solid 2px">
+                                <h6 class="collapse-header">
+                                    <i class="fas fa-fw fa-gamepad"></i>
+                                    前缀：</h6>
+                                <button class="collapse-item" href="" onclick="changeT(1)">
+                                    <img class="ball" src="../img/pokemon/ball2.png">
+                                    <span>常见前缀</span>
+                                </button>
+                                <div class="collapse-divider">————————————————————————————</div>
+                                <h6 class="collapse-header">
+                                    <i class="fas fa-fw fa-gamepad"></i>
+                                    后缀:</h6>
+                                <button class="collapse-item" href="" onclick="changeT(2)">
+                                    <img class="ball" src="../img/pokemon/ball3.png">
+                                    <span>常见后缀</span>
+                                </button>
+                                <button class="collapse-item" href="" onclick="changeT(3)">
+                                    <img class="ball" src="../img/pokemon/ball4.png">
+                                    <span>形容词后缀</span>
+                                </button>
+                                <button class="collapse-item" href="" onclick="changeT(4)">
+                                    <img class="ball" src="../img/pokemon/ball5.png">
+                                    <span>动词后缀</span>
+                                </button>
+                                <button class="collapse-item" href="" onclick="changeT(5)">
+                                    <img class="ball" src="../img/pokemon/ball6.png">
+                                    <span>副词后缀</span>
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+
+                <img style="width: 200px;height: 117px;position:absolute;left: 550px;top: 400px;z-index: 3;border-radius: 5%;border: black solid 2px" src="../img/pokemon/pkq4.png" onmouseover="src='../img/pokemon/pkq1.gif'" onmouseout="src='../img/pokemon/pkq4.png'">
+
+                <div style="" class="smallArea">
+                    <div style="position: absolute;width: 350px;left: 50px;top: 20px">
+                        <h2 style="color: black">什么是派生？</h2>
+                        <h3 style="color: black">派生就是在一个单词前面加前缀或在后面加后缀构成新词。</h3>
+                        <h3 style="color: black">前缀一般不造成词性的改变，但会引起词义的改变。（个别前缀也会引起词性的变化）</h3>
+                        <h3 style="color: black">后缀不仅能改变词义也能改变词性。</h3>
+                    </div>
+
+                </div>
+
+                <div class="area" id="q1">
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" align="center"><img class="ball" src="../img/pokemon/ball2.png">常见前缀</h6>
+                        </div>
+                        <div class="card-body" id="p1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0" >
+                                    <thead>
+                                    <tr>
+                                        <th>前缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>dis-</td>
+                                        <td>不，相反的</td>
+                                        <td>dislike（不喜欢），disagree（不同意）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>aero-</td>
+                                        <td>航空的</td>
+                                        <td>aeroplane（飞机），aerospace（航空宇宙）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>anti-</td>
+                                        <td>反对的</td>
+                                        <td>antiwar（反对战争的），antivirus（杀毒软件）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>auto-</td>
+                                        <td>自己，独自</td>
+                                        <td>autobiography（自传），autocriticism（自我反省）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>bio-</td>
+                                        <td>生物</td>
+                                        <td>biochemistry（生物化学），biosphere（生物圈）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>by-</td>
+                                        <td>次要的</td>
+                                        <td>byway（小道）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>centi-</td>
+                                        <td>百分之一</td>
+                                        <td>centigrade（百分度的），centimeter（厘米）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>co-</td>
+                                        <td>共同的</td>
+                                        <td>coexist（共存），coauthor（合著者）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>col-</td>
+                                        <td>共同的</td>
+                                        <td>colleague（同事）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>com-</td>
+                                        <td>联合的</td>
+                                        <td>compassion（同情），commission（代表团）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>con-</td>
+                                        <td>联合的</td>
+                                        <td>confederation（联邦）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>contra-</td>
+                                        <td>反对，相反</td>
+                                        <td>contradiction（反驳），contranatural（违反自然的）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="p2" style="display: none">
+                            <!--                        <button class="btn btn-sm btn-success">增添</button>-->
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0" style="max-height: 700px;overflow: scroll">
+                                    <thead>
+                                    <tr>
+                                        <th>前缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>cor-</td>
+                                        <td>（用在字母r之前）联合的</td>
+                                        <td>correlate（使相关联），correspond（符合）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>counter-</td>
+                                        <td>相反</td>
+                                        <td>counteract（阻碍），counterattack（反引力）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>cross-</td>
+                                        <td>横过</td>
+                                        <td>crosscountry（越野的），cross-cultural（跨文化的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>de-</td>
+                                        <td>剥夺</td>
+                                        <td>devalue（贬值），decode（解码）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>dis-</td>
+                                        <td>分开，否定</td>
+                                        <td>disadvantage（不利），disagree（不同意）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>em-</td>
+                                        <td>（用在b，m，p）</td>
+                                        <td>empower（授权）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>en-</td>
+                                        <td>使成为</td>
+                                        <td>endanger（危及），enlarge（扩大）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ex-</td>
+                                        <td>前任的，向外的</td>
+                                        <td>ex-wife（前妻），export（出口）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>extra-</td>
+                                        <td>外面的</td>
+                                        <td>extracurricular（业余的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>fore-</td>
+                                        <td>在前的</td>
+                                        <td>foreknow（先知），forewarn（预先警告）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hemis-</td>
+                                        <td>半的</td>
+                                        <td>hemisphere（半球），hemicycle（半圆形）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>homo-</td>
+                                        <td>相同的</td>
+                                        <td>homotype（同型）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="p3" style="display: none">
+                            <!--                        <button class="btn btn-sm btn-success">增添</button>-->
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable3" width="100%" cellspacing="0" style="max-height: 700px;">
+                                    <thead>
+                                    <tr>
+                                        <th>前缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>il-</td>
+                                        <td>（用在l之前）不</td>
+                                        <td>illegal（违法的），illiterate（文盲的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>im-</td>
+                                        <td>（用在b，m，p）</td>
+                                        <td>immoral（不道德的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>in-</td>
+                                        <td>不</td>
+                                        <td>indirect（间接的），insensitive（感觉迟钝的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>infra-</td>
+                                        <td>内部的，向内的</td>
+                                        <td>infrared（红外线的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>inter-</td>
+                                        <td>相互的</td>
+                                        <td>interface（界面），international（国际的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>intra-</td>
+                                        <td>内部的</td>
+                                        <td>intracity（市内的），intradepartment（内部）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ir-</td>
+                                        <td>（用在r之前）不</td>
+                                        <td>irregular（不规则的），irresponsible（不负责任的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>kilo-</td>
+                                        <td>千的</td>
+                                        <td>kilograms（千克），kilobyte（千字节）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>macro-</td>
+                                        <td>宏观的</td>
+                                        <td>macroeconomic（宏观经济学），macrostructure（宏观结构）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>micro-</td>
+                                        <td>微小的</td>
+                                        <td>microsoft（微软），microelectronics（微电子学）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mal-</td>
+                                        <td>坏的</td>
+                                        <td>malfunction（故障），maltreat（虐待）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mid-</td>
+                                        <td>中间的</td>
+                                        <td>midday（正午），midnight（午夜）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="p4" style="display: none">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable4" width="100%" cellspacing="0" style="max-height: 700px;overflow: scroll">
+                                    <thead>
+                                    <tr>
+                                        <th>前缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>mini-</td>
+                                        <td>小型的</td>
+                                        <td>miniskirts（迷你短裙）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mis-</td>
+                                        <td>坏的</td>
+                                        <td>misfortune（不幸），misunderstand（误解）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>mono-</td>
+                                        <td>单一的</td>
+                                        <td>monoplane（单翼机），monotone（单调的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>multi-</td>
+                                        <td>多的</td>
+                                        <td>multimedia（多媒体），multinational（多民族的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>non-</td>
+                                        <td>无，非</td>
+                                        <td>nonsense（胡说），non-stop（直达的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>out-</td>
+                                        <td>向外</td>
+                                        <td>outlive（比…长命），outdoor（室外的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>over-</td>
+                                        <td>在…上</td>
+                                        <td>overhead（在头上），overtime（超时）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>poly-</td>
+                                        <td>多的</td>
+                                        <td>polycentric（多中心的），polysyllabic（多音节的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>post-</td>
+                                        <td>在…之后</td>
+                                        <td>postwar（战后的），postgraduate（毕业之后）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pre-</td>
+                                        <td>在…之前</td>
+                                        <td>prepay（预支），prewar（战前）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pro-</td>
+                                        <td>居前</td>
+                                        <td>proabortion（流产）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pseudo-</td>
+                                        <td>虚假</td>
+                                        <td>pseudonym（假名），pseudoscience（伪科学）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    <div class="card-body" id="p5" style="display: none">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable5" width="100%" cellspacing="0" style="max-height: 700px;overflow: scroll">
+                                <thead>
+                                <tr>
+                                    <th>前缀形式</th>
+                                    <th>一般释义</th>
+                                    <th>例子</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>re-</td>
+                                    <td>又、再、重新</td>
+                                    <td>reunite（再结合），reuse（再使用）</td>
+                                </tr>
+                                <tr>
+                                    <td>self-</td>
+                                    <td>自我</td>
+                                    <td>self taught（自学），self-employed（超自由职业者）</td>
+                                </tr>
+                                <tr>
+                                    <td>semi-</td>
+                                    <td>半，不完全的</td>
+                                    <td>semifinal（半决赛），semicircle（半圆）</td>
+                                </tr>
+                                <tr>
+                                    <td>step-</td>
+                                    <td>后，继</td>
+                                    <td>stepchildren（继子）</td>
+                                </tr>
+                                <tr>
+                                    <td>sub-</td>
+                                    <td>分，次于</td>
+                                    <td>subsection（分部），subdivide（再分）</td>
+                                </tr>
+                                <tr>
+                                    <td>super-</td>
+                                    <td>超级</td>
+                                    <td>supermarket（超市），supernatural（超自然）</td>
+                                </tr>
+                                <tr>
+                                    <td>tele-</td>
+                                    <td>远距离传输</td>
+                                    <td>telecommunication（远程通信）</td>
+                                </tr>
+                                <tr>
+                                    <td>therm(o)-</td>
+                                    <td>热的</td>
+                                    <td>thermochemistry（热化学），thermometer（温度计）</td>
+                                </tr>
+                                <tr>
+                                    <td>trans-</td>
+                                    <td>转变、变换；超过、横跨</td>
+                                    <td>transplant（移植）</td>
+                                </tr>
+                                <tr>
+                                    <td>tri-</td>
+                                    <td>三倍</td>
+                                    <td>triangular（三角形的），tricycle（三轮车）</td>
+                                </tr>
+                                <tr>
+                                    <td>ultra-</td>
+                                    <td>极端</td>
+                                    <td>ultra modern（超现代化），ultrasound（超频音响）</td>
+                                </tr>
+                                <tr>
+                                    <td>un-</td>
+                                    <td>不</td>
+                                    <td>uncertain（不确定的），unfortunate（不幸的）</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                        <div class="card-body" id="p6" style="display: none">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable6" width="100%" cellspacing="0" >
+                                    <thead>
+                                    <tr>
+                                        <th>前缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>under-</td>
+                                        <td>在…之下</td>
+                                        <td>undersea（海面下的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>uni-</td>
+                                        <td>单一</td>
+                                        <td>unidirectional（单向的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>vice-</td>
+                                        <td>副的</td>
+                                        <td>vice-president（副省长），vice-chairman（副主席）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button style="right: 300px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(1)">1</button>
+                        <button style="right: 250px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(2)">2</button>
+                        <button style="right: 200px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(3)">3</button>
+                        <button style="right: 150px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(4)">4</button>
+                        <button style="right: 100px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(5)">5</button>
+                        <button style="right: 50px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(6)">6</button>
+                    </div>
+                </div>
+
+                <div style="display: none" class="area" id="q2">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" align="center"><img class="ball" src="../img/pokemon/ball3.png">常见后缀</h6>
+                        </div>
+                        <div class="card-body" id="s1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-al</td>
+                                        <td>人，事物</td>
+                                        <td>arrival（到达者），proposal（提案）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-age</td>
+                                        <td>状态，性质</td>
+                                        <td>breakage（破损），shortage（缺乏）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-(i)an</td>
+                                        <td>人</td>
+                                        <td>librarian（图书管理员），musician（音乐家）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-a/ence</td>
+                                        <td>状态，性质</td>
+                                        <td>appearance（外貌），reference（参考）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-a/ency</td>
+                                        <td>状态，性质</td>
+                                        <td>emergency（紧急事件），expectancy（期望）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-a/ent</td>
+                                        <td>人，行为</td>
+                                        <td>applicant（申请者），correspondent（通信者）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-cy</td>
+                                        <td>性质，状态</td>
+                                        <td>accuracy（正确度），privacy（伪秘密）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-dom</td>
+                                        <td>性质，状态</td>
+                                        <td>kingdom（王国），freedom（自由）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ee</td>
+                                        <td>动作的承受者</td>
+                                        <td>employee（职工），interviewee（被采访者）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-eer</td>
+                                        <td>从事…的人</td>
+                                        <td>pioneer（开拓者），volunteer（志愿者）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-er/or/ar</td>
+                                        <td>人物</td>
+                                        <td>painter（画家），beggar（乞丐）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ery</td>
+                                        <td>状态，性质</td>
+                                        <td>slavery（奴隶身份）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="s2" style="display: none">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-ese</td>
+                                        <td>某国的人及语言</td>
+                                        <td>Chinese（中文），Japanese（日本人）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ess</td>
+                                        <td>女性</td>
+                                        <td>waitress（女服务员），actress（女演员）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-hood</td>
+                                        <td>时期</td>
+                                        <td>childhood（童年），manhood（成年男子）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ics</td>
+                                        <td>学科</td>
+                                        <td>linguistics（语言学家）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ism</td>
+                                        <td>…主义，…派</td>
+                                        <td>socialist（社会主义）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ist</td>
+                                        <td>从事…的人</td>
+                                        <td>violinist（小提琴家），psychiatry（精神病医师）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ibility</td>
+                                        <td>…性</td>
+                                        <td>possibility（可能性），flexibility（适应性）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-(i)ty</td>
+                                        <td>性质，状态</td>
+                                        <td>purity（纯净）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ive</td>
+                                        <td>有…性质</td>
+                                        <td>productive（生产的），protective（保护的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ment</td>
+                                        <td>状态，性质</td>
+                                        <td>movement（运动），retirement（退休）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ness</td>
+                                        <td>状态，性质</td>
+                                        <td>happiness（快乐），darkness（黑暗）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ology</td>
+                                        <td>…论，…学</td>
+                                        <td>climatology（气候学），futurology（未来学）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="s3" style="display: none">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-ship</td>
+                                        <td>关系，身份</td>
+                                        <td>scholarship（奖学金），friendship（友谊）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-(s)sion</td>
+                                        <td>状态，性质</td>
+                                        <td>decision（决定），expansion（扩充）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-th</td>
+                                        <td>抽象名词</td>
+                                        <td>growth（生长），width（宽度）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-(at/t)ion</td>
+                                        <td>状态，性质</td>
+                                        <td>application（应用），operation（纯手术）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ure</td>
+                                        <td>状态，性质</td>
+                                        <td>closure（关闭），exposure（暴露）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-y</td>
+                                        <td>状态，性质</td>
+                                        <td>difficulty（困难）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button style="right: 150px;bottom: 10px;position: absolute;" class="btn btn-primary" onclick="changeS(1)">1</button>
+                        <button style="right: 100px;bottom: 10px;position: absolute;" class="btn btn-primary" onclick="changeS(2)">2</button>
+                        <button style="right: 50px;bottom: 10px;position: absolute;" class="btn btn-primary" onclick="changeS(3)">3</button>
+                    </div>
+                </div>
+
+                <div style="display: none" class="area" id="q3">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" align="center"><img class="ball" src="../img/pokemon/ball4.png">形容词后缀</h6>
+                        </div>
+                        <div class="card-body" id="a1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-able/ible</td>
+                                        <td>能…</td>
+                                        <td>believable（可相信的），sensible（可察觉的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-al</td>
+                                        <td>…的</td>
+                                        <td>natural（自然的），structural（结构的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-(i)an</td>
+                                        <td>…的</td>
+                                        <td>suburban（郊外的），Canadian（加拿大的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ant/ent</td>
+                                        <td>…的</td>
+                                        <td>different（不同的），pleasant（舒适的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ary/ory</td>
+                                        <td>…的</td>
+                                        <td>advisory（顾问的），customary（习惯的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ate</td>
+                                        <td>…的</td>
+                                        <td>considerate（考虑周到的），fortunate（幸运的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-en</td>
+                                        <td>有…的性质</td>
+                                        <td>golden（金色的），wooden（木制的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ese</td>
+                                        <td>某国(人)的</td>
+                                        <td>Japanese（日本的），Chinaese（中国人的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-free</td>
+                                        <td>免除的</td>
+                                        <td>carefree（无忧无虑），duty-free（免费的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ful</td>
+                                        <td>具有…的性质</td>
+                                        <td>painful（痛苦的），careful（小心的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ic(al)</td>
+                                        <td>具有…的</td>
+                                        <td>heroic（英雄的），logical（合逻辑的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ish</td>
+                                        <td>有…的</td>
+                                        <td>girlish（少女的），childish（孩子气的）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="card-body" id="a2" style="display: none">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-ive</td>
+                                        <td>具有…的性质</td>
+                                        <td>creative（创造性的），supportive（支持的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-less</td>
+                                        <td>没有…的</td>
+                                        <td>hopeless（无望的），painless（无痛的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-like</td>
+                                        <td>像…的</td>
+                                        <td>childlike（孩子似的），ladylike（温雅的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ly</td>
+                                        <td>有…特性</td>
+                                        <td>manly（男子气概的），monthly（每月的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-(i)ous</td>
+                                        <td>充满…的</td>
+                                        <td>dangerous（危险的），poisonous（有毒的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-some</td>
+                                        <td>像…的</td>
+                                        <td>tiresome（无聊的），troublesome（麻烦的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ward</td>
+                                        <td>表方向</td>
+                                        <td>downward（向下的），upward（向上的）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-y</td>
+                                        <td>…的</td>
+                                        <td>guilty（犯罪的），noisy（吵闹的）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button style="right: 100px;bottom: 10px;position: absolute;" class="btn btn-success" onclick="changeA(1)">1</button>
+                        <button style="right: 50px;bottom: 10px;position: absolute;" class="btn btn-success" onclick="changeA(2)">2</button>
+                    </div>
+                </div>
+
+                <div style="display: none" class="area" id="q4">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" align="center"><img class="ball" src="../img/pokemon/ball5.png">动词后缀</h6>
+                        </div>
+                        <div class="card-body" id="v1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-en</td>
+                                        <td>使…变成</td>
+                                        <td>deepen（加深），fasten（扎牢）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ify</td>
+                                        <td>使成为…</td>
+                                        <td>classify（分类），simplify（简单化）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ize/ise</td>
+                                        <td>…化</td>
+                                        <td>modernize（现代化），popularise（普及）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: none" class="area" id="q5">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" align="center"><img class="ball" src="../img/pokemon/ball6.png">副词后缀</h6>
+                        </div>
+                        <div class="card-body" id="ad1">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>后缀形式</th>
+                                        <th>一般释义</th>
+                                        <th>例子</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>-ly</td>
+                                        <td>…地</td>
+                                        <td>easily（容易地），heavily（沉重地）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-ward(s)</td>
+                                        <td>表方向</td>
+                                        <td>eastwards（向东地），northwards（向北地）</td>
+                                    </tr>
+                                    <tr>
+                                        <td>-wise</td>
+                                        <td>方向</td>
+                                        <td>clockwise（顺时针方地），otherwise（不同地）</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2020</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="../login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<!--<script src="" th:src="@{/vendor/jqeury/book.js}"></script>-->
+<script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="" th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
+<!--<script src="" th:src="@{/js/jquery.min.1.7.js}"></script>-->
+<!--<script src="" th:src="@{/js/modernizr.2.5.3.min.js}"></script>-->
+
+<!-- Page level plugins -->
+<script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
+<script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
+
+</body>
+
+</html>

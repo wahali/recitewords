@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+    <style>
+        .bubble{
+            position: absolute;
+            z-index: 3;
+            top: 150px;
+            left: 400px;
+            width: 400px;
+            height: 400px;
+        }
+
+        .say{
+            position: absolute;
+            z-index: 3;
+            width: 380px;
+            height: 300px;
+            left: 50px;
+            top: 50px;
+        }
+
+        .next{
+            position: absolute;
+            z-index: 3;
+            width: 100px;
+            height: 50px;
+            right: 50px;
+            bottom: 40px;
+        }
+
+        .know{
+            position: absolute;
+            width: 1100px;
+            height: 500px;
+            left: 400px;
+            top: 100px;
+        }
+
+        .drake{
+            position: absolute;
+            color: white;
+            top: 20px;
+        }
+
+    </style>
+
+</head>
+
+<body id="page-top">
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-laugh-wink"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">User<sup></sup></div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/user/index}">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>倍思Basics</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Components</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Components:</h6>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="cards.html">Cards</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="utilities-color.html">Colors</a>
+                    <a class="collapse-item" href="utilities-border.html">Borders</a>
+                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Addons
+        </div>
+
+        <!-- Nav Item - StudyPlan -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
+                <i class="fas fa-fw fa-plane"></i>
+                <span>StudyPlan</span></a>
+        </li>
+
+        <!-- Nav Item - Study part Collapse Menu -->
+        <li class="nav-item active">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Study part</span>
+            </a>
+            <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
+                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item active" href="" th:href="@{/user/CharacteristicOfWord}">
+                        <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
+                        <i class="fas fa-fw fa-dice-four"></i>DeriveOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Grammar}">
+                        <i class="fas fa-fw fa-dice-five"></i>Grammar</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Sentence}">
+                        <i class="fas fa-fw fa-dice-six"></i>Sentence</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Portal</h6>
+                    <a class="collapse-item" href="404.html">
+                        <i class="fas fa-fw fa-question"></i>404 Page</a>
+                    <a class="collapse-item" href="blank.html">
+                        <i class="fas fa-fw fa-meh-blank"></i>Blank Page</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Test part Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-gamepad"></i>
+                <span>Test part</span>
+            </a>
+            <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Test Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">
+                        <i class="fas fa-fw fa-dog"></i>ChooseC</a>
+                    <a class="collapse-item" href="" th:href="@{/user/fillBlanks}">
+                        <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Recite&Error Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/recitation}">
+                        <i class="fas fa-fw fa-recycle"></i>Recitation</a>
+                    <a class="collapse-item" href="" th:href="@{/user/errorWords}">
+                        <i class="fas fa-fw fa-magic"></i>ErrorWords</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Topbar Search -->
+                <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <li class="nav-item dropdown no-arrow d-sm-none">
+                        <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto w-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">3+</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-primary">
+                                        <i class="fas fa-file-alt text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 12, 2019</div>
+                                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-success">
+                                        <i class="fas fa-donate text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 7, 2019</div>
+                                    $290.29 has been deposited into your account!
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="mr-3">
+                                    <div class="icon-circle bg-warning">
+                                        <i class="fas fa-exclamation-triangle text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="small text-gray-500">December 2, 2019</div>
+                                    Spending Alert: We've noticed unusually high spending for your account.
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Messages -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope fa-fw"></i>
+                            <!-- Counter - Messages -->
+                            <span class="badge badge-danger badge-counter">7</span>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                            <h6 class="dropdown-header">
+                                Message Center
+                            </h6>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div class="font-weight-bold">
+                                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
+                                    <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
+                                    <div class="status-indicator"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
+                                    <div class="small text-gray-500">Jae Chun · 1d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
+                                    <div class="status-indicator bg-warning"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
+                                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                <div class="dropdown-list-image mr-3">
+                                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
+                                    <div class="status-indicator bg-success"></div>
+                                </div>
+                                <div>
+                                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
+                                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                        </div>
+                    </li>
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.user.userName}"></span>
+                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item" href="" th:href="@{/user/personalInfo}">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Personal Info
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Activity Log
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" th:href="@{/user/logOut}">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <script>
+                function fun(num) {
+                    if (num==1){
+                        document.getElementById("s1").style.display="none";
+                        document.getElementById("s2").style.display="block";
+                    }else if (num==2){
+                        document.getElementById("s2").style.display="none";
+                        document.getElementById("b1").style.display="none";
+                        // document.getElementById("s3").style.display="block";
+                        document.getElementById("e1").style.display="block";
+                        // document.getElementById("e2").style.display="block";
+                    }else if (num==3){
+                        document.getElementById("s3").style.display="none";
+                    }
+                }
+
+                function choice(n) {
+                    document.getElementById("e1").style.display="none";
+                    document.getElementById("e2").style.display="block";
+                    for (var i=1;i<=10;i++){
+                        if (n==i){
+                            document.getElementById("c"+i).style.display="block";
+                        }else {
+                            document.getElementById("c"+i).style.display="none";
+                        }
+                    }
+                }
+            </script>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Characteristic Of Word </h1>
+                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <div style="position: absolute;left: 15px;width: 1615px;height: 700px;border: 5px solid silver;background-color: #13855c">
+                            <h1 style="position: absolute;left: 50px;top: 20px;color: white">学词性</h1>
+                            <img src="../img/timg.gif" style="position: absolute;bottom: 0px;left: 0px;">
+                            <img id="b1" src="../img/say.png" style="position: relative;top: 150px;left: 300px;z-index: 3;">
+<!--                            <img src="../img/grass.png">-->
+
+                            <div class="bubble" id="s1">
+                                <h3 class="say">你好，我是你的好老师疯狂的戴夫！欢迎来到词性学习环节，让我来带领你进行具体的学习！</h3>
+                                <button class="next" onclick="fun(1)">Next</button>
+                            </div>
+                            <div class="bubble" id="s2" style="display: none">
+                                <h3 class="say">首先来看看词性的分类。英语单词根据其在句子中的作用可以分成<strong>十个大类</strong>,请看以下的小例子。可以点击相应的<strong>词性</strong>来进行具体的学习。</h3>
+                                <button class="next" onclick="fun(2)">Next</button>
+                            </div>
+
+<!--                            <div class="bubble" id="s3" style="display: none">-->
+<!--                                <h3 class="say"></h3>-->
+<!--                                <button class="next" onclick="fun(3)">Next</button>-->
+<!--                            </div>-->
+                            <div id="e1" style="position: absolute;left: 600px;top: 100px;display: none;width: 600px;">
+                                <h1 style="color: white">词性十大分类：</h1>
+                                <h2 style="color: white"><button onclick="choice(1)"><strong>①名词</strong></button> noun    n.  student 学生</h2>
+                                <h2 style="color: white"><button onclick="choice(2)"><strong>②代词</strong></button> pronoun    pron.  you 你</h2>
+                                <h2 style="color: white"><button onclick="choice(3)"><strong>③形容词</strong></button> adjective    adj.  happy 高兴</h2>
+                                <h2 style="color: white"><button onclick="choice(4)"><strong>④副词</strong></button> adverb       adv.  quickly 迅速的</h2>
+                                <h2 style="color: white"><button onclick="choice(5)"><strong>⑤动词</strong></button> verb     v.  cut 砍</h2>
+                                <h2 style="color: white"><button onclick="choice(6)"><strong>⑥数词</strong></button> numeral    num.  three 三</h2>
+                                <h2 style="color: white"><button onclick="choice(7)"><strong>⑦冠词</strong></button> article    art.  a 一个</h2>
+                                <h2 style="color: white"><button onclick="choice(8)"><strong>⑧介词</strong></button> preposition  prep.  at 在…</h2>
+                                <h2 style="color: white"><button onclick="choice(9)"><strong>⑨连词</strong></button> conjunction   conj.  and 和</h2>
+                                <h2 style="color: white"><button onclick="choice(10)"><strong>⑩感叹词</strong></button> interjection  interj.  oh 哦</h2>
+                            </div>
+
+                            <div id="e2" style="display: none">
+<!--                                <h1 style="color: white">词性十大分类：</h1>-->
+                                <h2 class="drake" style="left: 250px;"><button onclick="choice(1)"><strong>①名词</strong></button></h2>
+                                <h2 class="drake" style="left: 370px;"><button onclick="choice(2)"><strong>②代词</strong></button></h2>
+                                <h2 class="drake" style="left: 490px"><button onclick="choice(3)"><strong>③形容词</strong></button></h2>
+                                <h2 class="drake" style="left: 640px"><button onclick="choice(4)"><strong>④副词</strong></button></h2>
+                                <h2 class="drake" style="left: 760px"><button onclick="choice(5)"><strong>⑤动词</strong></button></h2>
+                                <h2 class="drake" style="left: 880px"><button onclick="choice(6)"><strong>⑥数词</strong></button></h2>
+                                <h2 class="drake" style="left: 1000px"><button onclick="choice(7)"><strong>⑦冠词</strong></button></h2>
+                                <h2 class="drake" style="left: 1120px"><button onclick="choice(8)"><strong>⑧介词</strong></button></h2>
+                                <h2 class="drake" style="left: 1240px"><button onclick="choice(9)"><strong>⑨连词</strong></button></h2>
+                                <h2 class="drake" style="left: 1360px"><button onclick="choice(10)"><strong>⑩感叹词</strong></button></h2>
+                            </div>
+
+                            <div id="c1" class="know" style="display: none">
+                                <h1 align="center" style="color: white">名词<small>（表示人或物名称的词）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>名词可以分为专有名词和普通名词。</strong></h2>
+                                <h3 style="color: white">①专有名词：是某个（些）人，地方，机构等专有的名称，如Beijing，China，the United States</h3>
+                                <h3 style="color: white">②普通名词：是一类人或东西或是一个抽象概念的名词，如：book，sadness（包括可数和不可数名词）</h3>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>普通名词又可以分为下面四类</strong></h2>
+                                <h3 style="color: white">①个体名词：表示某类人或东西中的个体。如：gun</h3>
+                                <h3 style="color: white">②集体名词：表示若干个个体组成的集合体。如：family（⭐以上两类属于可数名词）</h3>
+                                <h3 style="color: white">③物质名词：表示无法分为个体的实物。如：air</h3>
+                                <h3 style="color: white">④抽象名词：表示动作、状态、品质、感情等抽象概念。如：work（⭐以上两类属于不可数名词）</h3>
+                            </div>
+                            <div id="c3" class="know" style="display: none">
+                                <h1 align="center" style="color: white">形容词<small>（修饰名词等，说明事物或人的性质或特征的词）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>形容词可分成性质形容词和叙述形容词两类（其位置不一定都放在名词前面）</strong></h2>
+                                <h3 style="color: white">①性质形容词：直接说明事物的性质或特征的形容词，它有级的变化，可以用程度副词修饰，在句中可作定语、表语和补语。例如：hot，good，wonderful等。</h3>
+                                <h3 style="color: white">②叙述形容词：只能作表语，所以又称为表语形容词。这类形容词没有级的变化，也不可用程度副词修饰。大多数以a开头的形容词都属于这一类。例如：afraid，alone等</h3>
+                            </div>
+                            <div id="c5" class="know" style="display: none">
+                                <h1 align="center" style="color: white">动词<small>（表示动作或者状态的词）</small></h1>
+                                <h3 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>根据其在句中的功能，可以分为行为动词、系动词、助动词和情态动词四类有些动词是兼类词</strong></h3>
+                                <h4 style="color: white">①行为动词，例子：We <strong style="color: yellow">have</strong> lunch at 12.</h4>
+                                <h4 style="color: white">②助动词，例子：We <strong style="color: yellow">have</strong> been to New York.</h4>
+                                <h4 style="color: white">③系动词，例子：I <strong style="color: yellow">am</strong> hungry.</h4>
+                                <h4 style="color: white">④情态动词，例子：You <strong style="color: yellow">need</strong>n't have waited for me.</h4>
+                                <h3 style="color: white">其中，行为动词又可分为：</h3>
+                                <h4 style="color: white">①及物动词与不及物动词:根据后面是否带宾语，行为动词又分为及物动词和不及物动词，及物动词（vt.）后面要跟宾语，不及物动词（vi.）不跟宾语。如：</h4>
+                                <h4 style="color: white">They study hard.(study后没有宾语，不及物)</h4>
+                                <h4 style="color: white">I know them well.(know后有宾语them，及物)</h4>
+                                <h5 style="color: white">⭐有的动词既可以做及物也可做不及物。</h5>
+                                <h4 style="color: white">②延续性动词和非延续性动词：根据动作是否延续，行为动词又分为延续性动词和非延续性动词。</h4>
+                                <h5 style="color: white">⭐非延续性动词在肯定句中通常不与表示时间段连用的for短语连用。</h5>
+                            </div>
+                            <div id="c9" class="know" style="display: none">
+                                <h1 align="center" style="color: white">连词</h1>
+                                <h1 align="center" style="color: white"><small>（是一种虚词，它不能独立担任句子成分而只起连接词语词，短语与短语以及句与句的作用）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>主要分为并列连词和从属连词</strong></h2>
+                                <h3 style="color: white">①并列连词：用来连接平行的词、词组和分句。如：and，but，or，nor，so…</h3>
+                                <h3 style="color: white">②从属连词：引导一个从句。如：when，where，because，if…</h3>
+                            </div>
+                            <div id="c2" class="know" style="display: none">
+                                <h1 align="center" style="color: white">代词<small>（代替名词的词）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>代词可以分为以下九类：</strong></h2>
+                                <h3 style="color: white">①人称代词：<strong style="color: yellow">There </strong>are my school mates.</h3>
+                                <h3 style="color: white">②物主代词：<strong style="color: yellow">Our </strong>friends have great concern for each.</h3>
+                                <h3 style="color: white">③反身代词：Take good care of <strong style="color: yellow">yourselves</strong>.</h3>
+                                <h3 style="color: white">④相互代词：We should help <strong style="color: yellow">each other</strong>.</h3>
+                                <h3 style="color: white">⑤指示代词：Who are <strong style="color: yellow">these </strong>people?</h3>
+                                <h3 style="color: white">⑥疑问代词：<strong style="color: yellow">What </strong>are you doing?</h3>
+                                <h3 style="color: white">⑦关系代词：She married Tony ,<strong style="color: yellow">who </strong>is a student too.</h3>
+                                <h3 style="color: white">⑧连接代词：Do you know <strong style="color: yellow">who </strong>did it?</h3>
+                                <h3 style="color: white">⑨不定代词：Do you know <strong style="color: yellow">anything </strong>about it?</h3>
+                            </div>
+                            <div id="c4" class="know" style="display: none">
+                                <h1 align="center" style="color: white">副词<small>（主要用来修饰动词，形容词，副词或整个句子）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>说明时间、地点、程度、方式等概念</strong></h2>
+                                <h3 style="color: white">①时间副词：soon，then，today，tomorrow，afterwards，now…</h3>
+                                <h3 style="color: white">②地点副词：here，there，home…</h3>
+                                <h3 style="color: white">③程度副词：very，quite，rather…</h3>
+                                <h3 style="color: white">④方式副词：beautifully，reluctantly，well…</h3>
+                                <h3 style="color: white">⑤频度副词：often，frequently，always…</h3>
+                            </div>
+                            <div id="c6" class="know" style="display: none">
+                                <h1 align="center" style="color: white">数词<small>（表示数目多少或顺序多少）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>数词分为基数词和序数词</strong></h2>
+                                <h3 style="color: white">①基数词：表示数目多少的数词。例子：one，two，three…</h3>
+                                <h3 style="color: white">②序数词：表示顺序的数词。例子：first，second，third…</h3>
+                            </div>
+                            <div id="c8" class="know" style="display: none">
+                                <h1 align="center" style="color: white">介词<small>（表示名词、代词等与句中其它词的关系）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>按结构可分为以下三类</strong></h2>
+                                <h3 style="color: white">①简单介词。如：in，at，on，by，with，for…</h3>
+                                <h3 style="color: white">②分词介词。如：during，following，considering，regarding，judging…</h3>
+                                <h3 style="color: white">③成语介词。如：out of，apart from，because of…</h3>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>按意义可分为以下三类</strong></h2>
+                                <h3 style="color: white">①时间介词。如：at，on，in，during，over，for…</h3>
+                                <h3 style="color: white">②地点介词。如：at，on，in，across，between…</h3>
+                                <h3 style="color: white">③其他介词。如：by，with，about，due to…</h3>
+                                <h3 style="color: yellow">介词不可以单独使用，后面必须跟名词，动名词或句子构成介宾短语</h3>
+                            </div>
+                            <div id="c7" class="know" style="display: none">
+                                <h1 align="center" style="color: white">冠词<small>（表示名词是特指的还是泛指的）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>冠词分为不定冠词和定冠词</strong></h2>
+                                <h3 style="color: white">①不定冠词：用来表示这个冠词后面的名词是指某一类特定事物中的一个，但具体是哪一个并不重要。例子：a、an…</h3>
+                                <h3 style="color: white">②定冠词：用来限定这个冠词后面的名词是某个特定的事物。例子：the…</h3>
+                            </div>
+                            <div id="c10" class="know" style="display: none">
+                                <h1 align="center" style="color: white">感叹词<small>（表示情感上的变化）</small></h1>
+                                <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>感叹词一般放在句首，后用逗号隔开，感情强烈时，可用感叹号表示</strong></h2>
+                                <h3 style="color: white">例子：</h3>
+                                <h3 style="color: white">Oh 表示惊讶、指责、痛苦、称赞、懊恼等。 Example：“Oh， who was that？” Mr． Black asked.</h3>
+                                <h3 style="color: white">Ah 表示惊奇、高兴、讨厌、懊悔、藐视、威胁等。 Example：Ah， here is the thing I am after．</h3>
+                                <h3 style="color: white">come 表示鼓励、不耐烦、引起注意、安慰等。 Example：Come， we must hurry．</h3>
+                                <h3 style="color: white">dear 表示后悔、难过、怜悯、同情、吃惊、盼望等。 Example：Dear me！ What awful weather！</h3>
+                                <h3 style="color: white">well 表示快慰、让步、期望、讥讽、解释、责备、犹豫等。 Example：Well，you must come to lunch tomorrow．</h3>
+                                <h3 style="color: white">now 表示警告、命令、请求、说明、安慰筹。 Example：Now，let's play basketball．</h3>
+                                <h3 style="color: white">......</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span>Copyright &copy; Your Website 2019</span>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-primary" href="../login.html">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="" th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
+
+<!-- Page level plugins -->
+<script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
+<script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
+
+</body>
+
+</html>

@@ -295,37 +295,56 @@
                 <span>StudyPlan</span></a>
         </li>
 
-        <!-- Nav Item - Recitation -->
+        <!-- Nav Item - Study part Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link" href="" th:href="@{/user/recitation}">
-                <i class="fas fa-fw fa-gamepad"></i>
-                <span>Recitation</span></a>
-        </li>
-
-        <!-- Nav Item - ErrorWords -->
-        <li class="nav-item">
-            <a class="nav-link" href="" th:href="@{/user/errorWords}">
-                <i class="fas fa-fw fa-sign"></i>
-                <span>ErrorWords</span></a>
-        </li>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item active">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Study part</span>
             </a>
-            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">ChooseC</a>
-                    <a class="collapse-item active" href="" th:href="@{/user/fillBlanks}">FillBlanks</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                    <h6 class="collapse-header">Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
+                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
+                        <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
+                        <i class="fas fa-fw fa-dice-four"></i>DeriveOfWord</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Grammar}">
+                        <i class="fas fa-fw fa-dice-five"></i>Grammar</a>
+                    <a class="collapse-item" href="" th:href="@{/user/Sentence}">
+                        <i class="fas fa-fw fa-dice-six"></i>Sentence</a>
                     <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                    <h6 class="collapse-header">Other Portal</h6>
+                    <a class="collapse-item" href="404.html">
+                        <i class="fas fa-fw fa-question"></i>404 Page</a>
+                    <a class="collapse-item" href="blank.html">
+                        <i class="fas fa-fw fa-meh-blank"></i>Blank Page</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Test part Collapse Menu -->
+        <li class="nav-item active">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-gamepad"></i>
+                <span>Test part</span>
+            </a>
+            <div id="collapsePages2" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Test Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">
+                        <i class="fas fa-fw fa-dog"></i>ChooseC</a>
+                    <a class="collapse-item active" href="" th:href="@{/user/fillBlanks}">
+                        <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Recite&Error Portal</h6>
+                    <a class="collapse-item" href="" th:href="@{/user/recitation}">
+                        <i class="fas fa-fw fa-recycle"></i>Recitation</a>
+                    <a class="collapse-item" href="" th:href="@{/user/errorWords}">
+                        <i class="fas fa-fw fa-magic"></i>ErrorWords</a>
                 </div>
             </div>
         </li>

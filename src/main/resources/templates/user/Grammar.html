@@ -9,29 +9,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+    <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-
-<script>
-    function alter() {
-        document.getElementById("userName").disabled="";
-        document.getElementById("userTel").disabled="";
-        document.getElementById("userEmail").disabled="";
-        document.getElementById("userPassword").disabled="";
-        document.getElementById("userLevel").disabled="";
-        document.getElementById("userTarget").disabled="";
-    }
-</script>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -52,7 +41,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="index.html" th:href="@{/user/index}">
+            <a class="nav-link" href="" th:href="@{/user/index}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>倍思Basics</span></a>
         </li>
@@ -106,19 +95,19 @@
         </div>
 
         <!-- Nav Item - StudyPlan -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
                 <i class="fas fa-fw fa-plane"></i>
                 <span>StudyPlan</span></a>
         </li>
 
         <!-- Nav Item - Study part Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-book"></i>
                 <span>Study part</span>
             </a>
-            <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
                     <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
@@ -129,7 +118,7 @@
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
                         <i class="fas fa-fw fa-dice-four"></i>DeriveOfWord</a>
-                    <a class="collapse-item" href="" th:href="@{/user/Grammar}">
+                    <a class="collapse-item active" href="" th:href="@{/user/Grammar}">
                         <i class="fas fa-fw fa-dice-five"></i>Grammar</a>
                     <a class="collapse-item" href="" th:href="@{/user/Sentence}">
                         <i class="fas fa-fw fa-dice-six"></i>Sentence</a>
@@ -345,11 +334,11 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
-                            <a class="dropdown-item" href="#" th:href="@{/user/personalInfo}">
+                            <a class="dropdown-item" href="" th:href="@{/user/personalInfo}">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Personal Info
                             </a>
-                            <a class="dropdown-item" href="#" >
+                            <a class="dropdown-item" href="#">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Settings
                             </a>
@@ -358,7 +347,7 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="#" th:href="@{/user/logOut}">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -374,53 +363,23 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-1 text-gray-800">StudyPlan</h1>
-                <p class="mb-4">Set a plan to suit yourself.<a href="https://getbootstrap.com/docs"></a></p>
-
-                <!-- Content Row -->
-                <div class="row">
-
-                    <!-- Grow In Utility -->
-                    <div class="col-lg-12">
-
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">阿飞历险记</h1>
-                            </div>
-                            <div align="center">
-                                <img  src="../img/学校.png">
-                            </div>
-                            <div>
-                                <button title="阿飞在光电楼">
-                                    <img alt="ak" src="../img/syf.png" style="position: absolute;left: 790px;top: 260px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                                <h1 style="position: absolute;color: white;font-size: large;left: 880px;top: 290px;">光电楼能加综测吗？</h1>
-                            </div>
-                            <div>
-                                <button title="阿飞在操场">
-                                    <img src="../img/syf2.png" style="position: absolute;left: 730px;top: 520px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                            </div>
-                            <div>
-                                <button title="阿飞在食堂">
-                                    <img src="../img/syf3.png" style="position: absolute;left: 1080px;top: 360px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                            </div>
-<!--                            <div>-->
-<!--                                <img src="../img/syf.png" style="position: absolute;left: 830px;top: 320px;width: 80px;height: 70px;border: solid 3px white;border-radius: 100%">-->
-<!--                            </div>-->
-                        </div>
-
-                    </div>
-
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Grammar</h1>
+                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
+
             </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
+                    <span>Copyright &copy; Your Website 2020</span>
                 </div>
             </div>
         </footer>
@@ -429,7 +388,6 @@
     </div>
     <!-- End of Content Wrapper -->
 
-</div>
 </div>
 <!-- End of Page Wrapper -->
 
@@ -458,15 +416,21 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 <!-- Core plugin JavaScript-->
-<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+<script src="" th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
 <!-- Custom scripts for all pages-->
-<script th:src="@{/js/sb-admin-2.min.js}"></script>
+<script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
 
+<!-- Page level plugins -->
+<script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
+<script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
 
 </body>
 

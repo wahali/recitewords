@@ -449,6 +449,48 @@ public class UserController {
         System.out.println("study plan is coming!");
         return "user/StudyPlan";
     }
+
+    @RequestMapping("/user/PhoneticSymbol")
+    public String PhoneticSymbol(){
+        System.out.println("PhoneticSymbol is coming!");
+        return "user/PhoneticSymbol";
+    }
+
+    @RequestMapping("/user/Alphabet")
+    public String Alphabet(){
+        System.out.println("Alphabet is coming!");
+        return "user/Alphabet";
+    }
+
+    @RequestMapping("/user/CharacteristicOfWord")
+    public String CharacteristicOfWord(){
+        System.out.println("CharacteristicOfWord is coming!");
+        return "user/CharacteristicOfWord";
+    }
+
+    @RequestMapping("/user/DeriveOfWord")
+    public String DeriveOfWord(){
+        System.out.println("DeriveOfWord is coming!");
+        return "user/DeriveOfWord";
+    }
+
+    @RequestMapping("/user/Grammar")
+    public String Grammar(){
+        System.out.println("Grammar is coming!");
+        return "user/Grammar";
+    }
+
+    @RequestMapping("/user/Sentence")
+    public String Sentence(){
+        System.out.println("Sentence is coming!");
+        return "user/Sentence";
+    }
+
+    @RequestMapping("/user/DOW")
+    public String DOW(){
+        System.out.println("DOW is coming!");
+        return "user/DOW";
+    }
 }
 
 

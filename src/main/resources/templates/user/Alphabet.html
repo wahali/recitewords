@@ -9,29 +9,38 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+    <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+    <style>
+
+        .letter{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background-color: #4e73df;
+            border: 1px solid black;
+            font-size: larger;
+        }
+
+        .ppt{
+            position: absolute;
+            width: 880px;
+            height: 690px;
+            right: 0px;
+            top: 0px;
+        }
+    </style>
 
 </head>
 
 <body id="page-top">
-
-<script>
-    function alter() {
-        document.getElementById("userName").disabled="";
-        document.getElementById("userTel").disabled="";
-        document.getElementById("userEmail").disabled="";
-        document.getElementById("userPassword").disabled="";
-        document.getElementById("userLevel").disabled="";
-        document.getElementById("userTarget").disabled="";
-    }
-</script>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -52,7 +61,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="index.html" th:href="@{/user/index}">
+            <a class="nav-link" href="" th:href="@{/user/index}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>倍思Basics</span></a>
         </li>
@@ -106,24 +115,24 @@
         </div>
 
         <!-- Nav Item - StudyPlan -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
                 <i class="fas fa-fw fa-plane"></i>
                 <span>StudyPlan</span></a>
         </li>
 
         <!-- Nav Item - Study part Collapse Menu -->
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-book"></i>
                 <span>Study part</span>
             </a>
-            <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
                     <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
                         <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
-                    <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
+                    <a class="collapse-item active" href="" th:href="@{/user/Alphabet}">
                         <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
@@ -345,11 +354,11 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>
-                            <a class="dropdown-item" href="#" th:href="@{/user/personalInfo}">
+                            <a class="dropdown-item" href="" th:href="@{/user/personalInfo}">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Personal Info
                             </a>
-                            <a class="dropdown-item" href="#" >
+                            <a class="dropdown-item" href="#">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Settings
                             </a>
@@ -358,7 +367,7 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="#" th:href="@{/user/logOut}">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -370,57 +379,113 @@
             </nav>
             <!-- End of Topbar -->
 
+            <script>
+
+                function fun(num) {
+                    for (var i=0;i<=26;i++){
+                        // alert("woc!"+i);
+                        if (i==num){
+                            // alert("yes!");
+                            document.getElementById("ppt"+i).style.display="block";
+                        }
+                        else {
+                            // alert("no!");
+                            document.getElementById("ppt"+i).style.display="none";
+                        }
+                    }
+                }
+            </script>
+
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-1 text-gray-800">StudyPlan</h1>
-                <p class="mb-4">Set a plan to suit yourself.<a href="https://getbootstrap.com/docs"></a></p>
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Alphabet</h1>
+                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                </div>
 
-                <!-- Content Row -->
                 <div class="row">
 
-                    <!-- Grow In Utility -->
                     <div class="col-lg-12">
 
-                        <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">阿飞历险记</h1>
-                            </div>
-                            <div align="center">
-                                <img  src="../img/学校.png">
-                            </div>
+                        <div style="position: absolute;left: 15px;width: 1615px;height: 700px;border: 5px solid #4e73df;">
+
                             <div>
-                                <button title="阿飞在光电楼">
-                                    <img alt="ak" src="../img/syf.png" style="position: absolute;left: 790px;top: 260px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                                <h1 style="position: absolute;color: white;font-size: large;left: 880px;top: 290px;">光电楼能加综测吗？</h1>
+                                <button style="position: absolute;height: 40px;width: 120px;left: 100px;top: 40px;background-color: #4e73df" onclick="fun(0)"><h3 style="color: white">字母表</h3></button>
+                                <button class="letter" style="left: 100px;top: 100px;" onclick="fun(1)"><h3 style="color: white">A a</h3></button>
+                                <button class="letter" style="left: 200px;top: 100px;" onclick="fun(2)"><h3 style="color: white">B b</h3></button>
+                                <button class="letter" style="left: 300px;top: 100px;" onclick="fun(3)"><h3 style="color: white">C c</h3></button>
+                                <button class="letter" style="left: 100px;top: 160px;" onclick="fun(4)"><h3 style="color: white">D d</h3></button>
+                                <button class="letter" style="left: 200px;top: 160px;" onclick="fun(5)"><h3 style="color: white">E e</h3></button>
+                                <button class="letter" style="left: 300px;top: 160px;" onclick="fun(6)"><h3 style="color: white">F f</h3></button>
+                                <button class="letter" style="left: 100px;top: 220px;" onclick="fun(7)"><h3 style="color: white">G g</h3></button>
+                                <button class="letter" style="left: 200px;top: 220px;" onclick="fun(8)"><h3 style="color: white">H h</h3></button>
+                                <button class="letter" style="left: 300px;top: 220px;" onclick="fun(9)"><h3 style="color: white">I i</h3></button>
+                                <button class="letter" style="left: 100px;top: 280px;" onclick="fun(10)"><h3 style="color: white">J j</h3></button>
+                                <button class="letter" style="left: 200px;top: 280px;" onclick="fun(11)"><h3 style="color: white">K k</h3></button>
+                                <button class="letter" style="left: 300px;top: 280px;" onclick="fun(12)"><h3 style="color: white">L l</h3></button>
+                                <button class="letter" style="left: 100px;top: 340px;" onclick="fun(13)"><h3 style="color: white">M m</h3></button>
+                                <button class="letter" style="left: 200px;top: 340px;" onclick="fun(14)"><h3 style="color: white">N n</h3></button>
+                                <button class="letter" style="left: 300px;top: 340px;" onclick="fun(15)"><h3 style="color: white">O o</h3></button>
+                                <button class="letter" style="left: 100px;top: 400px;" onclick="fun(16)"><h3 style="color: white">P p</h3></button>
+                                <button class="letter" style="left: 200px;top: 400px;" onclick="fun(17)"><h3 style="color: white">Q q</h3></button>
+                                <button class="letter" style="left: 300px;top: 400px;" onclick="fun(18)"><h3 style="color: white">R r</h3></button>
+                                <button class="letter" style="left: 100px;top: 460px;" onclick="fun(19)"><h3 style="color: white">S s</h3></button>
+                                <button class="letter" style="left: 200px;top: 460px;" onclick="fun(20)"><h3 style="color: white">T t</h3></button>
+                                <button class="letter" style="left: 300px;top: 460px;" onclick="fun(21)"><h3 style="color: white">U u</h3></button>
+                                <button class="letter" style="left: 100px;top: 520px;" onclick="fun(22)"><h3 style="color: white">V v</h3></button>
+                                <button class="letter" style="left: 200px;top: 520px;" onclick="fun(23)"><h3 style="color: white">W w</h3></button>
+                                <button class="letter" style="left: 300px;top: 520px;" onclick="fun(24)"><h3 style="color: white">X x</h3></button>
+                                <button class="letter" style="left: 100px;top: 580px;" onclick="fun(25)"><h3 style="color: white">Y y</h3></button>
+                                <button class="letter" style="left: 200px;top: 580px;" onclick="fun(26)"><h3 style="color: white">Z z</h3></button>
                             </div>
-                            <div>
-                                <button title="阿飞在操场">
-                                    <img src="../img/syf2.png" style="position: absolute;left: 730px;top: 520px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                            </div>
-                            <div>
-                                <button title="阿飞在食堂">
-                                    <img src="../img/syf3.png" style="position: absolute;left: 1080px;top: 360px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                            </div>
-<!--                            <div>-->
-<!--                                <img src="../img/syf.png" style="position: absolute;left: 830px;top: 320px;width: 80px;height: 70px;border: solid 3px white;border-radius: 100%">-->
-<!--                            </div>-->
+                            <img id="ppt0" alt="" class="ppt" src="../img/letter/letter0.png">
+                            <img id="ppt1" alt="" class="ppt" style="display: none" src="../img/letter/letter1.png">
+                            <img id="ppt2" alt="" class="ppt" style="display: none" src="../img/letter/letter2.png">
+                            <img id="ppt3" alt="" class="ppt" style="display: none" src="../img/letter/letter3.png">
+                            <img id="ppt4" alt="" class="ppt" style="display: none" src="../img/letter/letter4.png">
+                            <img id="ppt5" alt="" class="ppt" style="display: none" src="../img/letter/letter5.png">
+                            <img id="ppt6" alt="" class="ppt" style="display: none" src="../img/letter/letter6.png">
+                            <img id="ppt7" alt="" class="ppt" style="display: none" src="../img/letter/letter7.png">
+                            <img id="ppt8" alt="" class="ppt" style="display: none" src="../img/letter/letter8.png">
+                            <img id="ppt9" alt="" class="ppt" style="display: none" src="../img/letter/letter9.png">
+                            <img id="ppt10" alt="" class="ppt" style="display: none" src="../img/letter/letter10.png">
+                            <img id="ppt11" alt="" class="ppt" style="display: none" src="../img/letter/letter11.png">
+                            <img id="ppt12" alt="" class="ppt" style="display: none" src="../img/letter/letter12.png">
+                            <img id="ppt13" alt="" class="ppt" style="display: none" src="../img/letter/letter13.png">
+                            <img id="ppt14" alt="" class="ppt" style="display: none" src="../img/letter/letter14.png">
+                            <img id="ppt15" alt="" class="ppt" style="display: none" src="../img/letter/letter15.png">
+                            <img id="ppt16" alt="" class="ppt" style="display: none" src="../img/letter/letter16.png">
+                            <img id="ppt17" alt="" class="ppt" style="display: none" src="../img/letter/letter17.png">
+                            <img id="ppt18" alt="" class="ppt" style="display: none" src="../img/letter/letter18.png">
+                            <img id="ppt19" alt="" class="ppt" style="display: none" src="../img/letter/letter19.png">
+                            <img id="ppt20" alt="" class="ppt" style="display: none" src="../img/letter/letter20.png">
+                            <img id="ppt21" alt="" class="ppt" style="display: none" src="../img/letter/letter21.png">
+                            <img id="ppt22" alt="" class="ppt" style="display: none" src="../img/letter/letter22.png">
+                            <img id="ppt23" alt="" class="ppt" style="display: none" src="../img/letter/letter23.png">
+                            <img id="ppt24" alt="" class="ppt" style="display: none" src="../img/letter/letter24.png">
+                            <img id="ppt25" alt="" class="ppt" style="display: none" src="../img/letter/letter25.png">
+                            <img id="ppt26" alt="" class="ppt" style="display: none" src="../img/letter/letter26.png">
                         </div>
 
                     </div>
 
                 </div>
 
+
+
             </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
         <!-- Footer -->
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2019</span>
+                    <span>Copyright &copy; Your Website 2020</span>
                 </div>
             </div>
         </footer>
@@ -429,7 +494,6 @@
     </div>
     <!-- End of Content Wrapper -->
 
-</div>
 </div>
 <!-- End of Page Wrapper -->
 
@@ -458,15 +522,21 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 <!-- Core plugin JavaScript-->
-<script th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
+<script src="" th:src="@{/vendor/jquery-easing/jquery.easing.min.js}"></script>
 
 <!-- Custom scripts for all pages-->
-<script th:src="@{/js/sb-admin-2.min.js}"></script>
+<script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
 
+<!-- Page level plugins -->
+<script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
+<script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
 
 </body>
 
