@@ -18,11 +18,13 @@ public interface WordsMapper {
 
     public Words selectByWId(String wordId);
 
-    public void insertValue(HashMap<String,Object> map);
+    public void insertValue(HashMap<String, Object> map);
 
     public Words selectOneByWId(String wordId);
 
     public void deleteByWId(String wordId);
 
     public int selectErrorWordByWId(String wordId);
+
+    public List<Words> getChildWordListByWordId(String wordId);
 }

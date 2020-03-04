@@ -54,4 +54,8 @@
         delete from wordserror where wordId=#{wordId}
     </delete>
 
+    <select id="getChildWordListByWordId" parameterType="String" resultType="words">
+        select * from words where fatherId=#{fatherId}
+    </select>
+
 </mapper>

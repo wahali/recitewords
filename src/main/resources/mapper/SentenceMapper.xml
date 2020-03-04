@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eng.recitewords.mapper.AdminMapper">
+
+    <select id="getSentenceByWord" parameterType="String" resultType="sentence">
+        select * from sentence where englishInstacne like #{englishInstacne}
+    </select>
+
+    <select id="getSentenceByWordId" parameterType="String" resultType="sentence">
+        select * from sentence where englishInstacne like #{englishInstacne}
+    </select>
+</mapper>

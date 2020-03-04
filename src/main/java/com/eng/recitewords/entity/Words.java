@@ -12,6 +12,15 @@ public class Words {
     private String chineseInstance2;
     private int collect;
     private String pron;
+    private String fatherId;
+
+    public String getFatherId() {
+        return fatherId;
+    }
+
+    public void setFatherId(String fatherId) {
+        this.fatherId = fatherId;
+    }
 
     public String getWordId() {
         return wordId;
@@ -106,6 +115,7 @@ public class Words {
                 ", chineseInstance2='" + chineseInstance2 + '\'' +
                 ", collect=" + collect +
                 ", pron='" + pron + '\'' +
+                ", fatherId=" + fatherId +
                 '}';
     }
 }

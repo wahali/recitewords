@@ -86,5 +86,8 @@ public class WordsService {
         int count = wordsMapper.selectErrorWordByWId(wordId);
         return count;
     }
+    public List<Words> getDeriveWordById(String wordId){
+        return null;
+    }
 
 }
