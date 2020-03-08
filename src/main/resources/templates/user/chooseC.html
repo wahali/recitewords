@@ -28,7 +28,7 @@
     <!-- Custom scripts for all pages-->
     <script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
 
-    <script>
+    <script >
         window.alert = function(name){
 
             var iframe = document.createElement("IFRAME");
@@ -40,7 +40,7 @@
         };
     </script>
 
-    <script>
+    <script >
         $(function () {
             $("#audio").mouseover(function () {
                 // alert("你点我干嘛");
@@ -60,17 +60,23 @@
                 audioJQ.appendTo("body");
             });
 
+
             $(".choose").on("click",function () {
                 // alert("!!");
-                var value = $(this).attr("value");
+                var value = $(this).val();
+                if(value=='')value = $(this).attr('value');
+                // var value = $("p[class='choose']:checked").val();
                 var correctWord = document.getElementById("thisId").value;
                 // var chinese = correctWord.value;
-                if (correctWord!=value){
+                if (correctWord!==value){
+                    // console.log($('#choose1').text());
+                    // console.log($('#choose1').val());
+                    // console.log("choose",value);
+                    // console.log("correct ",correctWord);
                     alert("选错了！别灰心，看看单词释义吧！");
                 }else{
                     alert("选对了！")
                 }
-                 // alert(value+" "+correctWord);
             })
 
             $("#right").click(function () {
@@ -92,15 +98,22 @@
                         $("#englishWord").text(data.word.englishWord);
                         $("#pa").text("/" + data.word.pa + "/");
                         $("#chineseWord").text(data.word.chineseWord);
+                        //修改用于比较的本单词的中文意思
+                        $("#thisId").prop("value",data.word.chineseWord);
                         $("#englishInstance1").text("1、" + data.word.englishInstance1);
                         $("#chineseInstance1").text(data.word.chineseInstance1);
                         $("#englishInstance2").text("2、" + data.word.englishInstance2);
                         $("#chineseInstance2").text(data.word.chineseInstance2);
-
+                        //修改显示文本，并且修改点击后选中的内容
                         $("#choose1").text("A. "+data.map.map1);
                         $("#choose2").text("B. "+data.map.map2);
                         $("#choose3").text("C. "+data.map.map3);
                         $("#choose4").text("D. "+data.map.map4);
+                        $("#choose1").prop("value", data.map.map1);
+                        $("#choose2").prop("value", data.map.map2);
+                        $("#choose3").prop("value", data.map.map3);
+                        $("#choose4").prop("value", data.map.map4);
+
                     }
                 });
             });
@@ -125,6 +138,8 @@
                         $("#englishWord").text(data.word.englishWord);
                         $("#pa").text("/" + data.word.pa + "/");
                         $("#chineseWord").text(data.word.chineseWord);
+                        //修改用于比较的本单词的中文意思
+                        $("#thisId").prop("value",data.word.chineseWord);
                         $("#englishInstance1").text("1、" + data.word.englishInstance1);
                         $("#chineseInstance1").text(data.word.chineseInstance1);
                         $("#englishInstance2").text("2、" + data.word.englishInstance2);
@@ -134,6 +149,10 @@
                         $("#choose2").text("B. "+data.map.map2);
                         $("#choose3").text("C. "+data.map.map3);
                         $("#choose4").text("D. "+data.map.map4);
+                        $("#choose1").prop("value", data.map.map1);
+                        $("#choose2").prop("value", data.map.map2);
+                        $("#choose3").prop("value", data.map.map3);
+                        $("#choose4").prop("value", data.map.map4);
                     }
                 });
             });
@@ -677,5 +696,6 @@
 
 
 </body>
+
 
 </html>

@@ -167,7 +167,6 @@ public class UserController {
             json.put("word",word);
             json.put("index",index);
 
-
             long t = System.currentTimeMillis();
             Random random = new Random(t);
             HashMap<String, Object> map = new HashMap<>();
@@ -183,7 +182,6 @@ public class UserController {
                     i--;
                 }
             }
-
             Words word1 = wordsList.get(Integer.parseInt(index));
 
             String wd = word1.getEnglishWord();
@@ -227,6 +225,7 @@ public class UserController {
             index = String.valueOf(Integer.parseInt(index) - 1);
             Words word = wordsList.get(Integer.parseInt(index));
             JSONObject json = new JSONObject();
+
             json.put("word",word);
             json.put("index",index);
 
@@ -245,7 +244,6 @@ public class UserController {
                     i--;
                 }
             }
-
             Words word1 = wordsList.get(Integer.parseInt(index));
 
             String wd = word1.getEnglishWord();
