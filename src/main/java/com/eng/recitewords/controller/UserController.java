@@ -442,6 +442,39 @@ public class UserController {
         return "user/chooseC";
     }
 
+    @RequestMapping("/user/chooseEnglishWord")
+    public String chooseEnglish(Model model, HttpServletRequest request) {
+        User user = (User)request.getSession().getAttribute("user");
+        List<Words> wordsList = userService.selectPartWord(user.getUserLast(),user.getUserLast() + user.getUserTarget());
+//        System.out.println(wordsList.size());
+        List<String> wordsIdList = wordsService.selectWordsByUId(user.getUserId());
+        String index = "0";
+        long t = System.currentTimeMillis();
+        Random random = new Random(t);
+        HashMap<String, Object> map = new HashMap<>();
+        int num = random.nextInt(4)+1;
+//        System.out.println(num);
+        map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getEnglishWord());
+//        System.out.println(map.get(String.valueOf(num)) == null);
+        for(int i = 1 ; i <= 4; i++) {
+            int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+            if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getEnglishWord())) {
+                map.put("map"+String.valueOf(i), wordsList.get(count).getEnglishWord());
+            } else if(map.containsValue(wordsList.get(count).getEnglishWord())) {
+                i--;
+            }
+        }
+//        List<Words> wordsErrorList = wordsService.selectByWId(wordsIdList);
+
+        model.addAttribute("word",wordsList.get(Integer.parseInt(index)));
+        model.addAttribute("index",index);
+        model.addAttribute("englishMap",map);
+//        model.addAttribute("wordErrors", wordsErrorList);
+        request.getSession().setAttribute("words",wordsList);
+        return "user/chooseE";
+    }
+
+
     @RequestMapping("/user/StudyPlan")
     public String StudyPlan(){
         System.out.println("study plan is coming!");
