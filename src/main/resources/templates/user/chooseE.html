@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>倍思Basics - chooseC</title>
+    <title>倍思Basics - chooseE</title>
 
     <!-- Custom fonts for this template-->
     <link href="" th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -68,7 +68,7 @@
                 // var value = $("p[class='choose']:checked").val();
                 var correctWord = document.getElementById("thisId").value;
                 // var chinese = correctWord.value;
-                if (correctWord!==value){
+                if (correctWord!=value){
                     // console.log($('#choose1').text());
                     // console.log($('#choose1').val());
                     // console.log("choose",value);
@@ -80,17 +80,17 @@
             })
 
             $("#right").click(function () {
-                 //alert("你点我了");
+                //alert("你点我了");
                 var index = $("#index").val();
                 // index = index + 1;
-                var url = "/recitewords/chooseC/nextWord";
+                var url = "/recitewords/chooseE/nextWord";
                 var args = {"index":index,"time":new Date()};
                 $.post(url, args, function (data) {
                     if(data == "success") {
                         alert("已经是最后一个了！");
                     } else {
                         data = JSON.parse(data);//先解析json字符串
-                         //alert(data.map);
+                        //alert(data.map);
                         // $("#index").val(data.index);
                         $("#index").prop("value", data.index);
                         $("#pron").prop("value",data.word.pron);
@@ -123,14 +123,14 @@
                 var index = $("#index").val();
                 // alert(index);
                 // index = index + 1;
-                var url = "/recitewords/chooseC/preWord";
+                var url = "/recitewords/chooseE/preWord";
                 var args = {"index":index,"time":new Date()};
                 $.post(url, args, function (data) {
                     if(data == "success") {
                         alert("前面已经没有了！");
                     } else {
                         data = JSON.parse(data);//先解析json字符串
-                         //alert(data.map);
+                        //alert(data.map);
                         // $("#index").val(data.index);
                         $("#index").prop("value", data.index);
                         $("#pron").prop("value",data.word.pron);
@@ -335,10 +335,10 @@
             <div id="collapsePages2" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Test Portal</h6>
-                    <a class="collapse-item active" href="" th:href="@{/user/chooseChineseWord}">
+                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">
                         <i class="fas fa-fw fa-dog"></i>ChooseC</a>
-                    <a class="collapse-item" href="" th:href="@{/user/chooseEnglishWord}">
-                        <i class="fas fa-fw fa-cat"></i>ChooseE</a>
+                    <a class="collapse-item active" href="" th:href="@{/user/chooseEnglishWord}">
+                        <i class="fas fa-fw fa-dog"></i>ChooseE</a>
                     <a class="collapse-item" href="" th:href="@{/user/fillBlanks}">
                         <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
                     <div class="collapse-divider"></div>
@@ -559,7 +559,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-1 text-gray-800">ChooseC</h1>
+                <h1 class="h3 mb-1 text-gray-800">ChooseE</h1>
                 <p class="mb-4">Choose the correct one from four options.<a href="https://getbootstrap.com/docs"></a></p>
 
                 <!-- Content Row -->
@@ -571,74 +571,75 @@
                         <div class="card shadow mb-4">
                             <div class="card-header py-3" style="text-align: center">
                                 <button id="left" class="btn" style="float: left"><i class="fa fa-angle-left"></i></button>
-                                <span style="color: black">看词选释义区</span>
+                                <span style="color: black">听音选词区</span>
                                 <button id="right" class="btn" style="float: right;outline:none"><i class="fa fa-angle-right" ></i></button>
                                 <input type="hidden" id="index" value="" th:value="${index}"/>
                             </div>
                             <div class="card-body">
-                                <div style="display: inline-flex">
-                                    <p style="font-size: xx-large;color: black" id="englishWord" th:text="${word.englishWord}"></p>
-                                </div>
+
                                 <div class="btn-circle">
-                                    <button class="btn"><i id="audio" class="fa fa-volume-up"></i></button>
+                                    <button class="btn"><h1><i id="audio" class="fa fa-volume-up" title="音频"></i></h1></button>
                                     <input type="hidden" id="pron" th:value="${word.pron}"/>
                                 </div>
-                                <div style="display: inline-flex">
-                                    <p id="pa" th:text="'/'+${word.pa}+'/'"></p>
-                                </div>
+
                                 <div style="display: inline-flex;margin-left:30px">
                                     <input type="hidden" value="" id="wordId" th:value="${word.wordId}"/>
                                     <button class="btn" id="addError" title="添加到错词本"><i class="fa fa-book"></i></button>
                                 </div>
 
 
-                                <input type="hidden" id="thisId" th:value="${word.chineseWord}"/>
+                                <input type="hidden" id="thisId" th:value="${word.englishWord}"/>
 
                                 <div class="mt-4 mb-2">
                                     <!--<p id="chineseWord" th:text="${word.chineseWord}"></p>-->
-<!--                                    <input type="radio" text="" id="choose1" name="value111" style="margin-right: 10px" th:text="${chineseMap['map1']}" th:value="${chineseMap['map1']}">-->
-                                    <p id="choose1" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'A. '+${chineseMap['map1']}" th:value="${chineseMap['map1']}"></p>
+                                    <!--                                    <input type="radio" text="" id="choose1" name="value111" style="margin-right: 10px" th:text="${chineseMap['map1']}" th:value="${chineseMap['map1']}">-->
+                                    <p id="choose1" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'A. '+${englishMap['map1']}" th:value="${englishMap['map1']}"></p>
                                 </div>
                                 <div class="mt-4 mb-2">
                                     <!--<p id="chineseWord" th:text="${word.chineseWord}"></p>-->
-                                    <p id="choose2" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'B. '+${chineseMap['map2']}" th:value="${chineseMap['map2']}"></p>
-<!--                                    <input type="radio" text="" id="choose2" name="value111" style="margin-right: 10px" th:text="${chineseMap['map2']}" th:value="${chineseMap['map2']}">-->
+                                    <p id="choose2" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'B. '+${englishMap['map2']}" th:value="${englishMap['map2']}"></p>
+                                    <!--                                    <input type="radio" text="" id="choose2" name="value111" style="margin-right: 10px" th:text="${chineseMap['map2']}" th:value="${chineseMap['map2']}">-->
                                 </div>
                                 <div class="mt-4 mb-2">
                                     <!--<p id="chineseWord" th:text="${word.chineseWord}"></p>-->
-                                    <p id="choose3" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'C. '+${chineseMap['map3']}" th:value="${chineseMap['map3']}"></p>
-<!--                                    <input type="radio" text="" id="choose3" name="value111" style="margin-right: 10px" th:text="${chineseMap['map3']}" th:value="${chineseMap['map3']}">-->
+                                    <p id="choose3" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'C. '+${englishMap['map3']}" th:value="${englishMap['map3']}"></p>
+                                    <!--                                    <input type="radio" text="" id="choose3" name="value111" style="margin-right: 10px" th:text="${chineseMap['map3']}" th:value="${chineseMap['map3']}">-->
                                 </div>
                                 <div class="mt-4 mb-2">
                                     <!--<p id="chineseWord" th:text="${word.chineseWord}"></p>-->
-                                    <p id="choose4" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'D. '+${chineseMap['map4']}" th:value="${chineseMap['map4']}"></p>
-<!--                                    <input type="radio" text="" id="choose4" name="value111" style="margin-right: 10px" th:text="${chineseMap['map4']}" th:value="${chineseMap['map4']}">-->
+                                    <p id="choose4" class="choose" name="value111" style="margin-right: 10px;cursor: pointer" th:text="'D. '+${englishMap['map4']}" th:value="${englishMap['map4']}"></p>
+                                    <!--                                    <input type="radio" text="" id="choose4" name="value111" style="margin-right: 10px" th:text="${chineseMap['map4']}" th:value="${chineseMap['map4']}">-->
                                 </div>
 
                                 <input type="button" value="单词解释/例句" style="background-color: #4e73df;color: white;border-color: #4e73df;margin-left: 25px" onclick="show(this)"/>
                                 <div id="example" style="display: none">
-
+                                    <div style="display: inline-flex">
+                                        <p style="font-size: xx-large;color: black" id="englishWord" th:text="${word.englishWord}"></p>
+                                    </div>
+                                    <div style="display: inline-flex">
+                                        <p id="pa" th:text="'/'+${word.pa}+'/'"></p>
+                                    </div>
                                     <div class="mb-2">
                                         <p>单词释义：</p>
                                     </div>
                                     <div class="mt-4 mb-2">
                                         <p id="chineseWord" th:text="${word.chineseWord}"></p>
                                     </div>
-                                <div class="mb-2">
-                                    <p>例句：</p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="englishInstance1" th:text="'1、'+${word.englishInstance1}"></p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="chineseInstance1" style="margin-left: 25px" th:text="${word.chineseInstance1}"></p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="englishInstance2" th:text="'2、'+${word.englishInstance2}"></p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="chineseInstance2" style="margin-left: 25px" th:text="${word.chineseInstance2}"></p>
-                                </div>
+                                    <div class="mb-2">
+                                        <p>例句：</p>
+                                    </div>
+                                    <div class="mt-4 mb-2">
+                                        <p id="englishInstance1" th:text="'1、'+${word.englishInstance1}"></p>
+                                    </div>
+                                    <div class="mt-4 mb-2">
+                                        <p id="chineseInstance1" style="margin-left: 25px" th:text="${word.chineseInstance1}"></p>
+                                    </div>
+                                    <div class="mt-4 mb-2">
+                                        <p id="englishInstance2" th:text="'2、'+${word.englishInstance2}"></p>
+                                    </div>
+                                    <div class="mt-4 mb-2">
+                                        <p id="chineseInstance2" style="margin-left: 25px" th:text="${word.chineseInstance2}"></p>
+                                    </div>
 
                                 </div>
 
