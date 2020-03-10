@@ -149,7 +149,7 @@ public class UserController {
         model.addAttribute("indexs",indexList);
         return "user/errorWords";
     }
-    @RequestMapping("/nextWord")
+    @RequestMapping("/chooseC/nextWord")
     public void nextWord(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
@@ -182,6 +182,73 @@ public class UserController {
                     i--;
                 }
             }
+
+            json.put("map",map);
+            System.out.println(map);
+
+            Words word1 = wordsList.get(Integer.parseInt(index));
+
+//            String wd = word1.getEnglishWord();
+//            String sentence1 = word1.getEnglishInstance1();
+//            String sentence2 = word1.getEnglishInstance2();
+//            String wd1 = wd.substring(0,wd.length()-1);
+//            wd1 = "(\\w)*" + wd1 + "\\w";
+//            Pattern pattern = Pattern.compile(wd1,Pattern.CASE_INSENSITIVE);
+//            Matcher matcher1 = pattern.matcher(sentence1);
+//            Matcher matcher2 = pattern.matcher(sentence2);
+//            sentence1 = matcher1.replaceAll(" ______ ");
+//            sentence2 = matcher2.replaceAll(" ______ ");
+////            model.addAttribute("sentence1",sentence1);
+////            model.addAttribute("sentence2",sentence2);
+//            json.put("sentence1",sentence1);
+//            json.put("sentence2",sentence2);
+
+
+            try {
+                response.getWriter().print(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @RequestMapping("/fillBlanks/nextWord")
+    public void nextWordInFillBlanks(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
+        response.setCharacterEncoding("utf-8");
+        List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        User user = (User)request.getSession().getAttribute("user");
+        if(user.getUserTarget() <= Integer.parseInt(index)) {
+            try {
+                response.getWriter().print("success");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            index = String.valueOf(Integer.parseInt(index) + 1);
+            Words word = wordsList.get(Integer.parseInt(index));
+            JSONObject json = new JSONObject();
+            json.put("word",word);
+            json.put("index",index);
+
+//            long t = System.currentTimeMillis();
+////            Random random = new Random(t);
+////            HashMap<String, Object> map = new HashMap<>();
+////            int num = random.nextInt(4)+1;
+//////        System.out.println(num);
+////            map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
+//////        System.out.println(map.get(String.valueOf(num)) == null);
+////            for(int i = 1 ; i <= 4; i++) {
+////                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+////                if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
+////                    map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
+////                } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
+////                    i--;
+////                }
+////            }
+////
+////            json.put("map",map);
+////            System.out.println(map);
+
             Words word1 = wordsList.get(Integer.parseInt(index));
 
             String wd = word1.getEnglishWord();
@@ -199,8 +266,7 @@ public class UserController {
             json.put("sentence1",sentence1);
             json.put("sentence2",sentence2);
 
-            json.put("map",map);
-            System.out.println(map);
+
             try {
                 response.getWriter().print(json);
             } catch (IOException e) {
@@ -209,7 +275,70 @@ public class UserController {
         }
     }
 
-    @RequestMapping("/preWord")
+    @RequestMapping("/chooseE/nextWord")
+    public void nextWordInChooseE(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
+        response.setCharacterEncoding("utf-8");
+        List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        User user = (User)request.getSession().getAttribute("user");
+        if(user.getUserTarget() <= Integer.parseInt(index)) {
+            try {
+                response.getWriter().print("success");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            index = String.valueOf(Integer.parseInt(index) + 1);
+            Words word = wordsList.get(Integer.parseInt(index));
+            JSONObject json = new JSONObject();
+            json.put("word",word);
+            json.put("index",index);
+
+            long t = System.currentTimeMillis();
+            Random random = new Random(t);
+            HashMap<String, Object> map = new HashMap<>();
+            int num = random.nextInt(4)+1;
+//        System.out.println(num);
+            map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getEnglishWord());
+//        System.out.println(map.get(String.valueOf(num)) == null);
+            for(int i = 1 ; i <= 4; i++) {
+                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+                if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getEnglishWord())) {
+                    map.put("map"+String.valueOf(i), wordsList.get(count).getEnglishWord());
+                } else if(map.containsValue(wordsList.get(count).getEnglishWord())) {
+                    i--;
+                }
+            }
+
+            json.put("map",map);
+            System.out.println(map);
+
+//            Words word1 = wordsList.get(Integer.parseInt(index));
+
+//            String wd = word1.getEnglishWord();
+//            String sentence1 = word1.getEnglishInstance1();
+//            String sentence2 = word1.getEnglishInstance2();
+//            String wd1 = wd.substring(0,wd.length()-1);
+//            wd1 = "(\\w)*" + wd1 + "\\w";
+//            Pattern pattern = Pattern.compile(wd1,Pattern.CASE_INSENSITIVE);
+//            Matcher matcher1 = pattern.matcher(sentence1);
+//            Matcher matcher2 = pattern.matcher(sentence2);
+//            sentence1 = matcher1.replaceAll(" ______ ");
+//            sentence2 = matcher2.replaceAll(" ______ ");
+////            model.addAttribute("sentence1",sentence1);
+////            model.addAttribute("sentence2",sentence2);
+//            json.put("sentence1",sentence1);
+//            json.put("sentence2",sentence2);
+
+
+            try {
+                response.getWriter().print(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @RequestMapping("/chooseC/preWord")
     public void preWord(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
         response.setCharacterEncoding("utf-8");
@@ -244,6 +373,70 @@ public class UserController {
                     i--;
                 }
             }
+            json.put("map",map);
+
+            Words word1 = wordsList.get(Integer.parseInt(index));
+
+//            String wd = word1.getEnglishWord();
+//            String sentence1 = word1.getEnglishInstance1();
+//            String sentence2 = word1.getEnglishInstance2();
+//            String wd1 = wd.substring(0,wd.length()-1);
+//            wd1 = "(\\w)*" + wd1 + "\\w";
+//            Pattern pattern = Pattern.compile(wd1,Pattern.CASE_INSENSITIVE);
+//            Matcher matcher1 = pattern.matcher(sentence1);
+//            Matcher matcher2 = pattern.matcher(sentence2);
+//            sentence1 = matcher1.replaceAll(" ______ ");
+//            sentence2 = matcher2.replaceAll(" ______ ");
+////            model.addAttribute("sentence1",sentence1);
+////            model.addAttribute("sentence2",sentence2);
+//            json.put("sentence1",sentence1);
+//            json.put("sentence2",sentence2);
+
+            try {
+                response.getWriter().print(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @RequestMapping("/fillBlanks/preWord")
+    public void preWordInFillBlanks(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
+        response.setCharacterEncoding("utf-8");
+        List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        User user = (User)request.getSession().getAttribute("user");
+        if(user.getUserTarget() <= Integer.parseInt(index)) {
+            try {
+                response.getWriter().print("success");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            index = String.valueOf(Integer.parseInt(index) - 1);
+            Words word = wordsList.get(Integer.parseInt(index));
+            JSONObject json = new JSONObject();
+            json.put("word",word);
+            json.put("index",index);
+
+//            long t = System.currentTimeMillis();
+////            Random random = new Random(t);
+////            HashMap<String, Object> map = new HashMap<>();
+////            int num = random.nextInt(4)+1;
+//////        System.out.println(num);
+////            map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
+//////        System.out.println(map.get(String.valueOf(num)) == null);
+////            for(int i = 1 ; i <= 4; i++) {
+////                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+////                if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
+////                    map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
+////                } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
+////                    i--;
+////                }
+////            }
+////
+////            json.put("map",map);
+////            System.out.println(map);
+
             Words word1 = wordsList.get(Integer.parseInt(index));
 
             String wd = word1.getEnglishWord();
@@ -262,7 +455,68 @@ public class UserController {
             json.put("sentence2",sentence2);
 
 
+            try {
+                response.getWriter().print(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @RequestMapping("/chooseE/preWord")
+    public void preWordInChooseE(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
+        response.setCharacterEncoding("utf-8");
+        List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        User user = (User)request.getSession().getAttribute("user");
+        if(user.getUserTarget() <= Integer.parseInt(index)) {
+            try {
+                response.getWriter().print("success");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            index = String.valueOf(Integer.parseInt(index) - 1);
+            Words word = wordsList.get(Integer.parseInt(index));
+            JSONObject json = new JSONObject();
+            json.put("word",word);
+            json.put("index",index);
+
+            long t = System.currentTimeMillis();
+            Random random = new Random(t);
+            HashMap<String, Object> map = new HashMap<>();
+            int num = random.nextInt(4)+1;
+//        System.out.println(num);
+            map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getEnglishWord());
+//        System.out.println(map.get(String.valueOf(num)) == null);
+            for(int i = 1 ; i <= 4; i++) {
+                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+                if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getEnglishWord())) {
+                    map.put("map"+String.valueOf(i), wordsList.get(count).getEnglishWord());
+                } else if(map.containsValue(wordsList.get(count).getEnglishWord())) {
+                    i--;
+                }
+            }
+
             json.put("map",map);
+            System.out.println(map);
+
+//            Words word1 = wordsList.get(Integer.parseInt(index));
+
+//            String wd = word1.getEnglishWord();
+//            String sentence1 = word1.getEnglishInstance1();
+//            String sentence2 = word1.getEnglishInstance2();
+//            String wd1 = wd.substring(0,wd.length()-1);
+//            wd1 = "(\\w)*" + wd1 + "\\w";
+//            Pattern pattern = Pattern.compile(wd1,Pattern.CASE_INSENSITIVE);
+//            Matcher matcher1 = pattern.matcher(sentence1);
+//            Matcher matcher2 = pattern.matcher(sentence2);
+//            sentence1 = matcher1.replaceAll(" ______ ");
+//            sentence2 = matcher2.replaceAll(" ______ ");
+////            model.addAttribute("sentence1",sentence1);
+////            model.addAttribute("sentence2",sentence2);
+//            json.put("sentence1",sentence1);
+//            json.put("sentence2",sentence2);
+
 
             try {
                 response.getWriter().print(json);
