@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>倍思Basics - Grammar</title>
 
     <!-- Custom fonts for this template-->
     <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -17,6 +17,31 @@
 
     <!-- Custom styles for this template-->
     <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+
+    <style>
+        .discover{
+            width: 200px;
+            height: 60px;
+            border-radius: 10%;
+            font-size: 25px;
+        }
+
+        .image{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: white solid 2px;
+        }
+
+        .zone{
+            width: 1250px;
+            height: 750px;
+            position: absolute;
+            border: white solid 5px;
+            left: 300px;
+            top: 50px;
+        }
+    </style>
 
 </head>
 
@@ -110,10 +135,10 @@
             <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
                         <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
@@ -359,6 +384,37 @@
             </nav>
             <!-- End of Topbar -->
 
+            <script>
+                function changeA(num) {
+                    if (num==1) {
+                        document.getElementById("a1").style.display="block";
+                        document.getElementById("a2").style.display="none";
+                    }
+                    else {
+                        document.getElementById("a2").style.display="block";
+                        document.getElementById("a1").style.display="none";
+                    }
+                }
+                function changeS(num) {
+                    for (var i=1;i<=17;i++){
+                        if (i==num){
+                            document.getElementById("s"+i).style.display="block";
+                        }else {
+                            document.getElementById("s"+i).style.display="none";
+                        }
+                    }
+                }
+                function changeY(num) {
+                    for (var i=1;i<=5;i++){
+                        if (i==num){
+                            document.getElementById("y"+i).style.display="block";
+                        }else {
+                            document.getElementById("y"+i).style.display="none";
+                        }
+                    }
+                }
+            </script>
+
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -367,6 +423,514 @@
                     <h1 class="h3 mb-0 text-gray-800">Grammar</h1>
                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
+
+                <div align="center">
+                    <button class="discover" style="background-color: yellow" onclick="changeA(1)">
+                        <img class="image" src="../img/hmbb/hmbb1.gif">
+                        学时态</button>
+                    <button class="discover" style="background-color: pink" onclick="changeA(2)">
+                        <img class="image" src="../img/hmbb/pdx.gif">
+                        学语态</button>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <div id="a1" style="position: absolute;left: 15px;width: 1615px;height: 855px;background-color: yellow">
+                            <ul class="navbar-nav bg-gradient-yellow sidebar sidebar-dark accordion">
+                                <!-- Nav Item - Study part Collapse Menu -->
+                                <li class="nav-item active" style="border: black solid 1px;">
+                                    <a style="border: black solid 2px;" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3" aria-expanded="true" aria-controls="collapsePages">
+                                        <i class="fas fa-fw fa-book"></i>
+                                        <span style="color: black;">时态学习</span>
+                                    </a>
+                                    <div id="collapsePages3" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                                        <div class="bg-white py-2 collapse-inner rounded">
+                                            <h6 class="collapse-header">Portal-one</h6>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(2)">
+                                                <i class="fas fa-fw fa-dice-one"></i>一般现在时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(3)">
+                                                <i class="fas fa-fw fa-dice-two"></i>一般过去时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(4)">
+                                                <i class="fas fa-fw fa-dice-three"></i>一般将来时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(5)">
+                                                <i class="fas fa-fw fa-dice-four"></i>过去将来时</button>
+                                            <h6 class="collapse-header">Portal-two</h6>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(6)">
+                                                <i class="fas fa-fw fa-dice-one"></i>现在进行时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(7)">
+                                                <i class="fas fa-fw fa-dice-two"></i>过去进行时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(8)">
+                                                <i class="fas fa-fw fa-dice-three"></i>将来进行时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(9)">
+                                                <i class="fas fa-fw fa-dice-four"></i>过去将来进行时</button>
+                                            <h6 class="collapse-header">Portal-three</h6>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(10)">
+                                                <i class="fas fa-fw fa-dice-one"></i>现在完成时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(11)">
+                                                <i class="fas fa-fw fa-dice-two"></i>过去完成时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(12)">
+                                                <i class="fas fa-fw fa-dice-three"></i>将来完成时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(13)">
+                                                <i class="fas fa-fw fa-dice-four"></i>过去将来完成时</button>
+                                            <h6 class="collapse-header">Portal-four</h6>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(14)">
+                                                <i class="fas fa-fw fa-dice-one"></i>现在完成进行时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(15)">
+                                                <i class="fas fa-fw fa-dice-two"></i>过去完成进行时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(16)">
+                                                <i class="fas fa-fw fa-dice-three"></i>将来完成进行时</button>
+                                            <button class="collapse-item" style="background-color: yellow" onclick="changeS(17)">
+                                                <i class="fas fa-fw fa-dice-four"></i>过去将来完成进行时</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div id="s1" class="zone" style="display: none">
+                                <h1 style="color: black">关于时态：</h1>
+                                <h2 style="color: black"><i class="fa fa-fw fa-sign"></i>英语语法中的时态表示行为发生的时间和说话时的关系。</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-sign"></i>英语时态的使用不仅仅是一种句法规则，在很多时候选用哪一种时态取决于语篇的大环境，服务于语篇的交际目的。</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-sign"></i>英语时态是一种动词形式，不同的时态用以不同的事件与方式。是表示行为、动作、状态在各种时间条件下的动词形式。</h2>
+                            </div>
+
+                            <div id="s2" class="zone">
+                                <h1 style="color: black" align="center">一般现在时</h1>
+                                <h2 style="color: black" align="center">（经常、反复发生的动作或行为及现在的某种状况）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①be动词</h4>
+                                <h4 style="color: black">②行为动词</h4>
+                                <h4 style="color: #4e73df">I am fine.</h4>
+                                <h4 style="color: #4e73df">He works for us.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①am/is/are+not</h4>
+                                <h4 style="color: black">②此时态的谓语动词若为行为动词，则在其前加don't,如主语为第三人称单数，则用doesn't，同时还原行为动词。</h4>
+                                <h4 style="color: #4e73df">I am not fine.</h4>
+                                <h4 style="color: #4e73df">He doesn't works for us.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①把be动词放于句首。</h4>
+                                <h4 style="color: black">②用助动词do提问，如主语为第三人称单数，则用does，同时，还原行为动词。</h4>
+                                <h4 style="color: #4e73df">Are you ok?</h4>
+                                <h4 style="color: #4e73df">Does he works for us?</h4>
+                            </div>
+
+                            <div id="s3" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">一般过去时</h1>
+                                <h2 style="color: black" align="center">（过去某个时间里发生的动作或状态；过去习惯性、经常性的动作、行为）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①be动词</h4>
+                                <h4 style="color: black">②行为动词的过去式。</h4>
+                                <h4 style="color: #4e73df">I was very tired last night.</h4>
+                                <h4 style="color: #4e73df">He worked for us yesterday.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①am/is/are+not</h4>
+                                <h4 style="color: black">②在行为动词前面加didn’t，同时还原行为动词。</h4>
+                                <h4 style="color: #4e73df">I wasn't tired last night.</h4>
+                                <h4 style="color: #4e73df">He didn't work for us.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①把be动词放于句首。</h4>
+                                <h4 style="color: black">②用助动词do的过去式did提问，同时还原行为动词。</h4>
+                                <h4 style="color: #4e73df">Were you together yesterday?</h4>
+                                <h4 style="color: #4e73df">Did he work for us yesterday?</h4>
+                            </div>
+
+                            <div id="s4" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">一般将来时</h1>
+                                <h2 style="color: black" align="center">（表示将要发生的动作或存在的状态及打算、计划做某事）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①am/is/are/going to+do</h4>
+                                <h4 style="color: black">②will/shall+do</h4>
+                                <h4 style="color: #4e73df">We are going to go shopping.</h4>
+                                <h4 style="color: #4e73df">I will/shall go to visit him next week.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①was/were+not</h4>
+                                <h4 style="color: black">②在行为动词前面加didn’t，同时还原行为动词。</h4>
+                                <h4 style="color: #4e73df">We were not to go shopping.</h4>
+                                <h4 style="color: #4e73df">You won’t be success unless you do a lot.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①把be动词放于句首。</h4>
+                                <h4 style="color: black">②will/shall提到句首 。</h4>
+                                <h4 style="color: #4e73df">Are you going to go shopping?</h4>
+                                <h4 style="color: #4e73df">Will you play football this week?</h4>
+                            </div>
+
+                            <div id="s5" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去将来时</h1>
+                                <h2 style="color: black" align="center">（立足于过去某一时刻，从过去看将来，常用于宾语从句中）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①was/were+going/about to do ，was/were to do</h4>
+                                <h4 style="color: black">②would/should+do</h4>
+                                <h4 style="color: #4e73df">She said she was going to start off at once.</h4>
+                                <h4 style="color: #4e73df">She said she would come to China.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①was/were+not+going/about to do</h4>
+                                <h4 style="color: black">②would/should+not+do</h4>
+                                <h4 style="color: #4e73df">The door wouldn't open.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①was/were放于句首。</h4>
+                                <h4 style="color: black">②would/should提到句首 。</h4>
+                                <h4 style="color: #4e73df">Would she go with me?</h4>
+                                <h4 style="color: #4e73df">Would you play football this week?</h4>
+                            </div>
+
+                            <div id="s6" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">现在进行时</h1>
+                                <h2 style="color: black" align="center">（表示现阶段说话时正在进行的动作及行为）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①am/is/are+doing</h4>
+<!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">Listen！She is singing an English song.</h4>
+                                <h4 style="color: #4e73df">Look！A train is coming.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①am/is/are+not+doing</h4>
+<!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">He isn’t watching TV.</h4>
+                                <h4 style="color: #4e73df">I am not cooking.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①把be动词放于句首 。</h4>
+<!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Are you dancing?</h4>
+                                <h4 style="color: #4e73df">Is he drawing a picture?</h4>
+                            </div>
+
+                            <div id="s7" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去进行时</h1>
+                                <h2 style="color: black" align="center">（表示过去某段时间或某一时刻正在发生或进行的行为）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①was/were+doing</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">We wre watching TV from seven to nine last night.</h4>
+                                <h4 style="color: #4e73df">It was raining when we left the station.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①was/were+not+doing</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">He wasn't doing his homework yesterday afternoon.</h4>
+<!--                                <h4 style="color: #4e73df">I am not cooking.</h4>-->
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①把was/were放于句首 。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Was she watching TV at that time?</h4>
+<!--                                <h4 style="color: #4e73df">Is he drawing a picture?</h4>-->
+                            </div>
+
+                            <div id="s8" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">将来进行时</h1>
+                                <h2 style="color: black" align="center">（将来某一时间正在进行的动作、开始并继续下去的）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①shall/will+be+现在分词</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">I will be taking my holiday soon.</h4>
+                                <h4 style="color: #4e73df">They will be meeting us at station.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①shall/will+not+be+doing</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">Tom won’t be cutting the grass.</h4>
+                                <h4 style="color: #4e73df">They won’t be playing football on Sunday morning.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①把will/shall放于句首 。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Will you be bringing the piano here?</h4>
+                                <!--                                <h4 style="color: #4e73df">Is he drawing a picture?</h4>-->
+                            </div>
+
+                            <div id="s9" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去将来进行时</h1>
+                                <h2 style="color: black" align="center">（就过去某一时间而言，将来某一时刻或某一时间正在进行的动作）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①shall/will+be+现在分词</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">He told me that he would be going to his hometown.</h4>
+                                <h4 style="color: #4e73df">The new job he would be getting was to be a designer.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①should/would+not+be+doing</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">Tom wouldn't be cutting the grass.</h4>
+                                <h4 style="color: #4e73df">They wouldn't be playing football on Sunday morning.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①Should/Would+主语+be+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Should we be bringing the piano here?</h4>
+                                <!--                                <h4 style="color: #4e73df">Is he drawing a picture?</h4>-->
+                            </div>
+
+                            <div id="s10" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">现在完成时</h1>
+                                <h2 style="color: black" align="center">（过去发生或已经完成的动作对现在造成影响，或从过去持续到现在的动作）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①have/has+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">We have just had lunch.</h4>
+                                <h4 style="color: #4e73df">He has never heard of such a man.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①have/has+not+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">I haven’t found my book yet.</h4>
+                                <h4 style="color: #4e73df">I haven’t eaten breakfast.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①Have/Has+主语+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Has he ever been to the Great Wall?</h4>
+                                <h4 style="color: #4e73df">Have you done your homework yet?</h4>
+                            </div>
+
+                            <div id="s11" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去完成时</h1>
+                                <h2 style="color: black" align="center">（以过去某个时间点为准，在此前发生的动作或行为，或在过去某动作之前完成的行为）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①had+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">I had finished reading the novel by nine o’clock last night.</h4>
+                                <h4 style="color: #4e73df">We had learn over two thousand English words by the end of last term.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①had+not+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">I hadn't found him before last night.</h4>
+                                <h4 style="color: #4e73df">The movie hadn't been on for half an hour when we got to the cinema.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①Had+主语+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Had the movie been on for half an hour when you got to the cinema?</h4>
+<!--                                <h4 style="color: #4e73df">Have you done your homework yet?</h4>-->
+                            </div>
+
+                            <div id="s12" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">将来完成时</h1>
+                                <h2 style="color: black" align="center">（在将来某一时刻之前开始的动作或状态）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①will have+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">They will have cleared the room by 8 o'clock tomorrow.</h4>
+                                <h4 style="color: #4e73df">I will have been here for 2 years by the end of this year.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①will have+not+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">They will not have cleared the room.</h4>
+                                <h4 style="color: #4e73df">The boy will not have broken the window.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①Will+主语+have+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Will you have been here for 2 years?</h4>
+                                <!--                                <h4 style="color: #4e73df">Have you done your homework yet?</h4>-->
+                            </div>
+
+                            <div id="s13" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去将来完成时</h1>
+                                <h2 style="color: black" align="center">（过去将来某一时间以前发生的动作，并往往会对将来某一时间产生影响）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①would have+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">I thought you would have finished by now.</h4>
+                                <h4 style="color: #4e73df">She said she would have finished her exams by then.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①would have+not+过去分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">I thought you wouldn't have finished by now.</h4>
+                                <h4 style="color: #4e73df">She said she wouldn't have finished her exams by then.</h4>
+<!--                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>-->
+<!--                                <h4 style="color: black">①Will+主语+have+过去分词。</h4>-->
+<!--                                &lt;!&ndash;                                <h4 style="color: black">②would/should提到句首 。</h4>&ndash;&gt;-->
+<!--                                <h4 style="color: #4e73df">Will you have been here for 2 years?</h4>-->
+                                <!--                                <h4 style="color: #4e73df">Have you done your homework yet?</h4>-->
+                            </div>
+
+                            <div id="s14" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">现在完成进行时</h1>
+                                <h2 style="color: black" align="center">（从过去某一时间开始一直延续到现在的动作，动作可能刚开始也可能仍在继续）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①have/has been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">I  have been sitting here for the afternoon.</h4>
+                                <h4 style="color: #4e73df">His brother has been collecting stamps since he was 10.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①have/has not been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">I haven't been watering the flowers for a week.</h4>
+                                <h4 style="color: #4e73df">He hasn't been teaching here these years.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①Have/Has+主语+been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Have you been writing a novel?</h4>
+                                <h4 style="color: #4e73df">Has he been writing letters to you?</h4>
+                            </div>
+
+                            <div id="s15" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去完成进行时</h1>
+                                <h2 style="color: black" align="center">（动作在所说的过去某一刻之前就已经开始并持续到那一刻或者在那一刻之前刚刚停止）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①had been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">I had been looking for the book for days before I found it.</h4>
+                                <h4 style="color: #4e73df">They had only been waiting for the bus a few moments when it came.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①had not been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">She had not been studying abroad for years since she came back.</h4>
+                                <h4 style="color: red">注：这种时态很少用在否定中，而多以过去完成时代替。</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①Had+主语+been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Had they been expecting the news for some time?</h4>
+<!--                                <h4 style="color: #4e73df">Has he been writing letters to you?</h4>-->
+                            </div>
+
+                            <div id="s16" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">将来完成进行时</h1>
+                                <h2 style="color: black" align="center">（某种情况下一直持续到说话人所提及的时间）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①shall/will have been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">By this time next week,I will have been working for this company for 30years.</h4>
+                                <h4 style="color: #4e73df">He will have been living.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①shall/wil+not+have been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">You won't have been living here.</h4>
+<!--                                <h4 style="color: #4e73df">He hasn't been teaching here these years.</h4>-->
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①shall/will+主语+have been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Will he have been working here as long as you have?</h4>
+<!--                                <h4 style="color: #4e73df">Has he been writing letters to you?</h4>-->
+                            </div>
+
+                            <div id="s17" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">过去将来完成进行时</h1>
+                                <h2 style="color: black" align="center">（表示动作从过去某一时间开始一直延续到过去将来某一时间）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h3 style="color: black">基本结构：</h3>
+                                <h4 style="color: black">①would have been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+do</h4>-->
+                                <h4 style="color: #4e73df">I heard by July you’d have been teaching here for ten years.</h4>
+                                <h4 style="color: #4e73df">I knew by that time he would have been working there for 30 years.</h4>
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>否定形式：</h3>
+                                <h4 style="color: black">①would+not+have been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should+not+do</h4>-->
+                                <h4 style="color: #4e73df">You wouldn't have been living here.</h4>
+                                <!--                                <h4 style="color: #4e73df">He hasn't been teaching here these years.</h4>-->
+                                <h3 style="color: black"><i class="fa fa-fw fa-angle-right"></i>一般疑问句：</h3>
+                                <h4 style="color: black">①would+主语+have been+现在分词。</h4>
+                                <!--                                <h4 style="color: black">②would/should提到句首 。</h4>-->
+                                <h4 style="color: #4e73df">Would he have been working here as long as you have?</h4>
+                                <!--                                <h4 style="color: #4e73df">Has he been writing letters to you?</h4>-->
+                            </div>
+
+                        </div>
+
+
+
+                        <div id="a2" style="position: absolute;left: 15px;width: 1615px;height: 855px;background-color: pink;display: none">
+                            <ul class="navbar-nav bg-gradient-yellow sidebar sidebar-dark accordion">
+                                <!-- Nav Item - Study part Collapse Menu -->
+                                <li class="nav-item active" style="border: black solid 1px;">
+                                    <a style="border: black solid 2px;" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4" aria-expanded="true" aria-controls="collapsePages">
+                                        <i class="fas fa-fw fa-book"></i>
+                                        <span style="color: black;">语态学习</span>
+                                    </a>
+                                    <div id="collapsePages4" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                                        <div class="bg-white py-2 collapse-inner rounded">
+                                            <h6 class="collapse-header">Portal</h6>
+                                            <button class="collapse-item" style="background-color: pink" onclick="changeY(1)">
+                                                <i class="fas fa-fw fa-dice-one"></i>语态分类</button>
+                                            <button class="collapse-item" style="background-color: pink" onclick="changeY(2)">
+                                                <i class="fas fa-fw fa-dice-two"></i>主动语态变被动语态</button>
+                                            <button class="collapse-item" style="background-color: pink" onclick="changeY(3)">
+                                                <i class="fas fa-fw fa-dice-three"></i>双宾动词的被动语态</button>
+                                            <button class="collapse-item" style="background-color: pink" onclick="changeY(4)">
+                                                <i class="fas fa-fw fa-dice-four"></i>被动语态的时态</button>
+                                            <button class="collapse-item" style="background-color: pink" onclick="changeY(5)">
+                                                <i class="fas fa-fw fa-dice-five"></i>含有情态动词的被动</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+
+
+                            <div id="y1" class="zone">
+                                <h1 style="color: black" align="center">英语语态的分类</h1>
+                                <h2 style="color: black" align="center">（分为主动语态和被动语态）</h2>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>主动语态：表示主语是动作得执行者。</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>被动语态：主语是动作的承受者： be+过去分词构成。</h2>
+                                <h3 style="color: #4e73df">-Everybody likes him.大家都喜欢他。(主动语态)</h3>
+                                <h3 style="color: #4e73df">-He is liked by everybody.他被大家的喜欢。（被动语态）</h3>
+                            </div>
+
+                            <div id="y2" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">主动语态变被动语态的基本方法</h1>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>将主动语态的宾语变为被动语态的主语，将主动语态的谓语变为被动语态的谓语（be+过去分词），将主动语态的主语变为by短语（在被动句中用作状语）</h2>
+                                <h3 style="color: #4e73df">-He broke the cup. ——The cup was broken by him.杯子被他打坏了。</h3>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>若不强调动作的执行者，被动语态中的by短语通常可以省略。</h2>
+                                <h3 style="color: #4e73df">-He was born in 1986.他出生于1986年。</h3>
+                                <h3 style="color: #4e73df">-What is this flower called?这种花叫什么？</h3>
+                            </div>
+
+                            <div id="y3" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">双宾动词的被动语态</h1>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>双宾动词即指带双宾语的动词，它们在变为被动语态时，通常是把间接宾语（指人）变为被动语态的主语，而把直接宾语（指事物）保留下来</h2>
+                                <h3 style="color: #4e73df">-He answered me that question.——I was answered that question by him.他回答了我那个问题。</h3>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>有的动词通常把直接宾语（指事物）变为被动语态的主语，而把间接宾语改为介词to或for引起的状语。</h2>
+                                <h3 style="color: #4e73df">-He wrote her a letter.——A letter was written to her.写了一封信给她。(与动词write搭配用介词to)</h3>
+                                <h3 style="color: #4e73df">-She made him a new coat.——A new coat was made for him. 她给他做了一件新外套。(与动词make搭配用介词for)</h3>
+                            </div>
+
+                            <div id="y4" class="zone" style="display: none;overflow-y: scroll;">
+                                <h1 style="color: black" align="center">被动语态的时态</h1>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>被动语态的时态由被动结构“be+过去分词”中的be来体现。</h2>
+                                <h2 style="color: black">①一般现在时的被动：am/is/are+过去分词 。</h2>
+                                <h3 style="color: #4e73df">-We are taken good care of at school.我们在学习受到了很好的照顾。</h3>
+                                <h2 style="color: black">②一般过去时的被动：was/were+过去分词 。</h2>
+                                <h3 style="color: #4e73df">-The house was built ten years ago.这座房子时十年前建的。</h3>
+                                <h3 style="color: #4e73df">-He was taken to the police station.他被带到了警察局。</h3>
+                                <h2 style="color: black">③一般将来时的被动：will be+过去分词</h2>
+                                <h3 style="color: #4e73df">-A new building will be built here soon.不久这里将建一栋新楼。</h3>
+                                <h3 style="color: #4e73df">-The meeting will be held at two this afternoon.会议将于今天下午两点开始。</h3>
+                                <h2 style="color: black">④现在完成时的被动：have/has been+过去分词</h2>
+                                <h3 style="color: #4e73df">-All the work has been done now.所有工作都做好了。</h3>
+                                <h3 style="color: #4e73df">-Have the letters been posted?信都寄好了吗？</h3>
+                                <h2 style="color: black">⑤过去完成时的被动：had been+过去分词</h2>
+                                <h3 style="color: #4e73df">-He said the work had been finished. 他说工作已经完成了。</h3>
+                                <h2 style="color: black">⑥现在进行时的被动：am/is/are being+过去分词</h2>
+                                <h3 style="color: #4e73df">-My watch is being repaired by him.我的表正在由他修理。</h3>
+                                <h3 style="color: #4e73df">-The plan is now being discussed.计划现在正在讨论。</h3>
+                                <h2 style="color: black">⑦过去进行时被动：was/were being+现在分词</h2>
+                                <h3 style="color: #4e73df">-He said that the man was being operated on.他说那个人正在动手术。</h3>
+                                <h3 style="color: #4e73df">-He told me that a new station was being built.他说正在修建一个新车站。</h3>
+                            </div>
+
+                            <div id="y5" class="zone" style="display: none">
+                                <h1 style="color: black" align="center">含有情态动词的被动</h1>
+                                <h2 style="color: #4e73df" align="center">——————————————————————————————————————</h2>
+                                <h2 style="color: black"><i class="fa fa-fw fa-angle-right"></i>在相应的被动语态中应保留情态动词。</h2>
+                                <h2 style="color: black">结构为：情态动词+be+过去分词。</h2>
+                                <h3 style="color: #4e73df">-This can’t be done in a short time.这不是短期内可以完成的。</h3>
+                                <h3 style="color: #4e73df">-The work must be done at once.这工作必须马上做了。</h3>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
 
 
             </div>

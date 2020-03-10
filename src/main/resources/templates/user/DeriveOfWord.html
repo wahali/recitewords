@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>倍思Basics - DeriveOfWord</title>
 
     <!-- Custom fonts for this template-->
     <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
             position: absolute;
             width: 1100px;
             right: 25px;
-            top: 150px;
+            top: 0px;
             /*border: black solid 2px;*/
             border-radius: 1%;
         }
@@ -38,8 +38,8 @@
             position: absolute;
             width: 450px;
             height: 400px;
-            left: 250px;
-            bottom: 75px;
+            left: 0px;
+            top: 380px;
             border: black solid 2px;
             border-radius: 5%;
         }
@@ -136,10 +136,10 @@
             <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
                         <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item active" href="" th:href="@{/user/DeriveOfWord}">
@@ -420,8 +420,11 @@
                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
+                <div class="row">
 
+                    <div class="col-lg-12">
 
+                        <div style="position: absolute;left: 10px;width: 1650px;height: 800px;">
                 <!-- Nav Item - derive Collapse Menu -->
                 <div style="width: 450px" >
                     <li class="nav-item">
@@ -464,7 +467,7 @@
                     </li>
                 </div>
 
-                <img style="width: 200px;height: 117px;position:absolute;left: 550px;top: 400px;z-index: 3;border-radius: 5%;border: black solid 2px" src="../img/pokemon/pkq4.png" onmouseover="src='../img/pokemon/pkq1.gif'" onmouseout="src='../img/pokemon/pkq4.png'">
+                <img style="width: 200px;height: 117px;position:absolute;left: 300px;top: 300px;z-index: 3;border-radius: 5%;border: black solid 2px" src="../img/pokemon/pkq4.png" onmouseover="src='../img/pokemon/pkq1.gif'" onmouseout="src='../img/pokemon/pkq4.png'">
 
                 <div style="" class="smallArea">
                     <div style="position: absolute;width: 350px;left: 50px;top: 20px">
@@ -473,7 +476,6 @@
                         <h3 style="color: black">前缀一般不造成词性的改变，但会引起词义的改变。（个别前缀也会引起词性的变化）</h3>
                         <h3 style="color: black">后缀不仅能改变词义也能改变词性。</h3>
                     </div>
-
                 </div>
 
                 <div class="area" id="q1">
@@ -1338,7 +1340,9 @@
                         </div>
                     </div>
                 </div>
-
+                        </div>
+                    </div>
+                </div>
 
             </div>
             <!-- /.container-fluid -->

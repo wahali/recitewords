@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>倍思Basics - Sentence</title>
 
     <!-- Custom fonts for this template-->
     <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
@@ -110,10 +110,10 @@
             <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
                         <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
@@ -326,7 +326,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.user.userName}"></span>
-                            <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                            <img class="img-profile rounded-circle" src="../img/syf.png">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -368,6 +368,605 @@
                     <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
+                <div class="row">
+
+                    <div class="col-lg-12">
+                            <div id="canvas">
+                                <div id="book-zoom" style="top: 0px;position: absolute;left: 100px">
+                                    <div class="sample-docs" style="width: 1440px;height: 701px;">
+                                        <div ignore="1" class="tabs"><div class="left">  </div> <div class="right"> </div></div>
+                                        <div>
+                                            <div align="center" style="margin-top: 50px">
+                                                <h3 style="color: black">——————————————————</h3>
+                                                <h3 style="color: black">-全国中小学生句子结构学习手册-</h3>
+                                                <img src="../img/pokemon/all.gif" style="border-radius: 50%;width: 350px;height: 350px;">
+                                                <br>
+                                                <h1><strong>基础英语 入门必备</strong></h1>
+                                                <h5>主编：ZYF</h5>
+                                                <h5>策划：LYR GKY</h5>
+                                                <h3 style="color: black">——————————————————</h3>
+                                                <h6>倍思Basics出版社</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 50px;margin-left: 50px;margin-right: 50px">
+                                                <h2>致读者：</h2>
+                                            </div>
+                                            <h4 style="margin-left: 50px;margin-right: 50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;恭喜你来到了基础英语学习的最后一个环节——句子结构的学习！现在你只需要相信自己，坚持下去，认真完成每页的学习，你的英语水平肯定会更上一层楼！</h4>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 30px">
+                                                <h3 style="color: black">目录</h3>
+                                                <h3 style="color: black">———————————————————————</h3>
+                                            </div>
+                                            <div style="margin-left: 50px;margin-right: 50px">
+                                                <h5 style="color: black;">一、简单句</h5>
+                                                <h5 style="color: black;margin-left: 30px">1、概念 ...........................................................................................................1</h5>
+                                                <h5 style="color: black">二、并列句</h5>
+                                                <h5 style="color: black;margin-left: 30px">1、概念 ...........................................................................................................2</h5>
+                                                <h5 style="color: black;margin-left: 30px">2、并列句的分类 .........................................................................................3</h5>
+                                                <h5 style="color: black">三、复合句</h5>
+                                                <h5 style="color: black;margin-left: 30px">1、概念 ...........................................................................................................5</h5>
+                                                <h5 style="color: black;margin-left: 30px">2、主语从句 ..................................................................................................5</h5>
+                                                <h5 style="color: black;margin-left: 30px">3、宾语从句 ..................................................................................................8</h5>
+                                                <h5 style="color: black;margin-left: 30px">4、表语从句 ................................................................................................10</h5>
+                                                <h5 style="color: black;margin-left: 30px">5、同位语从句 ............................................................................................14</h5>
+                                                <h5 style="color: black;margin-left: 30px">6、定语从句 ................................................................................................15</h5>
+                                                <h5 style="color: black;margin-left: 30px">7、状语从句 ................................................................................................18</h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h2>⭐简单句</h2>
+                                                <h3>概念：只有一个主语（或并列主语）和一个谓语（或并列谓语）。</h3>
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-<strong style="color: red">He </strong>often <strong style="color: red">read </strong>English in the morning.(他经常在早上读英语。)</h4>
+                                                <h4 style="color: #2e59d9">-<strong style="color: red">Tom </strong>and <strong style="color: red">Mike </strong>are American boys.(Tom和Mike都是美国男孩。)</h4>
+                                                <h4 style="color: #2e59d9">-She <strong style="color: red">likes </strong>drawing and often <strong style="color: red">draws </strong>pictures for the wall newspaper.(她喜欢画画并且经常为墙报画画。)</h4>
+                                                <br><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们可以给句子的
+                                                    <strong style="color: #2e59d9">动词加上副词</strong>修饰，给
+                                                    <strong style="color: #2e59d9">名词加上形容词、介词短语</strong>修饰，给
+                                                    <strong style="color: #2e59d9">整个句子加上状语进行修饰</strong>等，以使整个句子的意思变得更加的丰富和充实，但不管如何变，都
+                                                    <strong style="color: #2e59d9">只有一个主谓结构</strong>。
+                                                </h3>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-1-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-He worked hard all his life.(他一直很努力。)</h4>
+                                                <h4 style="color: #2e59d9">-He is a school student in NO.1 Middle School.(他是第一中学的一个学生。)</h4><br>
+                                                <h2>⭐并列句</h2>
+                                                <h3>概念：由两个或两个以上的简单句连接而成，相互之间没有从属关系，是平行并列的，彼此之间用连词连结 。</h3>
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-You help him <strong style="color: red">and </strong>he helps you.(你帮助他，他就会帮助你。)</h4>
+                                                <h4 style="color: #2e59d9">-The future is bright <strong style="color: red">;</strong>the road is tortuous.(前途是光明的，道路是曲折的。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-2-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h2>🎈并列句的分类</h2>
+                                                <h3>Ⅰ.表示连接两个同等概念，常用and，then, not only…but also…,neither…nor…</h3>
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-The teacher’s name is Smith,<strong style="color: red">and </strong>the student’s name is John.(老师的名字是Smith，学生的名字是John。）</h4>
+                                                <h4 style="color: #2e59d9">-Things here are not only inexpensive but also of good quality.(这里的东西不仅便宜而且质量好。)</h4>
+                                                <h3>Ⅱ.表示选择，常用的连词有or , either…or… , otherwise</h3>
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-Hurry up , or you’ll miss the train.(快点，否则你要错过火车了。）</h4>
+                                                <h4 style="color: #2e59d9">-Make a note of the questions you want to ask . You will invariably forget some of them otherwise.(把想提的问题记下来，否则会漏掉一些。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-3-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h3>Ⅲ.表示转折，常用的连词有but ,  yet , while</h3>
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-Some people waste food while others haven‘t enough.（有些人浪费粮食，然而有些人却吃不饱。）</h4>
+                                                <h4 style="color: #2e59d9">-Honey is sweet，but the bee stings.( 蜂蜜很甜，但是蜜蜂有刺蜇人。)</h4>
+                                                <h4 style="color: #2e59d9">-I‘ve been away only for three years, yet I can hardly recognize my hometown.（我仅在外三年，可我几乎认不出我自己的故乡了。）</h4>
+                                                <h3>Ⅳ.表示因果关系，常用的连词有so , for</h3>
+                                                <h4 style="color: #2e59d9">例句：</h4>
+                                                <h4 style="color: #2e59d9">-The days are short , for it is now December.(白天短了，因为现在已经是十二月份了。)</h4>
+                                                <h4 style="color: #2e59d9">-He hit me , so I struck him back.（他打了我，所以我才还手打他。）</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-4-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h2>⭐复合句</h2>
+                                                <h3>概念：含有两个或两个以上主谓结构的句子。这种结构中，必定有一个主谓结构式句子的主句部分，而另一个主谓结构则是句子的次要部分即从句部分</h3>
+                                                <h4 style="color: orange">从句包括:名词性从句（主语从句、宾语从句、表语从句、同位语从句）、定语从句、状语从句</h4><br>
+                                                <h3>🎶主语从句：通常由that，whether，连接代词或连接副词以及关系代词型what引导。</h3>
+                                                <h4>1.that引导：</h4>
+                                                <h4 style="color: #2e59d9">-That he is still alive is a wonder.(他还活着，真是个奇迹。)</h4>
+                                                <h4 style="color: #2e59d9">-That she became an artist may have been due to her father’s influence.(她成为画家可能是受她父亲的影响。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-5-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>2.whether引导：</h4>
+                                                <h4 style="color: #2e59d9">-Whether it will do us harm remains to be seen.(是否对我们有害还要看一看。)</h4>
+                                                <h4 style="color: #2e59d9">-Whether they would support us was a problem.(他们是否会支持我们还是一个问题？)</h4>
+                                                <h4>3.连接代词引导：</h4>
+                                                <h4 style="color: #2e59d9">Whoever is top from wins the game when two matched players meet.(两强者相争勇者胜。)</h4>
+                                                <h4 style="color: #2e59d9">Whichever comes in first will receive a prize.(无论谁先到都可以得奖。)</h4>
+                                                <h4>3.连接副词引导：</h4>
+                                                <h4 style="color: #2e59d9">When we arrive doesn't matter.(我们什么时候到没有关系。)</h4>
+                                                <h4 style="color: #2e59d9">How it was done was a mystery.(这是怎样做的是一个谜。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-6-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>5.关系代词型what引导：</h4>
+                                                <h4 style="color: #2e59d9">-What I want to know is this.(我想知道的就这一点。)</h4>
+                                                <h4 style="color: #2e59d9">-What he says is not important.(他说的不重要。)</h4>
+                                                <h4>♦主语从句与形式主语：有时为了考虑句子平衡，通常在主语从句处使用形式主语it，而将真正的主语转移至句末。</h4>
+                                                <h4 style="color: #2e59d9">-It was a problem whether they would support us.(他们是否会支持我们还是一个谜。)</h4>
+                                                <h4 style="color: #2e59d9">-It is true that he is the girl’s father.(事实上他是那女孩的父亲。)</h4>
+                                                <h4>♠注：主语从句的连词that有时可省，有时不能省，其原则是：若tha引导的主语从句直接位于句首则不能省，若that引导的主语从句位于句末，而在句首使用了形式主语，则that可以省。</h4>
+                                                <h4 style="color: #2e59d9">-That you didn’t go to the talk was a pity.(很遗憾你没去听报告。)
+                                                    <strong style="color: #dc3545">that不能省</strong>
+                                                </h4>
+                                                <h4 style="color: #2e59d9">-It was a pity (that) you didn’t go to the talk.(很遗憾你没去听报告)
+                                                    <strong style="color: #dc3545">that不能省</strong>
+                                                </h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-7-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h3>🎶宾语从句：通常由that，whether（if），连接代词或连接副词以及关系代词型what引导 。</h3>
+                                                <h4>1.that引导：</h4>
+                                                <h4 style="color: #2e59d9">-We believe that he is honest.(我们相信他是诚实的。)</h4>
+                                                <h4 style="color: #2e59d9">-The doctor insists that I give up smoking.(医生让我坚持戒烟。)</h4>
+                                                <h4>2.whether/if引导：</h4>
+                                                <h4 style="color: #2e59d9">-I don't know whether he'll arrive in time.(我不知道他是否能及时赶到。)</h4>
+                                                <h4 style="color: #2e59d9">-I'll see whether I can induce him to accept.(我要看看我是否能劝他接受。)</h4>
+                                                <h4>3.连接代词引导：</h4>
+                                                <h4 style="color: #2e59d9">-Please tell me which you like.(告诉我你喜欢哪一个。)</h4>
+                                                <h4 style="color: #2e59d9">-I will do whatever I can do.(我将做我所能做的事。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-8-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>4.连接副词引导：</h4>
+                                                <h4 style="color: #2e59d9">-You don’t know when you are lucky.(你身在福中不知福。)</h4>
+                                                <h4 style="color: #2e59d9">-He asked why he had to go alone.(他问他为什么必须一个人去？)</h4>
+                                                <h4>5.关系代词型what引导：</h4>
+                                                <h4 style="color: #2e59d9">-She has got what she wanted.(她要的东西到了。)</h4>
+                                                <h4 style="color: #2e59d9">-He could not express what he felt.(他无法感受内心的感受。)</h4>
+                                                <h4>♣注：引导宾语从句的连词that通常可以省略，但有时为了强调，可将that引导的宾语从句放于句首，此时不可省略。</h4>
+                                                <h4 style="color: #2e59d9">-I know （that）she is a good girl.<strong style="color: #dc3545">（that可以省略）</strong></h4>
+                                                <h4 style="color: #2e59d9">-That she is a good girl I know.<strong style="color: #dc3545">（that不可以省略）</strong></h4>
+                                                <h4>♥宾语从句与形式宾语：当宾语从句后跟有宾语补足语时，通常在宾语从句处使用形式宾语，而将真正的宾语转移至句末。</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-9-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-I found it difficult to answer the question.(我发现回答这个问题很困难。)</h4>
+                                                <h4 style="color: #2e59d9">-She consider it wrong to cheat in an examination.(她认为考试作弊是不对的。)</h4>
+                                                <h4>♣宾语从句与否定转移：当动词think , believe, suppose, expect后接一个表示否定意义的宾语从句时，其否定通常转移到主语。</h4>
+                                                <h4 style="color: #2e59d9">-I don’t suppose that it is true.(我认为那不是真的。)</h4>
+                                                <h4 style="color: #2e59d9">-I don’t think we need waste much time on it.(我想我们不必在这上面花太多时间。)</h4>
+                                                <h3>🎨表语从句（就是一个句子做表语位于系动词之后）：通常由that，whether，连接代词或连接副词以及关系代词型what，以及as if，as though，because等引导</h3>
+                                                <h4>1.that引导：</h4>
+                                                <h4 style="color: #2e59d9">-The fact is that he doesn't really try.(事实是他没有做真正的努力。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-10-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-My suggestion is that we should tell him.(我的建议是我们应该告诉他。)</h4>
+                                                <h4>2.whether引导：</h4>
+                                                <h4 style="color: #2e59d9">-The question is whether the film is worth seeing.(问题是这部电影是否值得看。)</h4>
+                                                <h4 style="color: orange">注意：与whether同义的if通常不用来引导表语从句。</h4>
+                                                <h4>3.连接代词引导：</h4>
+                                                <h4 style="color: #2e59d9">-The problem is who we can get to replace him.(问题是我们能找谁去替换他呢。)</h4>
+                                                <h4 style="color: #2e59d9">-The question is whom we should trust.(问题是我们应当相信谁。)</h4>
+                                                <h4>4.连接副词引导：</h4>
+                                                <h4 style="color: #2e59d9">-That was when I was fifteen.(这是我十五岁发生的事。)</h4>
+                                                <h4 style="color: #2e59d9">-That is why he didn’t come.(这就是他没有来的原因。)</h4>
+                                                <h4>5.关系代词型what引导：</h4>
+                                                <h4 style="color: #2e59d9">-That is what I want to stress.(这是我想强调的。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-11-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 40px;margin-right: 40px">
+                                                <h4 style="color: #2e59d9">-Fame and personal gain is what they are after.(他们追求的是名利。)</h4>
+                                                <h4>6.由as if/as though引导：</h4>
+                                                <h4 style="color: #2e59d9">-It was as though she had known Millie for years. （她好像认识Millie好多年了。）</h4>
+                                                <h4 style="color: #2e59d9">-It isn’t as if you were going away forever.(又不是你离开不回来了。）</h4>
+                                                <h4>7.由because引导：</h4>
+                                                <h4 style="color: #2e59d9">-That is because he was ill.(那是因为他生病了。)</h4>
+                                                <h4 style="color: #2e59d9">-I’m a bit sleepy , it’s because I was up all  night.(我有点困，是因为一夜没睡。)</h4>
+                                                <h4>♣注：引导表语从句的that通常不省略，但在口语或非正式文体中有时也可省略。</h4>
+                                                <h4 style="color: #2e59d9">-My idea is (that) we should do it right away. （我的意思是我们应该马上去做。）<strong style="color: #dc3545">（that可以省略）</strong></h4>
+                                                <h4 style="color: #2e59d9">-The trouble is (that) he is ill.（糟糕的是他生病了。）<strong style="color: #dc3545">（that可以省略）</strong></h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-12-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-Fame and personal gain is what they are after.(他们追求的是名利。)</h4>
+                                                <h4>6.由as if/as though引导：</h4>
+                                                <h4 style="color: #2e59d9">-It was as though she had known Millie for years. （她好像认识Millie好多年了。）</h4>
+                                                <h4 style="color: #2e59d9">-It isn’t as if you were going away forever.(又不是你离开不回来了。）</h4>
+                                                <h4>7.由because引导：</h4>
+                                                <h4 style="color: #2e59d9">-That is because he was ill.(那是因为他生病了。)</h4>
+                                                <h4 style="color: #2e59d9">-I’m a bit sleepy , it’s because I was up all  night.(我有点困，是因为一夜没睡。)</h4>
+                                                <h4>♣注：引导表语从句的that通常不省略，但在口语或非正式文体中有时也可省略。</h4>
+                                                <h4 style="color: #2e59d9">-My idea is (that) we should do it right away. （我的意思是我们应该马上去做。）<strong style="color: #dc3545">（that可以省略）</strong></h4>
+                                                <h4 style="color: #2e59d9">-The trouble is (that) he is ill.（糟糕的是他生病了。）<strong style="color: #dc3545">（that可以省略）</strong></h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-13-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h3>🏀同位语从句（用来说明所修饰的名词的具体内容）通常由that，whether，连接代词或连接副词</h3>
+                                                <h4>1.that引导：</h4>
+                                                <h4 style="color: #2e59d9">-We heard the news that our team had won.(我们听到消息说我们队赢了。)</h4>
+                                                <h4 style="color: #2e59d9">-They were worried over the fact that you were sick.(他们为你生病发愁。)</h4>
+                                                <h4>2.Whether引导：</h4>
+                                                <h4 style="color: #2e59d9">-There is some doubt whether he will come.(他是否回来还不一定。)</h4>
+                                                <h4 style="color: orange">注意：if不能引导同位语从句。</h4>
+                                                <h4>3.连接代词引导：</h4>
+                                                <h4 style="color: #2e59d9">-Have you any idea what time it starts?(你知道说明时候开始吗？)</h4>
+                                                <h4 style="color: #2e59d9">-I had no idea what to do.(我不知道该怎么办。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-14-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>4.连接副词引导：</h4>
+                                                <h4 style="color: #2e59d9">-I have no idea when he will come back.(我不知道他什么时候回来。)</h4>
+                                                <h4 style="color: #2e59d9">-He had no idea why she left.(他不知道她为什么离开。)</h4>
+                                                <h4>♦引导同位语从句中的that通常不省略，但在非正式文体中也可以省去</h4>
+                                                <h4>♦在某些名词（如：demand，wish，suggestion，resolution等）后面的同位语要用虚拟语句</h4>
+                                                <h4 style="color: #2e59d9">-They expressed the wish that she accept the award.(他们表示希望她接受这笔奖金。)</h4>
+                                                <h4 style="color: #2e59d9">-The suggestion that the new rule be adopted came from the chairman.(采纳新规则的建议是主席提出的。)</h4>
+                                                <h3>⚾定语从句：修饰名词或代词的从句叫定语从句，被修饰的代词或名词叫先行词，引导词有关系代词who , whom, whose , which , that和关系副词where , when, why。</h3>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-15-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>1.who引导（用作主语）：</h4>
+                                                <h4 style="color: #2e59d9">-This is the boy who often helps me.(这就是经常帮助我的男孩。)</h4>
+                                                <h4>2.whom引导（用作宾语）：</h4>
+                                                <h4 style="color: #2e59d9">-The man whom you are waiting for has gone home.(你等的人已经回家了。)</h4>
+                                                <h4>3.Whose引导：</h4>
+                                                <h4 style="color: #2e59d9">-Do you know the girl whose skirt is white?(你知道白色裙子的那个女孩吗？)</h4>
+                                                <h4>4.which引导(用作主语或谓语动词的宾语或介词的宾语)：</h4>
+                                                <h4 style="color: #2e59d9">-The river which is in front of my house is very clean.(在我家前面的河流非常干净。)</h4>
+                                                <h4 style="color: #2e59d9">-The room in which there is a machine is a work shop.(有机器的房间是工作间。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-16-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>5.that引导（可以指人或物，在从句中作主语或谓语动词的宾语，但不能放在介词后面作介词宾语）：</h4>
+                                                <h4 style="color: #2e59d9">-The book that I bought yesterday was written by Lu Xun.(昨天我买的书是鲁迅写的。)</h4>
+                                                <h4>6.When,where,why引导：</h4>
+                                                <h4 style="color: #2e59d9">-I don’t know the reason why he was late.(我不知道他迟到的原因。)</h4>
+                                                <h4 style="color: #2e59d9">-This is the place where we have lived for 5 years.(这是我们生活了5年的地方。)</h4>
+                                                <h4 style="color: #2e59d9">-I’ll never forget the day when I met Mr. Li for the first time.(我永远不会忘记我第一次遇见Mr. Li。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-17-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h2 align="center">🎁状语从句</h2>
+                                                <h3>一、时间状语从句</h3>
+                                                <h4>Ⅰ.时间状语从句通常用下列从属连词来引导：after, before, as, once, till, until, (ever) since, when, whenever, while, now (that), as long as, as soon as。如：</h4>
+                                                <h4 style="color: #2e59d9">-Now (that) you have grown up , you must stop this childish behavior.(既然你已经长大了，就必须停止这种优质的行为。)</h4>
+                                                <h4 style="color: #2e59d9">-People do not know the value of health till they lose it. (直到失去健康人们才会知道它的价值。)</h4>
+                                                <h4 style="color: #2e59d9">-Come and see us whenever you have time. (只要你有时间就来看我们。)</h4>
+                                                <h4>Ⅱ.有些词，如 immediately, directly, instantly 等，当用于 as soon as 意义时，也可以引导时间状语从句，如：</h4>
+                                                <h4 style="color: #2e59d9">-My sister came directly she got my message.(我的妹妹直接来了，她收到了我的留言。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-18-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-The machine will start instantly you press the button.  (机器会立即启动你按一下按钮。)</h4>
+                                                <h4 style="color: #2e59d9">-I got in touch with him immediately I received his letter. (当我收到他的信我立马就感动了。)</h4>
+                                                <h4>Ⅲ.某些表示时间的名词词组，如：the moment,the minute,the instant the day,every time,each time,the first time等，如：</h4>
+                                                <h4 style="color: #2e59d9">-I'll tell you about it the moment you come.(你一来我就告诉你。)</h4>
+                                                <h4 style="color: #2e59d9">-Every time I catch a cold,I have pain in my back.(每次感冒，我的背都疼。)</h4>
+                                                <h4 style="color: #2e59d9">-He had impress me that way the first time I met him. (我第一次见到他时，他就那样给我留下了深刻的印象。)</h4>
+                                                <h4>Ⅳ.有些关联从属连词，如no sooner…than , hardly…when , scarcely…when,如：</h4>
+                                                <h4 style="color: #2e59d9">-She had no sooner heard the new than she fainted.(她一听到新消息就昏过去了。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-19-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-They had hardly started to work when the trouble began.(他们刚开始工作，麻烦就开始了。)</h4>
+                                                <h4 style="color: #2e59d9">-He had scarcely entered the room when the phone rang. (他刚进房间电话就响了。)</h4>
+                                                <br><h3>二、时间状语从句</h3>
+                                                <h4>Ⅰ.地点状语从句常用：where，wherever来引导，如：</h4>
+                                                <h4 style="color: #2e59d9">-I found my book where I left them.(我在放书的地方找到了我的书。)</h4>
+                                                <h4 style="color: #2e59d9">-Wherever he happens to be ,John can make himself at home.(不管约翰出现在哪里，他都能使自己在家。)</h4>
+                                                <h4 style="color: #2e59d9">-He will work wherever the people need him. (他将在人民需要他的地方工作。)</h4>
+                                                <h4>Ⅱ.where构成的复合词也可以引导地点状语从句，如：</h4>
+                                                <h4 style="color: #2e59d9">-Everywhere they went , they were kindly received.(他们所到之处都受到了亲切的接待。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-20-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h3>三、方式状语从句</h3>
+                                                <h4>Ⅰ.方式状语从句通常由as，as if，as thought来引导，如：</h4>
+                                                <h4 style="color: #2e59d9">-Please do exactly as your doctor says.(请按照医生说的那样做。)</h4>
+                                                <h4 style="color: #2e59d9">-He acted as if/though nothing .(他表现得好像什么都没有。)</h4>
+                                                <h4>Ⅱ.在非正式文体中或口语中，也可以用the way（that），how，like等来引导：</h4>
+                                                <h4 style="color: #2e59d9">-She is doing her work the way I like it done.(她正在按我喜欢的方式工作。)</h4>
+                                                <h4 style="color: #2e59d9">-Do you make bread like you make cakes?(你能像做蛋糕一样做面包吗？ )</h4>
+                                                <br><h3>四、程度状语从句</h3>
+                                                <h4>Ⅰ.程度状语从句可用to such an extent that…,to such a degree than,in so far as，如：</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-21-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-The temperature rose to such an extent that the firemen had to leave the burning building.(温度上升到这样的程度，消防队员不得不离开燃烧的建筑物。)</h4>
+                                                <h4 style="color: #2e59d9">-The temperature lower to such a degree than the water froze.(温度低于水结冰的程度。)</h4>
+                                                <h4>程度状语从句往往表示达到某种程度时所引出的结果，所以程度状语从句和结果状语从句在意义上有相通之处。</h4>
+                                                <br><h3>五、原因状语从句</h3>
+                                                <h4>Ⅰ.引导原因状语从句最常用的连词：because，since，as，for，如：</h4>
+                                                <h4 style="color: #2e59d9">-Because I can’t see very well , I have to sit near the front.(因为我看不太清楚，我不得不坐在前面。)</h4>
+                                                <h4 style="color: #2e59d9">-Since he can’t answer the question ,you’d better ask someone else.(既然他回答不了这个问题，你最好问别人。)</h4>
+                                                <h4 style="color: #2e59d9">-As he is working hard ,he is likely to succeed.(由于他工作努力，他很可能会成功。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-22-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-It rained last night , for the ground is wet this morning.(因为今天早上地上湿了，所以昨晚下雨了。)</h4>
+                                                <h4>For表示因果关系时，可以和because换用，但当它用于对主句的内容加以解释或推断时，不能用because代替。</h4>
+                                                <h4>Ⅱ.复合连词也可以引导原因状语从句如：now (that), seeing(that), for fear that，如：</h4>
+                                                <h4 style="color: #2e59d9">-Now that he is absent, you’ll have to do the work by yourself.(既然他不在，你就得自己做这个工作。)</h4>
+                                                <h4 style="color: #2e59d9">-She didn’t go for fear that she would get lost.(她没去是怕迷路。)</h4>
+                                                <br><h3>六、结果状语从句</h3>
+                                                <h4>Ⅰ.引导结果状语从句最常用的连词：so…that… , such (a) …that , such that , so that，如：</h4>
+                                                <h4 style="color: #2e59d9">-He was so angry that he left the room without saying a word.(他非常生气一句话也没说就离开了房间。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-23-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-It was such a bad accident that several people got injured.(这是一次严重的事故，有几个人受伤了。)</h4>
+                                                <h4 style="color: #2e59d9">-She worried so that she could hardly eat her supper.(她担心得几乎吃不下晚饭。)</h4>
+                                                <h4 style="color: #2e59d9">-He had scarcely entered the room when the phone rang. (他刚进房间电话就响了。)</h4>
+                                                <br><h3>七、目的状语从句</h3>
+                                                <h4>Ⅰ.引导目的状语从句最常用的连词：so that , in order that , in case,for fear that ，如：</h4>
+                                                <h4 style="color: #2e59d9">-The teacher must speak clearly so that his students can understand well.(这个老师一定讲得很清楚以致于他的学生能很好的理解。)</h4>
+                                                <h4 style="color: #2e59d9">-Please remind me of it again tomorrow in case I forget.(请明天再提醒我一次，以防我忘记。)</h4>
+                                                <h4 style="color: #2e59d9">-Take an umbrella with you , for fear that it rains.(带把雨伞，怕下雨。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-24-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h3>八、条件状语从句</h3>
+                                                <h4>Ⅰ.引导条件状语从句最常用的连词：if , unless ,in case , as long as , on condition that，如：</h4>
+                                                <h4 style="color: #2e59d9">-If you come tomorrow , I will tell you.(如果你明天来了，我就告诉你。)</h4>
+                                                <h4 style="color: #2e59d9">-You can go out , as long as you promise to be back before eleven.(只要你在7点之前回来，你就可以出去。)</h4>
+                                                <h4 style="color: #2e59d9">-Unless you tell him yourself , he will lose faith in you completely.(除非你亲自告诉他，否则他会完全失去对你的信任。)</h4>
+                                                <h4>Ⅱ.当表示否定的条件时可以用or，或otherwise，如：</h4>
+                                                <h4 style="color: #2e59d9">-Start at once , or/otherwise you’ll miss the train.(赶紧动身，否则你会错过火车。)</h4>
+                                                <br><h3>九、让步状语从句</h3>
+                                                <h4>Ⅰ.引导条件状语从句最常用的连词：although , though ,as ,even if/though，如：</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-25-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4 style="color: #2e59d9">-He is unhappy though he was a lot of money.(虽然他很有钱，但是他不快乐。)</h4>
+                                                <h4 style="color: #2e59d9">-They will stand by you even if you.(即使你没成功，他们也会支持你。)</h4>
+                                                <h4 style="color: orange">注：although/though不可与but连用，但可与yet，still等连用</h4>
+                                                <h4 style="color: #2e59d9">-Unless you tell him yourself , he will lose faith in you completely.(除非你亲自告诉他，否则他会完全失去对你的信任。)</h4>
+                                                <h4>Ⅱ.as引导让步状语从句时需倒装，though引导时可倒装也可不倒，
+                                                    倒装：从句中的表语和状语或动词原形要置于句首，如果表语是名词不可加冠词，如：</h4>
+                                                <h4 style="color: #2e59d9">-Child as he is, he knows a lot.  (尽管是个孩子，他却懂得很多。)</h4>
+                                                <h4 style="color: #2e59d9">-Try as he might , he could not find a job. (不管怎么努力他还是找不到工作。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-26-</h6>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div align="center" style="margin-top: 20px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                            </div>
+                                            <div style="margin-top: 10px;margin-left: 50px;margin-right: 50px">
+                                                <h4>Ⅲ.when和while也可以引导让步状语从句，意为“虽然”，如：</h4>
+                                                <h4 style="color: #2e59d9">-While they are my neighbors, I do not know then well.(虽然他们是我邻居，但我并不很熟悉他们。)</h4>
+                                                <h4>Ⅳ.when和while也可以引导让步状语从句，意为“虽然”，如：</h4>
+                                                <h4 style="color: #2e59d9">-You will have to attend the ceremony whether you are free or busy.(不管你忙不忙你都要参加这个典礼。)</h4>
+                                                <h4>Ⅴ.whatever ，whoever ，whichever，however，when-ever等与no matter what/who/which等也可以引导让步状语从句，如：</h4>
+                                                <h4 style="color: #2e59d9">-Whatever /No matter what you say , he will not believe you.(不论你说什么他们都不会相信你。)</h4>
+                                            </div>
+                                            <div style="position: absolute;bottom: 10px;left: 50px">
+                                                <h3 style="color: black">——————————————————————</h3>
+                                                <h6 align="center">-27-</h6>
+                                            </div>
+                                        </div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+
+
+                                <div id="slider-bar" class="turnjs-slider" style="position: absolute;bottom: 30px;right: 410px;" >
+                                    <div id="slider"></div>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+
 
             </div>
             <!-- /.container-fluid -->
@@ -390,6 +989,229 @@
 
 </div>
 <!-- End of Page Wrapper -->
+
+<script type="text/javascript">
+
+    function loadApp() {
+
+        var flipbook = $('.sample-docs');
+
+        // Check if the CSS was already loaded
+
+        if (flipbook.width()==0 || flipbook.height()==0) {
+            setTimeout(loadApp, 10);
+            return;
+        }
+
+        // Mousewheel
+
+        $('#book-zoom').mousewheel(function(event, delta, deltaX, deltaY) {
+
+            var data = $(this).data(),
+                step = 30,
+                flipbook = $('.sample-docs'),
+                actualPos = $('#slider').slider('value')*step;
+
+            if (typeof(data.scrollX)==='undefined') {
+                data.scrollX = actualPos;
+                data.scrollPage = flipbook.turn('page');
+            }
+
+            data.scrollX = Math.min($( "#slider" ).slider('option', 'max')*step,
+                Math.max(0, data.scrollX + deltaX));
+
+            var actualView = Math.round(data.scrollX/step),
+                page = Math.min(flipbook.turn('pages'), Math.max(1, actualView*2 - 2));
+
+            if ($.inArray(data.scrollPage, flipbook.turn('view', page))==-1) {
+                data.scrollPage = page;
+                flipbook.turn('page', page);
+            }
+
+            if (data.scrollTimer)
+                clearInterval(data.scrollTimer);
+
+            data.scrollTimer = setTimeout(function(){
+                data.scrollX = undefined;
+                data.scrollPage = undefined;
+                data.scrollTimer = undefined;
+            }, 1000);
+
+        });
+
+        // Slider
+
+        $( "#slider" ).slider({
+            min: 1,
+            max: 100,
+
+            start: function(event, ui) {
+                if (!window._thumbPreview) {
+                    _thumbPreview = $('<div />', {'class': 'thumbnail'}).html('<div></div>');
+                    setPreview(ui.value);
+                    _thumbPreview.appendTo($(ui.handle));
+                } else
+                    setPreview(ui.value);
+
+                moveBar(false);
+            },
+
+            slide: function(event, ui) {
+                setPreview(ui.value);
+            },
+
+            stop: function() {
+                if (window._thumbPreview)
+                    _thumbPreview.removeClass('show');
+
+                $('.sample-docs').turn('page', Math.max(1, $(this).slider('value')*2 - 2));
+            }
+        });
+
+
+        // URIs
+
+        Hash.on('^page\/([0-9]*)$', {
+            yep: function(path, parts) {
+                var page = parts[1];
+
+                if (page!==undefined) {
+                    if ($('.sample-docs').turn('is'))
+                        $('.sample-docs').turn('page', page);
+                }
+
+            },
+            nop: function(path) {
+
+                if ($('.sample-docs').turn('is'))
+                    $('.sample-docs').turn('page', 1);
+            }
+        });
+
+        // Arrows
+
+        $(document).keydown(function(e){
+
+            var previous = 37, next = 39;
+
+            switch (e.keyCode) {
+                case previous:
+
+                    $('.sample-docs').turn('previous');
+
+                    break;
+                case next:
+
+                    $('.sample-docs').turn('next');
+
+                    break;
+            }
+
+        });
+
+        // Create the flipbook
+
+        flipbook.turn({
+            elevation: 50,
+            acceleration: false,
+            gradients: true,
+            autoCenter: true,
+            duration: 1000,
+            pages: 30,
+            when: {
+
+                turning: function(e, page, view) {
+
+                    var book = $(this),
+                        currentPage = book.turn('page'),
+                        pages = book.turn('pages');
+
+                    if (currentPage>3 && currentPage<pages-3) {
+                        if (page==1) {
+                            book.turn('page', 2).turn('stop').turn('page', page);
+                            e.preventDefault();
+                            return;
+                        } else if (page==pages) {
+                            book.turn('page', pages-1).turn('stop').turn('page', page);
+                            e.preventDefault();
+                            return;
+                        }
+                    } else if (page>3 && page<pages-3) {
+                        if (currentPage==1) {
+                            book.turn('page', 2).turn('stop').turn('page', page);
+                            e.preventDefault();
+                            return;
+                        } else if (currentPage==pages) {
+                            book.turn('page', pages-1).turn('stop').turn('page', page);
+                            e.preventDefault();
+                            return;
+                        }
+                    }
+
+                    Hash.go('page/'+page).update();
+
+                    if (page==1 || page==pages)
+                        $('.sample-docs .tabs').hide();
+
+
+                },
+
+                turned: function(e, page, view) {
+
+                    var book = $(this);
+
+                    $('#slider').slider('value', getViewNumber(book, page));
+
+                    if (page!=1 && page!=book.turn('pages'))
+                        $('.sample-docs .tabs').fadeIn(500);
+                    else
+                        $('.sample-docs .tabs').hide();
+
+                    book.turn('center');
+                    updateTabs();
+
+                },
+
+                start: function(e, pageObj) {
+
+                    moveBar(true);
+
+                },
+
+                end: function(e, pageObj) {
+
+                    var book = $(this);
+
+                    setTimeout(function() {
+                        $('#slider').slider('value', getViewNumber(book));
+                    }, 1);
+
+                    moveBar(false);
+
+                },
+
+                missing: function (e, pages) {
+
+                    for (var i = 0; i < pages.length; i++)
+                        addPage(pages[i], $(this));
+
+                }
+            }
+        }). turn('page', 2);
+
+
+        $('#slider').slider('option', 'max', numberOfViews(flipbook));
+
+        flipbook.addClass('animated');
+
+
+        // Show canvas
+
+        $('#canvas').css({visibility: 'visible'});
+    }
+
+</script>
+
 
 <!-- Scroll to Top Button-->
 <a class="scroll-to-top rounded" href="#page-top">
@@ -415,6 +1237,7 @@
     </div>
 </div>
 
+
 <!-- Bootstrap core JavaScript-->
 <script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
 <script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -424,6 +1247,13 @@
 
 <!-- Custom scripts for all pages-->
 <script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
+<!-- -->
+<script src="" th:src="@{/js/modernizr.2.5.3.min.js}"></script>
+<script src="" th:src="@{/js/jquery.min.1.7.js}"></script>
+<!--<script src="" th:src="@{/js/turn.js}"></script>-->
+<script src="" th:src="@{/js/hash.js}"></script>
+<script src="" th:src="@{/js/jquery-ui-1.8.20.custom.min.js}"></script>
+<script src="" th:src="@{/js/jquery.mousewheel.min.js}"></script>
 
 <!-- Page level plugins -->
 <script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
@@ -431,6 +1261,21 @@
 <!-- Page level custom scripts -->
 <script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
 <script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
+
+<script>
+    // Hide canvas
+
+    $('#canvas').css({visibility: 'hidden'});
+    yepnope({
+        test: Modernizr.csstransforms,
+        yep: ['../js/turn.min.js', '../css/jquery.ui.css'],
+        nope: ['../js/turn.html4.min.js', '../css/jquery.ui.html4.css'],
+        both: ['../css/docs.css', '../js/docs.js'],
+        complete: loadApp
+    });
+
+
+</script>
 
 </body>
 
