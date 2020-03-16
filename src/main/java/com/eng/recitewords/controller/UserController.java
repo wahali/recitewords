@@ -1,5 +1,7 @@
 package com.eng.recitewords.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
@@ -753,9 +755,19 @@ public class UserController {
         return "user/CharacteristicOfWord";
     }
 
+    /**
+     * 目前通过url加入参数来测试派生，后台显示结果
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping("/user/DeriveOfWord")
-    public String DeriveOfWord(){
+    public String DeriveOfWord(Model model, HttpServletRequest request){
+        String englishWord = request.getParameter("englishWord");
+        Words words = wordsService.selectByEnglishWord(englishWord);
+        JSONArray json = wordsService.getDeriveByWordId(words.getWordId());
         System.out.println("DeriveOfWord is coming!");
+        System.out.println(json);
         return "user/DeriveOfWord";
     }
 

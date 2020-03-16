@@ -22,9 +22,12 @@ public interface WordsMapper {
 
     public Words selectOneByWId(String wordId);
 
+
     public void deleteByWId(String wordId);
 
     public int selectErrorWordByWId(String wordId);
 
     public List<Words> getChildWordListByWordId(String wordId);
+
+    public List<Words> selectByEnglishWord(String englishWord);
 }

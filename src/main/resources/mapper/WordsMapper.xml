@@ -58,4 +58,7 @@
         select * from words where fatherId=#{fatherId}
     </select>
 
+    <select id="selectByEnglishWord" parameterType="String" resultType="words">
+        select * from words where englishWord=#{englishWord}
+    </select>
 </mapper>
