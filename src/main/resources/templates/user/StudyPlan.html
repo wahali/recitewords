@@ -18,20 +18,27 @@
     <!-- Custom styles for this template-->
     <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 
+    <style>
+        .zoom{
+            width: 1600px;
+            height: 700px;
+            /*border: black 1px solid;*/
+        }
+
+        .serial{
+            width: 100px;
+            height: 70px;
+            /*position: absolute;*/
+            /*border-radius: 5%;*/
+            border: grey 1px solid;
+            cursor: not-allowed;
+            background-color: snow;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
-
-<script>
-    function alter() {
-        document.getElementById("userName").disabled="";
-        document.getElementById("userTel").disabled="";
-        document.getElementById("userEmail").disabled="";
-        document.getElementById("userPassword").disabled="";
-        document.getElementById("userLevel").disabled="";
-        document.getElementById("userTarget").disabled="";
-    }
-</script>
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -372,6 +379,21 @@
             </nav>
             <!-- End of Topbar -->
 
+            <script>
+
+                // $("#serial").serial{
+                //
+                // }
+                function fun(num) {
+                    document.getElementById("c"+num).style.backgroundColor="#89e2c2";
+                    document.getElementById("c"+(num+1)).style.cursor="pointer";
+                    document.getElementById("c"+(num+1)).style.backgroundColor="#fadf9b";
+                    document.getElementById("c"+(num+1)).disable="";
+                }
+
+
+            </script>
+
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
@@ -386,36 +408,15 @@
                     <div class="col-lg-12">
 
                         <div class="p-5">
-                            <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">阿飞历险记</h1>
-                            </div>
-                            <div align="center">
-                                <img  src="../img/学校.png">
-                            </div>
-                            <div>
-                                <button title="阿飞在光电楼">
-                                    <img alt="ak" src="../img/syf.png" style="position: absolute;left: 790px;top: 260px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                                <h1 style="position: absolute;color: white;font-size: large;left: 880px;top: 290px;">光电楼能加综测吗？</h1>
-                            </div>
-                            <div>
-                                <button title="阿飞在操场">
-                                    <img src="../img/syf2.png" style="position: absolute;left: 730px;top: 520px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                            </div>
-                            <div>
-                                <button title="阿飞在食堂">
-                                    <img src="../img/syf3.png" style="position: absolute;left: 1080px;top: 360px;width: 80px;height: 80px;border: solid 3px white;border-radius: 100%">
-                                </button>
-                            </div>
-<!--                            <div>-->
-<!--                                <img src="../img/syf.png" style="position: absolute;left: 830px;top: 320px;width: 80px;height: 70px;border: solid 3px white;border-radius: 100%">-->
-<!--                            </div>-->
+
+                        <canvas id="canvas" width="1500" height="800"></canvas>
+
                         </div>
 
                     </div>
 
                 </div>
+
 
             </div>
         <!-- Footer -->
@@ -468,7 +469,536 @@
 
 <!-- Custom scripts for all pages-->
 <script th:src="@{/js/sb-admin-2.min.js}"></script>
+<script th:src="@{/js/jtopo-0.4.8.min.js}"></script>
 
+<script>
+    $(document).ready(function() {
+        // //画布对象：canvas
+        var canvas = document.getElementById('canvas');
+        var stage = new JTopo.Stage(canvas);
+        //显示工具栏
+        // showJTopoToobar(stage);
+
+        var scene = new JTopo.Scene();
+        stage.add(scene);
+        scene.background = '../img/bg.jpg';
+
+        var root = new JTopo.CircleNode('知识体系');
+        root.setSize(80, 80);
+        root.setLocation(700, 350);
+        root.fillColor = JTopo.util.randomColor();
+        scene.add(root);
+
+        var node1 = new JTopo.CircleNode('拼读知识');
+        node1.fillColor = JTopo.util.randomColor();
+        node1.setLocation(550,300);
+        node1.setSize(50, 50);
+        var link1 = new JTopo.Link(root, node1);
+        link1.arrowsRadius = 15;
+        link1.lineWidth=8;
+        link1.strokeColor = JTopo.util.randomColor();
+        scene.add(link1);
+        var node1_1 = new JTopo.CircleNode("字母");
+        node1_1.fillColor = JTopo.util.randomColor();
+        node1_1.setLocation(400,200);
+        var node1_2 = new JTopo.CircleNode("音标");
+        node1_2.fillColor = JTopo.util.randomColor();
+        node1_2.setLocation(400,350);
+        var link1_1 = new JTopo.Link(node1, node1_1);
+        link1_1.arrowsRadius = 10;
+        link1_1.lineWidth=4;
+        link1_1.strokeColor = JTopo.util.randomColor();
+        scene.add(link1_1);
+        var link1_2 = new JTopo.Link(node1, node1_2);
+        link1_2.arrowsRadius = 10;
+        link1_2.lineWidth=4;
+        link1_2.strokeColor = JTopo.util.randomColor();
+        scene.add(link1_2);
+        scene.add(node1);
+        scene.add(node1_1);
+        scene.add(node1_2);
+
+        root.click(function (event) {
+            if (event.button==0){
+                root.fillColor = JTopo.util.randomColor();
+                link1.strokeColor = JTopo.util.randomColor();
+                link2.strokeColor = JTopo.util.randomColor();
+                link3.strokeColor = JTopo.util.randomColor();
+                link4.strokeColor = JTopo.util.randomColor();
+            }
+            if (root.text=="知识体系"){
+                root.text="Knowledge System";
+            }else {
+                root.text="知识体系";
+            }
+        })
+
+        node1.click(function (event) {
+            if (event.button==0){
+                node1.fillColor = JTopo.util.randomColor();
+                link1_1.strokeColor = JTopo.util.randomColor();
+                link1_2.strokeColor = JTopo.util.randomColor();
+            }
+            if (node1.text=="拼读知识"){
+                node1.text="Spell";
+            }else {
+                node1.text="拼读知识";
+            }
+        })
+
+        node1_1.click(function (event) {
+            if (node1_1.text=="字母"){
+                node1_1.text="Alphabet";
+            }else {
+                node1_1.text="字母";
+            }
+        })
+
+        node1_2.click(function (event) {
+            if (node1_2.text=="音标"){
+                node1_2.text="PhoneticSymbol";
+            }else {
+                node1_2.text="音标";
+            }
+        })
+
+        var node2 = new JTopo.CircleNode('句法知识');
+        node2.setLocation(900,300);
+        node2.setSize(50, 50);
+        node2.fillColor = JTopo.util.randomColor();
+        var link2 = new JTopo.Link(root, node2);
+        link2.arrowsRadius = 15;
+        link2.lineWidth=8;
+        link2.strokeColor = JTopo.util.randomColor();
+        scene.add(link2);
+        var node2_1 = new JTopo.CircleNode("简单句");
+        node2_1.setLocation(1000,400);
+        node2_1.fillColor = JTopo.util.randomColor();
+        var node2_2 = new JTopo.CircleNode("并列句");
+        node2_2.setLocation(1000,200);
+        node2_2.fillColor = JTopo.util.randomColor();
+        var node2_3 = new JTopo.CircleNode("复合句");
+        node2_3.setLocation(1100,300);
+        node2_3.fillColor = JTopo.util.randomColor();
+        var link2_1 = new JTopo.Link(node2, node2_1);
+        link2_1.arrowsRadius = 10;
+        link2_1.lineWidth=4;
+        link2_1.strokeColor = JTopo.util.randomColor();
+        scene.add(link2_1);
+        var link2_2 = new JTopo.Link(node2, node2_2);
+        link2_2.arrowsRadius = 10;
+        link2_2.lineWidth=4;
+        link2_2.strokeColor = JTopo.util.randomColor();
+        scene.add(link2_2);
+        var link2_3 = new JTopo.Link(node2, node2_3);
+        link2_3.arrowsRadius = 10;
+        link2_3.lineWidth=4;
+        link2_3.strokeColor = JTopo.util.randomColor();
+        scene.add(link2_3);
+        scene.add(node2);
+        scene.add(node2_1);
+        scene.add(node2_2);
+        scene.add(node2_3);
+
+        node2.click(function (event) {
+            if (event.button==0){
+                node2.fillColor = JTopo.util.randomColor();
+                link2_1.strokeColor = JTopo.util.randomColor();
+                link2_2.strokeColor = JTopo.util.randomColor();
+                link2_3.strokeColor = JTopo.util.randomColor();
+            }
+            if (node2.text=="句法知识"){
+                node2.text="Sentence";
+            }else {
+                node2.text="句法知识";
+            }
+        })
+
+        node2_1.click(function (event) {
+            if (node2_1.text=="简单句"){
+                node2_1.text="Simple";
+            }else {
+                node2_1.text="简单句";
+            }
+        })
+
+        node2_2.click(function (event) {
+            if (node2_2.text=="并列句"){
+                node2_2.text="Compound";
+            }else {
+                node2_2.text="并列句";
+            }
+        })
+
+        var node3 = new JTopo.CircleNode('词法知识');
+        node3.setLocation(725,500);
+        node3.setSize(50, 50);
+        node3.fillColor = JTopo.util.randomColor();
+        var link3 = new JTopo.Link(root, node3);
+        link3.arrowsRadius = 15;
+        link3.lineWidth=8;
+        link3.strokeColor = JTopo.util.randomColor();
+        scene.add(link3);
+        var node3_1 = new JTopo.CircleNode("词性");
+        node3_1.setLocation(850,600);
+        node3_1.fillColor = JTopo.util.randomColor();
+        var node3_2 = new JTopo.CircleNode("时态");
+        node3_2.setLocation(600,600);
+        node3_2.fillColor = JTopo.util.randomColor();
+        var node3_3 = new JTopo.CircleNode("语态");
+        node3_3.setLocation(725,650);
+        node3_3.fillColor = JTopo.util.randomColor();
+        var link3_1 = new JTopo.Link(node3, node3_1);
+        link3_1.arrowsRadius = 10;
+        link3_1.lineWidth=4;
+        link3_1.strokeColor = JTopo.util.randomColor();
+        scene.add(link3_1);
+        var link3_2 = new JTopo.Link(node3, node3_2);
+        link3_2.arrowsRadius = 10;
+        link3_2.lineWidth=4;
+        link3_2.strokeColor = JTopo.util.randomColor();
+        scene.add(link3_2);
+        var link3_3 = new JTopo.Link(node3, node3_3);
+        link3_3.arrowsRadius = 10;
+        link3_3.lineWidth=4;
+        link3_3.strokeColor = JTopo.util.randomColor();
+        var node3_3_1 = new JTopo.CircleNode("主动语态");
+        node3_3_1.setLocation(800,700);
+        node3_3_1.setSize(25,25);
+        node3_3_1.fillColor = JTopo.util.randomColor();
+        var link3_3_1 = new JTopo.Link(node3_3, node3_3_1);
+        link3_3_1.arrowsRadius = 10;
+        link3_3_1.strokeColor = JTopo.util.randomColor();
+        var node3_3_2 = new JTopo.CircleNode("被动语态");
+        node3_3_2.setLocation(650,700);
+        node3_3_2.setSize(25,25);
+        node3_3_2.fillColor = JTopo.util.randomColor();
+        var link3_3_2 = new JTopo.Link(node3_3, node3_3_2);
+        link3_3_2.arrowsRadius = 10;
+        link3_3_2.strokeColor = JTopo.util.randomColor();
+        scene.add(link3_3);
+        scene.add(node3);
+        scene.add(node3_1);
+        scene.add(node3_2);
+        scene.add(node3_3);
+        scene.add(node3_3_1);
+        scene.add(node3_3_2);
+        scene.add(link3_3_1);
+        scene.add(link3_3_2);
+
+        node3.click(function (event) {
+            if (event.button==0){
+                node3.fillColor = JTopo.util.randomColor();
+                link3_1.strokeColor = JTopo.util.randomColor();
+                link3_2.strokeColor = JTopo.util.randomColor();
+                link3_3.strokeColor = JTopo.util.randomColor();
+            }
+            if (node3.text=="词法知识"){
+                node3.text="Word";
+            }else {
+                node3.text="词法知识";
+            }
+        })
+
+        node3_1.click(function (event) {
+            if (event.button==0){
+                node3_1.fillColor = JTopo.util.randomColor();
+                linkW.strokeColor = JTopo.util.randomColor();
+            }
+            if (node3_1.text=="词性"){
+                node3_1.text="Characteristic";
+            }else {
+                node3_1.text="词性";
+            }
+        })
+
+        node3_2.click(function (event) {
+            if (event.button==0){
+                node3_2.fillColor = JTopo.util.randomColor();
+                linkS.strokeColor = JTopo.util.randomColor();
+            }
+            if (node3_2.text=="时态"){
+                node3_2.text="Tense";
+            }else {
+                node3_2.text="时态";
+            }
+        })
+
+        node3_3.click(function (event) {
+            if (event.button==0){
+                node3_3.fillColor = JTopo.util.randomColor();
+                link3_3_1.strokeColor = JTopo.util.randomColor();
+                link3_3_2.strokeColor = JTopo.util.randomColor();
+            }
+            if (node3_3.text=="语态"){
+                node3_3.text="Voice";
+            }else {
+                node3_3.text="语态";
+            }
+        })
+
+        var node4 = new JTopo.CircleNode('练习测试');
+        node4.setLocation(725,250);
+        node4.setSize(50,50);
+        node4.fillColor = JTopo.util.randomColor();
+        var link4 = new JTopo.Link(root, node4);
+        link4.arrowsRadius = 15;
+        link4.lineWidth=8;
+        link4.strokeColor = JTopo.util.randomColor();
+        scene.add(link4);
+        var node4_1 = new JTopo.CircleNode("中文释义");
+        node4_1.setLocation(850,150);
+        node4_1.fillColor = JTopo.util.randomColor();
+        var node4_2 = new JTopo.CircleNode("听音选词");
+        node4_2.setLocation(600,150);
+        node4_2.fillColor = JTopo.util.randomColor();
+        var node4_3 = new JTopo.CircleNode("例句填空");
+        node4_3.setLocation(725,100);
+        node4_3.fillColor = JTopo.util.randomColor();
+        var link4_1 = new JTopo.Link(node4, node4_1);
+        link4_1.arrowsRadius = 10;
+        link4_1.lineWidth=4;
+        link4_1.strokeColor = JTopo.util.randomColor();
+        scene.add(link4_1);
+        var link4_2 = new JTopo.Link(node4, node4_2);
+        link4_2.arrowsRadius = 10;
+        link4_2.lineWidth=4;
+        link4_2.strokeColor = JTopo.util.randomColor();
+        scene.add(link4_2);
+        var link4_3 = new JTopo.Link(node4, node4_3);
+        link4_3.arrowsRadius = 10;
+        link4_3.lineWidth=4;
+        link4_3.strokeColor = JTopo.util.randomColor();
+        scene.add(link4_3);
+        scene.add(node4);
+        scene.add(node4_1);
+        scene.add(node4_2);
+        scene.add(node4_3);
+
+        node4.click(function (event) {
+            if (event.button==0){
+                node4.fillColor = JTopo.util.randomColor();
+                link4_1.strokeColor = JTopo.util.randomColor();
+                link4_2.strokeColor = JTopo.util.randomColor();
+                link4_3.strokeColor = JTopo.util.randomColor();
+            }
+            if (node4.text=="练习测试"){
+                node4.text="Test";
+            }else {
+                node4.text="练习测试";
+            }
+        })
+
+        node4_1.click(function (event) {
+            if (node4_1.text=="中文释义"){
+                node4_1.text="ChooseC";
+            }else {
+                node4_1.text="中文释义";
+            }
+        })
+
+        node4_2.click(function (event) {
+            if (node4_2.text=="听音选词"){
+                node4_2.text="ChooseE";
+            }else {
+                node4_2.text="听音选词";
+            }
+        })
+
+        node4_3.click(function (event) {
+            if (node4_3.text=="例句填空"){
+                node4_3.text="FillBlank";
+            }else {
+                node4_3.text="例句填空";
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var gridLayout = JTopo.layout.GridLayout(3, 4);
+        //创建容器
+        var container2 = new JTopo.Container('词性分类');
+        container2.layout = gridLayout;
+        container2.fillColor = '10,10,100';
+        container2.setBound(1080, 550, 400, 200);
+        scene.add(container2);
+        var linkW = new JTopo.Link(node3_1,container2);
+        linkW.arrowsRadius = 10;
+        linkW.strokeColor = JTopo.util.randomColor();
+        scene.add(linkW);
+
+        for(var i=1; i<11; i++){
+            if (i==1) var node = new JTopo.Node("名词");
+            else if (i==2) var node = new JTopo.Node("形容词");
+            else if (i==3) var node = new JTopo.Node("动词");
+            else if (i==4) var node = new JTopo.Node("冠词");
+            else if (i==5) var node = new JTopo.Node("连词");
+            else if (i==6) var node = new JTopo.Node("代词");
+            else if (i==7) var node = new JTopo.Node("副词");
+            else if (i==8) var node = new JTopo.Node("数词");
+            else if (i==9) var node = new JTopo.Node("介词");
+            else if (i==10) var node = new JTopo.Node("感叹词");
+            // var node = new JTopo.Node("F_" + i);
+            node.textPosition = "Middle_Center";
+            node.setSize(40,40);
+            node.fillColor = JTopo.util.randomColor();
+            scene.add(node);
+            container2.add(node);
+        }
+
+
+        var gridLayout1 = JTopo.layout.GridLayout(2, 2);
+
+        var container1 = new JTopo.Container('名词性从句');
+        container1.layout = gridLayout1;
+        container1.fillColor = '10,10,100';
+        container1.setBound(1180, 10, 300, 150);
+        scene.add(container1);
+        var linkC = new JTopo.Link(node2_3,container1);
+        linkC.arrowsRadius = 10;
+        linkC.strokeColor = JTopo.util.randomColor();
+        scene.add(linkC);
+        for(var j=1; j<5; j++) {
+            if (j == 1) var nodeN = new JTopo.CircleNode("主语从句");
+            else if (j == 2) var nodeN = new JTopo.CircleNode("宾语从句");
+            else if (j == 3) var nodeN = new JTopo.CircleNode("表语从句");
+            else if (j == 4) var nodeN = new JTopo.CircleNode("同位语从句");
+            nodeN.textPosition = "Middle_Right";
+            nodeN.setSize(30,30);
+            nodeN.fillColor = JTopo.util.randomColor();
+            scene.add(nodeN);
+            container1.add(nodeN);
+        }
+
+        var gridLayout2 = JTopo.layout.GridLayout(3, 2);
+
+        var container3 = new JTopo.Container('状语从句');
+        container3.layout = gridLayout2;
+        container3.fillColor = '10,10,100';
+        container3.setBound(1180, 350, 300, 150);
+        scene.add(container3);
+        var linkZ = new JTopo.Link(node2_3,container3);
+        linkZ.arrowsRadius = 10;
+        linkZ.strokeColor = JTopo.util.randomColor();
+        scene.add(linkZ);
+        for(var j=1; j<6; j++) {
+            if (j == 1) var nodeA = new JTopo.Node("时间状语从句");
+            else if (j == 2) var nodeA = new JTopo.Node("方式状语从句");
+            else if (j == 3) var nodeA = new JTopo.Node("原因状语从句");
+            else if (j == 4) var nodeA = new JTopo.Node("目的状语从句");
+            else if (j == 5) var nodeA = new JTopo.Node("让步状语从句");
+            nodeA.textPosition="Middle_Right";
+            nodeA.setSize(20,20);
+            nodeA.fillColor = JTopo.util.randomColor();
+            scene.add(nodeA);
+            container3.add(nodeA);
+        }
+
+        var gridLayout3 = JTopo.layout.GridLayout(4, 4);
+
+        var container4 = new JTopo.Container('时态分类');
+        container4.layout = gridLayout3;
+        container4.fillColor = '10,10,100';
+        container4.setBound(10, 450, 500, 300);
+        scene.add(container4);
+        var linkS = new JTopo.Link(node3_2,container4);
+        linkS.arrowsRadius = 10;
+        linkS.strokeColor = JTopo.util.randomColor();
+        scene.add(linkS);
+        for(var j=1; j<17; j++) {
+            if (j == 1) var nodeA = new JTopo.CircleNode("一般现在时");
+            else if (j == 2) var nodeA = new JTopo.CircleNode("一般过去时");
+            else if (j == 3) var nodeA = new JTopo.CircleNode("一般将来时");
+            else if (j == 4) var nodeA = new JTopo.CircleNode("现在进行时");
+            else if (j == 5) var nodeA = new JTopo.CircleNode("过去进行时");
+            else if (j == 6) var nodeA = new JTopo.CircleNode("将来进行时");
+            else if (j == 7) var nodeA = new JTopo.CircleNode("现在完成时");
+            else if (j == 8) var nodeA = new JTopo.CircleNode("过去完成时");
+            else if (j == 9) var nodeA = new JTopo.CircleNode("将来完成时");
+            else if (j == 10) var nodeA = new JTopo.CircleNode("现在完成进行时");
+            else if (j == 11) var nodeA = new JTopo.CircleNode("过去完成进行时");
+            else if (j == 12) var nodeA = new JTopo.CircleNode("将来完成进行时");
+            else if (j == 13) var nodeA = new JTopo.CircleNode("过去将来时");
+            else if (j == 14) var nodeA = new JTopo.CircleNode("过去将来进行时");
+            else if (j == 15) var nodeA = new JTopo.CircleNode("过去将来完成时");
+            else if (j == 16) var nodeA = new JTopo.CircleNode("过去将来完成进行时");
+            nodeA.textPosition="Bottom_Center";
+            nodeA.setSize(25,25);
+            nodeA.fillColor = JTopo.util.randomColor();
+            scene.add(nodeA);
+            container4.add(nodeA);
+        }
+
+        var text = new JTopo.TextNode("定语从句");
+        var linkO = new JTopo.Link(node2_3,text);
+        text.setLocation(1300,240);
+        linkO.arrowsRadius = 10;
+        linkO.strokeColor = JTopo.util.randomColor();
+        scene.add(text);
+        scene.add(linkO);
+
+        node2_3.click(function (event) {
+            if (event.button==0) {
+                node2_3.fillColor = JTopo.util.randomColor();
+                linkC.strokeColor=JTopo.util.randomColor();
+                linkZ.strokeColor=JTopo.util.randomColor();
+                linkO.strokeColor=JTopo.util.randomColor();
+            }
+            if (node2_3.text=="复合句"){
+                node2_3.text="Complex";
+            }else {
+                node2_3.text="复合句";
+            }
+        })
+
+
+
+
+
+
+        // var effect = JTopo.Effect.spring({
+        //     grivity: 0, // 引力大小
+        //     spring: 0.4, // 弹性系数
+        //     friction: 0.3 // 摩擦系数
+        // });
+        // effect.addNode(node1,root);
+        // effect.addNode(node1,node1_1);
+        // effect.addNode(node1,node1_2);
+        //
+        // effect.addNode(node2,root);
+        // effect.addNode(node2,node2_1);
+        // effect.addNode(node2,node2_2);
+        // effect.addNode(node2,node2_3);
+        //
+        // effect.addNode(node3,root);
+        // effect.addNode(node3,node3_1);
+        // effect.addNode(node3,node3_2);
+        // effect.addNode(node3,node3_3);
+        //
+        // effect.play();
+
+    });
+
+
+
+</script>
 
 </body>
 
