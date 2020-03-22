@@ -52,7 +52,7 @@
                 // alert("你点我了");
                 var index = $("#index").val();
                 // index = index + 1;
-                var url = "/recitewords/nextWord";
+                var url = "/recitewords/recitation/nextWord";
                 var args = {"index":index,"time":new Date()};
                 $.post(url, args, function (data) {
                     if(data == "success") {
@@ -80,7 +80,7 @@
                 var index = $("#index").val();
                 // alert(index);
                 // index = index + 1;
-                var url = "/recitewords/preWord";
+                var url = "/recitewords/recitation/preWord";
                 var args = {"index":index,"time":new Date()};
                 $.post(url, args, function (data) {
                     if(data == "success") {
