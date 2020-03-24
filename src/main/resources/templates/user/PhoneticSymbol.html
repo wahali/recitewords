@@ -142,10 +142,10 @@
             <div id="collapsePages1" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
-                    <a class="collapse-item active" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
                         <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                    <a class="collapse-item active" href="" th:href="@{/user/PhoneticSymbol}">
+                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
@@ -426,6 +426,11 @@
                         }
                     }
                 }
+                
+                function mp3(n) {
+                    var audio = document.getElementById("a"+n);
+                    audio.play();
+                }
             </script>
 
             <!-- Begin Page Content -->
@@ -439,6 +444,10 @@
 
                 <!-- Content Row -->
                 <div class="row">
+
+
+<!--                    <audio src="../phonetic/i_e_me.mp3" controls></audio>-->
+
 
                     <!-- Grow In page1 -->
                     <div id="page1" class="col-lg-12">
@@ -511,7 +520,11 @@
                                     <h5>/i:/</h5>
                                 </button>
                                 <div id="d1" class="S-div">
-                                    <h2 style="color: white">/i:/<button class="btn"><i id="audio" class="fa fa-volume-up"></i></button></h2>
+                                    <h2 style="color: white">/i:/<button class="btn" onclick="mp3(1);">
+                                        <i class="fa fa-volume-up"></i>
+                                        <audio id="a1" src="../phonetic/i_e_me.mp3"></audio>
+                                    </button></h2>
+
 
                                     <h3 style="color: white;">长元音，嘴唇微微张开。舌尖抵下齿，嘴角向两边张开，流露出微笑表情，与E发音相同。</h3>
                                     <h3 style="color: white;">Example : pea（豌豆），bee（蜜蜂），eat（吃），beat（敲打），deep（深的）</h3>
@@ -525,7 +538,12 @@
                                     <h5>/i/</h5>
                                 </button>
                                 <div id="d2" class="S-div">
-                                    <h2 style="color: white">/i/</h2>
+                                    <h2 style="color: white">/i/
+                                        <button class="btn" onclick="mp3(2);">
+                                        <i class="fa fa-volume-up"></i>
+                                        <audio id="a2" src="../phonetic/ɪ_i_sit.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，嘴唇微微张开，舌尖抵下齿，舌前部抬高，嘴型扁平，干脆利落。</h3>
                                     <h3 style="color: white;">Example : bit（少量），tip（顶部），fit（合适的），sit（使坐）</h3>
                                     <button onclick="check1(2)">
@@ -538,9 +556,14 @@
                                     <h5>/ɔ:/</h5>
                                 </button>
                                 <div id="d3" class="S-div">
-                                    <h2 style="color: white">/ɔ:/</h2>
+                                    <h2 style="color: white">/ɔ:/
+                                        <button class="btn" onclick="mp3(3);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a3" src="../phonetic/oɚ_or_door.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">长元音，双唇收得小而圆，并向前突出，舌身往后缩。</h3>
-                                    <h3 style="color: white;">Example : sort（种类），talk（谈话），ball（球，舞会）</h3>
+                                    <h3 style="color: white;">Example : sort（种类），talk（谈话），door（门）</h3>
                                     <button onclick="check1(3)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -551,9 +574,14 @@
                                     <h5>/ɔ/</h5>
                                 </button>
                                 <div id="d4" class="S-div">
-                                    <h2 style="color: white">/ɔ/</h2>
+                                    <h2 style="color: white">/ɔ/
+                                        <button class="btn" onclick="mp3(4);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a4" src="../phonetic/ɑ_o_dog.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，口腔大开，嘴张大，舌向后缩，双唇稍收圆。</h3>
-                                    <h3 style="color: white;">Example : fond（喜欢），lock（锁），hot（热的）</h3>
+                                    <h3 style="color: white;">Example : fond（喜欢），lock（锁），dog（狗）</h3>
                                     <button onclick="check1(4)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -564,7 +592,12 @@
                                     <h5>/a:/</h5>
                                 </button>
                                 <div id="d5" class="S-div">
-                                    <h2 style="color: white">/a:/</h2>
+                                    <h2 style="color: white">/a:/
+                                        <button class="btn" onclick="mp3(5);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a5" src="../phonetic/ɑɚ_ar_car.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">长元音，口腔打开，嘴张大，舌身放平，舌尖不抵下齿，下巴放松，轻松发音。</h3>
                                     <h3 style="color: white;">Example : car（小汽车），art（艺术），bath（洗澡）</h3>
                                     <button onclick="check1(5)">
@@ -577,9 +610,14 @@
                                     <h5>/ʌ/</h5>
                                 </button>
                                 <div id="d6" class="S-div">
-                                    <h2 style="color: white">/ʌ/</h2>
+                                    <h2 style="color: white">/ʌ/
+                                        <button class="btn" onclick="mp3(6);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a6" src="../phonetic/ʌ_u_but.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，嘴唇微微张开伸向两边，舌尖轻触下齿，唇后部稍稍抬起。</h3>
-                                    <h3 style="color: white;">Example : color（颜色），lucky（幸运的），love（爱）</h3>
+                                    <h3 style="color: white;">Example : color（颜色），lucky（幸运的），but（但是）</h3>
                                     <button onclick="check1(6)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -590,7 +628,12 @@
                                     <h5>/ɜ:/</h5>
                                 </button>
                                 <div id="d7" class="S-div">
-                                    <h2 style="color: white">/ɜ:/</h2>
+                                    <h2 style="color: white">/ɜ:/
+                                        <button class="btn" onclick="mp3(7);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a7" src="../phonetic/ɚ_er_her.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">长元音，嘴型扁平，上下齿微微张开，舌身放平，舌中部稍抬起。</h3>
                                     <h3 style="color: white;">Example : girl（女孩），first（第一），work（工作）</h3>
                                     <button onclick="check1(7)">
@@ -603,9 +646,14 @@
                                     <h5>/ə/</h5>
                                 </button>
                                 <div id="d8" class="S-div">
-                                    <h2 style="color: white">/ə/</h2>
+                                    <h2 style="color: white">/ə/
+                                        <button class="btn" onclick="mp3(8);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a8" src="../phonetic/ə_a_a.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，嘴唇微微张开，舌身放平，舌中部稍抬起，口腔自然放松发声。</h3>
-                                    <h3 style="color: white;">Example : forget（忘记），dollar（美元），power（力量）</h3>
+                                    <h3 style="color: white;">Example : forget（忘记），dollar（美元），a（一个）</h3>
                                     <button onclick="check1(8)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -616,9 +664,14 @@
                                     <h5>/u:/</h5>
                                 </button>
                                 <div id="d9" class="S-div">
-                                    <h2 style="color: white">/u:/</h2>
+                                    <h2 style="color: white">/u:/
+                                        <button class="btn" onclick="mp3(9);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a9" src="../phonetic/ʊ_oo_book.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">长元音，嘴型小而圆，微微外凸，舌头尽量后缩。</h3>
-                                    <h3 style="color: white;">Example : move（移动），spoon（汤勺），room（房间）</h3>
+                                    <h3 style="color: white;">Example : move（移动），spoon（汤勺），book（书）</h3>
                                     <button onclick="check1(9)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -629,9 +682,14 @@
                                     <h5>/u/</h5>
                                 </button>
                                 <div id="d10" class="S-div">
-                                    <h2 style="color: white">/u/</h2>
+                                    <h2 style="color: white">/u/
+                                        <button class="btn" onclick="mp3(10);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a10" src="../phonetic/u_o_do.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，嘴唇张开略向前突出。</h3>
-                                    <h3 style="color: white;">Example : good（好的），could（能够），should（应该）</h3>
+                                    <h3 style="color: white;">Example : do（做），could（能够），should（应该）</h3>
                                     <button onclick="check1(10)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -642,7 +700,12 @@
                                     <h5>/e/</h5>
                                 </button>
                                 <div id="d11" class="S-div">
-                                    <h2 style="color: white">/e/</h2>
+                                    <h2 style="color: white">/e/
+                                        <button class="btn" onclick="mp3(11);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a11" src="../phonetic/ɛ_e_egg.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，嘴型扁平，舌尖抵下齿，齿前部稍抬起。</h3>
                                     <h3 style="color: white;">Example : egg（鸡蛋），get（到达），send（送）</h3>
                                     <button onclick="check1(11)">
@@ -655,7 +718,12 @@
                                     <h5>/æ/</h5>
                                 </button>
                                 <div id="d12" class="S-div">
-                                    <h2 style="color: white">/æ/</h2>
+                                    <h2 style="color: white">/æ/
+                                        <button class="btn" onclick="mp3(12);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a12" src="../phonetic/æ_a_bag.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">短元音，嘴张大，舌尖抵下齿，嘴角尽量拉向两边，成扁平形。（梅花音，嘴裂最宽一个，腮帮酸胀，发音就像挤出来一样，感觉不适应。）</h3>
                                     <h3 style="color: white;">Example : fat（肥的），bag（包），fact（事实）</h3>
                                     <button onclick="check1(12)">
@@ -668,7 +736,12 @@
                                     <h5>/eɪ/</h5>
                                 </button>
                                 <div id="d13" class="S-div">
-                                    <h2 style="color: white">/eɪ/</h2>
+                                    <h2 style="color: white">/eɪ/
+                                        <button class="btn" onclick="mp3(13);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a13" src="../phonetic/eɪ_a_cake.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，口型由半开到合，与字母A发音相同 。</h3>
                                     <h3 style="color: white;">Example : same（相同的），late（迟到的），cake（蛋糕）</h3>
                                     <button onclick="check1(13)">
@@ -681,9 +754,14 @@
                                     <h5.1>/əʊ/</h5.1>
                                 </button>
                                 <div id="d14" class="S-div">
-                                    <h2 style="color: white">/əʊ/</h2>
+                                    <h2 style="color: white">/əʊ/
+                                        <button class="btn" onclick="mp3(14);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a14" src="../phonetic/oʊ_o_no.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，口型由半开到小，与字母O的发音相同。</h3>
-                                    <h3 style="color: white;">Example : show（展示），know（知道），go（去）</h3>
+                                    <h3 style="color: white;">Example : show（展示），know（知道），no（不）</h3>
                                     <button onclick="check1(14)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -694,9 +772,14 @@
                                     <h5>/aɪ/</h5>
                                 </button>
                                 <div id="d15" class="S-div">
-                                    <h2 style="color: white">/aɪ/</h2>
+                                    <h2 style="color: white">/aɪ/
+                                        <button class="btn" onclick="mp3(15);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a15" src="../phonetic/aɪ_i_hi.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，口型由开到合，与字母I的发音相同。</h3>
-                                    <h3 style="color: white;">Example : life（生活），kind（亲切的），like（喜欢）</h3>
+                                    <h3 style="color: white;">Example : life（生活），kind（亲切的），hi（嗨）</h3>
                                     <button onclick="check1(15)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -707,7 +790,12 @@
                                     <h5>/aʊ/</h5>
                                 </button>
                                 <div id="d16" class="S-div">
-                                    <h2 style="color: white">/aʊ/</h2>
+                                    <h2 style="color: white">/aʊ/
+                                        <button class="btn" onclick="mp3(16);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a16" src="../phonetic/aʊ_ou_house.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，口型由大到小。</h3>
                                     <h3 style="color: white;">Example : house（房子），shout（叫喊），town（城镇）</h3>
                                     <button onclick="check1(16)">
@@ -720,9 +808,14 @@
                                     <h5>/ɔɪ/</h5>
                                 </button>
                                 <div id="d17" class="S-div">
-                                    <h2 style="color: white">/ɔɪ/</h2>
+                                    <h2 style="color: white">/ɔɪ/
+                                        <button class="btn" onclick="mp3(17);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a17" src="../phonetic/oɪ_oy_boy.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，双唇由圆到扁，口型从开到合。</h3>
-                                    <h3 style="color: white;">Example : joy（欢乐），noise（噪音），enjoy（享受）</h3>
+                                    <h3 style="color: white;">Example : boy（男孩），noise（噪音），enjoy（享受）</h3>
                                     <button onclick="check1(17)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -733,9 +826,14 @@
                                     <h5>/ɪə/</h5>
                                 </button>
                                 <div id="d18" class="S-div">
-                                    <h2 style="color: white">/ɪə/</h2>
+                                    <h2 style="color: white">/ɪə/
+                                        <button class="btn" onclick="mp3(18);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a18" src="../phonetic/iɚ_ear_hear.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，双唇始终半开。</h3>
-                                    <h3 style="color: white;">Example : dear（亲爱的），beer（啤酒），hear（听到</h3>
+                                    <h3 style="color: white;">Example : dear（亲爱的），beer（啤酒），hear（听到）</h3>
                                     <button onclick="check1(18)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -746,9 +844,14 @@
                                     <h5>/eə/</h5>
                                 </button>
                                 <div id="d19" class="S-div">
-                                    <h2 style="color: white">/eə/</h2>
+                                    <h2 style="color: white">/eə/
+                                        <button class="btn" onclick="mp3(19);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a19" src="../phonetic/eɚ_er_where.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">双元音，舌端抵下齿，双唇半开。</h3>
-                                    <h3 style="color: white;">Example : care（关心），share（分享），bear（熊）</h3>
+                                    <h3 style="color: white;">Example : where（哪里），share（分享），bear（熊）</h3>
                                     <button onclick="check1(19)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -759,9 +862,14 @@
                                     <h5.1>/ʊə/</h5.1>
                                 </button>
                                 <div id="d20" class="S-div">
-                                    <h2 style="color: white">/ʊə/</h2>
-                                    <h3 style="color: white;">双元音，口型由半开到合，与字母A发音相同 。</h3>
-                                    <h3 style="color: white;">Example : same（相同的），late（迟到的），cake（蛋糕）</h3>
+                                    <h2 style="color: white">/ʊə/
+                                        <button class="btn" onclick="mp3(20);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a20" src="../phonetic/uɚ_ur_sure.mp3"></audio>
+                                        </button>
+                                    </h2>
+                                    <h3 style="color: white;">双元音，嘴唇由收圆到半开 。</h3>
+                                    <h3 style="color: white;">Example : sure（确信的），your（你们的）</h3>
                                     <button onclick="check1(20)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -772,9 +880,14 @@
                                     <h5>/p/</h5>
                                 </button>
                                 <div id="d21" class="S-div">
-                                    <h2 style="color: white">/p/</h2>
+                                    <h2 style="color: white">/p/
+                                        <button class="btn" onclick="mp3(21);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a21" src="../phonetic/p_p_cup.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，双唇紧闭，然后快速张开，让气流冲出口腔，发出爆破音，但声带不震动。</h3>
-                                    <h3 style="color: white;">Example : pea（豌豆），deep（深的），tip（顶端）</h3>
+                                    <h3 style="color: white;">Example : pea（豌豆），deep（深的），cup（杯子）</h3>
                                     <button onclick="check1(21)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -785,9 +898,14 @@
                                     <h5>/b/</h5>
                                 </button>
                                 <div id="d22" class="S-div">
-                                    <h2 style="color: white">/b/</h2>
+                                    <h2 style="color: white">/b/
+                                        <button class="btn" onclick="mp3(22);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a22" src="../phonetic/b_b_cab.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，双唇紧闭，然后快速张开，让气体冲出口腔，发出爆破音，但声带震动。</h3>
-                                    <h3 style="color: white;">Example : bee（蜜蜂），beat（敲打），bit（少量）</h3>
+                                    <h3 style="color: white;">Example : cab（驾驶室；出租汽车），beat（敲打），bit（少量）</h3>
                                     <button onclick="check1(22)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -798,9 +916,14 @@
                                     <h5>/t/</h5>
                                 </button>
                                 <div id="d23" class="S-div">
-                                    <h2 style="color: white">/t/</h2>
+                                    <h2 style="color: white">/t/
+                                        <button class="btn" onclick="mp3(23);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a23" src="../phonetic/t_t_sit.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，舌尖抵上齿龈，憋住气，然后弹开舌尖，让气流从口腔中喷出，但声带不震动。</h3>
-                                    <h3 style="color: white;">Example : eat（吃），beat（敲打），bit（少量）</h3>
+                                    <h3 style="color: white;">Example : eat（吃），beat（敲打），sit（坐）</h3>
                                     <button onclick="check1(23)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -811,9 +934,14 @@
                                     <h5>/d/</h5>
                                 </button>
                                 <div id="d24" class="S-div">
-                                    <h2 style="color: white">/d/</h2>
+                                    <h2 style="color: white">/d/
+                                        <button class="btn" onclick="mp3(24);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a24" src="../phonetic/d_d_bed.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，舌尖抵上齿龈，憋住气，然后弹开舌尖，让气流从口腔中喷出，但声带要震动。</h3>
-                                    <h3 style="color: white;">Example : deep（深的），deal（处理），do（做）</h3>
+                                    <h3 style="color: white;">Example : deep（深的），deal（处理），bed（床）</h3>
                                     <button onclick="check1(24)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -824,9 +952,14 @@
                                     <h5>/k/</h5>
                                 </button>
                                 <div id="d25" class="S-div">
-                                    <h2 style="color: white">/k/</h2>
+                                    <h2 style="color: white">/k/
+                                        <button class="btn" onclick="mp3(25);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a25" src="../phonetic/k_k_cake.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，舌后部抵住软腭，憋住气，然后突然离开，将气流送出，像咳嗽，但声带不震动。</h3>
-                                    <h3 style="color: white;">Example : key（钥匙），kid（小孩），kind（亲切的）</h3>
+                                    <h3 style="color: white;">Example : key（钥匙），kid（小孩），cake（蛋糕）</h3>
                                     <button onclick="check1(25)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -837,9 +970,14 @@
                                     <h5>/g/</h5>
                                 </button>
                                 <div id="d26" class="S-div">
-                                    <h2 style="color: white">/g/</h2>
+                                    <h2 style="color: white">/g/
+                                        <button class="btn" onclick="mp3(26);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a26" src="../phonetic/g_g_dog.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，舌后部抵住软腭，憋住气，然后突然离开，将气流送出，像咳嗽，但声带震动。</h3>
-                                    <h3 style="color: white;">Example : big（大的），give（给），get（到达）</h3>
+                                    <h3 style="color: white;">Example : dog（狗），give（给），get（到达）</h3>
                                     <button onclick="check1(26)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -850,9 +988,14 @@
                                     <h5>/f/</h5>
                                 </button>
                                 <div id="d27" class="S-div">
-                                    <h2 style="color: white">/f/</h2>
+                                    <h2 style="color: white">/f/
+                                        <button class="btn" onclick="mp3(27);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a27" src="../phonetic/f_f_knife.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，上齿轻轻接触下唇，然后轻轻吹气，使气流从唇齿间通过，形成摩擦，但声带不震动 。</h3>
-                                    <h3 style="color: white;">Example :fact（事实），feet（脚），fat（肥的）</h3>
+                                    <h3 style="color: white;">Example :fact（事实），feet（脚），knife（刀，匕首）</h3>
                                     <button onclick="check1(27)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -863,9 +1006,14 @@
                                     <h5>/v/</h5>
                                 </button>
                                 <div id="d28" class="S-div">
-                                    <h2 style="color: white">/v/</h2>
+                                    <h2 style="color: white">/v/
+                                        <button class="btn" onclick="mp3(28);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a28" src="../phonetic/v_v_five.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，上齿轻轻接触下唇，然后轻轻吹气，使气流从唇齿间通过，形成摩擦，但声带震动。</h3>
-                                    <h3 style="color: white;">Example : give（给），have（有），very（非常）</h3>
+                                    <h3 style="color: white;">Example : five（五），have（有），very（非常）</h3>
                                     <button onclick="check1(28)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -876,9 +1024,14 @@
                                     <h5>/θ/</h5>
                                 </button>
                                 <div id="d29" class="S-div">
-                                    <h2 style="color: white">/θ/</h2>
+                                    <h2 style="color: white">/θ/
+                                        <button class="btn" onclick="mp3(29);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a29" src="../phonetic/θ_th_earth.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，舌尖微微伸出，上下齿轻轻咬住舌尖送气，但声带不震动。</h3>
-                                    <h3 style="color: white;">Example : bath（洗澡），thought（思考），thank（谢谢）</h3>
+                                    <h3 style="color: white;">Example : earth（地球，陆地，土壤），thought（思考），thank（谢谢）</h3>
                                     <button onclick="check1(29)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -889,9 +1042,14 @@
                                     <h5>/ð/</h5>
                                 </button>
                                 <div id="d30" class="S-div">
-                                    <h2 style="color: white">/ð/</h2>
+                                    <h2 style="color: white">/ð/
+                                        <button class="btn" onclick="mp3(30);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a30" src="../phonetic/ð_th_the.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，舌尖微微伸出，上下齿轻轻咬住舌尖送气，但声带震动。</h3>
-                                    <h3 style="color: white;">Example : than（比较），that（那个），those（那些）</h3>
+                                    <h3 style="color: white;">Example : than（比较），the（这个），those（那些）</h3>
                                     <button onclick="check1(30)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -902,9 +1060,14 @@
                                     <h5>/s/</h5>
                                 </button>
                                 <div id="d31" class="S-div">
-                                    <h2 style="color: white">/s/</h2>
+                                    <h2 style="color: white">/s/
+                                        <button class="btn" onclick="mp3(31);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a31" src="../phonetic/s_s_yes.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，双唇微微张开，舌端靠近齿龈，舌头自然放松，气流从齿间送出，但声带不震动。</h3>
-                                    <h3 style="color: white;">Example : best（最好的），zest（热情），bus（巴士）</h3>
+                                    <h3 style="color: white;">Example : best（最好的），zest（热情），yes（好）</h3>
                                     <button onclick="check1(31)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -915,7 +1078,12 @@
                                     <h5>/z/</h5>
                                 </button>
                                 <div id="d32" class="S-div">
-                                    <h2 style="color: white">/z/</h2>
+                                    <h2 style="color: white">/z/
+                                        <button class="btn" onclick="mp3(32);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a32" src="../phonetic/z_z_zoo.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，上齿轻轻接触下唇，然后轻轻吹气，使气流从唇齿间通过，形成摩擦，但声带震动。</h3>
                                     <h3 style="color: white;">Example : zest（热情），zero（零），zoo（动物园）</h3>
                                     <button onclick="check1(32)">
@@ -928,9 +1096,14 @@
                                     <h5>/ʃ/</h5>
                                 </button>
                                 <div id="d33" class="S-div">
-                                    <h2 style="color: white">/ʃ/</h2>
+                                    <h2 style="color: white">/ʃ/
+                                        <button class="btn" onclick="mp3(33);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a33" src="../phonetic/ʃ_sh_wash.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，双唇收圆，并稍微突出，舌头稍微上卷，舌头接近上齿龈送气，声带不震动。</h3>
-                                    <h3 style="color: white;">Example : flash（闪现），show（展示），shine（发光）</h3>
+                                    <h3 style="color: white;">Example : flash（闪现），wash（洗），shine（发光）</h3>
                                     <button onclick="check1(33)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -941,9 +1114,14 @@
                                     <h5>/ʒ/</h5>
                                 </button>
                                 <div id="d34" class="S-div">
-                                    <h2 style="color: white">/ʒ/</h2>
+                                    <h2 style="color: white">/ʒ/
+                                        <button class="btn" onclick="mp3(34);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a34" src="../phonetic/ʒ_g_beige.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，双唇收圆，并稍微突出，舌头稍微上卷，舌头接近上齿龈送气，声带震动。</h3>
-                                    <h3 style="color: white;">Example : pleasure（愉快），leisure（安逸）</h3>
+                                    <h3 style="color: white;">Example : pleasure（愉快），leisure（安逸），beige（米黄色）</h3>
                                     <button onclick="check1(34)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -954,9 +1132,14 @@
                                     <h5>/tʃ/</h5>
                                 </button>
                                 <div id="d35" class="S-div">
-                                    <h2 style="color: white">/tʃ/</h2>
+                                    <h2 style="color: white">/tʃ/
+                                        <button class="btn" onclick="mp3(35);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a35" src="../phonetic/tʃ_ch_peach.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，双唇略微张开突出，舌尖抵住上齿龈，用力吐气，声带不震动。</h3>
-                                    <h3 style="color: white;">Example : charm（魅力），change（改变），cheer（喝彩）</h3>
+                                    <h3 style="color: white;">Example : peach（桃子），change（改变），cheer（喝彩）</h3>
                                     <button onclick="check1(35)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -967,9 +1150,14 @@
                                     <h5>/dʒ/</h5>
                                 </button>
                                 <div id="d36" class="S-div">
-                                    <h2 style="color: white">/dʒ/</h2>
+                                    <h2 style="color: white">/dʒ/
+                                        <button class="btn" onclick="mp3(36);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a36" src="../phonetic/ʤ_j_juice.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，双唇略微张开突出，舌尖抵住上齿龈，用力吐气，声带震动。</h3>
-                                    <h3 style="color: white;">Example : change（改变），job（工作），joke（玩笑）</h3>
+                                    <h3 style="color: white;">Example : change（改变），juice（果汁），joke（玩笑）</h3>
                                     <button onclick="check1(36)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -980,9 +1168,14 @@
                                     <h5>/tr/</h5>
                                 </button>
                                 <div id="d37" class="S-div">
-                                    <h2 style="color: white">/tr/</h2>
+                                    <h2 style="color: white">/tr/
+                                        <button class="btn" onclick="mp3(37);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a37" src="../phonetic/tr_tr_tree.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，双唇收圆向前突出，舌尖上翘抵住上齿龈，采取发/r/的姿势，声带不震动。</h3>
-                                    <h3 style="color: white;">Example : train（火车），try（尝试），truck（火车）</h3>
+                                    <h3 style="color: white;">Example : train（火车），tree（树），truck（火车）</h3>
                                     <button onclick="check1(37)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -993,9 +1186,14 @@
                                     <h5>/dr/</h5>
                                 </button>
                                 <div id="d38" class="S-div">
-                                    <h2 style="color: white">/dr/</h2>
+                                    <h2 style="color: white">/dr/
+                                        <button class="btn" onclick="mp3(38);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a38" src="../phonetic/dr_dr_dress.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，双唇收圆向前突出，舌尖上翘抵住上齿龈，采取发/r/的姿势，声带震动。</h3>
-                                    <h3 style="color: white;">Example :dry（干燥），dream（梦想），drag（拉）</h3>
+                                    <h3 style="color: white;">Example :dry（干燥），dress（穿衣；连衣裙），drag（拉）</h3>
                                     <button onclick="check1(38)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -1006,9 +1204,14 @@
                                     <h5>/ts/</h5>
                                 </button>
                                 <div id="d39" class="S-div">
-                                    <h2 style="color: white">/ts/</h2>
+                                    <h2 style="color: white">/ts/
+                                        <button class="btn" onclick="mp3(39);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a39" src="../phonetic/ts_ts_cats.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，舌尖先抵住上齿，堵住气流，使气流从舌尖和齿龈间送出，声带不震动。</h3>
-                                    <h3 style="color: white;">Example : seats（座位），roots（根），fruits（水果）</h3>
+                                    <h3 style="color: white;">Example : cats（猫（复数）），roots（根），fruits（水果）</h3>
                                     <button onclick="check1(39)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -1019,9 +1222,14 @@
                                     <h5>/dz/</h5>
                                 </button>
                                 <div id="d40" class="S-div">
-                                    <h2 style="color: white">/dz/</h2>
+                                    <h2 style="color: white">/dz/
+                                        <button class="btn" onclick="mp3(40);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a40" src="../phonetic/dz_ds_beds.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，舌尖先抵住上齿，堵住气流，使气流从舌尖和齿龈间送出，声带震动。</h3>
-                                    <h3 style="color: white;">Example : reads（阅读），goods（商品），needs（需要）</h3>
+                                    <h3 style="color: white;">Example : reads（阅读），goods（商品），beds（床（复数））</h3>
                                     <button onclick="check1(40)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -1032,9 +1240,14 @@
                                     <h5>/h/</h5>
                                 </button>
                                 <div id="d41" class="S-div">
-                                    <h2 style="color: white">/h/</h2>
+                                    <h2 style="color: white">/h/
+                                        <button class="btn" onclick="mp3(41);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a41" src="../phonetic/h_h_hi.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">清辅音，嘴唇自然张开，自然呵气，声带不震动。</h3>
-                                    <h3 style="color: white;">Example :have（有），hill（小山），happen（发生）</h3>
+                                    <h3 style="color: white;">Example :have（有），hi（嗨），happen（发生）</h3>
                                     <button onclick="check1(41)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -1045,9 +1258,14 @@
                                     <h5>/r/</h5>
                                 </button>
                                 <div id="d42" class="S-div">
-                                    <h2 style="color: white">/r/</h2>
+                                    <h2 style="color: white">/r/
+                                        <button class="btn" onclick="mp3(42);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a42" src="../phonetic/r_r_run.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">浊辅音，舌尖向上卷起，舌头不要接触任何部位，双唇稍微突出，声带震动。</h3>
-                                    <h3 style="color: white;">Example : bread（面包），red（红色的），rush（冲）</h3>
+                                    <h3 style="color: white;">Example : bread（面包），red（红色的），run（跑）</h3>
                                     <button onclick="check1(42)">
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
@@ -1058,9 +1276,14 @@
                                     <h5>/m/</h5>
                                 </button>
                                 <div id="d43" class="S-div">
-                                    <h2 style="color: white">/m/</h2>
+                                    <h2 style="color: white">/m/
+                                        <button class="btn" onclick="mp3(43);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a43" src="../phonetic/m_m_mom.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">鼻音，双唇紧闭，舌头放平，气流从鼻腔送出，声带震动。</h3>
-                                    <h3 style="color: white;">Example : money（钱），room（房间），morning（早上）</h3>
+                                    <h3 style="color: white;">Example : money（钱），room（房间），morning（早上），mom（妈妈）</h3>
                                     <button class="bean" onclick="check1(43)">ok</button>
                                 </div>
                             </div>
@@ -1069,9 +1292,14 @@
                                     <h5>/n/</h5>
                                 </button>
                                 <div id="d44" class="S-div">
-                                    <h2 style="color: white">/n/</h2>
+                                    <h2 style="color: white">/n/
+                                        <button class="btn" onclick="mp3(44);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a44" src="../phonetic/n_n_run.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">鼻音，双唇微开舌尖抵住上齿龈，气流从鼻孔里出来，声带震动。</h3>
-                                    <h3 style="color: white;">Example : need（需要），thin（瘦的），morning（早上）</h3>
+                                    <h3 style="color: white;">Example : need（需要），thin（瘦的），morning（早上），run（跑）</h3>
                                     <button class="bean" onclick="check1(44)">ok</button>
                                 </div>
                             </div>
@@ -1080,9 +1308,14 @@
                                     <h5>/ŋ/</h5>
                                 </button>
                                 <div id="d45" class="S-div">
-                                    <h2 style="color: white">/ŋ/</h2>
+                                    <h2 style="color: white">/ŋ/
+                                        <button class="btn" onclick="mp3(45);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a45" src="../phonetic/ŋ_ng_sing.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">鼻音，双唇张开，舌尖抵住下齿龈，舌后部自然往上顶住，气流从鼻腔送出，声带震动。</h3>
-                                    <h3 style="color: white;">Example : young（年轻的），song（歌曲），tongue（舌头）</h3>
+                                    <h3 style="color: white;">Example : young（年轻的），sing（唱），tongue（舌头）</h3>
                                     <button class="bean" onclick="check1(45)">ok</button>
                                 </div>
                             </div>
@@ -1091,9 +1324,14 @@
                                     <h5>/w/</h5>
                                 </button>
                                 <div id="d46" class="S-div">
-                                    <h2 style="color: white">/w/</h2>
-                                    <h3 style="color: white;">半元音，嘴形成微笑状，舌尖抵住下齿，舌面贴住上颚，声带震动。</h3>
-                                    <h3 style="color: white;">Example : year（年份），younger（年轻的），yellow（黄色的）</h3>
+                                    <h2 style="color: white">/w/
+                                        <button class="btn" onclick="mp3(46);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a46" src="../phonetic/w_w_wash.mp3"></audio>
+                                        </button>
+                                    </h2>
+                                    <h3 style="color: white;">半元音，双唇缩小并向前突出，舌后部抬起，嘴慢慢向两旁滑开，声带震动。</h3>
+                                    <h3 style="color: white;">Example : wait（等待），watch（手表），water（水），wash（洗）</h3>
                                     <button class="bean" onclick="check1(46)">ok</button>
                                 </div>
                             </div>
@@ -1102,9 +1340,14 @@
                                     <h5>/j/</h5>
                                 </button>
                                 <div id="d47" class="S-div">
-                                    <h2 style="color: white">/j/</h2>
-                                    <h3 style="color: white;">半元音，双唇缩小并向前突出，舌后部抬起，嘴慢慢向两旁滑开，声带震动。</h3>
-                                    <h3 style="color: white;">Example : wait（等待），watch（手表），water（水）</h3>
+                                    <h2 style="color: white">/j/
+                                        <button class="btn" onclick="mp3(47);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a47" src="../phonetic/j_y_yes.mp3"></audio>
+                                        </button>
+                                    </h2>
+                                    <h3 style="color: white;">半元音，嘴形成微笑状，舌尖抵住下齿，舌面贴住上颚，声带震动。</h3>
+                                    <h3 style="color: white;">Example : year（年份），younger（年轻的），yellow（黄色的），yes（好）</h3>
                                     <button class="bean" onclick="check1(47)">ok</button>
                                 </div>
                             </div>
@@ -1113,9 +1356,14 @@
                                     <h5>/l/</h5>
                                 </button>
                                 <div id="d48" class="S-div">
-                                    <h2 style="color: white">/l/</h2>
+                                    <h2 style="color: white">/l/
+                                        <button class="btn" onclick="mp3(48);">
+                                            <i class="fa fa-volume-up"></i>
+                                            <audio id="a48" src="../phonetic/l_l_tell.mp3"></audio>
+                                        </button>
+                                    </h2>
                                     <h3 style="color: white;">边音，舌尖抵住上齿龈，舌尖轻微用力弯曲，气流从舌的旁边送出，声带震动。</h3>
-                                    <h3 style="color: white;">Example : love（爱），little（小的），letter（字母）</h3>
+                                    <h3 style="color: white;">Example : love（爱），little（小的），letter（字母），tell（告诉）</h3>
                                     <button class="bean" onclick="check1(48)">ok</button>
                                 </div>
                             </div>
