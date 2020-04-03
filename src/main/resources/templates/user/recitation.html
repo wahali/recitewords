@@ -18,6 +18,10 @@
     <!-- Custom styles for this template-->
     <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
 
+    <!-- ZTree css-->
+<!--    <link href="" th:href="@{/css/demo.css}" rel="stylesheet">-->
+    <link href="" th:href="@{/css/zTreeStyle.css}" rel="stylesheet">
+
     <!-- Bootstrap core JavaScript-->
     <script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script src="" th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -28,7 +32,13 @@
     <!-- Custom scripts for all pages-->
     <script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
 
+    <!-- zTree core-->
+    <script src="" th:src="@{/js/jquery.ztree.core.js}"></script>
+<!--    <script src="" th:src="@{/js/jquery-1.4.4.min}"></script>-->
+
     <script>
+        var setting = { };
+
         $(function () {
             $("#audio").mouseover(function () {
                  //alert("你点我干嘛");
@@ -71,6 +81,8 @@
                         $("#chineseInstance1").text(data.word.chineseInstance1);
                         $("#englishInstance2").text("2、" + data.word.englishInstance2);
                         $("#chineseInstance2").text(data.word.chineseInstance2);
+
+                        Check(data.array);
                     }
                 });
             });
@@ -99,6 +111,8 @@
                         $("#chineseInstance1").text(data.word.chineseInstance1);
                         $("#englishInstance2").text("2、" + data.word.englishInstance2);
                         $("#chineseInstance2").text(data.word.chineseInstance2);
+
+                        Check(data.array);
                     }
                 });
             });
@@ -145,7 +159,6 @@
             //     })
             // });
         })
-
     </script>
 </head>
 
@@ -542,49 +555,21 @@
                                 <div class="mt-4 mb-2">
                                     <p id="chineseInstance2" style="margin-left: 25px" th:text="${word.chineseInstance2}"></p>
                                 </div>
+
+                                <div>
+                                    <h6>派生：</h6>
+                                    <div class="mt-4 mb-2">
+                                        <div class="zTreeDemoBackground left">
+                                            <h3 id="notice" style="display: none">该词暂无派生。</h3>
+                                            <ul id="treeDemo" class="ztree" style="display: none;font-size: 20px"></ul>
+                                            <input id="ps" type="hidden" th:value="${dow}">
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-
                     </div>
-
-                    <!--<div class="col-xl-4 col-lg-5">-->
-                        <!--<div class="card shadow mb-4">-->
-                            <!--&lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
-                            <!--<div class="card-header py-3">-->
-                                <!--<h6 class="m-0 font-weight-bold text-primary">错词本</h6>-->
-                            <!--</div>-->
-                            <!--&lt;!&ndash; Card Body &ndash;&gt;-->
-                            <!--<div id="errors" class="card-body">-->
-                                <!--&lt;!&ndash;<div class="chart-pie pt-4">&ndash;&gt;-->
-                                    <!--&lt;!&ndash;<canvas id="myPieChart"></canvas>&ndash;&gt;-->
-                                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;<hr>&ndash;&gt;-->
-                                <!--&lt;!&ndash;Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.&ndash;&gt;-->
-                                <!--<div th:each="wordError : ${wordErrors}">-->
-                                    <!--&lt;!&ndash;<div style="display: inline-flex">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<i class="fa fa-angle-right"></i>&ndash;&gt;-->
-                                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                    <!--<div style="display: inline-flex">-->
-                                        <!--<p style="font-size: xx-large;color: black"  th:text="${wordError.englishWord}"></p>-->
-                                    <!--</div>-->
-                                    <!--<div style="display: inline-flex">-->
-                                        <!--<button class="btn"><i  id="audio1" class="fa fa-volume-up audio1"></i></button>-->
-                                        <!--<input type="hidden"  id="pron1" th:value="${wordError.pron}"/>-->
-                                    <!--</div>-->
-                                    <!--<div style="display: inline-flex">-->
-                                        <!--<p  th:text="'/'+${wordError.pa}+'/'"></p>-->
-                                    <!--</div>-->
-                                    <!--<div style="display: inline-flex">-->
-                                        <!--&lt;!&ndash;<i class="fa fa-close"></i>&ndash;&gt;-->
-                                        <!--<input type="hidden" id="errorWordId" th:value="${wordError.wordId}"/>-->
-                                        <!--<button class="btn"><i id="remove" class="fa fa-minus"></i></button>-->
-                                        <!--&lt;!&ndash;<i class="fa fa-minus-square-o"></i>&ndash;&gt;-->
-                                    <!--</div>-->
-                                <!--</div>-->
-
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
 
                 </div>
 
@@ -637,5 +622,23 @@
 
 
 </body>
+
+<script>
+    var ps = document.getElementById("ps").value;
+    ps = JSON.parse(ps);
+    Check(ps);
+    function Check(temp) {
+        if (temp==0){
+            document.getElementById("notice").style.display="block";
+            document.getElementById("treeDemo").style.display="none";
+        }else {
+            $(document).ready(function(){
+                $.fn.zTree.init($("#treeDemo"), setting, temp);
+            });
+            document.getElementById("notice").style.display="none";
+            document.getElementById("treeDemo").style.display="block";
+        }
+    }
+</script>
 
 </html>

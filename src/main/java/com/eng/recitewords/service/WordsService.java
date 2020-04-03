@@ -142,14 +142,22 @@ public class WordsService {
         JSONArray childTree = new JSONArray();
         for (Words word : childList) {
             JSONObject o = new JSONObject();
-            o.put("englishWord", word.getEnglishWord());
-            o.put("pa", word.getPa());
-            o.put("chineseWord", word.getChineseWord());
+
+//            o.put("englishWord", word.getEnglishWord());
+
+            o.put("name", word.getEnglishWord()+" /"+word.getPa()+"/ "+word.getChineseWord());
+
+//            o.put("pa", word.getPa());
+//            o.put("name", word.getPa());
+//            o.put("chineseWord", word.getChineseWord());
+//            o.put("name", word.getChineseWord());
             JSONArray childs = getNodeJson(word.getWordId(),wordsMap);  //递归调用该方法
             if(!childs.isEmpty()) {
+//                o.put("open",true);
                 o.put("children",childs);
             }
             childTree.fluentAdd(o);
+//            id++;
         }
         return childTree;
     }

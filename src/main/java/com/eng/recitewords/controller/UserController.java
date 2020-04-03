@@ -7,6 +7,7 @@ import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
+import com.fasterxml.jackson.annotation.JsonAlias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -134,7 +135,49 @@ public class UserController {
         model.addAttribute("index",index);
         model.addAttribute("wordErrors", wordsErrorList);
         request.getSession().setAttribute("words",wordsList);
-//        System.out.println(wordsList.get(0));
+
+        //Derive of word
+//        String englishWord = request.getParameter("englishWord");
+        String englishWord = wordsList.get(Integer.parseInt(index)).getEnglishWord();
+        Words words = wordsService.selectByEnglishWord(englishWord);
+        JSONArray jsonArray = wordsService.getDeriveByWordId(words.getWordId());
+
+        if (jsonArray.size()==0){
+            model.addAttribute("dow",0);
+        }else {
+            model.addAttribute("dow",jsonArray);
+        }
+
+
+
+//        String test = (String)json;
+
+//        if (json=="[]")
+
+//        for(int i=0;i<json.size();i++){
+//            if (i==0){
+//                JSONObject object1 = json.getJSONObject(i);
+//                model.addAttribute("layer1",object1);
+//            }else if (i==1){
+//                JSONObject object2 = json.getJSONObject(i);
+//                model.addAttribute("layer2",object2);
+//            }else if (i==2){
+//                JSONObject object2 = json.getJSONObject(i);
+//                model.addAttribute("layer3",object2);
+//            }
+//            JSONObject object = json.getJSONObject(i);
+//            model.addAttribute("layer"+i+1,object);
+//            System.out.println(object+"\n");
+//        }
+//
+//        model.addAttribute("totalLayer",json.size());
+
+//        model.addAttribute("Derive",json);
+//        System.out.println("DeriveOfWord is coming!");
+//        System.out.println(json);
+
+
+        System.out.println(wordsList.get(4).getEnglishWord());
         return "user/recitation";
     }
 
@@ -168,6 +211,14 @@ public class UserController {
             JSONObject json = new JSONObject();
             json.put("word",word);
             json.put("index",index);
+
+            System.out.println(word.getEnglishWord());
+            JSONArray jsonArray = wordsService.getDeriveByWordId(word.getWordId());
+            if (jsonArray.size()==0){
+                json.put("array",0);
+            }else {
+                json.put("array",jsonArray);
+            }
 
             long t = System.currentTimeMillis();
             Random random = new Random(t);
@@ -306,6 +357,14 @@ public class UserController {
 
             json.put("word",word);
             json.put("index",index);
+
+            System.out.println(word.getEnglishWord());
+            JSONArray jsonArray = wordsService.getDeriveByWordId(word.getWordId());
+            if (jsonArray.size()==0){
+                json.put("array",0);
+            }else {
+                json.put("array",jsonArray);
+            }
 
             long t = System.currentTimeMillis();
             Random random = new Random(t);
@@ -677,11 +736,11 @@ public class UserController {
         return "user/Sentence";
     }
 
-    @RequestMapping("/user/DOW")
-    public String DOW(){
-        System.out.println("DOW is coming!");
-        return "user/DOW";
-    }
+//    @RequestMapping("/user/DOW")
+//    public String DOW(){
+//        System.out.println("DOW is coming!");
+//        return "user/DOW";
+//    }
 }
 
 
