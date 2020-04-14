@@ -148,36 +148,7 @@ public class UserController {
             model.addAttribute("dow",jsonArray);
         }
 
-
-
-//        String test = (String)json;
-
-//        if (json=="[]")
-
-//        for(int i=0;i<json.size();i++){
-//            if (i==0){
-//                JSONObject object1 = json.getJSONObject(i);
-//                model.addAttribute("layer1",object1);
-//            }else if (i==1){
-//                JSONObject object2 = json.getJSONObject(i);
-//                model.addAttribute("layer2",object2);
-//            }else if (i==2){
-//                JSONObject object2 = json.getJSONObject(i);
-//                model.addAttribute("layer3",object2);
-//            }
-//            JSONObject object = json.getJSONObject(i);
-//            model.addAttribute("layer"+i+1,object);
-//            System.out.println(object+"\n");
-//        }
-//
-//        model.addAttribute("totalLayer",json.size());
-
-//        model.addAttribute("Derive",json);
-//        System.out.println("DeriveOfWord is coming!");
-//        System.out.println(json);
-
-
-        System.out.println(wordsList.get(4).getEnglishWord());
+//        System.out.println(wordsList.get(4).getEnglishWord());
         return "user/recitation";
     }
 
@@ -604,21 +575,6 @@ public class UserController {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @RequestMapping("/user/chooseChineseWord")
     public String chooseChinese(Model model, HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
@@ -736,11 +692,71 @@ public class UserController {
         return "user/Sentence";
     }
 
-//    @RequestMapping("/user/DOW")
-//    public String DOW(){
-//        System.out.println("DOW is coming!");
-//        return "user/DOW";
-//    }
+    @RequestMapping("/user/wordSearch")
+    public String wordSearch(Model model){
+        List<Words> wordsList = wordsService.selectAllWords();
+        Words word = wordsList.get(0);
+        model.addAttribute("word",word);
+
+        String index = "0";
+        String englishWord = wordsList.get(Integer.parseInt(index)).getEnglishWord();
+        Words words = wordsService.selectByEnglishWord(englishWord);
+        JSONArray jsonArray = wordsService.getDeriveByWordId(words.getWordId());
+
+        if (jsonArray.size()==0){
+            model.addAttribute("dow",0);
+        }else {
+            model.addAttribute("dow",jsonArray);
+        }
+
+        System.out.println("wordSearch is coming!");
+        return "user/wordSearch";
+    }
+
+    @RequestMapping("/wordSearch/check")
+    public void wordSearchCheck(@RequestParam("search") String search, Model model, HttpServletResponse response, HttpServletRequest request) throws IOException {
+        response.setCharacterEncoding("utf-8");
+//        System.out.println(search+"111");
+        boolean flag = false;
+        int i;
+        List<Words> wordsList = wordsService.selectAllWords();
+        for (i=0;i<wordsList.size();i++){
+//            System.out.println("222");
+            if (search.equals(wordsList.get(i).getEnglishWord())) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag){
+//            System.out.println("666");
+            Words word = wordsList.get(i);
+            JSONObject json = new JSONObject();
+            json.put("word",word);
+//            json.put("search",search);
+//            response.getWriter().print(json);
+            System.out.println(word.getEnglishWord()+"\n");
+            System.out.println(json);
+            JSONArray jsonArray = wordsService.getDeriveByWordId(word.getWordId());
+            if (jsonArray.size()==0){
+//                System.out.println("333");
+                json.put("array",0);
+                response.getWriter().print(json);
+            }else {
+//                System.out.println("444");
+                json.put("array",jsonArray);
+                response.getWriter().print(json);
+            }
+        }else {
+//            System.out.println("555");
+            try {
+                response.getWriter().print("success");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("wordSearch/check is coming!");
+    }
 }
 
 
