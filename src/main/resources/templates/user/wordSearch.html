@@ -56,6 +56,34 @@
         }
 
         $(function () {
+            $("#audio").mouseover(function () {
+                //alert("你点我干嘛");
+                var pron = $("#pron").val();
+                // alert(pron);
+                $("#hint").remove();
+                var audioJQ = $("<audio src='" + pron + "' autoplay id='hint'/>");
+                audioJQ.appendTo("body");
+            });
+
+            $(".audio1").on("mouseover",function () {
+                //alert("你点我干嘛");
+                var pron = $("#pron1").val();
+                // alert(pron);
+                $("#hint1").remove();
+                var audioJQ = $("<audio src='" + pron + "' autoplay id='hint1'/>");
+                audioJQ.appendTo("body");
+            });
+
+            $("#addError").click(function () {
+                var wordId = $("#wordId").val();
+                // alert(wordId);
+                var args = {"wordId":wordId,"time":new Date()};
+                var url = "/recitewords/addError";
+                $.post(url, args, function (data) {
+                    alert(data);
+                });
+            });
+
             $("#check").click(function () {
                 //alert("你点我了");
                 var search = $("#search").val();
@@ -144,16 +172,16 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+                <span>Tools</span>
             </a>
             <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <h6 class="collapse-header">Custom Tools:</h6>
                     <a class="collapse-item active" href="buttons.html" th:href="@{/user/wordSearch}">WordSearch</a>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+<!--                    <a class="collapse-item" href="utilities-color.html">Colors</a>-->
+<!--                    <a class="collapse-item" href="utilities-border.html">Borders</a>-->
+<!--                    <a class="collapse-item" href="utilities-animation.html">Animations</a>-->
+<!--                    <a class="collapse-item" href="utilities-other.html">Other</a>-->
                 </div>
             </div>
         </li>

@@ -672,11 +672,11 @@ public class UserController {
      */
     @RequestMapping("/user/DeriveOfWord")
     public String DeriveOfWord(Model model, HttpServletRequest request){
-        String englishWord = request.getParameter("englishWord");
-        Words words = wordsService.selectByEnglishWord(englishWord);
-        JSONArray json = wordsService.getDeriveByWordId(words.getWordId());
+//        String englishWord = request.getParameter("englishWord");
+//        Words words = wordsService.selectByEnglishWord(englishWord);
+//        JSONArray json = wordsService.getDeriveByWordId(words.getWordId());
         System.out.println("DeriveOfWord is coming!");
-        System.out.println(json);
+//        System.out.println(json);
         return "user/DeriveOfWord";
     }
 
