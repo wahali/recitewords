@@ -26,8 +26,11 @@ public class WordsService {
 
     public Words selectByEnglishWord(String englishWord){
         List<Words> wordsList = wordsMapper.selectByEnglishWord(englishWord);
-        if(wordsList.size()>0)return wordsList.get(0);
-        else return null;
+        if(wordsList.size()>0) {
+            return wordsList.get(0);
+        } else {
+            return null;
+        }
     }
 
     public void insertWord(String wordId,String englishWord,String pa,String chineseWord){

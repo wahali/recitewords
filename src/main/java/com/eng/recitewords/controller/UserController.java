@@ -123,6 +123,22 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/look up a word")
+    public void lookUpWord(HttpServletRequest request){
+//        传入搜索栏输入的英文单词
+        String englishWord = request.getParameter("englishWord");
+        Words words = wordsService.selectByEnglishWord(englishWord);
+        if(words!=null){
+            System.out.println("查找到了对应的单词");
+        }
+        else{
+            System.out.println("未查找到对应的单词");
+        }
+    }
+
+
+
+
     @RequestMapping("/user/recitation")
     public String recitation(Model model, HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
@@ -169,8 +185,9 @@ public class UserController {
     public void nextWordChooseC(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        int sz = wordsList.size();
         User user = (User)request.getSession().getAttribute("user");
-        if(user.getUserTarget() <= Integer.parseInt(index)) {
+        if(user.getUserTarget() <= Integer.parseInt(index) + 1|| sz <= Integer.parseInt(index) + 1) {
             try {
                 response.getWriter().print("success");
             } catch (IOException e) {
@@ -199,7 +216,7 @@ public class UserController {
             map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
 //        System.out.println(map.get(String.valueOf(num)) == null);
             for(int i = 1 ; i <= 4; i++) {
-                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+                int count = random.nextInt(sz) /*+ user.getUserLast()*/;
                 if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
                     map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
                 } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
@@ -224,8 +241,9 @@ public class UserController {
     public void nextWordInFillBlanks(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        int sz = wordsList.size();
         User user = (User)request.getSession().getAttribute("user");
-        if(user.getUserTarget() <= Integer.parseInt(index)) {
+        if(user.getUserTarget() <= Integer.parseInt(index) + 1|| sz <= Integer.parseInt(index) + 1) {
             try {
                 response.getWriter().print("success");
             } catch (IOException e) {
@@ -268,8 +286,9 @@ public class UserController {
     public void nextWordInChooseE(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        int sz = wordsList.size();
         User user = (User)request.getSession().getAttribute("user");
-        if(user.getUserTarget() <= Integer.parseInt(index)) {
+        if(user.getUserTarget() <= Integer.parseInt(index) + 1|| sz <= Integer.parseInt(index) + 1) {
             try {
                 response.getWriter().print("success");
             } catch (IOException e) {
@@ -290,7 +309,7 @@ public class UserController {
             map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getEnglishWord());
 //        System.out.println(map.get(String.valueOf(num)) == null);
             for(int i = 1 ; i <= 4; i++) {
-                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+                int count = random.nextInt(sz)/* + user.getUserLast()*/;
                 if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getEnglishWord())) {
                     map.put("map"+String.valueOf(i), wordsList.get(count).getEnglishWord());
                 } else if(map.containsValue(wordsList.get(count).getEnglishWord())) {
@@ -312,6 +331,7 @@ public class UserController {
     @RequestMapping({"/chooseC/preWord","/recitation/preWord"})
     public void preWord(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        int sz = wordsList.size();
         response.setCharacterEncoding("utf-8");
         User user = (User)request.getSession().getAttribute("user");
 //        System.out.println(user);
@@ -345,7 +365,7 @@ public class UserController {
             map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
 //        System.out.println(map.get(String.valueOf(num)) == null);
             for(int i = 1 ; i <= 4; i++) {
-                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+                int count = random.nextInt(sz)/* + user.getUserLast()*/;
                 if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
                     map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
                 } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
@@ -369,7 +389,7 @@ public class UserController {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
         User user = (User)request.getSession().getAttribute("user");
-        if(user.getUserTarget() <= Integer.parseInt(index)) {
+        if(Integer.parseInt(index) <= 0) {
             try {
                 response.getWriter().print("success");
             } catch (IOException e) {
@@ -412,8 +432,9 @@ public class UserController {
     public void preWordInChooseE(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        int sz = wordsList.size();
         User user = (User)request.getSession().getAttribute("user");
-        if(user.getUserTarget() <= Integer.parseInt(index)) {
+        if(Integer.parseInt(index) <= 0) {
             try {
                 response.getWriter().print("success");
             } catch (IOException e) {
@@ -434,7 +455,7 @@ public class UserController {
             map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getEnglishWord());
 //        System.out.println(map.get(String.valueOf(num)) == null);
             for(int i = 1 ; i <= 4; i++) {
-                int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+                int count = random.nextInt(sz) /*+ user.getUserLast()*/;
                 if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getEnglishWord())) {
                     map.put("map"+String.valueOf(i), wordsList.get(count).getEnglishWord());
                 } else if(map.containsValue(wordsList.get(count).getEnglishWord())) {
@@ -500,6 +521,7 @@ public class UserController {
         List<Words> wordsList = userService.selectPartWord(user.getUserLast(),user.getUserLast() + user.getUserTarget());
 //        System.out.println(wordsList.size());
         List<String> wordsIdList = wordsService.selectWordsByUId(user.getUserId());
+        int sz = wordsList.size();
         String index = "0";
         long t = System.currentTimeMillis();
         Random random = new Random(t);
@@ -509,7 +531,7 @@ public class UserController {
         map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
         System.out.println(map.get(String.valueOf(num)) == null);
         for(int i = 1 ; i <= 4; i++) {
-            int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+            int count = random.nextInt(sz) /*+ user.getUserLast()*/;
             if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
                 map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
             } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
@@ -579,6 +601,7 @@ public class UserController {
     public String chooseChinese(Model model, HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
         List<Words> wordsList = userService.selectPartWord(user.getUserLast(),user.getUserLast() + user.getUserTarget());
+        int sz = wordsList.size();
 //        System.out.println(wordsList.size());
         List<String> wordsIdList = wordsService.selectWordsByUId(user.getUserId());
         String index = "0";
@@ -590,10 +613,12 @@ public class UserController {
         map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
 //        System.out.println(map.get(String.valueOf(num)) == null);
         for(int i = 1 ; i <= 4; i++) {
-            int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+            //count
+            int count = random.nextInt(sz)/* + user.getUserLast()*/;
             if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
                 map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
             } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
+                //TODO wordlist.get()可能出现访问越界的情况
                 i--;
             }
         }
@@ -612,6 +637,7 @@ public class UserController {
         User user = (User)request.getSession().getAttribute("user");
         List<Words> wordsList = userService.selectPartWord(user.getUserLast(),user.getUserLast() + user.getUserTarget());
 //        System.out.println(wordsList.size());
+        int sz = wordsList.size();
         List<String> wordsIdList = wordsService.selectWordsByUId(user.getUserId());
         String index = "0";
         long t = System.currentTimeMillis();
@@ -622,7 +648,7 @@ public class UserController {
         map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getEnglishWord());
 //        System.out.println(map.get(String.valueOf(num)) == null);
         for(int i = 1 ; i <= 4; i++) {
-            int count = random.nextInt(user.getUserTarget()) + user.getUserLast();
+            int count = random.nextInt(sz) /*+ user.getUserLast()*/;
             if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getEnglishWord())) {
                 map.put("map"+String.valueOf(i), wordsList.get(count).getEnglishWord());
             } else if(map.containsValue(wordsList.get(count).getEnglishWord())) {
