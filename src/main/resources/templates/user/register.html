@@ -33,13 +33,28 @@
   <script src="" th:src="@{/js/sb-admin-2.min.js}" type="text/javascript"></script>
   <script>
     $(function(){
+      $("#exampleFirstName").change(function(){
+        var userEmail = $("#exampleInputEmail").val();
+        var userName = $("#exampleFirstName").val();
+        userEmail = $.trim(userEmail);
+        if(userEmail != "") {
+          var url = "/recitewords/registCheck";
+          var args = {"userEmail":userEmail,"userName":userName,"time":new Date()};
+          $.post(url, args, function (data) {
+            console.log(data);
+            $("#message").html(data);
+          })
+        }
+      })
         $("#exampleInputEmail").change(function(){
             var userEmail = $("#exampleInputEmail").val();
+            var userName = $("#exampleFirstName").val();
             userEmail = $.trim(userEmail);
             if(userEmail != "") {
                 var url = "/recitewords/registCheck";
-                var args = {"userEmail":userEmail,"time":new Date()};
+                var args = {"userEmail":userEmail,"userName":userName,"time":new Date()};
                 $.post(url, args, function (data) {
+                    console.log(data);
                     $("#message").html(data);
                 })
             }
