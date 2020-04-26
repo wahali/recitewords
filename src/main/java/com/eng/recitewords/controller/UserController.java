@@ -44,6 +44,30 @@ public class UserController {
         return "user/index";
     }
 
+
+    @RequestMapping("/registCheck")
+    public void registCheck(@RequestParam("userEmail") String userEmail,@RequestParam("userName") String userName, HttpServletResponse response) {
+//        System.out.println(userEmail);
+        User user = userService.selectByEmail(userEmail);
+        User user2 = userService.selectByUserName(userName);
+        if(user != null) {
+            try {
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().print("<font>该邮箱已注册，请重试</font>");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(user2 != null){
+            try {
+                response.setCharacterEncoding("utf-8");
+                response.getWriter().print("<font>该用户名已注册，请重试</font>");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @RequestMapping("/user/register")
     public String register(@RequestParam("userName") String userName,
                            @RequestParam("userTel") String userTel,
@@ -109,19 +133,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @RequestMapping("/registCheck")
-    public void registCheck(@RequestParam("userEmail") String userEmail, HttpServletResponse response) {
-//        System.out.println(userEmail);
-        User user = userService.selectByEmail(userEmail);
-        if(user != null) {
-            try {
-                response.setCharacterEncoding("utf-8");
-                response.getWriter().print("<font>该用户已注册，请登录</font>");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 
     @RequestMapping("/look up a word")
     public void lookUpWord(HttpServletRequest request){
@@ -618,7 +630,6 @@ public class UserController {
             if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
                 map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
             } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
-                //TODO wordlist.get()可能出现访问越界的情况
                 i--;
             }
         }

@@ -7,6 +7,10 @@
       select * from user where userEmail = #{userEmail}
     </select>
 
+    <select id="selectByUserName" parameterType="String" resultType="user">
+      select * from user where userName = #{userName}
+    </select>
+
     <select id="selectPartWord" resultType="words" parameterType="java.util.HashMap">
        select * from words limit ${start},${end}
     </select>

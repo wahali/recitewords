@@ -515,65 +515,65 @@
                     <!-- Grow In Utility -->
                     <div class="col-lg-12">
 
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3" style="text-align: center">
-                                <button id="left" class="btn" style="float: left"><i class="fa fa-angle-left"></i></button>
-                                <span style="color: black">背单词区</span>
-                                <button id="right" class="btn" style="float: right;outline:none"><i class="fa fa-angle-right" ></i></button>
-                                <input type="hidden" id="index" value="" th:value="${index}"/>
-                            </div>
-                            <div class="card-body">
-                                <div style="display: inline-flex">
-                                    <p style="font-size: xx-large;color: black" id="englishWord" th:text="${word.englishWord}"></p>
-                                </div>
-                                <div class="btn-circle">
-                                    <button class="btn"><i id="audio" class="fa fa-volume-up"></i></button>
-                                    <input type="hidden" id="pron" th:value="${word.pron}"/>
-                                </div>
-                                <div style="display: inline-flex">
-                                    <p id="pa" th:text="'/'+${word.pa}+'/'"></p>
-                                </div>
-                                <div style="display: inline-flex;margin-left:30px">
-                                    <input type="hidden" value="" id="wordId" th:value="${word.wordId}"/>
-                                    <button class="btn" id="addError" title="添加到错词本"><i class="fa fa-book"></i></button>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="chineseWord" th:text="${word.chineseWord}"></p>
-                                </div>
-                                <div class="mb-2">
-                                    <p>例句：</p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="englishInstance1" th:text="'1、'+${word.englishInstance1}"></p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="chineseInstance1" style="margin-left: 25px" th:text="${word.chineseInstance1}"></p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="englishInstance2" th:text="'2、'+${word.englishInstance2}"></p>
-                                </div>
-                                <div class="mt-4 mb-2">
-                                    <p id="chineseInstance2" style="margin-left: 25px" th:text="${word.chineseInstance2}"></p>
-                                </div>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3" style="text-align: center">
+                    <button id="left" class="btn" style="float: left"><i class="fa fa-angle-left"></i></button>
+                    <span style="color: black">背单词区</span>
+                    <button id="right" class="btn" style="float: right;outline:none"><i class="fa fa-angle-right" ></i></button>
+                    <input type="hidden" id="index" value="" th:value="${index}"/>
+                </div>
+                <div class="card-body">
+                    <div style="display: inline-flex">
+                        <p style="font-size: xx-large;color: black" id="englishWord" th:text="${word.englishWord}"></p>
+                    </div>
+                    <div class="btn-circle">
+                        <button class="btn"><i id="audio" class="fa fa-volume-up"></i></button>
+                        <input type="hidden" id="pron" th:value="${word.pron}"/>
+                    </div>
+                    <div style="display: inline-flex">
+                        <p id="pa" th:text="'/'+${word.pa}+'/'"></p>
+                    </div>
+                    <div style="display: inline-flex;margin-left:30px">
+                        <input type="hidden" value="" id="wordId" th:value="${word.wordId}"/>
+                        <button class="btn" id="addError" title="添加到错词本"><i class="fa fa-book"></i></button>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <p id="chineseWord" th:text="${word.chineseWord}"></p>
+                    </div>
+                    <div class="mb-2">
+                        <p>例句：</p>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <p id="englishInstance1" th:text="'1、'+${word.englishInstance1}"></p>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <p id="chineseInstance1" style="margin-left: 25px" th:text="${word.chineseInstance1}"></p>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <p id="englishInstance2" th:text="'2、'+${word.englishInstance2}"></p>
+                    </div>
+                    <div class="mt-4 mb-2">
+                        <p id="chineseInstance2" style="margin-left: 25px" th:text="${word.chineseInstance2}"></p>
+                    </div>
 
-                                <div>
-                                    <h6>派生：</h6>
-                                    <div class="mt-4 mb-2">
-                                        <div class="zTreeDemoBackground left">
-                                            <h3 id="notice" style="display: none">该词暂无派生。</h3>
-                                            <ul id="treeDemo" class="ztree" style="display: none;font-size: 20px"></ul>
-                                            <input id="ps" type="hidden" th:value="${dow}">
-                                        </div>
-                                    </div>
-                                </div>
-
+                    <div>
+                        <h6>派生：</h6>
+                        <div class="mt-4 mb-2">
+                            <div class="zTreeDemoBackground left">
+                                <h3 id="notice" style="display: none">该词暂无派生。</h3>
+                                <ul id="treeDemo" class="ztree" style="display: none;font-size: 20px"></ul>
+                                <input id="ps" type="hidden" th:value="${dow}">
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
+        </div>
+
+        </div>
+
+    </div>
             <!-- /.container-fluid -->
 
         </div>

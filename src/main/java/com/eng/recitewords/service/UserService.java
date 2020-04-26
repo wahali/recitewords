@@ -41,6 +41,10 @@ public class UserService {
         User user = userMapper.selectByEmail(userEmail);
         return user;
     }
+    public  User selectByUserName(String userName){
+        User user = userMapper.selectByUserName(userName);
+        return user;
+    }
 
     public void register(String userName, String userTel, String userEmail, String userPassword) {
 //        System.out.println(userPassword);

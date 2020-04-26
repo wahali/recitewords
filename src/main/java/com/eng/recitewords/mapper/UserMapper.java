@@ -12,6 +12,8 @@ public interface UserMapper {
 
     public User selectByEmail(String userEmail);
 
+    public User selectByUserName(String userName);
+
     public void register(User user);
 
     public void updatePassword(User user);
