@@ -32,13 +32,11 @@ public class CurrencyController {
 
     @RequestMapping("/currency/login")
     public String login(@RequestParam("email") String email,
-                        @RequestParam("userName") String userName,
                         @RequestParam("password") String password,
 //                        @RequestParam("md5password") String md5password,
                         @RequestParam("kind") String kind,
                         Model model, HttpSession session) {
 //        System.out.println(email + " " + password + " "+ kind);
-
         if(kind.equals("adminUser")) {
 //            System.out.println("我是管理员");
             Admin admin = adminService.selectByEmail(email);
@@ -71,9 +69,6 @@ public class CurrencyController {
 //            String msg = userService.userLogin(email, password);
 //            if(msg.equals("success")) {
             User user = userService.selectByEmail(email);
-            if(user == null){
-                user  = userService.selectByUserName(userName);
-            }
             if((user == null) || (!user.getUserPassword().equals(password))) {
                 model.addAttribute("msg","用户未注册或账号密码错误");
                 return "login";
@@ -101,7 +96,6 @@ public class CurrencyController {
 
     @RequestMapping("/loginCheck")
     public void loginCheck(@RequestParam("email") String email,
-                           @RequestParam("userName") String userName,
                            @RequestParam("password") String password,
                            @RequestParam("kind") String kind,
                            HttpServletResponse response) {
@@ -143,9 +137,9 @@ public class CurrencyController {
             }
         } else {
             User user = userService.selectByEmail(email);
-            if(user == null){
-                user  = userService.selectByUserName(userName);
-            }
+//            if(user == null){
+//                user  = userService.selectByUserName(userName);
+//            }
             if(user == null) {
                 try {
                     JSONObject json = new JSONObject();
