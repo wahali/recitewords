@@ -154,4 +154,10 @@ public class AdminController {
         return "redirect:/admin/Words";
     }
 
+    @RequestMapping("/login")
+    public String logout(){
+
+        return "login";
+    }
+
 }
