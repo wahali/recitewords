@@ -38,24 +38,16 @@
         var userName = $("#exampleFirstName").val();
         userEmail = $.trim(userEmail);
         if(userName != "") {
-          //需要设置详细参数时使用以下标准方式书写
-          // $.post({
-          //         url: "/recitewords/registCheck",
-          //         data : {"userEmail":userEmail,"userName":userName,"time":new Date()},
-          //         // dataType : 'text/html;charset=utf-8',
-          //         success:function (data) {
-          //   console.log(data);
-          //   $("#message").html(data);
-          //         }
-          //       })
           var url = "/recitewords/registCheck";
           var args = {"userEmail":userEmail,"userName":userName,"time":new Date()};
           $.post(url, args, function (data) {
             console.log(data);
             $("#message").html(data);
           })
+        }else {
+          $("#message").html("用户名不能为空！");
         }
-    });
+      })
         $("#exampleInputEmail").change(function(){
             var userEmail = $("#exampleInputEmail").val();
             var userName = $("#exampleFirstName").val();
@@ -67,6 +59,8 @@
                     console.log(data);
                     $("#message").html(data);
                 })
+            }else {
+              $("#message").html("邮箱不能为空！");
             }
         })
 
