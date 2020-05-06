@@ -32,6 +32,12 @@
         where adminId = #{adminId}
     </delete>
 
+    <delete id="deleteUser" parameterType="String">
+        delete
+        from user
+        where userId = #{userId}
+    </delete>
+
     <insert id="addInfo" parameterType="admin">
         insert into admin
         set adminId=#{adminId},adminName=#{adminName},adminTel=#{adminTel},adminEmail=#{adminEmail},adminPassword=#{adminPassword}

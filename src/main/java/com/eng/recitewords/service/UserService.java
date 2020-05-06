@@ -36,6 +36,10 @@ public class UserService {
             return "success";
         }
     }
+    public User selectById(String userId){
+        User user = userMapper.selectById(userId);
+        return user;
+    }
 
     public User selectByEmail(String userEmail) {
         User user = userMapper.selectByEmail(userEmail);
@@ -123,6 +127,10 @@ public class UserService {
         user.setUserLevel(userLevel);
         user.setUserTarget(userTarget);
         userMapper.updateUserInfo(user);
+    }
+
+    public void updateUserLast(String userId,int index){
+        userMapper.updateUserLast(userId,index);
     }
 
 }

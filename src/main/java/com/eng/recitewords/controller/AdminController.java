@@ -4,6 +4,7 @@ import com.eng.recitewords.entity.Admin;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.service.AdminService;
+import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ public class AdminController {
     private AdminService adminService;
     @Autowired
     private WordsService wordsService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/admin/tables")
     public String tables(Model model) {
@@ -79,12 +82,29 @@ public class AdminController {
         return "redirect:/admin/admin_tables";
     }
 
+    @RequestMapping("/admin/deleteUser/{userId}")
+    public String deleteUser(
+            @PathVariable("userId") String userId
+    ){
+        adminService.deleteUser(userId);
+        System.out.println("deleteUser is coming!");
+        return "redirect:/admin/tables";
+    }
+
     @RequestMapping("/admin/update/{adminId}")
     public String update(@PathVariable("adminId") String adminId ,Model model){
         Admin admin = adminService.selectAdminById(adminId);
         model.addAttribute("admin",admin);
         System.out.println("update is coming!" + admin);
         return "admin/update";
+    }
+
+    @RequestMapping("/admin/updateUser/{userId}")
+    public String updateUser(@PathVariable("userId") String userId ,Model model){
+        User user = userService.selectById(userId);
+        model.addAttribute("user",user);
+        System.out.println("update is coming!" + user);
+        return "admin/updateUserInfo";
     }
 
     @RequestMapping("/layerContent")

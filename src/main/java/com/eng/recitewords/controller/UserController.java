@@ -154,6 +154,7 @@ public class UserController {
     @RequestMapping("/user/recitation")
     public String recitation(Model model, HttpServletRequest request) {
         User user = (User)request.getSession().getAttribute("user");
+        System.out.println(user);
         List<Words> wordsList = userService.selectPartWord(user.getUserLast(),user.getUserLast() + user.getUserTarget());
 //        System.out.println(wordsList.size());
         List<String> wordsIdList = wordsService.selectWordsByUId(user.getUserId());
@@ -193,7 +194,8 @@ public class UserController {
         model.addAttribute("indexs",indexList);
         return "user/errorWords";
     }
-    @RequestMapping({"/chooseC/nextWord","/recitation/nextWord"})
+
+    @RequestMapping("/chooseC/nextWord")
     public void nextWordChooseC(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
         response.setCharacterEncoding("utf-8");
         List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
@@ -211,7 +213,66 @@ public class UserController {
             JSONObject json = new JSONObject();
             json.put("word",word);
             json.put("index",index);
+            System.out.println(word.getEnglishWord());
+            JSONArray jsonArray = wordsService.getDeriveByWordId(word.getWordId());
+            if (jsonArray.size()==0){
+                json.put("array",0);
+            }else {
+                json.put("array",jsonArray);
+            }
 
+            long t = System.currentTimeMillis();
+            Random random = new Random(t);
+            HashMap<String, Object> map = new HashMap<>();
+            int num = random.nextInt(4)+1;
+//        System.out.println(num);
+            map.put("map"+String.valueOf(num),wordsList.get(Integer.parseInt(index)).getChineseWord());
+//        System.out.println(map.get(String.valueOf(num)) == null);
+            for(int i = 1 ; i <= 4; i++) {
+                int count = random.nextInt(sz) /*+ user.getUserLast()*/;
+                if(map.get("map"+String.valueOf(i)) == null && !map.containsValue(wordsList.get(count).getChineseWord())) {
+                    map.put("map"+String.valueOf(i), wordsList.get(count).getChineseWord());
+                } else if(map.containsValue(wordsList.get(count).getChineseWord())) {
+                    i--;
+                }
+            }
+
+            json.put("map",map);
+            System.out.println(map);
+
+            Words word1 = wordsList.get(Integer.parseInt(index));
+
+            try {
+                response.getWriter().print(json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @RequestMapping("/recitation/nextWord")
+    public void nextWordRecitation(@RequestParam("index") String index, Model model, HttpServletResponse response, HttpServletRequest request) {
+        response.setCharacterEncoding("utf-8");
+        List<Words> wordsList = (List<Words>) request.getSession().getAttribute("words");
+        int sz = wordsList.size();
+        User user = (User)request.getSession().getAttribute("user");
+        if(user.getUserTarget() <= Integer.parseInt(index) + 1|| sz <= Integer.parseInt(index) + 1) {
+            try {
+                response.getWriter().print("success");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            index = String.valueOf(Integer.parseInt(index) + 1);
+            Words word = wordsList.get(Integer.parseInt(index));
+            JSONObject json = new JSONObject();
+            json.put("word",word);
+            json.put("index",index);
+            //更新看到的最后一个单词位置
+            if(user.getUserLast() < Integer.parseInt(index)){
+                userService.updateUserLast(user.getUserId(),Integer.parseInt(index));
+                user.setUserLast(Integer.parseInt(index));
+            }
             System.out.println(word.getEnglishWord());
             JSONArray jsonArray = wordsService.getDeriveByWordId(word.getWordId());
             if (jsonArray.size()==0){
@@ -267,7 +328,11 @@ public class UserController {
             JSONObject json = new JSONObject();
             json.put("word",word);
             json.put("index",index);
-
+            //更新看到的最后一个单词位置
+            if(user.getUserLast() < Integer.parseInt(index)){
+                userService.updateUserLast(user.getUserId(),Integer.parseInt(index));
+                user.setUserLast(Integer.parseInt(index));
+            }
             Words word1 = wordsList.get(Integer.parseInt(index));
 
             String wd = word1.getEnglishWord();

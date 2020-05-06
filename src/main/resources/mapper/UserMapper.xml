@@ -3,6 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eng.recitewords.mapper.UserMapper">
+    <select id="selectById" parameterType="String" resultType="user">
+      select * from user where userId = #{userId}
+    </select>
+
     <select id="selectByEmail" parameterType="String" resultType="user">
       select * from user where userEmail = #{userEmail}
     </select>
@@ -32,6 +36,12 @@
     <update id="updateUserInfo" parameterType="user">
         update user
         set userName = #{userName},userTel = #{userTel},userEmail = #{userEmail},userPassword = #{userPassword},userLevel = #{userLevel},userTarget = #{userTarget}
+        where userId = #{userId}
+    </update>
+
+    <update id="updateUserLast" >
+        update user
+        set userLast = #{index}
         where userId = #{userId}
     </update>
 

@@ -71,6 +71,10 @@ public class AdminService {
         adminMapper.deleteInfo(adminId);
     }
 
+    public void deleteUser(String userId){
+        adminMapper.deleteUser(userId);
+    }
+
 
 
 }

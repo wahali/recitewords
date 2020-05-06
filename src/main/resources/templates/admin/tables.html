@@ -405,8 +405,12 @@
                       <td th:text="${user.userTh}"></td>
                       <td th:text="${user.userTw}"></td>
                       <td>
+                        <a th:href="@{/admin/updateUser/} + ${user.userId}" >
                         <button class="btn btn-sm btn-danger">修改</button>
+                        </a>
+                        <a th:href="@{/admin/deleteUser/} + ${user.userId}" >
                         <button class="btn btn-sm btn-dark">删除</button>
+                        </a>
                       </td>
                     </tr>
 

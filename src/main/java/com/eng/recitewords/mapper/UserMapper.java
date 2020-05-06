@@ -2,6 +2,7 @@ package com.eng.recitewords.mapper;
 
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -9,6 +10,8 @@ import java.util.List;
 
 @Repository
 public interface UserMapper {
+
+    public User selectById(String userId);
 
     public User selectByEmail(String userEmail);
 
@@ -23,6 +26,8 @@ public interface UserMapper {
 //    public User selectUserById(String userId);
 
     public void updateUserInfo(User user);
+
+    public void updateUserLast(String userId, int index);
 
 }
 

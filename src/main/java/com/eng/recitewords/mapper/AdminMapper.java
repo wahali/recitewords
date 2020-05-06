@@ -17,5 +17,6 @@ public interface AdminMapper {
     public void updateInfo(Admin admin);
     public void addInfo(Admin admin);
     public void deleteInfo(String adminId);
+    public void deleteUser(String userId);
 
 }
