@@ -11,23 +11,32 @@
 
   <title>User - 倍思Basics</title>
 
-  <!-- Custom fonts for this template-->
+  <!-- Custom fonts for this template -->
   <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
   <link href="" th:href="@{/css/googlefont.css}" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
+  <!-- Custom styles for this template -->
   <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-
-  <!-- Intro styles for index-->
+  <!-- Intro styles for index -->
   <link href="" th:href="@{/css/introjs.css}" rel="stylesheet">
+  <!-- loop picture -->
+  <link href="//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
+  <!-- icon -->
+  <link href="" th:href="@{/img/bb.png}" rel="icon">
+
+  <style>
+    .slider {
+      width: 1000px;
+      margin: 100px auto;
+    }
+    .slides img {
+      width: 1000px;
+      height: 200px;
+    }
+  </style>
 
 </head>
 
 <body id="page-top">
-
-<!--<div id="div1" style="width:150px;height:50px;">这里出现第一步引导</div>-->
-<!--<div id="div2" style="width:150px;height:50px;">这里出现第二步引导</div>-->
-<!--<div class="div3" style="width:150px;height:50px;">这里出现第三步引导</div>-->
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -191,6 +200,11 @@
           </button>
 
           <!-- Topbar Search -->
+          <div>
+            <button class="btn btn-light" type="button" onclick="guide()">
+              <i class="fas fa-question"></i>使用引导
+            </button>
+          </div>
 <!--          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">-->
 <!--            <div class="input-group">-->
 <!--              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">-->
@@ -388,7 +402,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Today's Recitation</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">50 left</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${session.user.getUserTarget()}">left</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -405,7 +419,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Words have learned</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">120</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${session.user.userTw}"></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -447,8 +461,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Study time</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" th:text="${session.user.userTh}"></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -461,194 +475,203 @@
 
           <!-- Content Row -->
 
-          <div class="row">
+<!--          <div class="row">-->
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+<!--            <div class="col-xl-8 col-lg-7">-->
               <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Weekly Recitation</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
+                <!--轮播图-->
+                <div class="flexslider slider">
+                  <ul class="slides">
+                    <li><img src="../img/loop/1.png" /></li>
+                    <li><img src="../img/loop/2.png" /></li>
+                    <li><img src="../img/loop/3.png" /></li>
+                    <li><img src="../img/loop/4.png" /></li>
+                  </ul>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
+<!--                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+<!--                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">-->
+<!--                  <h6 class="m-0 font-weight-bold text-primary">Weekly Recitation</h6>-->
+<!--                  <div class="dropdown no-arrow">-->
+<!--                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu dropdown-menu-right shadow animated&#45;&#45;fade-in" aria-labelledby="dropdownMenuLink">-->
+<!--                      <div class="dropdown-header">Dropdown Header:</div>-->
+<!--                      <a class="dropdown-item" href="#">Action</a>-->
+<!--                      <a class="dropdown-item" href="#">Another action</a>-->
+<!--                      <div class="dropdown-divider"></div>-->
+<!--                      <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Card Body &ndash;&gt;-->
+<!--                <div class="card-body">-->
+<!--                  <div class="chart-area">-->
+<!--                    <canvas id="myAreaChart"></canvas>-->
+<!--                  </div>-->
+<!--                </div>-->
               </div>
-            </div>
+<!--            </div>-->
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<!--            <div class="col-xl-4 col-lg-5">-->
+<!--              <div class="card shadow mb-4">-->
+<!--                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+<!--                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">-->
+<!--                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>-->
+<!--                  <div class="dropdown no-arrow">-->
+<!--                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>-->
+<!--                    </a>-->
+<!--                    <div class="dropdown-menu dropdown-menu-right shadow animated&#45;&#45;fade-in" aria-labelledby="dropdownMenuLink">-->
+<!--                      <div class="dropdown-header">Dropdown Header:</div>-->
+<!--                      <a class="dropdown-item" href="#">Action</a>-->
+<!--                      <a class="dropdown-item" href="#">Another action</a>-->
+<!--                      <div class="dropdown-divider"></div>-->
+<!--                      <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                &lt;!&ndash; Card Body &ndash;&gt;-->
+<!--                <div class="card-body">-->
+<!--                  <div class="chart-pie pt-4 pb-2">-->
+<!--                    <canvas id="myPieChart"></canvas>-->
+<!--                  </div>-->
+<!--                  <div class="mt-4 text-center small">-->
+<!--                    <span class="mr-2">-->
+<!--                      <i class="fas fa-circle text-primary"></i> Direct-->
+<!--                    </span>-->
+<!--                    <span class="mr-2">-->
+<!--                      <i class="fas fa-circle text-success"></i> Social-->
+<!--                    </span>-->
+<!--                    <span class="mr-2">-->
+<!--                      <i class="fas fa-circle text-info"></i> Referral-->
+<!--                    </span>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
 
           <!-- Content Row -->
-          <div class="row">
+<!--          <div class="row">-->
 
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
+<!--            &lt;!&ndash; Content Column &ndash;&gt;-->
+<!--            <div class="col-lg-6 mb-4">-->
 
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                </div>
-                <div class="card-body">
-                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                  <div class="progress mb-4">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                  <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
+<!--              &lt;!&ndash; Project Card Example &ndash;&gt;-->
+<!--              <div class="card shadow mb-4">-->
+<!--                <div class="card-header py-3">-->
+<!--                  <h6 class="m-0 font-weight-bold text-primary">Projects</h6>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                  <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>-->
+<!--                  <div class="progress mb-4">-->
+<!--                    <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                  </div>-->
+<!--                  <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>-->
+<!--                  <div class="progress mb-4">-->
+<!--                    <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                  </div>-->
+<!--                  <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>-->
+<!--                  <div class="progress mb-4">-->
+<!--                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                  </div>-->
+<!--                  <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>-->
+<!--                  <div class="progress mb-4">-->
+<!--                    <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                  </div>-->
+<!--                  <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>-->
+<!--                  <div class="progress">-->
+<!--                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
 
               <!-- Color System -->
-              <div class="row">
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-primary text-white shadow">
-                    <div class="card-body">
-                      Primary
-                      <div class="text-white-50 small">#4e73df</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                      Success
-                      <div class="text-white-50 small">#1cc88a</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-info text-white shadow">
-                    <div class="card-body">
-                      Info
-                      <div class="text-white-50 small">#36b9cc</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-warning text-white shadow">
-                    <div class="card-body">
-                      Warning
-                      <div class="text-white-50 small">#f6c23e</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                      Danger
-                      <div class="text-white-50 small">#e74a3b</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4">
-                  <div class="card bg-secondary text-white shadow">
-                    <div class="card-body">
-                      Secondary
-                      <div class="text-white-50 small">#858796</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<!--              <div class="row">-->
+<!--                <div class="col-lg-6 mb-4">-->
+<!--                  <div class="card bg-primary text-white shadow">-->
+<!--                    <div class="card-body">-->
+<!--                      Primary-->
+<!--                      <div class="text-white-50 small">#4e73df</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 mb-4">-->
+<!--                  <div class="card bg-success text-white shadow">-->
+<!--                    <div class="card-body">-->
+<!--                      Success-->
+<!--                      <div class="text-white-50 small">#1cc88a</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 mb-4">-->
+<!--                  <div class="card bg-info text-white shadow">-->
+<!--                    <div class="card-body">-->
+<!--                      Info-->
+<!--                      <div class="text-white-50 small">#36b9cc</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 mb-4">-->
+<!--                  <div class="card bg-warning text-white shadow">-->
+<!--                    <div class="card-body">-->
+<!--                      Warning-->
+<!--                      <div class="text-white-50 small">#f6c23e</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 mb-4">-->
+<!--                  <div class="card bg-danger text-white shadow">-->
+<!--                    <div class="card-body">-->
+<!--                      Danger-->
+<!--                      <div class="text-white-50 small">#e74a3b</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6 mb-4">-->
+<!--                  <div class="card bg-secondary text-white shadow">-->
+<!--                    <div class="card-body">-->
+<!--                      Secondary-->
+<!--                      <div class="text-white-50 small">#858796</div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
 
-            </div>
+<!--            </div>-->
 
-            <div class="col-lg-6 mb-4">
+<!--            <div class="col-lg-6 mb-4">-->
 
               <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                </div>
-                <div class="card-body">
-                  <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">
-                  </div>
-                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
-                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
-                </div>
-              </div>
+<!--              <div class="card shadow mb-4">-->
+<!--                <div class="card-header py-3">-->
+<!--                  <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                  <div class="text-center">-->
+<!--                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/undraw_posting_photo.svg" alt="">-->
+<!--                  </div>-->
+<!--                  <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>-->
+<!--                  <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>-->
+<!--                </div>-->
+<!--              </div>-->
 
               <!-- Approach -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                </div>
-                <div class="card-body">
-                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>
-                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>
-                </div>
-              </div>
+<!--              <div class="card shadow mb-4">-->
+<!--                <div class="card-header py-3">-->
+<!--                  <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                  <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and poor page performance. Custom CSS classes are used to create custom components and custom utility classes.</p>-->
+<!--                  <p class="mb-0">Before working with this theme, you should become familiar with the Bootstrap framework, especially the utility classes.</p>-->
+<!--                </div>-->
+<!--              </div>-->
 
-            </div>
-          </div>
+<!--            </div>-->
+<!--          </div>-->
 
         </div>
         <!-- /.container-fluid -->
@@ -716,73 +739,134 @@
   <!-- Intro js for guiding user-->
   <script src="" th:src="@{/js/intro.js}"></script>
 
+  <!---picture loop js-->
+  <script src="//cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js"></script>
+
 </body>
 
-<script type="text/javascript">
+<script>
   $(function(){
-    introJs().setOptions({
-      //对应的按钮
-      prevLabel:"上一步",
-      nextLabel:"下一步",
-      skipLabel:"跳过",
-      doneLabel:"结束",
-      //对应的数组，顺序出现每一步引导提示
-      steps: [
-        {
-          //第一步引导
-          //这个属性类似于jquery的选择器， 可以通过jquery选择器的方式来选择你需要选中的对象进行指引
-          element: '#mainTitle',
-          //这里是每个引导框具体的文字内容，中间可以编写HTML代码
-          intro: '点击显示主页',
-          //这里可以规定引导框相对于选中对象出现的位置 top,bottom,left,right
-          position: 'right'
-        },
-        {
-          //第二步引导
-          element: '#tool',
-          intro: '点击工具下拉框可进行单词搜索',
-          position: 'right'
-        },
-        {
-          //第三步引导
-          element: '#studyPlan',
-          intro: '点击可查看知识图谱和学习计划',
-          position: 'right'
-        },
-        {
-          //第四步引导
-          element: '#studyPart',
-          intro: '点击可查看基础英语的学习',
-          position: 'right'
-        },
-        {
-          //第五步引导
-          element: '#testPart',
-          intro: '点击可进行英语单词的测试、背单词和查看错词本',
-          position: 'right'
-        },
-        {
-          //第六步引导
-          element: '#user',
-          intro: '点击查看状态栏，进行个人信息修改和登出',
-          position: 'left'
-        },
-        {
-          //第七步引导
-          element: '#container',
-          intro: '查看任务面板及推送',
-          position: 'top'
-        }
-        // {
-        //   //第八步引导
-        //   element: '.div3',
-        //   intro: '<a href="www.cnblogs.com">这是第三个DIV</a>~~',
-        //   position: 'bottom'
-        // },
-      ]
+    $('.flexslider').flexslider({
+      animation: 'slide',                 // 必备参数，自动滑动
+      slideshowSpeed: 5000,              // 每次自动滑动间隔时间，默认为 7000，单位为 ms
+      animationSpeed: 1000,              // 手动点击滑动时间，默认为 600，单位为 ms
+      //itemWidth: 900                  // 定义每个 item 宽度，单位为 px，默认为 100%
+      slideshow: true,                //载入页面时，是否自动播放
+      directionNav: true             //是否显示左右控制按钮
+    })
+  })
+</script>
 
-    }).start();
-  });
+<script type="text/javascript">
+
+  var newVisitor = isNewVisitor();
+  if(newVisitor === true) {
+// 动画弹出消息框
+//     alert('您是新用户！');
+    guide();
+// 标记：已经向该访客弹出过消息。30天之内不要再弹
+    setCookie("gznotes-visited", "true", 5);
+  } else {
+    console.log("您已不是新用户了");
+  }
+
+  function isNewVisitor() {
+// 从cookie读取“已经向访客提示过消息”的标志位
+    var flg = getCookie("gznotes-visited");
+    if(flg === "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // 写字段到cookie
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/";
+  }
+
+  // 读cookie
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1);
+      if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+  }
+
+  function guide(){
+    $(function(){
+      introJs().setOptions({
+        //对应的按钮
+        prevLabel:"上一步",
+        nextLabel:"下一步",
+        skipLabel:"跳过",
+        doneLabel:"结束",
+        //对应的数组，顺序出现每一步引导提示
+        steps: [
+          {
+            //第一步引导
+            //这个属性类似于jquery的选择器， 可以通过jquery选择器的方式来选择你需要选中的对象进行指引
+            element: '#mainTitle',
+            //这里是每个引导框具体的文字内容，中间可以编写HTML代码
+            intro: '点击显示主页',
+            //这里可以规定引导框相对于选中对象出现的位置 top,bottom,left,right
+            position: 'right'
+          },
+          {
+            //第二步引导
+            element: '#tool',
+            intro: '点击工具下拉框可进行单词搜索',
+            position: 'right'
+          },
+          {
+            //第三步引导
+            element: '#studyPlan',
+            intro: '点击可查看知识图谱和学习计划',
+            position: 'right'
+          },
+          {
+            //第四步引导
+            element: '#studyPart',
+            intro: '点击可查看基础英语的学习',
+            position: 'right'
+          },
+          {
+            //第五步引导
+            element: '#testPart',
+            intro: '点击可进行英语单词的测试、背单词和查看错词本',
+            position: 'right'
+          },
+          {
+            //第六步引导
+            element: '#user',
+            intro: '点击查看状态栏，进行个人信息修改和登出',
+            position: 'left'
+          },
+          {
+            //第七步引导
+            element: '#container',
+            intro: '查看任务面板及推送',
+            position: 'top'
+          }
+          // {
+          //   //第八步引导
+          //   element: '.div3',
+          //   intro: '<a href="www.cnblogs.com">这是第三个DIV</a>~~',
+          //   position: 'bottom'
+          // },
+        ]
+
+      }).start();
+    });
+  }
+
 </script>
 
 </html>
