@@ -409,7 +409,7 @@
                         <button class="btn btn-sm btn-danger">修改</button>
                         </a>
                         <a th:href="@{/admin/deleteUser/} + ${user.userId}" >
-                        <button class="btn btn-sm btn-dark">删除</button>
+                        <button class="btn btn-sm btn-dark" onclick="del()">删除</button>
                         </a>
                       </td>
                     </tr>
@@ -484,5 +484,12 @@
   <script src="" th:src="@{/js/demo/datatables-demo.js}"></script>
 
 </body>
+<script>
+  function del() {
+    if (!confirm("确认要删除？")) {
+      window.event.returnValue = false;
+    }
+  }
+</script>
 
 </html>

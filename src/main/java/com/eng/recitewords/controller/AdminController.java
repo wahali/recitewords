@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.UUID;
 
@@ -105,6 +106,35 @@ public class AdminController {
         model.addAttribute("user",user);
         System.out.println("update is coming!" + user);
         return "admin/updateUserInfo";
+    }
+
+    @RequestMapping("/admin/userContent")
+    public String userContent(
+            @RequestParam("userId") String userId,
+            @RequestParam("userName") String userName,
+            @RequestParam("userTel") String userTel,
+            @RequestParam("userEmail") String userEmail,
+            @RequestParam("userPassword") String userPassword,
+            @RequestParam("userLevel") String userLevel,
+            @RequestParam("userTarget") int userTarget, HttpSession session) {
+//            response.setCharacterEncoding("utf-8");
+        System.out.println(userName + " " + userTel + " " + userEmail + "\n");
+        userService.updateUserInfo(userId,userName,userTel,userEmail,userPassword,userLevel,userTarget);
+        System.out.println("更新用户信息成功！");
+//        User user = (User)session.getAttribute("user");
+//        user.setUserTarget(userTarget);
+//        user.setUserLevel(userLevel);
+//        user.setUserTel(userTel);
+//        user.setUserEmail(userEmail);
+//        user.setUserPassword(userPassword);
+//        user.setUserName(userName);
+//        session.setAttribute("userName",userName);
+//        session.setAttribute("userTel",userTel);
+//        session.setAttribute("userEmail",userEmail);
+//        session.setAttribute("userPassword",userPassword);
+//        session.setAttribute("userLevel",userLevel);
+//        session.setAttribute("userTarget",userTarget);
+        return "redirect:/admin/tables";
     }
 
     @RequestMapping("/layerContent")

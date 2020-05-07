@@ -366,7 +366,7 @@
                   <input type="text" name="adminEmail" class="form-control " id="email" th:value="${admin.adminEmail}" placeholder="Enter new AdminEmail">
                 </div>
                 <input type="hidden" name="adminId" th:value="${admin.adminId}"/>
-                <button type="submit" class="btn btn-primary  btn-block" >提交</button>
+                <button type="submit" class="btn btn-primary  btn-block" onclick="submitConfirm()">提交</button>
                 <!--<input type="submit" value="Login" class="btn btn-primary  btn-block"/>-->
                 <!--<a href="user/index.html" class="btn btn-primary  btn-block">-->
                 <!--Login-->
@@ -456,5 +456,13 @@
 <!--  </script>-->
 
 </body>
+
+<script>
+  function submitConfirm() {
+    if (!confirm("确认要修改？")) {
+      window.event.returnValue = false;
+    }
+  }
+</script>
 
 </html>

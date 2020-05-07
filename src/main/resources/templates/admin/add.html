@@ -366,7 +366,7 @@
                                 <input type="email" name="adminEmail" class="form-control " id="email"  placeholder="Enter new AdminEmail">
                             </div>
 <!--                            <input type="hidden" name="adminId" th:value="${admin.adminId}"/>-->
-                            <button type="submit" class="btn btn-primary  btn-block" >提交</button>
+                            <button type="submit" class="btn btn-primary  btn-block" onclick="submitConfirm()">提交</button>
 
                         </form>
 
@@ -440,5 +440,13 @@
 <!--  </script>-->
 
 </body>
+
+<script>
+    function submitConfirm() {
+        if (!confirm("确认要添加？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>
 
 </html>

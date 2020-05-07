@@ -401,7 +401,7 @@
                       <button class="btn btn-sm btn-danger" id="btn" >修改</button>
                     </a>
                     <a th:href="@{/admin/delete_word/} + ${word.wordId}">
-                      <button class="btn btn-sm btn-dark" >删除</button>
+                      <button class="btn btn-sm btn-dark" onclick="submitConfirm()">删除</button>
                     </a>
 
                   </td>
@@ -476,8 +476,14 @@
 <!-- Page level custom scripts -->
 <script src="" th:src="@{/js/demo/datatables-demo.js}"></script>
 
-
-
 </body>
+
+<script>
+  function submitConfirm() {
+    if (!confirm("确认要删除？")) {
+      window.event.returnValue = false;
+    }
+  }
+</script>
 
 </html>

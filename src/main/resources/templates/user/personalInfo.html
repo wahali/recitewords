@@ -112,7 +112,7 @@
       <li class="nav-item">
         <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
           <i class="fas fa-fw fa-plane"></i>
-          <span>StudyPlan</span></a>
+          <span>KnowledgeGraph</span></a>
       </li>
 
       <!-- Nav Item - Study part Collapse Menu -->
@@ -411,7 +411,7 @@
                 </div>
                 <input type="hidden" name="userId" th:value="${session.user.userId}"/>
 
-                <button type="submit" class="btn btn-primary  btn-block" >提交</button>
+                <button type="submit" class="btn btn-primary  btn-block" onclick="submitConfirm()">提交</button>
 
               </form>
               <P></P>
@@ -482,5 +482,13 @@
   <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
 </body>
+
+<script>
+  function submitConfirm() {
+    if (!confirm("确认要修改？")) {
+      window.event.returnValue = false;
+    }
+  }
+</script>
 
 </html>

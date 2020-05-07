@@ -390,7 +390,7 @@
                                 <input type="text" name="pron" class="form-control " id="pron" th:value="${word.pron}" placeholder="Enter new pron">
                             </div>
                             <input type="hidden" name="wordId" th:value="${word.wordId}"/>
-                            <button type="submit" class="btn btn-primary  btn-block" >提交</button>
+                            <button type="submit" class="btn btn-primary  btn-block" onclick="submitConfirm()">提交</button>
 
                         </form>
 
@@ -453,5 +453,13 @@
 <script th:src="@{/js/sb-admin-2.min.js}"></script>
 
 </body>
+
+<script>
+    function submitConfirm() {
+        if (!confirm("确认要修改？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>
 
 </html>
