@@ -11,6 +11,15 @@ public class User {
     private int userTarget;
     private int userTh;
     private int userTw;
+    private String basics;
+
+    public String getBasics() {
+        return basics;
+    }
+
+    public void setBasics(String basics) {
+        this.basics = basics;
+    }
 
     public int getUserLast() {
         return userLast;

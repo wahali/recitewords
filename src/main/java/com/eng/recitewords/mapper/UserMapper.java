@@ -23,11 +23,13 @@ public interface UserMapper {
 
     public List<Words> selectPartWord(HashMap<String,Object> map);
 
-//    public User selectUserById(String userId);
+//    public User selectUserByName(String userName);
 
     public void updateUserInfo(User user);
 
     public void updateUserLast(String userId, int index);
+
+    public void updateBasics(String userId,String basics);
 
 }
 

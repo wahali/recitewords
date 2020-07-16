@@ -9,6 +9,7 @@ import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -858,6 +859,21 @@ public class UserController {
         }
 
         System.out.println("wordSearch/check is coming!");
+    }
+
+    @RequestMapping("/basics/punch")
+    public void punch(@RequestParam("index")int index,Model model,HttpServletResponse response,HttpServletRequest request){
+        User user = (User)request.getSession().getAttribute("user");
+        System.out.println("index:"+index);
+        String s1 = user.getBasics();
+        System.out.println(s1);
+        String s2 = s1.substring(0,index);
+        String s3 = s1.substring(index+1,s1.length());
+        String S = s2 + "1" + s3;
+        System.out.println(S);
+        user.setBasics(S);
+        userService.updateBasics(user.getUserId(),S);
+        request.getSession().setAttribute("user",user);
     }
 }
 

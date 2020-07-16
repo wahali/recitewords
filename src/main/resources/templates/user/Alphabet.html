@@ -26,8 +26,22 @@
             width: 80px;
             height: 40px;
             background-color: #4e73df;
-            border: 1px solid black;
+            /*border: 1px solid black;*/
+            border-radius: 5%;
             font-size: larger;
+        }
+
+        .pick{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            left: 500px;
+            top: 400px;
+            display: none;
+            background-color: #00B83F;
+            border-radius: 5%;
+            /*border: 1px solid black;*/
+            font-size: large;
         }
 
         .ppt{
@@ -133,9 +147,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
                     <a class="collapse-item active" href="" th:href="@{/user/Alphabet}">
-                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                        <i class="fas fa-fw fa-dice-one"></i>Alphabet</a>
                     <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                        <i class="fas fa-fw fa-dice-two"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
@@ -384,7 +398,7 @@
             <!-- End of Topbar -->
 
             <script>
-
+                var count = 0;
                 function fun(num) {
                     for (var i=0;i<=26;i++){
                         // alert("woc!"+i);
@@ -396,6 +410,38 @@
                             // alert("no!");
                             document.getElementById("ppt"+i).style.display="none";
                         }
+                        if (count==0&&num==1){
+                            document.getElementById("pick"+(count+1)).style.display="block";
+                        }else {
+                            document.getElementById("pick"+(count+1)).style.display="none";
+                        }
+                        if (count==1&&num==7){
+                            document.getElementById("pick"+(count+1)).style.display="block";
+                        }
+                        if (count==2&&num==13){
+                            document.getElementById("pick"+(count+1)).style.display="block";
+                        }
+                        if (count==3&&num==19){
+                            document.getElementById("pick"+(count+1)).style.display="block";
+                        }
+                        if (count==4&&num==25){
+                            document.getElementById("pick"+(count+1)).style.display="block";
+                        }
+                    }
+                }
+
+                function pickup(n) {
+                    alert("打卡成功，继续寻找下一个打卡点吧！");
+                    count = count + 1;
+                    document.getElementById("pick"+n).style.display="none";
+                    if (count==5){
+                        alert("已完成字母打卡！");
+                        var index = 1;
+                        var url = "/recitewords/basics/punch";
+                        var args = {"index":index,"time":new Date()};
+                        $.post(url,args,function (data) {
+
+                        })
                     }
                 }
             </script>
@@ -443,6 +489,13 @@
                                 <button class="letter" style="left: 400px;top: 340px;" onclick="fun(24)"><h3 style="color: white">X x</h3></button>
                                 <button class="letter" style="left: 500px;top: 340px;" onclick="fun(25)"><h3 style="color: white">Y y</h3></button>
                                 <button class="letter" style="left: 100px;top: 400px;" onclick="fun(26)"><h3 style="color: white">Z z</h3></button>
+                            </div>
+                            <div>
+                                <button class="pick" onclick="pickup(1)" id="pick1"><h3 style="color: white">打卡</h3></button>
+                                <button class="pick" onclick="pickup(2)" id="pick2"><h3 style="color: white">打卡</h3></button>
+                                <button class="pick" onclick="pickup(3)" id="pick3"><h3 style="color: white">打卡</h3></button>
+                                <button class="pick" onclick="pickup(4)" id="pick4"><h3 style="color: white">打卡</h3></button>
+                                <button class="pick" onclick="pickup(5)" id="pick5"><h3 style="color: white">打卡</h3></button>
                             </div>
                             <img id="ppt0" alt="" class="ppt" src="../img/letter/letter0.png">
                             <img id="ppt1" alt="" class="ppt" style="display: none" src="../img/letter/letter1.png">

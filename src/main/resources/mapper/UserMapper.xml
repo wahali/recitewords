@@ -27,11 +27,11 @@
         update user set userPassword=#{userPassword} where userEmail=#{userEmail}
     </update>
 
-    <select id="selectUserById" resultType="user" parameterType="String">
-        select *
-        from user
-        where userId = {#userId}
-    </select>
+<!--    <select id="selectUserByName" resultType="user" parameterType="String">-->
+<!--        select *-->
+<!--        from user-->
+<!--        where userName = #{userName}-->
+<!--    </select>-->
 
     <update id="updateUserInfo" parameterType="user">
         update user
@@ -43,6 +43,10 @@
         update user
         set userLast = #{index}
         where userId = #{userId}
+    </update>
+
+    <update id="updateBasics" parameterType="String">
+        update user set basics = #{basics} where userId = #{userId}
     </update>
 
 </mapper>

@@ -45,6 +45,19 @@
             border: black solid 2px;
             border-radius: 5%;
         }
+
+        .pick{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            left: 1000px;
+            top: 15px;
+            display: none;
+            background-color: #00B83F;
+            border-radius: 5%;
+            /*border: 1px solid black;*/
+            font-size: large;
+        }
     </style>
 </head>
 
@@ -140,9 +153,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
-                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                        <i class="fas fa-fw fa-dice-one"></i>Alphabet</a>
                     <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                        <i class="fas fa-fw fa-dice-two"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item active" href="" th:href="@{/user/DeriveOfWord}">
@@ -369,6 +382,7 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Personal Info
                             </a>
+                            <input type="hidden" id="basics" th:value="${session.user.basics}">
 <!--                            <a class="dropdown-item" href="#">-->
 <!--                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>-->
 <!--                                Settings-->
@@ -390,29 +404,56 @@
             </nav>
             <!-- End of Topbar -->
             <script>
+                var state = document.getElementById("basics").value;
+
                 function changeT(n) {
                     for (var j=1;j<=5;j++){
                         if (n==j) document.getElementById("q"+j).style.display="block";
                         else document.getElementById("q"+j).style.display="none";
                     }
+                    if (n==4)document.getElementById("pick16").style.display="block";
+                    else document.getElementById("pick16").style.display="none";
+                    if (n==5)document.getElementById("pick17").style.display="block";
+                    else document.getElementById("pick17").style.display="none";
                 }
                 function changeP(num) {
                     for (var i=1;i<=6;i++){
                         if (num==i) document.getElementById("p"+i).style.display="block";
                         else document.getElementById("p"+i).style.display="none";
                     }
+                    if (num==6)document.getElementById("pick13").style.display="block";
+                    else document.getElementById("pick13").style.display="none";
                 }
                 function changeS(num) {
                     for (var i=1;i<=3;i++){
                         if (num==i) document.getElementById("s"+i).style.display="block";
                         else document.getElementById("s"+i).style.display="none";
                     }
+                    if (num==3)document.getElementById("pick14").style.display="block";
+                    else document.getElementById("pick14").style.display="none";
                 }
                 function changeA(num) {
                     for (var i=1;i<=2;i++){
                         if (num==i) document.getElementById("a"+i).style.display="block";
                         else document.getElementById("a"+i).style.display="none";
                     }
+                    if (num==2)document.getElementById("pick15").style.display="block";
+                    else document.getElementById("pick15").style.display="none";
+                }
+
+                function pickup(n) {
+                    if (state.charAt(n)=="1"){
+                        alert("此节点已经打过卡了！");
+                        document.getElementById("pick"+n).style.display="none";
+                    }else {
+                        alert("打卡成功！");
+                        document.getElementById("pick"+n).style.display="none";
+                        // var index = n;
+                        var url = "/recitewords/basics/punch";
+                        var args = {"index":n,"time":new Date()};
+                        $.post(url,args,function (data) {})
+                    }
+
                 }
             </script>
 
@@ -910,6 +951,9 @@
                         <button style="right: 150px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(4)">4</button>
                         <button style="right: 100px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(5)">5</button>
                         <button style="right: 50px;bottom: 10px;position: absolute;" class="btn btn-info" onclick="changeP(6)">6</button>
+                        <button class="pick" id="pick13" onclick="pickup(13)">
+                            <h3 style="color: white">打卡</h3>
+                        </button>
                     </div>
                 </div>
 
@@ -1121,6 +1165,9 @@
                         <button style="right: 150px;bottom: 10px;position: absolute;" class="btn btn-primary" onclick="changeS(1)">1</button>
                         <button style="right: 100px;bottom: 10px;position: absolute;" class="btn btn-primary" onclick="changeS(2)">2</button>
                         <button style="right: 50px;bottom: 10px;position: absolute;" class="btn btn-primary" onclick="changeS(3)">3</button>
+                        <button class="pick" id="pick14" onclick="pickup(14)">
+                            <h3 style="color: white">打卡</h3>
+                        </button>
                     </div>
                 </div>
 
@@ -1265,6 +1312,9 @@
                     <div>
                         <button style="right: 100px;bottom: 10px;position: absolute;" class="btn btn-success" onclick="changeA(1)">1</button>
                         <button style="right: 50px;bottom: 10px;position: absolute;" class="btn btn-success" onclick="changeA(2)">2</button>
+                        <button class="pick" id="pick15" onclick="pickup(15)">
+                            <h3 style="color: white">打卡</h3>
+                        </button>
                     </div>
                 </div>
 
@@ -1304,6 +1354,9 @@
                                 </table>
                             </div>
                         </div>
+                        <button class="pick" id="pick16" onclick="pickup(16)">
+                            <h3 style="color: white">打卡</h3>
+                        </button>
                     </div>
                 </div>
 
@@ -1343,6 +1396,9 @@
                                 </table>
                             </div>
                         </div>
+                        <button class="pick" id="pick17" onclick="pickup(17)">
+                            <h3 style="color: white">打卡</h3>
+                        </button>
                     </div>
                 </div>
                         </div>

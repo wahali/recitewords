@@ -50,6 +50,11 @@ public class UserService {
         return user;
     }
 
+//    public User selectByName(String userName) {
+//        User user = userMapper.selectUserByName(userName);
+//        return user;
+//    }
+
     public void register(String userName, String userTel, String userEmail, String userPassword) {
 //        System.out.println(userPassword);
 //        User ruser = selectByEmail(userEmail);
@@ -61,6 +66,7 @@ public class UserService {
         user.setUserTel(userTel);
         user.setUserEmail(userEmail);
         user.setUserPassword(userPassword);
+        user.setBasics("000000000000000000000000000000000000000000000000");
         userMapper.register(user);
 //        return "success";
 //        } else {
@@ -131,6 +137,10 @@ public class UserService {
 
     public void updateUserLast(String userId,int index){
         userMapper.updateUserLast(userId,index);
+    }
+
+    public void updateBasics(String userId,String basics){
+        userMapper.updateBasics(userId,basics);
     }
 
 }

@@ -61,6 +61,19 @@
             top: 20px;
         }
 
+        .pick{
+            position: absolute;
+            width: 90px;
+            height: 40px;
+            left: 1000px;
+            top: 5px;
+            display: block;
+            background-color: gold;
+            border-radius: 5%;
+            /*border: 1px solid black;*/
+            font-size: large;
+        }
+
     </style>
 
 </head>
@@ -386,6 +399,7 @@
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Personal Info
                             </a>
+                            <input id="basics" type="hidden" th:value="${session.user.basics}">
 <!--                            <a class="dropdown-item" href="#">-->
 <!--                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>-->
 <!--                                Settings-->
@@ -408,6 +422,8 @@
             <!-- End of Topbar -->
 
             <script>
+                var state = document.getElementById("basics").value;
+
                 function fun(num) {
                     if (num==1){
                         document.getElementById("s1").style.display="none";
@@ -434,6 +450,21 @@
                         }
                     }
                 }
+
+                function pickup(n) {
+                    if (state.charAt(n)=="1"){
+                        alert("此节点已经打过卡了！");
+                        document.getElementById("pick"+n).style.display="none";
+                    }else {
+                        alert("打卡成功！");
+                        document.getElementById("pick"+n).style.display="none";
+                        // var index = n;
+                        var url = "/recitewords/basics/punch";
+                        var args = {"index":n,"time":new Date()};
+                        $.post(url,args,function (data) {})
+                    }
+
+                }
             </script>
 
             <!-- Begin Page Content -->
@@ -459,7 +490,7 @@
                                 <button class="next" onclick="fun(1)">Next</button>
                             </div>
                             <div class="bubble" id="s2" style="display: none">
-                                <h3 class="say">首先来看看词性的分类。英语单词根据其在句子中的作用可以分成<strong>十个大类</strong>,请看以下的小例子。可以点击相应的<strong>词性</strong>来进行具体的学习。</h3>
+                                <h3 class="say">首先来看看词性的分类。英语单词根据其在句子中的作用可以分成<strong>十个大类</strong>,请看以下的小例子。可以点击相应的<strong>词性</strong>来进行具体的学习。同时不要忘记<strong>打卡</strong>哟！</h3>
                                 <button class="next" onclick="fun(2)">Next</button>
                             </div>
 
@@ -505,12 +536,18 @@
                                 <h3 style="color: white">②集体名词：表示若干个个体组成的集合体。如：family（⭐以上两类属于可数名词）</h3>
                                 <h3 style="color: white">③物质名词：表示无法分为个体的实物。如：air</h3>
                                 <h3 style="color: white">④抽象名词：表示动作、状态、品质、感情等抽象概念。如：work（⭐以上两类属于不可数名词）</h3>
+                                <button class="pick" id="pick3" style="display: block" onclick="pickup(3)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c3" class="know" style="display: none">
                                 <h1 align="center" style="color: white">形容词<small>（修饰名词等，说明事物或人的性质或特征的词）</small></h1>
                                 <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>形容词可分成性质形容词和叙述形容词两类（其位置不一定都放在名词前面）</strong></h2>
                                 <h3 style="color: white">①性质形容词：直接说明事物的性质或特征的形容词，它有级的变化，可以用程度副词修饰，在句中可作定语、表语和补语。例如：hot，good，wonderful等。</h3>
                                 <h3 style="color: white">②叙述形容词：只能作表语，所以又称为表语形容词。这类形容词没有级的变化，也不可用程度副词修饰。大多数以a开头的形容词都属于这一类。例如：afraid，alone等</h3>
+                                <button class="pick" id="pick5" style="display: block" onclick="pickup(5)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c5" class="know" style="display: none">
                                 <h1 align="center" style="color: white">动词<small>（表示动作或者状态的词）</small></h1>
@@ -526,6 +563,9 @@
                                 <h5 style="color: white">⭐有的动词既可以做及物也可做不及物。</h5>
                                 <h4 style="color: white">②延续性动词和非延续性动词：根据动作是否延续，行为动词又分为延续性动词和非延续性动词。</h4>
                                 <h5 style="color: white">⭐非延续性动词在肯定句中通常不与表示时间段连用的for短语连用。</h5>
+                                <button class="pick" id="pick7" style="display: block" onclick="pickup(7)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c9" class="know" style="display: none">
                                 <h1 align="center" style="color: white">连词</h1>
@@ -533,6 +573,9 @@
                                 <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>主要分为并列连词和从属连词</strong></h2>
                                 <h3 style="color: white">①并列连词：用来连接平行的词、词组和分句。如：and，but，or，nor，so…</h3>
                                 <h3 style="color: white">②从属连词：引导一个从句。如：when，where，because，if…</h3>
+                                <button class="pick" id="pick11" style="display: block" onclick="pickup(11)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c2" class="know" style="display: none">
                                 <h1 align="center" style="color: white">代词<small>（代替名词的词）</small></h1>
@@ -546,6 +589,9 @@
                                 <h3 style="color: white">⑦关系代词：She married Tony ,<strong style="color: yellow">who </strong>is a student too.</h3>
                                 <h3 style="color: white">⑧连接代词：Do you know <strong style="color: yellow">who </strong>did it?</h3>
                                 <h3 style="color: white">⑨不定代词：Do you know <strong style="color: yellow">anything </strong>about it?</h3>
+                                <button class="pick" id="pick4" style="display: block" onclick="pickup(4)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c4" class="know" style="display: none">
                                 <h1 align="center" style="color: white">副词<small>（主要用来修饰动词，形容词，副词或整个句子）</small></h1>
@@ -555,12 +601,18 @@
                                 <h3 style="color: white">③程度副词：very，quite，rather…</h3>
                                 <h3 style="color: white">④方式副词：beautifully，reluctantly，well…</h3>
                                 <h3 style="color: white">⑤频度副词：often，frequently，always…</h3>
+                                <button class="pick" id="pick6" style="display: block" onclick="pickup(6)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c6" class="know" style="display: none">
                                 <h1 align="center" style="color: white">数词<small>（表示数目多少或顺序多少）</small></h1>
                                 <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>数词分为基数词和序数词</strong></h2>
                                 <h3 style="color: white">①基数词：表示数目多少的数词。例子：one，two，three…</h3>
                                 <h3 style="color: white">②序数词：表示顺序的数词。例子：first，second，third…</h3>
+                                <button class="pick" id="pick8" style="display: block" onclick="pickup(8)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c8" class="know" style="display: none">
                                 <h1 align="center" style="color: white">介词<small>（表示名词、代词等与句中其它词的关系）</small></h1>
@@ -573,12 +625,18 @@
                                 <h3 style="color: white">②地点介词。如：at，on，in，across，between…</h3>
                                 <h3 style="color: white">③其他介词。如：by，with，about，due to…</h3>
                                 <h3 style="color: yellow">介词不可以单独使用，后面必须跟名词，动名词或句子构成介宾短语</h3>
+                                <button class="pick" id="pick10" style="display: block" onclick="pickup(10)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c7" class="know" style="display: none">
                                 <h1 align="center" style="color: white">冠词<small>（表示名词是特指的还是泛指的）</small></h1>
                                 <h2 style="color: white"><i class="fas fa-fw fa-sign"></i><strong>冠词分为不定冠词和定冠词</strong></h2>
                                 <h3 style="color: white">①不定冠词：用来表示这个冠词后面的名词是指某一类特定事物中的一个，但具体是哪一个并不重要。例子：a、an…</h3>
                                 <h3 style="color: white">②定冠词：用来限定这个冠词后面的名词是某个特定的事物。例子：the…</h3>
+                                <button class="pick" id="pick9" style="display: block" onclick="pickup(9)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                             <div id="c10" class="know" style="display: none">
                                 <h1 align="center" style="color: white">感叹词<small>（表示情感上的变化）</small></h1>
@@ -591,6 +649,9 @@
                                 <h3 style="color: white">well 表示快慰、让步、期望、讥讽、解释、责备、犹豫等。 Example：Well，you must come to lunch tomorrow．</h3>
                                 <h3 style="color: white">now 表示警告、命令、请求、说明、安慰筹。 Example：Now，let's play basketball．</h3>
                                 <h3 style="color: white">......</h3>
+                                <button class="pick" id="pick12" style="display: block" onclick="pickup(12)">
+                                    <h3 style="color: black">打卡</h3>
+                                </button>
                             </div>
                         </div>
                     </div>

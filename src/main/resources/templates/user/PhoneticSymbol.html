@@ -50,6 +50,19 @@
             top: 180px;
             display: none;
         }
+
+        .pick{
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            left: 900px;
+            top: 400px;
+            display: none;
+            background-color: #00B83F;
+            border-radius: 5%;
+            /*border: 1px solid black;*/
+            font-size: large;
+        }
     </style>
 
 </head>
@@ -146,9 +159,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
-                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                        <i class="fas fa-fw fa-dice-one"></i>Alphabet</a>
                     <a class="collapse-item active" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                        <i class="fas fa-fw fa-dice-two"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
@@ -397,9 +410,22 @@
             <!-- End of Topbar -->
 
             <script>
-                // $(".bean").click(function () {
-                //     $("S-div").toggle();
-                // })
+                var count = 0;
+                function pickup(n) {
+                    alert("打卡成功，继续寻找下一个打卡点吧！");
+                    count = count + 1;
+                    document.getElementById("pick"+n).style.display="none";
+                    if (count==9){
+                        alert("已完成音标打卡！");
+                        var index = 2;
+                        var url = "/recitewords/basics/punch";
+                        var args = {"index":index,"time":new Date()};
+                        $.post(url,args,function (data) {
+
+                        })
+                    }
+                }
+
                 var tot=48;
                 function check1(num) {
                     // alert(num);
@@ -410,6 +436,7 @@
                         // alert("yes");
                         document.getElementById("d"+num).style.display="block";
                     }
+
                     for (var i=1;i<=tot;i++){
                         // alert("woc!"+i);
                         if (i==num) continue;
@@ -418,6 +445,37 @@
                             break;
                         }
                     }
+
+                    if (num==1&&count==0){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }else {
+                        document.getElementById("pick"+(count+1)).style.display="none";
+                    }
+                    if (num==7&&count==1){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==13&&count==2){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==19&&count==3){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==25&&count==4){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==31&&count==5){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==37&&count==6){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==43&&count==7){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+                    if (num==48&&count==8){
+                        document.getElementById("pick"+(count+1)).style.display="block";
+                    }
+
                 }
 
                 function page(n) {
@@ -535,6 +593,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick1" onclick="pickup(1)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b2" class="bean" title="/i/" onclick="check1(2)" style="left: 240px;top: 90px;">
@@ -643,6 +704,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick2" onclick="pickup(2)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b8" class="bean" title="/ə/" onclick="check1(8)" style="left: 600px;top: 90px;">
@@ -751,6 +815,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick3" onclick="pickup(3)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b14" class="bean" title="/əʊ/" onclick="check1(14)" style="left: 960px;top: 90px;">
@@ -859,6 +926,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick4" onclick="pickup(4)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b20" class="bean" title="/ʊə/" onclick="check1(20)" style="left: 1320px;top: 90px;">
@@ -967,6 +1037,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick5" onclick="pickup(5)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b26" class="bean" title="/g/" onclick="check1(26)" style="left: 180px;bottom: 70px;">
@@ -1075,6 +1148,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick6" onclick="pickup(6)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b32" class="bean" title="/z/" onclick="check1(32)" style="left: 540px;bottom: 70px;">
@@ -1183,6 +1259,9 @@
                                         <img class="ghost" src="../img/clyde.png" style="right: 50px;bottom: 0px;">
                                     </button>
                                 </div>
+                                <button class="pick" id="pick7" onclick="pickup(7)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b38" class="bean" title="/dr/" onclick="check1(38)" style="left: 900px;bottom: 70px;">
@@ -1289,6 +1368,9 @@
                                     <h3 style="color: white;">Example : money（钱），room（房间），morning（早上），mom（妈妈）</h3>
                                     <button class="bean" onclick="check1(43)">ok</button>
                                 </div>
+                                <button class="pick" id="pick8" onclick="pickup(8)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                             <div>
                                 <button id="b44" class="bean" title="/n/" onclick="check1(44)" style="left: 85px;top: 240px;">
@@ -1369,6 +1451,9 @@
                                     <h3 style="color: white;">Example : love（爱），little（小的），letter（字母），tell（告诉）</h3>
                                     <button class="bean" onclick="check1(48)">ok</button>
                                 </div>
+                                <button class="pick" id="pick9" onclick="pickup(9)">
+                                    <h3 style="color: white">打卡</h3>
+                                </button>
                             </div>
                         </div>
                     </div>
