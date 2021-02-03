@@ -1,5 +1,6 @@
 package com.eng.recitewords.mapper;
 
+import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import org.apache.ibatis.annotations.Param;
@@ -30,6 +31,12 @@ public interface UserMapper {
     public void updateUserLast(String userId, int index);
 
     public void updateBasics(String userId,String basics);
+
+    public void newQuestion(Question question);
+
+    public List<Question> allQuestions();
+
+    public Question selectByQuestionId(String questionId);
 
 }
 

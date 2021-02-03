@@ -49,4 +49,17 @@
         update user set basics = #{basics} where userId = #{userId}
     </update>
 
+
+    <insert id="newQuestion" parameterType="question">
+        insert into question(questionId,userId,releaseT,content,qType,writerName,qCheck,title,hot) values(#{questionId},#{userId},#{releaseTime},#{content},#{qType},#{writerName},#{qCheck},#{title},#{hot})
+    </insert>
+
+    <select id="allQuestions" resultType="question">
+        select * from question
+    </select>
+
+    <select id="selectByQuestionId" resultType="question">
+        select * from question where questionId = #{questionId}
+    </select>
+
 </mapper>

@@ -3,11 +3,14 @@ package com.eng.recitewords.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
 import com.fasterxml.jackson.annotation.JsonAlias;
+
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
@@ -874,6 +877,52 @@ public class UserController {
         user.setBasics(S);
         userService.updateBasics(user.getUserId(),S);
         request.getSession().setAttribute("user",user);
+    }
+    
+    @RequestMapping("/user/Discussion")
+    public String discuss(Model model){
+        List<Question> questionList = userService.selectAllQuestion();
+        model.addAttribute("questionList",questionList);
+        System.out.println("question list is coming!");
+        return "user/Discussion";
+    }
+
+    @RequestMapping("/user/Resources")
+    public String resources(){
+        return "user/Resources";
+    }
+
+    @RequestMapping("/user/ReleaseQ")
+    public String releaseQ(){
+        return "user/ReleaseQ";
+    }
+
+    @RequestMapping("/aQuestion")
+    public String aQuestion(
+            @RequestParam("title") String title,
+            @RequestParam("content") String content,
+            @RequestParam("type") String type,
+            @RequestParam("userID") String userID,
+            @RequestParam("userName") String userName
+//            HttpServletResponse response
+    ){
+//        response.setCharacterEncoding("utf-8");
+        String qId = UUID.randomUUID().toString().replace("-","");
+        System.out.println(title);
+        userService.newQuestion(qId,title,content,type,userID,userName);
+        return "redirect:/user/Discussion";
+    }
+
+    @RequestMapping("/user/MyQuestion")
+    public String MyQuestion(){
+        return "user/MyQuestion";
+    }
+
+    @RequestMapping("/user/QuestionDetail/{questionId}")
+    public String QuestionDetail(@PathVariable("questionId")String questionId, Model model){
+        Question question = userService.selectByQuestionId(questionId);
+        model.addAttribute("thisQuestion",question);
+        return "user/QuestionDetail";
     }
 }
 

@@ -1,5 +1,6 @@
 package com.eng.recitewords.service;
 
+import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.mapper.UserMapper;
@@ -10,6 +11,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -141,6 +143,32 @@ public class UserService {
 
     public void updateBasics(String userId,String basics){
         userMapper.updateBasics(userId,basics);
+    }
+
+    public void newQuestion(String qID,String title,String content,String type,String userID,String userName){
+        Question question = new Question();
+        question.setQuestionId(qID);
+        Date date = new Date(System.currentTimeMillis());
+        System.out.println(date);
+        question.setReleaseTime(date);
+        question.setType(type);
+        question.setContent(content);
+        question.setTitle(title);
+        question.setUserId(userID);
+        question.setWriterName(userName);
+        question.setqCheck("unchecked");
+        question.setHot(1);
+        userMapper.newQuestion(question);
+    }
+
+    public List<Question> selectAllQuestion(){
+        List<Question> questionList = userMapper.allQuestions();
+        return questionList;
+    }
+
+    public Question selectByQuestionId(String questionId){
+        Question question = userMapper.selectByQuestionId(questionId);
+        return question;
     }
 
 }
