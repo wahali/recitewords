@@ -30,7 +30,7 @@ spring:
     default-encoding: UTF-8
   servlet:
     multipart:
-      max-file-size: 1MB
+      max-file-size: 100MB
       max-request-size: 1024MB
 
 #指定MyBatis配置文件
@@ -41,3 +41,7 @@ mybatis:
 server:
   servlet:
     context-path: /recitewords
+
+#文件上传路径
+file:
+  upload-dir: D:/Users/uploads
