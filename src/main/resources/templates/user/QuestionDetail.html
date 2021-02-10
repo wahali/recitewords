@@ -18,8 +18,7 @@
     <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
     <!-- Intro styles for index -->
     <link href="" th:href="@{/css/introjs.css}" rel="stylesheet">
-    <!-- loop picture -->
-    <link href="//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
+
     <!-- icon -->
     <link rel="shortcut icon"  th:href="@{/img/bb.png}" type="image/x-icon"/>
 
@@ -35,6 +34,8 @@
     </style>
 
 </head>
+
+
 
 <body id="page-top">
 
@@ -484,13 +485,39 @@
 <!--                        </div>-->
 <!--                    </div>-->
 <!--                </div>-->
+<!--                <input type="hidden" name="thisQuestion" th:value="${thisQuestion}">-->
                 标题
-                <input type="text">
+                <input type="text" th:value="${thisQuestion.getTitle()}">
+                作者
+                <input type="text" th:value="${thisQuestion.getWriterName()}">
+                <input type="text" th:value="${thisQuestion.getReleaseTime()}">
+                热度
+                <input type="text" th:value="${thisQuestion.getHot()}"><br>
+                问题类型
+                <input th:value="${thisQuestion.getType()}"><br>
                 内容
-                <input type="text">
+                <input type="text" th:value="${thisQuestion.getContent()}">
                 <!-- Content Row -->
                 <div class="row">
+                    <input id="QID" type="hidden" th:value="${thisQuestion.questionId}">
+                    <input id="userId" type="hidden" th:value="${session.user.userId}">
+                    <input id="userName" type="hidden" th:value="${session.user.userName}">
+<!--                    <form>-->
+                        <input type="text" id="myAnswer">
+                        <button id="AQ" type="button">回复</button>
+<!--                        <button type="reset">重置</button>-->
+<!--                    </form>-->
+<!--                    <a></a>-->
+                </div>
+                
 
+                
+                <div>
+                    <div class="col-lg-4" th:each="answer : ${Answers}">
+                        <p th:text="${answer.writerName}"></p><hr>
+                        <p th:text="${answer.answerTime}"></p>
+                        <P th:text="${answer.content}"></P>
+                    </div>
                 </div>
                 <!-- Content Row -->
 
@@ -551,12 +578,12 @@
 <!-- Custom scripts for all pages-->
 <script src="" th:src="@{/js/sb-admin-2.min.js}"></script>
 
-<!-- Page level plugins -->
-<script src="" th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
-<script src="" th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+<!--&lt;!&ndash; Page level plugins &ndash;&gt;-->
+<!--<script src="" th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>-->
+<!--<script src="" th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>-->
 
-<!-- Page level custom scripts -->
-<script src="" th:src="@{/js/demo/datatables-demo.js}"></script>
+<!--&lt;!&ndash; Page level custom scripts &ndash;&gt;-->
+<!--<script src="" th:src="@{/js/demo/datatables-demo.js}"></script>-->
 
 <!--&lt;!&ndash; Page level plugins &ndash;&gt;-->
 <!--<script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>-->
@@ -570,5 +597,30 @@
 
 
 </body>
+
+<script>
+    $(function () {
+        $("#AQ").click(function () {
+            // alert("123")
+            var questionId = $("#QID").val();
+            alert(questionId);
+            var userId = $("#userId").val();
+            // alert("3333");
+            var userName = $("#userName").val();
+            // alert("4444");
+            var myAnswer = $("#myAnswer").val();
+            // alert("hahahaha");
+            var args = {"questionId":questionId,"userId":userId,"userName":userName,"myAnswer":myAnswer,"time":new Date()};
+            var url = "/recitewords/answerQuestion";
+            $.post(url,args,function (data) {
+
+                alert(data);
+                // data = JSON.parse(data);
+                // $("everyWord").prop("value",data.an)
+
+            });
+        });
+    })
+</script>
 
 </html>

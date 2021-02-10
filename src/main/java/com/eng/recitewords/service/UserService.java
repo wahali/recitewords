@@ -1,5 +1,6 @@
 package com.eng.recitewords.service;
 
+import com.eng.recitewords.entity.Answer;
 import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
@@ -169,6 +170,33 @@ public class UserService {
     public Question selectByQuestionId(String questionId){
         Question question = userMapper.selectByQuestionId(questionId);
         return question;
+    }
+
+    public List<Question> selectQuestionByUserId(String userId){
+        List<Question> myQuestionList = userMapper.selectQuestionByUserId(userId);
+        return myQuestionList;
+    }
+
+    public void deleteByQuestionId(String questionId){
+        userMapper.deleteByQuestionId(questionId);
+    }
+
+    public void answerQuestion(String answerId,String userId,String content,String questionId,String writerName){
+
+        Date date = new Date(System.currentTimeMillis());
+        Answer answer = new Answer();
+        answer.setAnswerId(answerId);
+        answer.setAnswerTime(date.toString());
+        answer.setContent(content);
+        answer.setUserId(userId);
+        answer.setQuestionId(questionId);
+        answer.setWriterName(writerName);
+        userMapper.answerQuestion(answer);
+    }
+
+    public List<Answer> selectAnswerByQID(String questionId){
+        List<Answer> AnswerList = userMapper.selectAnswerByQID(questionId);
+        return AnswerList;
     }
 
 }

@@ -411,7 +411,8 @@
 
                 <div>
                     <a th:href="@{/user/ReleaseQ}"><button>发布提问</button></a>
-                    <a th:href="@{/user/MyQuestion}"><button>我的提问</button></a><br><br>
+                    <a th:href="@{/user/MyQuestion/} + ${session.user.userId}"><button>我的提问</button></a><br><br>
+<!--                    <input th:value="session.user.user">-->
 
                 </div>
 

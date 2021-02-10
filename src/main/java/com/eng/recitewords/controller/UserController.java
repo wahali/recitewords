@@ -3,6 +3,7 @@ package com.eng.recitewords.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.eng.recitewords.entity.Answer;
 import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
@@ -10,7 +11,7 @@ import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
 import com.fasterxml.jackson.annotation.JsonAlias;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
+//import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
@@ -913,16 +914,55 @@ public class UserController {
         return "redirect:/user/Discussion";
     }
 
-    @RequestMapping("/user/MyQuestion")
-    public String MyQuestion(){
+    @RequestMapping("/user/MyQuestion/{userId}")
+    public String MyQuestion(@PathVariable("userId")String userId,Model model) {
+        System.out.println(userId);
+        List<Question> myQList = userService.selectQuestionByUserId(userId);
+        model.addAttribute("myQuestions",myQList);
         return "user/MyQuestion";
+
     }
 
     @RequestMapping("/user/QuestionDetail/{questionId}")
     public String QuestionDetail(@PathVariable("questionId")String questionId, Model model){
         Question question = userService.selectByQuestionId(questionId);
         model.addAttribute("thisQuestion",question);
+        List<Answer> answerList = userService.selectAnswerByQID(questionId);
+        model.addAttribute("Answers",answerList);
         return "user/QuestionDetail";
+    }
+
+    @RequestMapping("/user/deleteQuestion/{questionId}")
+    public String DeleteQuestion(@PathVariable("questionId")String questionId){
+
+        userService.deleteByQuestionId(questionId);
+        System.out.println("myQuestion is coming?");
+        return "redirect:/user/Discussion";
+    }
+
+    @RequestMapping("/answerQuestion")
+    public void AnswerQuestion(@RequestParam("questionId")String questionId,
+                                 @RequestParam("userId")String userId,
+                                 @RequestParam("myAnswer")String content,
+                                 @RequestParam("userName")String writerName,
+                                 HttpServletResponse response,
+                                 Model model) throws IOException {
+        response.setCharacterEncoding("utf-8");
+        String answerId = UUID.randomUUID().toString().replace("-","");
+        userService.answerQuestion(answerId,userId,content,questionId,writerName);
+        System.out.println("Answer success!");
+        List<Answer> answers = userService.selectAnswerByQID(questionId);
+        model.addAttribute("Answers",answers);
+        JSONObject json = new JSONObject();
+        if (answers.size()!=0){
+            json.put("answers",answers);
+        }else {
+            json.put("answer",0);
+        }
+        response.getWriter().print(json);
+//        model.addAttribute("answers",answers);
+        System.out.println("Show success!");
+//        return "redirect:/user/QuestionDetail";
     }
 }
 

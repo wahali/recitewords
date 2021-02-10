@@ -11,8 +11,17 @@ public class Answer {
     private String answerId;
     private String userId;
     private String writerName;
-    private Date answerTime;
+    private String answerTime;
     private String content;
+    private String questionId;
+
+    public String getQuestionId() {
+        return questionId;
+    }
+
+    public void setQuestionId(String questionId) {
+        this.questionId = questionId;
+    }
 
     public String getAnswerId() {
         return answerId;
@@ -38,11 +47,11 @@ public class Answer {
         this.writerName = writerName;
     }
 
-    public Date getAnswerTime() {
+    public String getAnswerTime() {
         return answerTime;
     }
 
-    public void setAnswerTime(Date answerTime) {
+    public void setAnswerTime(String answerTime) {
         this.answerTime = answerTime;
     }
 

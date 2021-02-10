@@ -1,5 +1,6 @@
 package com.eng.recitewords.mapper;
 
+import com.eng.recitewords.entity.Answer;
 import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
@@ -37,6 +38,14 @@ public interface UserMapper {
     public List<Question> allQuestions();
 
     public Question selectByQuestionId(String questionId);
+
+    public List<Question> selectQuestionByUserId(String userId);
+
+    public void deleteByQuestionId(String questionId);
+
+    public void answerQuestion(Answer answer);
+
+    public List<Answer> selectAnswerByQID(String questionId);
 
 }
 

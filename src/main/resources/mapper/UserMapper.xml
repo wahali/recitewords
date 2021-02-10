@@ -62,4 +62,20 @@
         select * from question where questionId = #{questionId}
     </select>
 
+    <select id="selectQuestionByUserId" resultType="question">
+        select * from question where userId = #{userId}
+    </select>
+
+    <delete id="deleteByQuestionId">
+        delete from question where questionId = #{questionId}
+    </delete>
+
+    <insert id="answerQuestion" parameterType="answer">
+        insert into answer(answerId,userId,writerName,answerT,content,questionId) values(#{answerId},#{userId},#{writerName},#{answerTime},#{content},#{questionId})
+    </insert>
+
+    <select id="selectAnswerByQID" resultType="answer">
+        select * from answer where questionId = #{questionId}
+    </select>
+
 </mapper>

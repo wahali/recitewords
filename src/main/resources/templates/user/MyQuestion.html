@@ -411,7 +411,7 @@
 
                 <div>
                     <a th:href="@{/user/ReleaseQ}"><button>发布提问</button></a>
-                    <a th:href="@{/user/MyQuestion}"><button>我的提问</button></a><br><br>
+                    <a th:href="@{/user/MyQuestion/} + ${session.user.userId}"><button>我的提问</button></a><br><br>
 
                 </div>
 
@@ -460,21 +460,21 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                <tr  th:each="user:${userlist}" >
-                                    <td th:text="${user.userName}"></td>
-                                    <td th:text="${user.userTel}"></td>
-                                    <td th:text="${user.userEmail}"></td>
-                                    <td th:text="${user.userPassword}"></td>
-                                    <td th:text="${user.userLevel}"></td>
-                                    <td th:text="${user.userTarget}"></td>
-                                    <td th:text="${user.userTh}"></td>
-                                    <td th:text="${user.userTw}"></td>
+                                <tr  th:each="question:${myQuestions}" >
+                                    <td th:text="${question.title}"></td>
+                                    <td th:text="${question.releaseTime}"></td>
+                                    <td th:text="${question.type}"></td>
+                                    <td th:text="${question.hot}"></td>
+                                    <td th:text="${question.qCheck}"></td>
+<!--                                    <td th:text="${user.userTarget}"></td>-->
+<!--                                    <td th:text="${user.userTh}"></td>-->
+<!--                                    <td th:text="${user.userTw}"></td>-->
                                     <td>
-                                        <a th:href="@{/admin/updateUser/} + ${user.userId}" >
-                                            <button class="btn btn-sm btn-danger">查看</button>
+                                        <a th:href="@{/user/QuestionDetail/} + ${question.questionId}" >
+                                            <button class="btn btn-sm btn-primary">查看</button>
                                         </a>
-                                        <a th:href="@{/admin/deleteUser/} + ${user.userId}" >
-                                            <button class="btn btn-sm btn-dark" onclick="del()">删除</button>
+                                        <a th:href="@{/user/deleteQuestion/} + ${question.questionId}" >
+                                            <button class="btn btn-sm btn-danger" onclick="del()">删除</button>
                                         </a>
                                     </td>
                                 </tr>
@@ -567,5 +567,13 @@
 
 
 </body>
+
+<script>
+    function del() {
+        if (!confirm("确认要删除这个提问吗？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>
 
 </html>
