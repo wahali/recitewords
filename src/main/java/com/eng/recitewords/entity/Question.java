@@ -1,5 +1,6 @@
 package com.eng.recitewords.entity;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Date;
 public class Question {
     private String questionId;
     private String userId;
-    private Date releaseTime;
+    private Timestamp releaseTime;
     private String title;
     private String content;
     private String qType;
@@ -58,11 +59,11 @@ public class Question {
         this.userId = userId;
     }
 
-    public Date getReleaseTime() {
+    public Timestamp getReleaseTime() {
         return releaseTime;
     }
 
-    public void setReleaseTime(Date releaseTime) {
+    public void setReleaseTime(Timestamp releaseTime) {
         this.releaseTime = releaseTime;
     }
 

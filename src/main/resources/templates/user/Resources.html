@@ -192,11 +192,7 @@
                 </button>
 
                 <!-- Topbar Search -->
-                <div>
-                    <button class="btn btn-light" type="button" onclick="guide()">
-                        <i class="fas fa-question"></i>使用引导
-                    </button>
-                </div>
+
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
@@ -261,38 +257,40 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <div class="upload-container">
+            <div class="container-fluid" id="container">
+                <!-- Begin Page Content -->
+                <div class="upload-container">
 
-                <!-- Page Heading -->
-                <div class="upload-header">
-                    <h1>Upload / Download</h1>
-                </div>
+                    <!-- Page Heading -->
+                    <div class="upload-header">
+                        <h1>Upload / Download</h1>
+                    </div>
 
-                <!--Upload -->
-                <div class="upload-content">
-                    <div class="single-upload">
-                        <h3>Upload Single File</h3>
-                        <form id="singleUploadForm" name="singleUploadForm">
-                            <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
-                            <button type="submit" class="primary submit-btn">Submit</button>
-                        </form>
-                        <div class="upload-response">
-                            <div id="singleFileUploadError"></div>
-                            <div id="singleFileUploadSuccess"></div>
+                    <!--Upload -->
+                    <div class="upload-content">
+                        <div class="single-upload">
+                            <h3>Upload Single File</h3>
+                            <form id="singleUploadForm" name="singleUploadForm">
+                                <input id="singleFileUploadInput" type="file" name="file" class="file-input" required />
+                                <button type="submit" class="primary submit-btn">Submit</button>
+                            </form>
+                            <div class="upload-response">
+                                <div id="singleFileUploadError"></div>
+                                <div id="singleFileUploadSuccess"></div>
+                            </div>
+                        </div>
+                        <div class="multiple-upload">
+                            <h3>Upload Multiple Files</h3>
+                            <form id="multipleUploadForm" name="multipleUploadForm">
+                                <input id="multipleFileUploadInput" type="file" name="files" class="file-input" multiple required />
+                                <button type="submit" class="primary submit-btn">Submit</button>
+                            </form>
+                            <div class="upload-response">
+                                <div id="multipleFileUploadError"></div>
+                                <div id="multipleFileUploadSuccess"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="multiple-upload">
-                        <h3>Upload Multiple Files</h3>
-                        <form id="multipleUploadForm" name="multipleUploadForm">
-                            <input id="multipleFileUploadInput" type="file" name="files" class="file-input" multiple required />
-                            <button type="submit" class="primary submit-btn">Submit</button>
-                        </form>
-                        <div class="upload-response">
-                            <div id="multipleFileUploadError"></div>
-                            <div id="multipleFileUploadSuccess"></div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Content Row -->
 
@@ -300,19 +298,8 @@
 
                 <!-- Area Chart -->
                 <!--            <div class="col-xl-8 col-lg-7">-->
-                <div class="card shadow mb-4">
-                    <!--轮播图-->
-                    <div class="flexslider slider">
-                        <ul class="slides">
-                            <li><img src="../img/loop/1.png" /></li>
-                            <li><img src="../img/loop/2.png" /></li>
-                            <li><img src="../img/loop/3.png" /></li>
-                            <li><img src="../img/loop/4.png" /></li>
-                        </ul>
-                    </div>
 
                 </div>
-
             </div>
             <!-- /.container-fluid -->
 
@@ -376,138 +363,11 @@
 <!-- Page level custom scripts -->
 <script src="" th:src="@{/js/upload.js}"></script>
 
-<!-- Intro js for guiding user-->
-<script src="" th:src="@{/js/intro.js}"></script>
-
-<!---picture loop js-->
-<script src="//cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js"></script>
 
 
 </body>
 
-<script>
-    $(function(){
-        $('.flexslider').flexslider({
-            animation: 'slide',                 // 必备参数，自动滑动
-            slideshowSpeed: 5000,              // 每次自动滑动间隔时间，默认为 7000，单位为 ms
-            animationSpeed: 1000,              // 手动点击滑动时间，默认为 600，单位为 ms
-            //itemWidth: 900                  // 定义每个 item 宽度，单位为 px，默认为 100%
-            slideshow: true,                //载入页面时，是否自动播放
-            directionNav: true             //是否显示左右控制按钮
-        })
-    })
-</script>
 
-<script type="text/javascript">
 
-    var newVisitor = isNewVisitor();
-    if(newVisitor === true) {
-// 动画弹出消息框
-//     alert('您是新用户！');
-        guide();
-// 标记：已经向该访客弹出过消息。30天之内不要再弹
-        setCookie("gznotes-visited", "true", 5);
-    } else {
-        console.log("您已不是新用户了");
-    }
-
-    function isNewVisitor() {
-// 从cookie读取“已经向访客提示过消息”的标志位
-        var flg = getCookie("gznotes-visited");
-        if(flg === "") {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // 写字段到cookie
-    function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + "; " + expires + ";path=/";
-    }
-
-    // 读cookie
-    function getCookie(cname) {
-        var name = cname + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1);
-            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-        }
-        return "";
-    }
-
-    function guide(){
-        $(function(){
-            introJs().setOptions({
-                //对应的按钮
-                prevLabel:"上一步",
-                nextLabel:"下一步",
-                skipLabel:"跳过",
-                doneLabel:"结束",
-                //对应的数组，顺序出现每一步引导提示
-                steps: [
-                    {
-                        //第一步引导
-                        //这个属性类似于jquery的选择器， 可以通过jquery选择器的方式来选择你需要选中的对象进行指引
-                        element: '#mainTitle',
-                        //这里是每个引导框具体的文字内容，中间可以编写HTML代码
-                        intro: '点击显示主页',
-                        //这里可以规定引导框相对于选中对象出现的位置 top,bottom,left,right
-                        position: 'right'
-                    },
-                    {
-                        //第二步引导
-                        element: '#tool',
-                        intro: '点击工具下拉框可进行单词搜索',
-                        position: 'right'
-                    },
-                    {
-                        //第三步引导
-                        element: '#studyPlan',
-                        intro: '点击可查看知识图谱和学习计划',
-                        position: 'right'
-                    },
-                    {
-                        //第四步引导
-                        element: '#studyPart',
-                        intro: '点击可查看基础英语的学习',
-                        position: 'right'
-                    },
-                    {
-                        //第五步引导
-                        element: '#testPart',
-                        intro: '点击可进行英语单词的测试、背单词和查看错词本',
-                        position: 'right'
-                    },
-                    {
-                        //第六步引导
-                        element: '#user',
-                        intro: '点击查看状态栏，进行个人信息修改和登出',
-                        position: 'left'
-                    },
-                    {
-                        //第七步引导
-                        element: '#container',
-                        intro: '查看任务面板及推送',
-                        position: 'top'
-                    }
-                    // {
-                    //   //第八步引导
-                    //   element: '.div3',
-                    //   intro: '<a href="www.cnblogs.com">这是第三个DIV</a>~~',
-                    //   position: 'bottom'
-                    // },
-                ]
-
-            }).start();
-        });
-    }
-
-</script>
 
 </html>

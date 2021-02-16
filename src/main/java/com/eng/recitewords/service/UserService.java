@@ -149,9 +149,9 @@ public class UserService {
     public void newQuestion(String qID,String title,String content,String type,String userID,String userName){
         Question question = new Question();
         question.setQuestionId(qID);
-        Date date = new Date(System.currentTimeMillis());
-        System.out.println(date);
-        question.setReleaseTime(date);
+//        Date date = new Date(System.currentTimeMillis());
+//        System.out.println(date);
+//        question.setReleaseTime(date.toString());
         question.setType(type);
         question.setContent(content);
         question.setTitle(title);
@@ -168,8 +168,8 @@ public class UserService {
     }
 
     public Question selectByQuestionId(String questionId){
-        Question question = userMapper.selectByQuestionId(questionId);
-        return question;
+
+        return userMapper.selectByQuestionId(questionId);
     }
 
     public List<Question> selectQuestionByUserId(String userId){

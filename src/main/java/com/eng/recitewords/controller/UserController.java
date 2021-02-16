@@ -927,6 +927,10 @@ public class UserController {
     public String QuestionDetail(@PathVariable("questionId")String questionId, Model model){
         Question question = userService.selectByQuestionId(questionId);
         model.addAttribute("thisQuestion",question);
+        System.out.println(question.getReleaseTime().toString());
+        System.out.println("时间");
+        System.out.println(question.getTitle());
+
         List<Answer> answerList = userService.selectAnswerByQID(questionId);
         model.addAttribute("Answers",answerList);
         return "user/QuestionDetail";
@@ -952,8 +956,15 @@ public class UserController {
         userService.answerQuestion(answerId,userId,content,questionId,writerName);
         System.out.println("Answer success!");
         List<Answer> answers = userService.selectAnswerByQID(questionId);
-        model.addAttribute("Answers",answers);
+//        model.addAttribute("Answers",answers);
         JSONObject json = new JSONObject();
+//        Answer answer = new Answer();
+//        answer.setQuestionId(questionId);
+//        answer.setWriterName(writerName);
+//        answer.setUserId(userId);
+//        answer.setAnswerId(answerId);
+//        answer.setContent(content);
+
         if (answers.size()!=0){
             json.put("answers",answers);
         }else {
