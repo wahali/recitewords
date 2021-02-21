@@ -55,12 +55,16 @@
     </insert>
 
     <select id="allQuestions" resultType="question">
-        select * from question
+        select * from question where qCheck = 'passed'
     </select>
 
     <select id="selectByQuestionId" resultType="question">
         select * from question where questionId = #{questionId}
     </select>
+
+    <update id="addHot">
+        update question set hot = #{hot} where questionId = #{questionId}
+    </update>
 
     <select id="selectQuestionByUserId" resultType="question">
         select * from question where userId = #{userId}

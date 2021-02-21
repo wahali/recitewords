@@ -47,5 +47,7 @@ public interface UserMapper {
 
     public List<Answer> selectAnswerByQID(String questionId);
 
+    public void addHot(String questionId,int hot);
+
 }
 

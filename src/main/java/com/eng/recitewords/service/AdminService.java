@@ -1,6 +1,7 @@
 package com.eng.recitewords.service;
 
 import com.eng.recitewords.entity.Admin;
+import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.mapper.AdminMapper;
@@ -75,6 +76,23 @@ public class AdminService {
         adminMapper.deleteUser(userId);
     }
 
+    public List<Question> checkQuestion(){
+        List<Question> questionList = adminMapper.checkQuestion();
+        return questionList;
+    }
 
+    public Question selectByQuestionId(String questionId){
+        Question question = adminMapper.selectByQuestionId(questionId);
+        return question;
+    }
+
+    public boolean passQuestion(String questionId){
+        adminMapper.passQuestion(questionId);
+        return true;
+    }
+
+    public void failQuestion(String questionId){
+        adminMapper.failQuestion(questionId);
+    }
 
 }

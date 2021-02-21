@@ -1,6 +1,8 @@
 package com.eng.recitewords.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.eng.recitewords.entity.Admin;
+import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.service.AdminService;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -208,6 +212,32 @@ public class AdminController {
     public String logout(){
 
         return "login";
+    }
+
+    @RequestMapping("admin/questionTable")
+    public String questionTable(Model model){
+        List<Question> questions = adminService.checkQuestion();
+        model.addAttribute("questions",questions);
+        return "admin/questionTable";
+    }
+
+    @RequestMapping("admin/questionDetail/{questionId}")
+    public String questionDetail(@PathVariable("questionId") String questionId, Model model){
+        Question question = adminService.selectByQuestionId(questionId);
+        model.addAttribute("thisQuestion",question);
+        return "admin/questionDetail";
+    }
+
+    @RequestMapping("passQuestion")
+    public void passQuestion(@RequestParam("questionId")String questionId, HttpServletResponse response) throws IOException {
+        boolean flag = false;
+        flag = adminService.passQuestion(questionId);
+        if (flag){
+            response.getWriter().print("success");
+        }else {
+            response.getWriter().print("fail");
+        }
+
     }
 
 }

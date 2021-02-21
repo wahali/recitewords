@@ -43,4 +43,20 @@
         set adminId=#{adminId},adminName=#{adminName},adminTel=#{adminTel},adminEmail=#{adminEmail},adminPassword=#{adminPassword}
     </insert>
 
+    <select id="checkQuestion" resultType="question">
+        select * from question where qCheck = 'uncheck'
+    </select>
+
+    <select id="selectByQuestionId" parameterType="String" resultType="question">
+        select * from question where questionId = #{questionId}
+    </select>
+
+    <update id="passQuestion" parameterType="String">
+        update question set qCheck = 'passed' where questionId = #{questionId}
+    </update>
+
+    <update id="failQuestion" parameterType="String">
+        update question set qCheck = 'failed' where questionId = #{questionId}
+    </update>
+
 </mapper>

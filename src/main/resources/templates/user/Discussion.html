@@ -465,18 +465,10 @@
                                     <td th:text="${question.title}"></td>
                                     <td th:text="${question.type}"></td>
                                     <td th:text="${question.hot}"></td>
-<!--                                    <td th:text="${user.userPassword}"></td>-->
-<!--                                    <td th:text="${user.userLevel}"></td>-->
-<!--                                    <td th:text="${user.userTarget}"></td>-->
-<!--                                    <td th:text="${user.userTh}"></td>-->
-<!--                                    <td th:text="${user.userTw}"></td>-->
                                     <td>
                                         <a th:href="@{/user/QuestionDetail/} + ${question.questionId}" >
                                             <button class="btn btn-sm btn-primary">查看</button>
                                         </a>
-<!--                                        <a th:href="@{/admin/deleteUser/} + ${user.userId}" >-->
-<!--                                            <button class="btn btn-sm btn-dark" onclick="del()">删除</button>-->
-<!--                                        </a>-->
                                     </td>
                                 </tr>
 

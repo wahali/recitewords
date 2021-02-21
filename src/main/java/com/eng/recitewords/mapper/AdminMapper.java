@@ -1,6 +1,7 @@
 package com.eng.recitewords.mapper;
 
 import com.eng.recitewords.entity.Admin;
+import com.eng.recitewords.entity.Question;
 import com.eng.recitewords.entity.User;
 import com.eng.recitewords.entity.Words;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,9 @@ public interface AdminMapper {
     public void addInfo(Admin admin);
     public void deleteInfo(String adminId);
     public void deleteUser(String userId);
+    public List<Question> checkQuestion();
+    public Question selectByQuestionId(String questionId);
+    public void passQuestion(String questionId);
+    public void failQuestion(String questionId);
 
 }

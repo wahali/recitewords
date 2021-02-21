@@ -926,11 +926,15 @@ public class UserController {
     @RequestMapping("/user/QuestionDetail/{questionId}")
     public String QuestionDetail(@PathVariable("questionId")String questionId, Model model){
         Question question = userService.selectByQuestionId(questionId);
-        model.addAttribute("thisQuestion",question);
-        System.out.println(question.getReleaseTime().toString());
-        System.out.println("时间");
-        System.out.println(question.getTitle());
+//        question.setHot(question.getHot()+1);
+        userService.addHot(questionId,question.getHot()+1);
 
+
+
+        model.addAttribute("thisQuestion",question);
+//        System.out.println(question.getReleaseTime().toString());
+//        System.out.println("时间");
+//        System.out.println(question.getTitle());
         List<Answer> answerList = userService.selectAnswerByQID(questionId);
         model.addAttribute("Answers",answerList);
         return "user/QuestionDetail";

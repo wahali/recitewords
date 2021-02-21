@@ -157,7 +157,7 @@ public class UserService {
         question.setTitle(title);
         question.setUserId(userID);
         question.setWriterName(userName);
-        question.setqCheck("unchecked");
+        question.setqCheck("uncheck");
         question.setHot(1);
         userMapper.newQuestion(question);
     }
@@ -168,8 +168,9 @@ public class UserService {
     }
 
     public Question selectByQuestionId(String questionId){
+        Question question = userMapper.selectByQuestionId(questionId);
 
-        return userMapper.selectByQuestionId(questionId);
+        return question;
     }
 
     public List<Question> selectQuestionByUserId(String userId){
@@ -197,6 +198,10 @@ public class UserService {
     public List<Answer> selectAnswerByQID(String questionId){
         List<Answer> AnswerList = userMapper.selectAnswerByQID(questionId);
         return AnswerList;
+    }
+
+    public void addHot(String questionId,int hot){
+        userMapper.addHot(questionId,hot);
     }
 
 }
