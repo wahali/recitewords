@@ -22,6 +22,6 @@ public interface AdminMapper {
     public List<Question> checkQuestion();
     public Question selectByQuestionId(String questionId);
     public void passQuestion(String questionId);
-    public void failQuestion(String questionId);
+    public void failQuestion(String questionId,String suggestion);
 
 }

@@ -91,8 +91,9 @@ public class AdminService {
         return true;
     }
 
-    public void failQuestion(String questionId){
-        adminMapper.failQuestion(questionId);
+    public boolean failQuestion(String questionId,String suggestion){
+        adminMapper.failQuestion(questionId,suggestion);
+        return true;
     }
 
 }

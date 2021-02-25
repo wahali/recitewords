@@ -237,7 +237,19 @@ public class AdminController {
         }else {
             response.getWriter().print("fail");
         }
+    }
 
+    @RequestMapping("failQuestion")
+    public void failQuestion(@RequestParam("questionId")String questionId,
+                             @RequestParam("suggestion")String suggestion,
+                             HttpServletResponse response) throws IOException {
+        boolean flag = false;
+        flag = adminService.failQuestion(questionId,suggestion);
+        if (flag){
+            response.getWriter().print("success");
+        }else {
+            response.getWriter().print("fail");
+        }
     }
 
 }

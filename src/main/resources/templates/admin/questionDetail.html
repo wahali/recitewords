@@ -428,23 +428,21 @@
 
 <script>
     $(function () {
-        $("#AQ").click(function () {
+        $("#fail").click(function () {
             var questionId = $("#QID").val();
-            var userId = $("#userId").val();
-            var userName = $("#userName").val();
-            var myAnswer = $("#myAnswer").val();
+            var suggestion = $("#suggestion").val();
             alert("hahahaha");
-            var args = {"questionId":questionId,"userId":userId,"userName":userName,"myAnswer":myAnswer,"time":new Date()};
-            var url = "/recitewords/answerQuestion";
+            var args = {"questionId":questionId,"suggestion":suggestion,"time":new Date()};
+            var url = "/recitewords/failQuestion";
             $.post(url,args,function (data) {
 
-                // alert(data);
-                data = JSON.parse(data);
-                for (var i=0;i<data.answers.size();i++){
-                    $("#writerName").text(data.answers[i].writerName);
-                    $("#answerTime").text(data.answers[i].answerTime);
-                    $("#answerContent").text(data.answers.content);
-                }
+                alert(data);
+                // data = JSON.parse(data);
+                // for (var i=0;i<data.answers.size();i++){
+                //     $("#writerName").text(data.answers[i].writerName);
+                //     $("#answerTime").text(data.answers[i].answerTime);
+                //     $("#answerContent").text(data.answers.content);
+                // }
 
 
             });

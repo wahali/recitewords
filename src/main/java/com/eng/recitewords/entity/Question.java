@@ -18,6 +18,7 @@ public class Question {
     private String writerName;
     private String qCheck;
     private int hot;
+    private String suggestion;
 
     public int getHot() {
         return hot;
@@ -89,5 +90,13 @@ public class Question {
 
     public void setqCheck(String qCheck) {
         this.qCheck = qCheck;
+    }
+
+    public String getSuggestion() {
+        return suggestion;
+    }
+
+    public void setSuggestion(String suggestion) {
+        this.suggestion = suggestion;
     }
 }
