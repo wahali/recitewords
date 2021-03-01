@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>User - Resources</title>
-    <!-- Custom fonts for this template -->
-    <link href="" th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+
+    <title>Admin - Check Upload</title>
+
+    <!-- Custom fonts for this template-->
+    <link href=""  th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
     <link href="" th:href="@{/css/googlefont.css}" rel="stylesheet">
-    <!-- Custom styles for this template -->
+
+    <!-- Custom styles for this template-->
     <link href="" th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
-    <!-- Intro styles for index -->
-    <link href="" th:href="@{/css/introjs.css}" rel="stylesheet">
-    <!-- loop picture -->
-    <link href="//cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
     <!-- icon -->
     <link rel="shortcut icon"  th:href="@{/img/bb.png}" type="image/x-icon"/>
 
 </head>
+
 <body id="page-top">
 
 <!-- Page Wrapper -->
@@ -30,19 +31,19 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" th:href="@{/user/index}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html" th:href="@{/admin/index}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">User<sup></sup></div>
+            <div class="sidebar-brand-text mx-3">Admin</div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active" id="mainTitle">
-            <a class="nav-link" href="" th:href="@{/user/index}">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html" th:href="@{/admin/index}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>倍思Basics</span></a>
         </li>
@@ -50,118 +51,47 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
-        </div>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item" id="tool">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Tools</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Tools:</h6>
-                    <a class="collapse-item" href="buttons.html" th:href="@{/user/wordSearch}">WordSearch</a>
-                    <!--                    <a class="collapse-item" href="utilities-color.html">Colors</a>-->
-                    <!--                    <a class="collapse-item" href="utilities-border.html">Borders</a>-->
-                    <!--                    <a class="collapse-item" href="utilities-animation.html">Animations</a>-->
-                    <!--                    <a class="collapse-item" href="utilities-other.html">Other</a>-->
-                </div>
-            </div>
-        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Study
+            Manage
         </div>
 
-        <!-- Nav Item - StudyPlan -->
-        <li class="nav-item" id="studyPlan">
-            <a class="nav-link" href="" th:href="@{/user/StudyPlan}">
-                <i class="fas fa-fw fa-plane"></i>
-                <span>KnowledgeGraph</span></a>
+
+
+        <!-- Nav Item - Words -->
+        <li class="nav-item">
+            <a class="nav-link" href="" th:href="@{/admin/Words}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Words</span></a>
         </li>
 
-        <!-- Nav Item - Test part Collapse Menu -->
-        <li class="nav-item" id="studyPart">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-book"></i>
-                <span>Study part</span>
+        <!-- Nav Item - Manage Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseManage" aria-expanded="true" aria-controls="collapseManage">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Manage</span>
             </a>
-            <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div id="collapseManage" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Portal</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
-                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
-                    <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
-                    <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
-                        <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
-                    <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
-                        <i class="fas fa-fw fa-dice-four"></i>DeriveOfWord</a>
-                    <a class="collapse-item" href="" th:href="@{/user/Grammar}">
-                        <i class="fas fa-fw fa-dice-five"></i>Grammar</a>
-                    <a class="collapse-item" href="" th:href="@{/user/Sentence}">
-                        <i class="fas fa-fw fa-dice-six"></i>Sentence</a>
-                    <div class="collapse-divider"></div>
-                    <!--            <h6 class="collapse-header">Other Portal</h6>-->
-                    <!--            <a class="collapse-item" href="404.html">-->
-                    <!--              <i class="fas fa-fw fa-question"></i>404 Page</a>-->
-                    <!--            <a class="collapse-item" href="blank.html">-->
-                    <!--              <i class="fas fa-fw fa-meh-blank"></i>Blank Page</a>-->
+                    <h6 class="collapse-header">Manage Screens:</h6>
+                    <a class="collapse-item" href="" th:href="@{/admin/admin_tables}">Admin Tables</a>
+                    <a class="collapse-item" href="" th:href="@{/admin/tables}">User Tables</a>
+                    <!--            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>-->
+                    <!--            <div class="collapse-divider"></div>-->
+                    <!--            <h6 class="collapse-header">Other Pages:</h6>-->
+                    <!--            <a class="collapse-item" href="404.html">404 Page</a>-->
+                    <!--            <a class="collapse-item" href="update.html">Blank Page</a>-->
                 </div>
             </div>
         </li>
 
-        <!-- Nav Item - Test part Collapse Menu -->
-        <li class="nav-item" id="testPart">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-gamepad"></i>
-                <span>Test part</span>
-            </a>
-            <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Test Portal</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/chooseChineseWord}">
-                        <i class="fas fa-fw fa-dog"></i>ChooseC</a>
-                    <a class="collapse-item" href="" th:href="@{/user/chooseEnglishWord}">
-                        <i class="fas fa-fw fa-cat"></i>ChooseE</a>
-                    <a class="collapse-item" href="" th:href="@{/user/fillBlanks}">
-                        <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Recite&Error Portal</h6>
-                    <a class="collapse-item" href="" th:href="@{/user/recitation}">
-                        <i class="fas fa-fw fa-recycle"></i>Recitation</a>
-                    <a class="collapse-item" href="" th:href="@{/user/errorWords}">
-                        <i class="fas fa-fw fa-magic"></i>ErrorWords</a>
-                </div>
-            </div>
-        </li>
-
-        <div class="sidebar-heading">
-            Discussion
-        </div>
-
-        <!-- Nav Item - StudyPlan -->
-        <li class="nav-item" id="discussion">
-            <a class="nav-link" href="" th:href="@{/user/Discussion}">
-                <i class="fas fa-fw fa-plane"></i>
-                <span>Discussion</span></a>
-        </li>
-
-        <div class="sidebar-heading">
-            Other
-        </div>
-
-        <!-- Nav Item - StudyPlan -->
+        <!-- Nav Item - Resources -->
         <li class="nav-item" id="resources">
-            <a class="nav-link" href="" th:href="@{/user/Resources}">
+            <a class="nav-link" href="" th:href="@{/admin/Resources}">
                 <i class="fas fa-fw fa-plane"></i>
                 <span>Resources</span></a>
         </li>
@@ -191,9 +121,6 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
-
-
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
@@ -217,12 +144,15 @@
                         </div>
                     </li>
 
-                    <div class="topbar-divider d-none d-sm-block"></div>
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
 
-                    <!-- Nav Item - User Information -->
-                    <li class="nav-item dropdown no-arrow" id="user">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.user.userName}"></span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small" th:text="${session.admin.adminName}"></span>
                             <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                         </a>
                         <!-- Dropdown - User Information -->
@@ -231,10 +161,6 @@
                             <!--                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>-->
                             <!--                  Profile-->
                             <!--                </a>-->
-                            <a class="dropdown-item" href="" th:href="@{/user/personalInfo}">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Personal Info
-                            </a>
                             <!--                <a class="dropdown-item" href="#">-->
                             <!--                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>-->
                             <!--                  Settings-->
@@ -244,7 +170,7 @@
                             <!--                  Activity Log-->
                             <!--                </a>-->
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" th:href="@{/user/logOut}">
+                            <a class="dropdown-item" href="#" th:href="@{/login}">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -263,16 +189,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Upload / Download</h1>
-                    </div>
-
-                    <!--Upload -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4" >
-
-                        <form action="/recitewords/file/uploadFile" enctype="multipart/form-data" method="post">
-                            <input id="FileUploadInput" type="file" name="file" class="file-input" multiple required />
-                            <button type="submit">Submit</button>
-                        </form>
+                        <h1 class="h3 mb-0 text-gray-800">Upload Check</h1>
                     </div>
 
                     <div class="card shadow mb-4">
@@ -286,27 +203,30 @@
                                     <thead>
                                     <tr>
                                         <th>文件名</th>
-                                        <th>文件类型</th>
-                                        <th>文件大小(Byte)</th>
+                                        <th>下载链接</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                         <th>文件名</th>
-                                        <th>文件类型</th>
-                                        <th>文件大小(Byte)</th>
+                                        <th>下载链接</th>
                                         <th>操作</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
                                     <tr th:each="filelist:${uploadFileList}" >
                                         <td th:text="${filelist.fileName}"></td>
-                                        <td th:text="${filelist.fileType}"></td>
-                                        <td th:text="${filelist.size}"></td>
+                                        <td th:text="${filelist.fileDownloadUri}"></td>
                                         <td>
-                                            <a th:href="@{filelist.fileDownloadUri}">
-                                                <button class="btn btn-primary">下载</button>
+                                            <a th:href="@{/file/check/}+${filelist.fileName}">
+                                                <button class="btn btn-sm btn-light">审核</button>
+                                            </a>
+                                            <a th:href="@{/file/deleteFile/}+${filelist.fileName}" >
+                                                <button class="btn btn-sm btn-primary">删除</button>
+                                            </a>
+                                            <a th:href="${filelist.fileDownloadUri}">
+                                                <button class="btn btn-sm btn-link">下载</button>
                                             </a>
                                         </td>
                                     </tr>
@@ -316,18 +236,9 @@
                             </div>
                         </div>
                     </div>
+                    </div>
 
                 </div>
-
-                <!-- Content Row -->
-
-                <!--          <div class="row">-->
-
-                <!-- Area Chart -->
-                <!--            <div class="col-xl-8 col-lg-7">-->
-
-                <!--</div>-->
-            </div>
             <!-- /.container-fluid -->
 
         </div>
@@ -367,12 +278,11 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="../login.html" th:href="@{/user/logOut}">Logout</a>
+                <a class="btn btn-primary" href="../login.html" th:href="@{/login}">Logout</a>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- Bootstrap core JavaScript-->
 <script src="" th:src="@{/vendor/jquery/jquery.min.js}"></script>
@@ -387,10 +297,10 @@
 <!-- Page level plugins -->
 <script src="" th:src="@{/vendor/chart.js/Chart.min.js}"></script>
 
+<!-- Page level custom scripts -->
+<script src="" th:src="@{/js/demo/chart-area-demo.js}"></script>
+<script src="" th:src="@{/js/demo/chart-pie-demo.js}"></script>
 
 </body>
-
-
-
 
 </html>

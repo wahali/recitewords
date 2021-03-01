@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eng.recitewords.mapper.UploadMapper">
+
+    <select id="selectAllUploadFiles" resultType="uploadfile">
+        select * from upload
+    </select>
+
+    <select id="selectUncheckedFiles" resultType="uploadfile">
+        select * from upload where checked = 0
+    </select>
+
+    <select id="selectCheckedFiles" resultType="uploadfile" >
+        select * from upload where checked = 1
+    </select>
+
+    <update id="updateChecked" parameterType="String">
+        update upload
+        set checked=1
+        where fileName=#{fileName}
+    </update>
+
+    <delete id="deleteFileByName" parameterType="String">
+        delete
+        from upload
+        where fileName = #{fileName}
+    </delete>
+
+    <insert id="insertFile" parameterType="uploadfile">
+        insert into upload
+        set fileName=#{fileName},fileDownloadUri=#{fileDownloadUri},fileType=#{fileType},size=#{size}
+    </insert>
+</mapper>

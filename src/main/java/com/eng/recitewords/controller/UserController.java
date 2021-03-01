@@ -1,29 +1,31 @@
 package com.eng.recitewords.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.eng.recitewords.entity.Answer;
-import com.eng.recitewords.entity.Question;
-import com.eng.recitewords.entity.User;
-import com.eng.recitewords.entity.Words;
+import com.eng.recitewords.entity.*;
+import com.eng.recitewords.service.UploadService;
 import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
-import com.fasterxml.jackson.annotation.JsonAlias;
 
 //import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,6 +38,12 @@ public class UserController {
 
     @Autowired
     WordsService wordsService;
+
+    @Autowired
+    private UploadService uploadService;
+
+    private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
+
 
 //    @GetMapping("/user/{userId}")
 //    public String selectById(@PathVariable("userId") String userId, Model model) {
@@ -888,10 +896,10 @@ public class UserController {
         return "user/Discussion";
     }
 
-    @RequestMapping("/user/Resources")
+/*    @RequestMapping("/user/Resources")
     public String resources(){
-        return "user/Resources";
-    }
+        return "file/findAllFiles";
+    }*/
 
     @RequestMapping("/user/ReleaseQ")
     public String releaseQ(){
@@ -979,6 +987,7 @@ public class UserController {
         System.out.println("Show success!");
 //        return "redirect:/user/QuestionDetail";
     }
+
 }
 
 

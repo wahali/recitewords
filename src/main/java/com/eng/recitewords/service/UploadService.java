@@ -1,6 +1,8 @@
 package com.eng.recitewords.service;
 
 import com.eng.recitewords.config.FileStorageConfig;
+import com.eng.recitewords.entity.UploadFile;
+import com.eng.recitewords.mapper.UploadMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,20 +13,73 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 
 @Service
-public class FileStorageService {
-    private static final Logger logger = LoggerFactory.getLogger(FileStorageService.class);
+public class UploadService implements Serializable {
+
+    @Autowired
+    private UploadMapper uploadMapper;
+
+    private static final Logger logger = LoggerFactory.getLogger(UploadService.class);
 
     private final Path fileStorageLocation;
 
+    /**
+    * 查看所有文件
+    * */
+    public List<UploadFile> selectAllUploadFiles(){
+        List<UploadFile> list = uploadMapper.selectAllUploadFiles();
+        return list;
+    }
+
+    /**
+     * 查看未审核文件
+     * */
+    public List<UploadFile> selectUncheckedFiles(){
+        List<UploadFile> list = uploadMapper.selectUncheckedFiles();
+        return list;
+    }
+
+    /**
+     * 查看已审核文件
+     * */
+    public List<UploadFile> selectCheckedFiles(){
+        List<UploadFile> list = uploadMapper.selectCheckedFiles();
+        return list;
+    }
+
+    /**
+    * 更新审核
+    * */
+    public void updateChecked(String fileName){
+        uploadMapper.updateChecked(fileName);
+    }
+
+    /**
+     * 删除文件
+     * */
+    public void deleteFileByName(String fileName){
+        uploadMapper.deleteFileByName(fileName);
+    }
+
+    /**
+     * 增加上传文件
+     * */
+    public void insertFile(UploadFile uploadFile){
+        uploadMapper.insertFile(uploadFile);
+    }
+
+
+
     @Autowired
-    public FileStorageService(FileStorageConfig fileStorageConfig) throws IOException {
+    public UploadService(FileStorageConfig fileStorageConfig) throws IOException {
         this.fileStorageLocation = Paths.get(fileStorageConfig.getUploadDir())
                 .toAbsolutePath().normalize();
         Files.createDirectories(this.fileStorageLocation);
@@ -57,6 +112,11 @@ public class FileStorageService {
             logger.info(exp);
         }
         return exp;
+    }
+
+    public Path getPath(){
+        Path targetLocation = this.fileStorageLocation;
+        return targetLocation;
     }
 
     public Resource loadFileAsResource(String fileName) {
