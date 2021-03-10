@@ -11,7 +11,7 @@ import java.util.Date;
 public class Question {
     private String questionId;
     private String userId;
-    private Timestamp releaseTime;
+    private String releaseTime;
     private String title;
     private String content;
     private String qType;
@@ -60,11 +60,11 @@ public class Question {
         this.userId = userId;
     }
 
-    public Timestamp getReleaseTime() {
+    public String getReleaseTime() {
         return releaseTime;
     }
 
-    public void setReleaseTime(Timestamp releaseTime) {
+    public void setReleaseTime(String releaseTime) {
         this.releaseTime = releaseTime;
     }
 

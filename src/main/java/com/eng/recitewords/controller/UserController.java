@@ -1,31 +1,30 @@
 package com.eng.recitewords.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.eng.recitewords.entity.*;
-import com.eng.recitewords.service.UploadService;
+import com.eng.recitewords.entity.Answer;
+import com.eng.recitewords.entity.Question;
+import com.eng.recitewords.entity.User;
+import com.eng.recitewords.entity.Words;
 import com.eng.recitewords.service.UserService;
 import com.eng.recitewords.service.WordsService;
+import com.fasterxml.jackson.annotation.JsonAlias;
 
 //import com.sun.org.apache.xpath.internal.operations.Mod;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.sql.Timestamp;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,12 +37,6 @@ public class UserController {
 
     @Autowired
     WordsService wordsService;
-
-    @Autowired
-    private UploadService uploadService;
-
-    private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
-
 
 //    @GetMapping("/user/{userId}")
 //    public String selectById(@PathVariable("userId") String userId, Model model) {
@@ -896,10 +889,10 @@ public class UserController {
         return "user/Discussion";
     }
 
-/*    @RequestMapping("/user/Resources")
+    @RequestMapping("/user/Resources")
     public String resources(){
-        return "file/findAllFiles";
-    }*/
+        return "user/Resources";
+    }
 
     @RequestMapping("/user/ReleaseQ")
     public String releaseQ(){
@@ -913,9 +906,7 @@ public class UserController {
             @RequestParam("type") String type,
             @RequestParam("userID") String userID,
             @RequestParam("userName") String userName
-//            HttpServletResponse response
     ){
-//        response.setCharacterEncoding("utf-8");
         String qId = UUID.randomUUID().toString().replace("-","");
         System.out.println(title);
         userService.newQuestion(qId,title,content,type,userID,userName);
@@ -934,16 +925,22 @@ public class UserController {
     @RequestMapping("/user/QuestionDetail/{questionId}")
     public String QuestionDetail(@PathVariable("questionId")String questionId, Model model){
         Question question = userService.selectByQuestionId(questionId);
-//        question.setHot(question.getHot()+1);
         userService.addHot(questionId,question.getHot()+1);
 
-
-
         model.addAttribute("thisQuestion",question);
-//        System.out.println(question.getReleaseTime().toString());
+        String time = userService.selectTimeByQID(questionId);
+//        timestamp.setTime(timestamp.getTime()-TD);
+//        System.out.println(question.re);
 //        System.out.println("时间");
-//        System.out.println(question.getTitle());
+        model.addAttribute("releaseT",time);
         List<Answer> answerList = userService.selectAnswerByQID(questionId);
+//        model.addAttribute("Answers",answerList);
+//        System.out.println(answerList.get(0).getAnswerTime());
+        List<String> answerTime = userService.selectATByQID(questionId);
+        for (int i=0;i<answerList.size();i++){
+            answerList.get(i).setAnswerTime(answerTime.get(i));
+        }
+//        model.addAttribute("answerTime",answerTime);
         model.addAttribute("Answers",answerList);
         return "user/QuestionDetail";
     }
@@ -961,9 +958,9 @@ public class UserController {
                                  @RequestParam("userId")String userId,
                                  @RequestParam("myAnswer")String content,
                                  @RequestParam("userName")String writerName,
-                                 HttpServletResponse response,
-                                 Model model) throws IOException {
-        response.setCharacterEncoding("utf-8");
+                                 HttpServletResponse response) throws IOException {
+//        response.setCharacterEncoding("utf-8");
+        System.out.println(content);
         String answerId = UUID.randomUUID().toString().replace("-","");
         userService.answerQuestion(answerId,userId,content,questionId,writerName);
         System.out.println("Answer success!");
@@ -987,7 +984,6 @@ public class UserController {
         System.out.println("Show success!");
 //        return "redirect:/user/QuestionDetail";
     }
-
 }
 
 

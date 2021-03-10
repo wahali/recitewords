@@ -58,7 +58,7 @@
         select * from question where qCheck = 'passed'
     </select>
 
-    <select id="selectByQuestionId" resultType="question">
+    <select id="selectByQuestionId" parameterType="String" resultType="question">
         select * from question where questionId = #{questionId}
     </select>
 
@@ -66,20 +66,28 @@
         update question set hot = #{hot} where questionId = #{questionId}
     </update>
 
-    <select id="selectQuestionByUserId" resultType="question">
+    <select id="selectQuestionByUserId" parameterType="String" resultType="question">
         select * from question where userId = #{userId}
     </select>
 
-    <delete id="deleteByQuestionId">
+    <delete id="deleteByQuestionId" parameterType="String">
         delete from question where questionId = #{questionId}
     </delete>
 
     <insert id="answerQuestion" parameterType="answer">
-        insert into answer(answerId,userId,writerName,answerT,content,questionId) values(#{answerId},#{userId},#{writerName},#{answerTime},#{content},#{questionId})
+        insert into answer(answerId,userId,writerName,answerT,content,questionId) values(#{answerId},#{userId},#{writerName},NOW(),#{content},#{questionId})
     </insert>
 
-    <select id="selectAnswerByQID" resultType="answer">
+    <select id="selectAnswerByQID" parameterType="String" resultType="answer">
         select * from answer where questionId = #{questionId}
+    </select>
+
+    <select id="selectTimeByQID" parameterType="String" resultType="String">
+        select releaseT from question where questionId = #{questionId}
+    </select>
+
+    <select id="selectATByQID" parameterType="String" resultType="String">
+        select answerT from answer where questionId = #{questionId}
     </select>
 
 </mapper>

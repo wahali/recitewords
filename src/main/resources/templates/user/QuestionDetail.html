@@ -147,9 +147,9 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Portal</h6>
                     <a class="collapse-item" href="" th:href="@{/user/Alphabet}">
-                        <i class="fas fa-fw fa-dice-two"></i>Alphabet</a>
+                        <i class="fas fa-fw fa-dice-one"></i>Alphabet</a>
                     <a class="collapse-item" href="" th:href="@{/user/PhoneticSymbol}">
-                        <i class="fas fa-fw fa-dice-one"></i>PhoneticSymbol</a>
+                        <i class="fas fa-fw fa-dice-two"></i>PhoneticSymbol</a>
                     <a class="collapse-item" href="" th:href="@{/user/CharacteristicOfWord}">
                         <i class="fas fa-fw fa-dice-three"></i>CharacteristicOfWord</a>
                     <a class="collapse-item" href="" th:href="@{/user/DeriveOfWord}">
@@ -182,7 +182,7 @@
                     <a class="collapse-item" href="" th:href="@{/user/chooseEnglishWord}">
                         <i class="fas fa-fw fa-cat"></i>ChooseE</a>
                     <a class="collapse-item" href="" th:href="@{/user/fillBlanks}">
-                        <i class="fas fa-fw fa-cat"></i>FillBlanks</a>
+                        <i class="fas fa-fw fa-pen"></i>FillBlanks</a>
                     <div class="collapse-divider"></div>
                     <h6 class="collapse-header">Recite&Error Portal</h6>
                     <a class="collapse-item" href="" th:href="@{/user/recitation}">
@@ -200,7 +200,7 @@
         <!-- Nav Item - StudyPlan -->
         <li class="nav-item active" id="discussion">
             <a class="nav-link" href="" th:href="@{/user/Discussion}">
-                <i class="fas fa-fw fa-plane"></i>
+                <i class="fas fa-fw fa-smile"></i>
                 <span>Discussion</span></a>
         </li>
 
@@ -211,7 +211,7 @@
         <!-- Nav Item - StudyPlan -->
         <li class="nav-item" id="resources">
             <a class="nav-link" href="" th:href="@{/user/Resources}">
-                <i class="fas fa-fw fa-plane"></i>
+                <i class="fas fa-fw fa-download"></i>
                 <span>Resources</span></a>
         </li>
 
@@ -448,7 +448,7 @@
                                         Hot :<span style="float: right;" th:text="${thisQuestion.hot}"></span>
                                     </div>
                                     <div class="card-header py-3" style="width: 200px;">
-                                        Time :<span style="float: right;" th:text="${thisQuestion.releaseTime}"></span>
+                                        Time :<span style="float: right;" th:text="${releaseT}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -465,7 +465,7 @@
                                 <input style="height: 150px;width: 600px;" type="text" id="myAnswer">
                             </div>
                             <div style="float: right">
-                                <button class="btn btn-sm btn-primary" style="width: 80px;height: 150px;font-size: 40px;" id="AQ" type="button">回复</button>
+                                <button onclick="checkNull()" class="btn btn-sm btn-primary" style="width: 80px;height: 150px;font-size: 40px;" id="AQ" type="button">回复</button>
                             </div>
                         </div>
                     </div>
@@ -494,13 +494,13 @@
                             </div>
                             <div class="card-body">
                                 <div style="display: inline-flex">
-                                    <p id="writerName" th:text="${answer.writerName}"></p>
+                                    <p id="writerName" th:text="${answer.getWriterName()}"></p>
                                 </div>
                                 <div style="display: inline-flex">
-                                    <p id="answerTime" th:text="${answer.answerTime}"></p>
+                                    <p id="answerTime" th:text="${answer.getAnswerTime()}"></p>
                                 </div>
                                 <div style="display: inline-flex">
-                                    <P id="answerContent" th:text="${answer.content}"></P>
+                                    <P id="answerContent" th:text="${answer.getContent()}"></P>
                                 </div>
                             </div>
                         </div>
@@ -607,6 +607,14 @@
             });
         });
     })
+
+    function checkNull() {
+        var comment = document.getElementById("AQ").val();
+        if (comment==""){
+            alert("回复内容不能为空！");
+            window.event.returnValue = false;
+        }
+    }
 </script>
 
 </html>
