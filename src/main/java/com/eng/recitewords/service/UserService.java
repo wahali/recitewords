@@ -12,6 +12,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.MimeMessage;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -184,10 +185,10 @@ public class UserService {
 
     public void answerQuestion(String answerId,String userId,String content,String questionId,String writerName){
 
-        Date date = new Date(System.currentTimeMillis());
+//        Date date = new Date(System.currentTimeMillis());
         Answer answer = new Answer();
         answer.setAnswerId(answerId);
-        answer.setAnswerTime(date.toString());
+//        answer.setAnswerTime(date.toString());
         answer.setContent(content);
         answer.setUserId(userId);
         answer.setQuestionId(questionId);
@@ -202,6 +203,16 @@ public class UserService {
 
     public void addHot(String questionId,int hot){
         userMapper.addHot(questionId,hot);
+    }
+
+    public String selectTimeByQID(String questionId){
+        String time = userMapper.selectTimeByQID(questionId);
+        return time;
+    }
+
+    public List<String> selectATByQID(String questionId){
+        List<String> answerTime= userMapper.selectATByQID(questionId);
+        return answerTime;
     }
 
 }

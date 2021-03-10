@@ -7,6 +7,7 @@ import com.eng.recitewords.entity.Words;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,6 +49,10 @@ public interface UserMapper {
     public List<Answer> selectAnswerByQID(String questionId);
 
     public void addHot(String questionId,int hot);
+
+    public String selectTimeByQID(String questionId);
+
+    List<String> selectATByQID(String questionId);
 
 }
 

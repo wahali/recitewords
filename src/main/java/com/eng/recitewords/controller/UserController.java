@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -905,9 +906,7 @@ public class UserController {
             @RequestParam("type") String type,
             @RequestParam("userID") String userID,
             @RequestParam("userName") String userName
-//            HttpServletResponse response
     ){
-//        response.setCharacterEncoding("utf-8");
         String qId = UUID.randomUUID().toString().replace("-","");
         System.out.println(title);
         userService.newQuestion(qId,title,content,type,userID,userName);
@@ -926,16 +925,22 @@ public class UserController {
     @RequestMapping("/user/QuestionDetail/{questionId}")
     public String QuestionDetail(@PathVariable("questionId")String questionId, Model model){
         Question question = userService.selectByQuestionId(questionId);
-//        question.setHot(question.getHot()+1);
         userService.addHot(questionId,question.getHot()+1);
 
-
-
         model.addAttribute("thisQuestion",question);
-//        System.out.println(question.getReleaseTime().toString());
+        String time = userService.selectTimeByQID(questionId);
+//        timestamp.setTime(timestamp.getTime()-TD);
+//        System.out.println(question.re);
 //        System.out.println("时间");
-//        System.out.println(question.getTitle());
+        model.addAttribute("releaseT",time);
         List<Answer> answerList = userService.selectAnswerByQID(questionId);
+//        model.addAttribute("Answers",answerList);
+//        System.out.println(answerList.get(0).getAnswerTime());
+        List<String> answerTime = userService.selectATByQID(questionId);
+        for (int i=0;i<answerList.size();i++){
+            answerList.get(i).setAnswerTime(answerTime.get(i));
+        }
+//        model.addAttribute("answerTime",answerTime);
         model.addAttribute("Answers",answerList);
         return "user/QuestionDetail";
     }
@@ -953,9 +958,9 @@ public class UserController {
                                  @RequestParam("userId")String userId,
                                  @RequestParam("myAnswer")String content,
                                  @RequestParam("userName")String writerName,
-                                 HttpServletResponse response,
-                                 Model model) throws IOException {
-        response.setCharacterEncoding("utf-8");
+                                 HttpServletResponse response) throws IOException {
+//        response.setCharacterEncoding("utf-8");
+        System.out.println(content);
         String answerId = UUID.randomUUID().toString().replace("-","");
         userService.answerQuestion(answerId,userId,content,questionId,writerName);
         System.out.println("Answer success!");
