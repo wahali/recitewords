@@ -889,10 +889,10 @@ public class UserController {
         return "user/Discussion";
     }
 
-    @RequestMapping("/user/Resources")
-    public String resources(){
-        return "user/Resources";
-    }
+//    @RequestMapping("/user/Resources")
+//    public String resources(){
+//        return "user/Resources";
+//    }
 
     @RequestMapping("/user/ReleaseQ")
     public String releaseQ(){
