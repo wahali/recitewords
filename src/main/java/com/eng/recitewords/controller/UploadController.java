@@ -69,7 +69,7 @@ public class UploadController {
     @RequestMapping("/file/check/{fileName}")
     public String updateChecked(@PathVariable String fileName){
         uploadService.updateChecked(fileName);
-        return "redirect:/user/Resources";
+        return "redirect:/admin/Resources";
     }
 
     /**
@@ -95,7 +95,7 @@ public class UploadController {
             }
         }*/
 
-        return "redirect:/user/Resources";
+        return "redirect:/admin/Resources";
     }
 
     /**

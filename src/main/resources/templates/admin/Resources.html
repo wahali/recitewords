@@ -203,21 +203,24 @@
                                     <thead>
                                     <tr>
                                         <th>文件名</th>
-                                        <th>下载链接</th>
+                                        <th>文件类型</th>
+                                        <th>文件大小(Byte)</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
                                         <th>文件名</th>
-                                        <th>下载链接</th>
+                                        <th>文件类型</th>
+                                        <th>文件大小(Byte)</th>
                                         <th>操作</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
                                     <tr th:each="filelist:${uploadFileList}" >
                                         <td th:text="${filelist.fileName}"></td>
-                                        <td th:text="${filelist.fileDownloadUri}"></td>
+                                        <td th:text="${filelist.fileType}"></td>
+                                        <td th:text="${filelist.size}"></td>
                                         <td>
                                             <a th:href="@{/file/check/}+${filelist.fileName}">
                                                 <button class="btn btn-sm btn-light">审核</button>
